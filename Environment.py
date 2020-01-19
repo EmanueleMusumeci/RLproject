@@ -7,6 +7,7 @@ from AtariWrapper import AtariWrapper
 from GenericWrapper import GenericWrapper
 import matplotlib.pyplot as plt
 
+from Logger import Logger
 ##TODO: add a way to store the NN shape
 
 #Il CustomEnvironmentRegister serve a registrare environment con caratteristiche custom
@@ -16,9 +17,14 @@ import matplotlib.pyplot as plt
 GenericEnvironmentInfo = namedtuple("EnvironmentInfo","custom_id type render_delay")
 AtariEnvironmentInfo = namedtuple("EnvironmentInfo","custom_id type render_delay frame_skip screen_width screen_height crop_height_factor crop_width_factor preprocess")
 class CustomEnvironmentRegister:
-    def __init__(self):
+    def __init__(self, logger, debug=False):
         self.registeredEnvironments = {}
         
+        #assert(logger!=None), "You need to create a logger first"
+        self.logger = logger
+        #if(debug):
+        #    logger.add_debug_channel("EnvironmentRegister")
+
         register(
             id='MountainCarCustom-v0',
             entry_point='gym.envs.classic_control:MountainCarEnv',
@@ -26,6 +32,7 @@ class CustomEnvironmentRegister:
             #reward_threshold=-110.0,
         )
         self.registeredEnvironments["MountainCar-v0"] = GenericEnvironmentInfo("MountainCarCustom-v0","classic",0.0)
+        self.log("New environment registered: MountainCar-v0, type: ",self.registeredEnvironments["MountainCar-v0"].type, writeToFile=True, debug_channel="EnvironmentRegister")
 
         #
         self.registeredEnvironments["MsPacman-v0"] = AtariEnvironmentInfo("MsPacman-v0","atari",
@@ -37,6 +44,8 @@ class CustomEnvironmentRegister:
         0,
         False
         )
+        self.log("New environment registered: MsPacman-v0, type: ",self.registeredEnvironments["MsPacman-v0"].type, writeToFile=True, debug_channel="EnvironmentRegister")
+
 
         #
         self.registeredEnvironments["MsPacmanPreprocessed-v0"] = AtariEnvironmentInfo("MsPacman-v0","atari",
@@ -48,14 +57,43 @@ class CustomEnvironmentRegister:
         0,
         True
         )
-    
+        self.log("New environment registered: MsPacmanPreprocessed-v0, type: ",self.registeredEnvironments["MsPacmanPreprocessed-v0"].type, writeToFile=True, debug_channel="EnvironmentRegister")
+
+        #
+        self.registeredEnvironments["Pong-v0"] = AtariEnvironmentInfo("Pong-v0","atari",
+        0.05,
+        1,
+        210,
+        160,
+        0,
+        0,
+        False
+        )
+        self.log("New environment registered: Pong-v0, type: ",self.registeredEnvironments["Pong-v0"].type, writeToFile=True, debug_channel="EnvironmentRegister")
+
+
+        #
+        self.registeredEnvironments["PongPreprocessed-v0"] = AtariEnvironmentInfo("Pong-v0","atari",
+        0.05,
+        1,
+        88,
+        88,
+        0.15,
+        0,
+        True
+        )
+        self.log("New environment registered: PongPreprocessed-v0, type: ",self.registeredEnvironments["PongPreprocessed-v0"].type, writeToFile=True, debug_channel="EnvironmentRegister")
+
+
+        self.log("Registered environments: ",self.registeredEnvironments.keys(), writeToFile=True, debug_channel="EnvironmentRegister")
+
     def register_environment(self, config_path):
         #Implement uploading environment from path
         return
 
     def get_environment(self, env_name):
         #Check if we have registered a custom version
-        if env_name in self.registeredEnvironments:
+        if env_name in self.registeredEnvironments.keys():
             env = gym.make(self.registeredEnvironments[env_name].custom_id)
             env_info = self.registeredEnvironments[env_name]
         
@@ -63,43 +101,67 @@ class CustomEnvironmentRegister:
         else:
             return gym.make(env_name), None
 
+    def log(self, *strings, writeToFile=False, debug_channel="Generic"):
+        if self.logger!=None:
+            self.logger.print(strings, writeToFile=writeToFile, debug_channel=debug_channel)
 
 
 ##NOTICE: MODIFY THIS TUPLE IF MORE INFO ARE NEEDED FROM ENVIRONMENT
 RolloutTuple = namedtuple("RolloutTuple", "observation reward action action_probabilities")
 
 class Environment:
-    def __init__(self, environment_name, use_custom_env_register=True, show_debug_info=False, show_preprocessed=False):
+    def __init__(self, environment_name, logger, use_custom_env_register=True, debug=False, show_preprocessed=False):
+        
+        self.debug = debug
+        self.environment_name = environment_name
+
+        #assert(logger!=None), "You need to create a logger first"
+        self.logger = logger
+        #if debug:
+        #    self.logger.add_debug_channel("environment")
+        
         if use_custom_env_register:
-            self.env_register = CustomEnvironmentRegister()
+            self.env_register = CustomEnvironmentRegister(self.logger, debug=True)
             #Create wrapper
+            self.log("Using custom environment register", writeToFile=True, debug_channel="environment")
             env, env_info = self.env_register.get_environment(environment_name)
-            self.type = env_info.type
-            self.action_space = env.action_space
             self.observation_space = env.observation_space
+            self.action_space = env.action_space
             self.show_preprocessed = show_preprocessed
-            
-            if(self.type == "atari"):
+            if env_info!=None:
+                self.log("Environment info: ",env_info, writeToFile=True, debug_channel="environment")
+                self.type = env_info.type
                 self.rendering_delay = env_info.render_delay
-                self.frame_skip = env_info.frame_skip
-                self.screen_width = env_info.screen_width
-                self.screen_height = env_info.screen_height
-                self.preprocess = env_info.preprocess
-                if self.preprocess:
-                    self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
+                
+                if(self.type == "atari"):
+                    self.frame_skip = env_info.frame_skip
+                    self.screen_width = env_info.screen_width
+                    self.screen_height = env_info.screen_height
+
+                    self.preprocess = env_info.preprocess
+                    if self.preprocess:
+                        self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
+                        #Set the right observation space (if the image is preprocessed it will be grayscale, therefore will only have 1 channel)
+                        self.observation_space = self.gym_wrapper.preprocessed_shape()
+                    else:
+                        self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
+                        #Set the right observation space (if the image is not preprocessed it will have 3 channels)
+                        self.observation_space = env.observation_space                    
                 else:
-                    self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
-            else:
-                self.env_register = None
-                self.type = "default"
-                self.rendering_delay = 0.0
-                self.preprocess = False
+                    self.gym_wrapper=GenericWrapper(env)
+                    self.preprocess = False
 
-                env = gym.make(environment_name)
+        if not use_custom_env_register or env_info==None:
+            self.env_register = None
+            self.type = "default"
+            self.rendering_delay = 0.0
+            self.preprocess = False
 
-                self.gym_wrapper = GenericWrapper(env)
+            env = gym.make(environment_name)
+            self.environment_name = environment_name
+            self.gym_wrapper = GenericWrapper(env)
 
-        self.debug = show_debug_info
+        self.log("self.observation_space: ", self.observation_space, writeToFile=True, debug_channel="environment")
 
     def step(self,action,render=False):
         observation, reward, done, info = self.gym_wrapper.step(action)
@@ -129,6 +191,7 @@ class Environment:
             #Compute next agentStep
             action, action_probabilities = agent.act(observation)
 
+            self.log("Required action space: ", self.action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
             #Perform environment step
             observation, reward, done, info = self.gym_wrapper.step(action)
 
@@ -162,8 +225,9 @@ class Environment:
         '''
         rollouts = []
         for i in range(nRollouts):
-            if self.debug: print("Rollout #"+str(i))
+            self.log("Rollout #"+str(i), writeToFile=True, debug_channel="environment")
             rollout, done = self.rollout(agent, nSteps, render=render, delay=self.rendering_delay)
+            self.log("rollout: ", rollout, ", done: ", done, writeToFile=True, debug_channel="environment")
             rollouts.append(rollout)
             
             #Terminate prematurely if environment is DONE
@@ -172,20 +236,45 @@ class Environment:
         
         return rollouts, done
 
-    def render_agent(self, agent):
+    def render_agent(self, agent, nSteps=-1):
+        #nSteps = -1 means render until done
         observation = self.reset()
         done = False
-        while not done:
+        while not done and nSteps!=0:
             action, _ = agent.act(observation)
             observation, reward, done, info = self.step(action)
             time.sleep(self.rendering_delay)
             if done: break
             self.render()
+            if nSteps > 0: nSteps = nSteps -1
+            
     
     def get_observation_shape(self):
         #return self.space_converter(self.observation_space)
-        return self.observation_space.shape
+        if self.preprocess:
+            self.log("preprocessed_shape: ", self.observation_space, writeToFile=True, debug_channel="environment")
+            return self.gym_wrapper.preprocessed_shape()
+        else:
+            return self.observation_space.shape
 
     def get_action_shape(self):
-        #return self.space_converter.(self.action_space)
         return self.action_space.n
+    
+    def get_environment_description(self):
+        name = self.environment_name
+        if self.preprocess:
+            name+=".preprocessed"
+        return name
+
+    def log(self, *strings, writeToFile=False, debug_channel="Generic"):
+        if self.logger!=None:
+            self.logger.print(strings, writeToFile=writeToFile, debug_channel=debug_channel)
+
+if __name__ == "__main__":
+
+    env_name = "PongPreprocessed-v0"
+
+    logger = Logger(name=env_name,log_directory="TRPO_project/Testing/Environment") 
+    env = Environment(env_name,logger,use_custom_env_register=True,debug=True, show_preprocessed=False)
+    print(env.get_action_shape())
+    print(env.get_observation_shape())

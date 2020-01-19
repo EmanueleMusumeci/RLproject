@@ -13,7 +13,6 @@ class GenericWrapper(gym.Wrapper):
         super().__init__(env)
 
     def render(self):
-        #print("GenericWrapper.render")
         self.env.render()
 
 

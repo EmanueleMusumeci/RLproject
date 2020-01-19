@@ -120,9 +120,8 @@ class AtariWrapper(gym.Wrapper):
     def _get_obs(self):
         if self.frame_skip > 1:  # more efficient in-place pooling
             np.maximum(self.obs_buffer[0], self.obs_buffer[1], out=self.obs_buffer[0])
-        buffer_shape = self.obs_buffer[0].shape
-        #print(buffer_shape)
-        obs = cv2.resize(self.obs_buffer[0][:buffer_shape[0]-round(buffer_shape[0]*self.crop_height_factor)+1,:buffer_shape[1]-round(buffer_shape[1]*self.crop_width_factor)+1], (self.screen_height, self.screen_width), interpolation=cv2.INTER_AREA)
+
+        obs = cv2.resize(self.obs_buffer[0][:self.obs_buffer[0].shape[0]-round(self.obs_buffer[0].shape[0]*self.crop_height_factor)+1,:self.obs_buffer[0].shape[1]-round(self.obs_buffer[0].shape[1]*self.crop_width_factor)+1], (self.screen_height, self.screen_width), interpolation=cv2.INTER_AREA)
         if self.scale_obs:
             obs = np.asarray(obs, dtype=np.float32) / 255.0
         else:
@@ -137,5 +136,14 @@ class AtariWrapper(gym.Wrapper):
         else:
             self.env.render()
 
+    def preprocessed_shape(self):
+        if self.grayscale_obs:
+            channels = 1
+        else:
+            channels = 3
+        resized_height = self.screen_height
+        resized_width = self.screen_width
+
+        return resized_height,resized_width,channels
 
     

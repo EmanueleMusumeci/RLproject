@@ -1,0 +1,11 @@
+LOGGER started at 2020-01-19 19:11:55.225576.
+Currently active debug channels:
+[2020-01-19 19:11:55.225678][Logger.Logger.add_debug_channel][Logger]: Debug channel added:	environment
+
+
+[2020-01-19 19:11:55.248990][__main__.Environment.__init__][environment]: Using custom environment register
+
+[2020-01-19 19:11:55.454611][__main__.Environment.__init__][environment]: Environment info: EnvironmentInfo(custom_id='Pong-v0', type='atari', render_delay=0.05, frame_skip=1, screen_width=210, screen_height=160, crop_height_factor=0, crop_width_factor=0, preprocess=False)
+
+[2020-01-19 19:11:55.456871][__main__.Environment.__init__][environment]: self.observation_space: Box(210, 160, 3)
+

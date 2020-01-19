@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import inspect
 
 import tensorflow as tf
 
@@ -16,85 +17,112 @@ def normal_log_density(x, mean, log_std, std):
     return log_density.sum(1, keepdim=True)
 
 
-def get_flat_params_from(model):
-    parameters = []
-    for layer in model.layers:
-        parameters.append(layer.get_weights())
-    return parameters
+#DONE#TODO: Studiare e rifattorizzare
+#    #TODO: Testare se funziona correttamente
+def conjugate_gradients(model, policy_gradient, damping_factor, nsteps, old_action_probabilities, new_action_probabilities, residual_tol=1e-10):
+    result = np.zeros_like(policy_gradient)
+    r = tf.identity(policy_gradient)
+    p = tf.identity(policy_gradient)
 
+#    #TODO: verificare se equivalente a torch.dot
+    rdotr = np.dot(r, r)
 
-def set_flat_params_to(model, flat_params):
-    prev_ind = 0
-    for param in model.parameters():
-        flat_size = int(np.prod(list(param.size())))
-        param.data.copy_(
-            flat_params[prev_ind:prev_ind + flat_size].view(param.size()))
-        prev_ind += flat_size
+    #This should peform len(policy_gradient) iterations at most
+    nsteps = min(nsteps, len(policy_gradient))
 
+    for _ in range(nsteps):
+        #Verificare se il risultato di fisher_vectors_product è A o A * p
+        temp_fisher_vectors_product = fisher_vectors_product(model, old_action_probabilities, new_action_probabilities, p, damping_factor)
+        
+        alpha = rdotr / np.dot(p, temp_fisher_vectors_product)
 
-def get_flat_grad_from(net, grad_grad=False):
-    grads = []
-    for param in net.parameters():
-        if grad_grad:
-            grads.append(param.grad.grad.view(-1))
-        else:
-            grads.append(param.grad.view(-1))
-
-    flat_grad = torch.cat(grads)
-    return flat_grad
-
-#Studiare e rifattorizzare
-def conjugate_gradients(Avp, b, nsteps, residual_tol=1e-10):
-    x = np.zeros_like(b)
-    r = b.clone()
-    p = b.clone()
-    rdotr = torch.dot(r, r)
-    for i in range(nsteps):
-        _Avp = Avp(p)
-        alpha = rdotr / torch.dot(p, _Avp)
-        x += alpha * p
-        r -= alpha * _Avp
-        new_rdotr = torch.dot(r, r)
-        betta = new_rdotr / rdotr
-        p = r + betta * p
+        result += alpha * p
+        r -= alpha * temp_fisher_vectors_product
+        new_rdotr = np.dot(r, r)
+        beta = new_rdotr / rdotr
+        p = r + beta * p
         rdotr = new_rdotr
         if rdotr < residual_tol:
             break
-    return x
+    return result
 
-#Studiare e rifattorizzare
-def linesearch(model,
-            f,
-            x,
-            fullstep,
-            expected_improve_rate,
-            max_backtracks=10,
-            accept_ratio=.1):
-    fval = f(True).data
-    print("fval before", fval.item())
-    for (_n_backtracks, stepfrac) in enumerate(.5**np.arange(max_backtracks)):
-        xnew = x + stepfrac * fullstep
-        set_flat_params_to(model, xnew)
-        newfval = f(True).data
-        actual_improve = fval - newfval
-        expected_improve = expected_improve_rate * stepfrac
-        ratio = actual_improve / expected_improve
-        print("a/e/r", actual_improve.item(), expected_improve.item(), ratio.item())
+def fisher_vectors_product(model, old_policy_probabilities, new_policy_probabilities, step_direction_vector, damping_factor):
+    #this method is supposed to compute the Fishers's vector product as the Hessian of the Kullback-Leibler divergence
 
-        if ratio.item() > accept_ratio and actual_improve.item() > 0:
-            print("fval after", newfval.item())
-            return True, xnew
-    return False, x
+    args = {
+        "old_policy_probabilities" : old_policy_probabilities,
+        "new_policy_probabilities" : new_policy_probabilities,
+    }
 
-def Fvp(v):
-    kl = get_kl()
-    kl = kl.mean()
+    #grads = torch.autograd.grad(kl, model.parameters(), create_graph=True)
+    kl_divergence_gradients = model.get_flat_gradients(get_mean_kl_divergence, args)
+    #kl_flat_gradients = tf.concat([tf.reshape(gradient, [-1]) for gradient in kl_divergence_gradients], axis=0)
 
-    grads = torch.autograd.grad(kl, model.parameters(), create_graph=True)
-    flat_grad_kl = torch.cat([grad.view(-1) for grad in grads])
+    #kl_v = (flat_grad_kl * Variable(v)).sum()
+    def kl_value(): 
+        return tf.reduce_sum(kl_divergence_gradients * tf.Variable(step_direction_vector))
+    #kl_value_grads = torch.autograd.grad(kl_v, model.parameters())
 
-    kl_v = (flat_grad_kl * Variable(v)).sum()
-    grads = torch.autograd.grad(kl_v, model.parameters())
-    flat_grad_grad_kl = torch.cat([grad.contiguous().view(-1) for grad in grads]).data
+    #This is the actual Hessian value
+    kl_flat_grad_grads = model.get_flat_gradients(kl_value)
+    
+    #flat_grad_grad_kl = torch.cat([grad.contiguous().view(-1) for grad in grads]).data
 
-    return flat_grad_grad_kl + v * damping
+    return kl_flat_grad_grads + step_direction_vector * damping_factor
+
+def mean_kl_divergence(old_action_probabilities,action_probabilities):
+    return tf.reduce_mean(tf.reduce_sum(old_action_probabilities * tf.math.log(old_action_probabilities / action_probabilities), axis=1))
+
+
+def get_mean_kl_divergence(args):
+    old_policy_probabilities = args["old_policy_probabilities"]
+    new_policy_probabilities = args["new_policy_probabilities"]
+    return tf.reduce_mean(tf.reduce_sum(old_policy_probabilities * tf.math.log(old_policy_probabilities / new_policy_probabilities), axis=1))
+
+
+def caller_name(skip=2):
+    """Get a name of a caller in the format module.class.method
+    
+       `skip` specifies how many levels of stack to skip while getting caller
+       name. skip=1 means "who calls me", skip=2 "who calls my caller" etc.
+       
+       An empty string is returned if skipped levels exceed stack height
+    """
+    stack = inspect.stack()
+    start = 0 + skip
+    if len(stack) < start + 1:
+      return ''
+    parentframe = stack[start][0]    
+    
+    name = []
+    module = inspect.getmodule(parentframe)
+    # `modname` can be None when frame is executed directly in console
+    # TODO(techtonik): consider using __main__
+    if module:
+        name.append(module.__name__)
+    # detect classname
+    if 'self' in parentframe.f_locals:
+        # I don't know any way to detect call from the object method
+        # XXX: there seems to be no way to detect static method call - it will
+        #      be just a function call
+        name.append(parentframe.f_locals['self'].__class__.__name__)
+    codename = parentframe.f_code.co_name
+    if codename != '<module>':  # top level usually
+        name.append( codename ) # function or a method
+    del parentframe
+    return ".".join(name)
+
+def print_debug(obj=None,debug=True,*strings):
+    if not debug: return
+    if obj!=None and hasattr(obj,"debug"):
+        if obj.debug: 
+            print("[",caller_name(),"] ", end="")
+            for s in strings:
+                print(str(s), end="")
+            print()
+    else:
+        print("[",caller_name(),"]: ", end="")
+        for s in strings:
+            print(str(s), end="")
+        print()
+
