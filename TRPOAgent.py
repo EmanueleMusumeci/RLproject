@@ -51,8 +51,9 @@ class TRPOAgent:
     backtrack_coeff=3e-1, 
     #backtrack_iters=10, 
     backtrack_iters=5,
-    #gamma = 0.99,
-    gamma= 0.995,
+    #GAMMA = 0.99,
+    GAMMA= 0.995,
+    LAMBDA = 0.95,
     value_learning_rate=1e-1,
     value_function_fitting_epochs=10,
     epsilon_greedy=True,
@@ -104,7 +105,8 @@ class TRPOAgent:
         #COEFFICIENTS
         #************
         #Rewards discount factor
-        self.gamma = gamma
+        self.GAMMA = GAMMA
+        self.LAMBDA = LAMBDA
 
         #Conjugate gradients damping
         self.conjugate_gradients_damping = conjugate_gradients_damping
@@ -173,7 +175,7 @@ class TRPOAgent:
                     #entropy += -tf.reduce_sum(action_probabilities*tf.math.log(action_probabilities))
             return actions, action_probabilities
 
-        def collect_rewards(rollouts, gamma):
+        def collect_rewards(rollouts, GAMMA):
             rewards = []
             result = []
             discounted_rewards = []
@@ -184,11 +186,39 @@ class TRPOAgent:
                     result.append(tupl.reward)
                 discounted_reward=0
                 print(len(rewards[i]))
-                for reward in rewards[i][::-1]:
-                    discounted_reward = reward + self.gamma*discounted_reward
+                #for reward in rewards[i][::-1]:
+                for reward in reversed(rewards[i]):
+                    discounted_reward = reward + self.GAMMA*discounted_reward
                     discounted_rewards.insert(0, discounted_reward)
-                    #contain the total discounted reward (Q-value) for each class
-                    #discounted_rewards.insert(0,discounted_reward)
+            
+            print(len(discounted_rewards))
+            print(len(rewards))
+            print(len(result))
+
+            return result, discounted_rewards
+
+        def collect_rewards2(rollouts, GAMMA, LAMBDA):
+            def discount(rewards, GAMMA):
+                discounted_rewards = []
+                discounted_reward=0
+                for reward in reversed(rewards):
+                    discounted_reward = reward + self.GAMMA*discounted_reward
+                    discounted_rewards.insert(0, discounted_reward)
+                return discounted_rewards
+            
+            rewards = []
+            result = []
+            discounted_rewards = []
+            for i in range(len(rollouts)):
+                rewards.append([])
+                for tupl in rollouts[i]:
+                    rewards[i].append(tupl.reward)
+                    result.append(tupl.reward)
+
+                print(len(rewards[i]))
+                # Compute discounted rewards with a 'bootstrapped' final value.
+                rs_bootstrap = [] if rewards[i] == [] else rewards[i] + [rewards[i][-1]]
+                discounted_rewards.extend(discount(rs_bootstrap, GAMMA)[:-1])
             
             print(len(discounted_rewards))
             print(len(rewards))
@@ -207,8 +237,11 @@ class TRPOAgent:
         actions, action_probabilities = collect_actions(rollouts)
         self.log("len(actions): ",len(actions),writeToFile=True,debug_channel="rollouts_dump")
         self.log("Unpacking rewards",writeToFile=True,debug_channel="rollouts")
-        rewards, discounted_rewards = collect_rewards(rollouts, self.gamma)
-        self.log("len(rewards): ",len(rewards),writeToFile=True,debug_channel="rollouts_dump")
+        #rewards, discounted_rewards = collect_rewards(rollouts, self.GAMMA)
+        #self.log("len(rewards): ",len(rewards),writeToFile=True,debug_channel="rollouts_dump")
+        
+        rewards, discounted_rewards = collect_rewards2(rollouts, self.GAMMA, self.LAMBDA)
+        
         self.log("Unpacking observations",writeToFile=True,debug_channel="rollouts")
         observations = collect_observations(rollouts)
         self.log("len(observations): ",len(observations),writeToFile=True,debug_channel="rollouts_dump")
@@ -370,14 +403,15 @@ class TRPOAgent:
             current_batch_actions = np.array(self.rollout_statistics.actions[batch*self.batch_size:(batch+1)*self.batch_size])
             current_batch_observations = np.array(self.rollout_statistics.observations[batch*self.batch_size:(batch+1)*self.batch_size])
             #current_Q_values = Q_values[batch]
+            current_batch_rewards =  np.array(self.rollout_statistics.observations[batch*self.batch_size:(batch+1)*self.batch_size])
             current_batch_discounted_rewards = np.array(self.rollout_statistics.discounted_rewards[batch*self.batch_size:(batch+1)*self.batch_size])
-
-            current_batch_reward = tf.reduce_sum(self.rollout_statistics.rewards[batch*self.batch_size:(batch+1)*self.batch_size]).numpy()
+            current_batch_rewards = np.array(self.rollout_statistics.rewards[batch*self.batch_size:(batch+1)*self.batch_size])
+            current_batch_reward = tf.reduce_sum(current_batch_rewards).numpy()
 
             self.log("Batch #", batch, ", batch length: ", len(current_batch_actions), writeToFile=True, debug_channel="batch_info")
 
             #4.2) Compute advantages with latest value network
-            def compute_advantages(current_batch_discounted_rewards, current_batch_observations, value_model):
+            def compute_advantages_vanilla(current_batch_discounted_rewards, current_batch_observations, value_model):
                 self.log("observations: ",current_batch_observations,", len: ", len(current_batch_observations), writeToFile=True, debug_channel="rollouts_dump")
                 self.log("current_batch_discounted_rewards: ",current_batch_discounted_rewards,", len: ", len(current_batch_discounted_rewards), writeToFile=True, debug_channel="rollouts_dump")
                 assert(len(current_batch_discounted_rewards)==len(current_batch_observations))
@@ -395,9 +429,37 @@ class TRPOAgent:
 
                 return np.array(advantages)
 
-            current_batch_advantages = compute_advantages(current_batch_discounted_rewards, current_batch_observations, self.state_value)
+            def GAE(value_model, current_batch_observations, current_batch_rewards, GAMMA, LAMBDA):
+                def discount(rewards, GAMMA):
+                    discounted_rewards = []
+                    discounted_reward=0
+                    for reward in reversed(rewards):
+                        discounted_reward = reward + self.GAMMA*discounted_reward
+                        discounted_rewards.insert(0, discounted_reward)
+                    return discounted_rewards
+                
+                discounted_rewards = []
+                advantages = []
+                  # Compute discounted rewards with a 'bootstrapped' final value.
+                rs_bootstrap = [] if current_batch_rewards == [] else current_batch_rewards + [current_batch_rewards[-1]]
+                discounted_rewards.extend(discount(rs_bootstrap, GAMMA)[:-1])
+
+                state_values = value_model(current_batch_observations).numpy().flatten()
+                self.log("State values: ", state_values, debug_channel="advantage")
+
+                # Compute advantages for each environment using Generalized Advantage Estimation;
+                # see eqn. (16) of [Schulman 2016].
+                #ValueError: operands could not be broadcast together with shapes (4096,) (4095,) 
+                #delta_t = current_batch_rewards + GAMMA*state_values[1:] - state_values[:-1]
+                delta_t = current_batch_rewards + GAMMA*state_values[1:] - state_values[:-1]
+                advantages.extend(discount(delta_t, GAMMA*LAMBDA))
+
+                return advantages
+
+            #current_batch_advantages = compute_advantages(current_batch_discounted_rewards, current_batch_observations, self.state_value)
+            current_batch_advantages = GAE(self.state_value, current_batch_observations, current_batch_rewards, self.GAMMA, self.LAMBDA)
             #Normalize advantages
-            current_batch_advantages = (current_batch_advantages - current_batch_advantages.mean())/(current_batch_advantages.std() + 1e-8)
+            #current_batch_advantages = (current_batch_advantages - current_batch_advantages.mean())/(current_batch_advantages.std() + 1e-8)
 
             #4.3) Current batch actions one hot
             current_batch_actions_one_hot = tf.one_hot(current_batch_actions, self.env.get_action_shape(), dtype="float64")
@@ -492,14 +554,17 @@ class TRPOAgent:
        
             history = self.state_value.fit(current_batch_observations, current_batch_discounted_rewards, epochs=self.value_function_fitting_epochs, verbose=0)
             value_loss = history.history["loss"][-1]
+
             self.log("Current batch value loss: ",value_loss,writeToFile=True,debug_channel="batch_info")
 
+            if linesearch_success:
+                self.log("Linesearch successful, updating policy parameters", writeToFile=True, debug_channel="linesearch")
 
-            #NaN protection
-            if np.isnan(new_theta).any():
-                self.log("NaN detected in new parameters. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="learning")
-            else: 
-                self.policy.set_flat_params(new_theta)
+                #NaN protection
+                if np.isnan(new_theta).any():
+                    self.log("NaN detected in new parameters. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="learning")
+                else: 
+                    self.policy.set_flat_params(new_theta)
 
             self.log("END OF TRAINING BATCH #", batch, debug_channel="batch_info")
             self.log("BATCH STATS: Reward: ",current_batch_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Value loss: ", value_loss, ", linesearch_success: ", linesearch_success, ", epsilon: ", self.epsilon, debug_channel="batch_info")
@@ -640,6 +705,7 @@ if __name__ == '__main__':
         #"utils",
         "utils_kl",
         "cg",
+        "GAE",
         #"surrogate",
         #"EnvironmentRegister",
         #"environment"
@@ -649,7 +715,7 @@ if __name__ == '__main__':
 
     env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
 
-    agent = TRPOAgent(env,logger,steps_per_rollout=2048,steps_between_rollouts=1, rollouts_per_sampling=16, multithreaded_rollout=True, batch_size=4096, DELTA=0.01,
+    agent = TRPOAgent(env,logger,steps_per_rollout=1024,steps_between_rollouts=1, rollouts_per_sampling=16, multithreaded_rollout=True, batch_size=4096, DELTA=0.01,
     debug_rollouts=True, debug_act=True, debug_training=True, debug_model=True, debug_learning=True)
     
     #initial_time = time.time()
@@ -659,10 +725,10 @@ if __name__ == '__main__':
     #second_time = time.time()
 
     #print("Non-multithreaded: ",first_time-initial_time,", multithreaded: ",second_time-first_time)
-    #agent.load_weights(5)
+    agent.load_weights(5)
 
     #agent.training_step(0)
-    history = agent.learn(500,episodesBetweenModelBackups=5,start_from_episode=0)
+    history = agent.learn(500,episodesBetweenModelBackups=5,start_from_episode=5)
     #plt.plot(history)
     #plt.show()
         

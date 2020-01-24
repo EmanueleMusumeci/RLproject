@@ -37,13 +37,6 @@ class Policy:
             self.model.add(keras.layers.Dense(64, input_shape=self.input_shape, activation="relu"))
             self.model.add(keras.layers.Dense(64, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
-        else:
-            self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
-            self.model.add(keras.layers.MaxPooling2D((3, 3)))
-            self.model.add(keras.layers.Conv2D(5, (3, 3), activation='relu'))
-            self.model.add(keras.layers.MaxPooling2D((3, 3)))
-            self.model.add(keras.layers.Flatten())
-            self.model.add(keras.layers.Dense(self.output_shape))
             
 
 		#crea la lista delle shape di ogni strato della rete neurale
@@ -159,14 +152,6 @@ class Value:
             self.model.add(keras.layers.Dense(self.output_shape))
             adam = keras.optimizers.Adam(learning_rate=value_lr)
             self.model.compile(loss="mean_squared_error", optimizer=adam)
-
-        else:
-            self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
-            self.model.add(keras.layers.MaxPooling2D((3, 3)))
-            self.model.add(keras.layers.Conv2D(5, (3, 3), activation='relu'))
-            self.model.add(keras.layers.MaxPooling2D((3, 3)))
-            self.model.add(keras.layers.Flatten())
-            self.model.add(keras.layers.Dense(self.output_shape))
 
         self.model.compile(loss='mse', optimizer='adam', metrics=['mse'])
 
