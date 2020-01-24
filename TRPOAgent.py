@@ -494,14 +494,12 @@ class TRPOAgent:
             value_loss = history.history["loss"][-1]
             self.log("Current batch value loss: ",value_loss,writeToFile=True,debug_channel="batch_info")
 
-            if linesearch_success:
-                self.log("Linesearch successful, updating policy parameters", writeToFile=True, debug_channel="linesearch")
 
-                #NaN protection
-                if np.isnan(new_theta).any():
-                    self.log("NaN detected in new parameters. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="learning")
-                else: 
-                    self.policy.set_flat_params(new_theta)
+            #NaN protection
+            if np.isnan(new_theta).any():
+                self.log("NaN detected in new parameters. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="learning")
+            else: 
+                self.policy.set_flat_params(new_theta)
 
             self.log("END OF TRAINING BATCH #", batch, debug_channel="batch_info")
             self.log("BATCH STATS: Reward: ",current_batch_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Value loss: ", value_loss, ", linesearch_success: ", linesearch_success, ", epsilon: ", self.epsilon, debug_channel="batch_info")

@@ -54,6 +54,6 @@ if __name__ == '__main__':
     #plt.plot(history)
     #plt.show()
         
-    agent.load_weights(30)
+    agent.load_weights(5)
 
     env.render_agent(agent)
