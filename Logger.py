@@ -6,10 +6,14 @@ import logging
 import inspect
 import errno
 
+import matplotlib.pyplot as plt
+
 import datetime
 
+HistoryValues = namedtuple("HistoryValues","max_reward kl_div value_loss policy_loss")
+
 class Logger:
-    def __init__(self, name=None, log_directory="TRPO_project/Logs", log_filename="", debugChannels=[]):
+    def __init__(self, name=None, log_directory="TRPO_project/Models", log_filename="", history_log_filename="", debugChannels=[]):
 
         if log_filename=="":
             if name == None:
@@ -51,7 +55,7 @@ class Logger:
 
             for file in files:
                 filename, file_extension = os.path.splitext(file)
-                print(filename)
+                #print(filename)
                 if file_extension==".log":
                     filename = filename.split("/")
                     filename = filename[len(filename)-1]
@@ -73,12 +77,14 @@ class Logger:
                 else:
                     last_log = ".1"
             self.log_filename = log_directory + "/" + self.name + last_log + ".log"
+            self.history_log_filename = log_directory + "/" + self.name + last_log + ".hst"
         else:
             self.log_filename = log_filename
+            self.history_log_filename = history_log_filename
 
         #The generic channel is the default one
         self.debugChannels = ["Generic"]
-        self.debugChannels = ["Logger"]
+        self.debugChannels.append("Logger")
 
         for dl in debugChannels:
             self.debugChannels.append(dl)
@@ -92,6 +98,12 @@ class Logger:
                 log_file.write("\t"+dc+"\n")
             log_file.close()
     
+        self.history = []
+
+        #Write to file logger initializations
+        with open(self.history_log_filename,"w+") as log_file:
+            log_file.close()
+
     def add_debug_channel(self, name):
         self.debugChannels.append(name)        
         self.log("Debug channel added:\t"+name+"\n",debug_channel="Logger")
@@ -101,7 +113,7 @@ class Logger:
         return self.debugChannels
     
     @classmethod
-    def caller_name(self, skip=2):
+    def caller_name(self, skip=3):
         """Get a name of a caller in the format module.class.method
         
         `skip` specifies how many levels of stack to skip while getting caller
@@ -133,11 +145,12 @@ class Logger:
         del parentframe
         return ".".join(name)
     
-    def print(self, *strings, writeToFile = False, debug_channel = "Generic"):
+    def print(self, *strings, writeToFile = True, debug_channel = "Generic", skip_stack_levels=2):
         log_string=""
         if debug_channel in self.debugChannels:
             now = "["+Logger.getFullDateTime()+"]"
-            log_string = now +"["+self.caller_name()+"]["+debug_channel+"]: "
+            log_string = now +"["+self.caller_name(skip=skip_stack_levels)+"]["+debug_channel+"]: "
+            strings = strings[0]
             for s in strings:
                 log_string+=str(s)
             if writeToFile:
@@ -146,15 +159,48 @@ class Logger:
                     log_file.close()
             print(log_string)
 
-    def log(self, *strings, debug_channel = "Generic"):
+    def log(self, *strings, debug_channel = "Generic", skip_stack_levels=2):
         if debug_channel in self.debugChannels:
             now = "["+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")+"]"
-            log_string = now +"["+self.caller_name()+"]["+debug_channel+"]: "
+            log_string = now +"["+self.caller_name(skip=skip_stack_levels)+"]["+debug_channel+"]: "
             for s in strings:
                 log_string+=str(s)
             with open(self.log_filename,"a+") as log_file:
-                log_file.close()
                 log_file.write(log_string+"\n\n")
+                log_file.close()
+    
+    
+    def log_history(self, max_reward, kl_div, value_loss, policy_loss):
+        history_values = HistoryValues(max_reward,kl_div,value_loss,policy_loss)
+        self.history.append(history_values)
+
+        log_string=str(max_reward)
+        log_string+=","+str(kl_div)
+        log_string+=","+str(value_loss)
+        log_string+=","+str(policy_loss)
+        with open(self.history_log_filename,"a+") as log_file:
+            log_file.write(log_string+"\n")
+            log_file.close()
+    
+    def load_history(self, filename=""):
+        if filename=="": filename = self.history_log_filename
+        self.history = []
+        with open(filename, "r") as history_file:
+            lines = history_file.readlines()
+            for line in lines:
+                line = line.split(",")
+                assert(len(line)==5), "Malformed history"
+                self.history.append(HistoryValues(line[0],line[1],line[2],line[3],line[4]))
+
+    def plot_history(self):
+        policy_losses = []
+        value_losses = []
+        for hv in self.history:
+            policy_losses.append(hv.policy_loss)
+            value_losses.append(hv.value_loss)
+        plt.plot(policy_losses, "orange")
+        plt.plot(value_losses, "blue")
+        plt.show()
     
     @staticmethod
     def getFullDateTime():

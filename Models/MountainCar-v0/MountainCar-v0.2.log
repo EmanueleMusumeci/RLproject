@@ -1,4 +1,1153 @@
-LOGGER started at 2020-01-19 22:18:25.143245.
+LOGGER started at 2020-01-24 02:39:52.855008.
 Currently active debug channels:
 	rollouts
+	batch_info
+	linesearch
 	learning
+	thread_rollouts
+	utils_kl
+	cg
+[2020-01-24 02:39:53.028828][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-24 02:39:53.284097][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 2048
+
+[2020-01-24 02:39:53.308371][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-24 02:39:53.309423][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-24 02:39:53.309252][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-24 02:39:53.311350][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-24 02:39:53.311254][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-24 02:39:53.322126][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-24 02:39:53.321571][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-24 02:39:53.333470][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-24 02:39:53.333071][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-24 02:39:53.356559][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-24 02:39:53.358437][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-24 02:39:53.380841][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-24 02:39:53.385292][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-24 02:39:53.399561][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-24 02:39:53.401392][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-24 02:39:53.456711][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-24 02:40:19.189925][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 2048
+
+[2020-01-24 02:40:19.353145][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 2048
+
+[2020-01-24 02:40:19.509205][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 2048
+
+[2020-01-24 02:40:19.767522][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 2048
+
+[2020-01-24 02:40:19.938121][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 2048
+
+[2020-01-24 02:40:19.987973][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 2048
+
+[2020-01-24 02:40:19.997675][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 2048
+
+[2020-01-24 02:40:20.006295][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 2048
+
+[2020-01-24 02:40:20.007187][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-24 02:40:20.008160][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-24 02:40:20.008002][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-24 02:40:20.010332][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-24 02:40:20.009584][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-24 02:40:20.016548][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-24 02:40:20.016716][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-24 02:40:20.044139][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-24 02:40:20.042725][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-24 02:40:20.063370][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-24 02:40:20.066050][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-24 02:40:20.096248][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-24 02:40:20.096957][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-24 02:40:20.117810][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-24 02:40:20.119554][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-24 02:40:20.163004][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-24 02:40:48.993304][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 2048
+
+[2020-01-24 02:40:49.062380][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 2048
+
+[2020-01-24 02:40:49.312196][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 2048
+
+[2020-01-24 02:40:49.514051][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 2048
+
+[2020-01-24 02:40:49.552321][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 2048
+
+[2020-01-24 02:40:49.604475][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 2048
+
+[2020-01-24 02:40:49.609579][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 2048
+
+[2020-01-24 02:40:49.655211][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 2048
+
+[2020-01-24 02:40:49.655704][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-24 02:40:49.667009][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-24 02:40:49.965189][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-24 02:40:49.974079][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-24 02:40:49.975347][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 32768, Batch size: 4096, Number of batches: 8
+
+[2020-01-24 02:40:49.975699][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-24 02:40:49.980877][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4096
+
+[2020-01-24 02:40:54.245341][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:40:54.277026][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.310751][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 6.70366641e-07  3.58840836e-06 -1.30768134e-04 ...  2.18299204e-03
+  9.68158479e-03 -1.18645768e-02], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.312096][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:40:54.343545][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.378205][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 5.60949949e-07 -5.17260132e-07 -5.59255839e-07 ... -7.85186724e-04
+  4.99418812e-04  2.85767913e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.379487][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:40:54.407510][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.438672][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.76473544e-06 -3.88503966e-06  3.74220278e-06 ...  7.11253618e-04
+ -6.34354443e-04 -7.68991743e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.440117][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:40:54.466599][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.506170][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.10850139e-07  1.21055709e-07 -6.20075341e-07 ... -1.03043836e-04
+  7.59911828e-05  2.70526535e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.507428][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:40:54.533645][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.572398][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 5.35533109e-07  2.14249009e-06 -6.61199069e-06 ...  3.74307677e-03
+ -2.07186651e-03 -1.67121026e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.573828][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:40:54.600701][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.635764][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.85634281e-08 -6.36243168e-08  3.87113914e-06 ... -2.10259962e-04
+ -1.70866417e-04  3.81126378e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.637917][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:40:54.671470][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.703922][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.03902701e-07  3.47733619e-07  1.12923586e-06 ...  3.06115440e-04
+  2.20976506e-06 -3.08325205e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.705675][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:40:54.731055][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.772730][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 3.88533574e-07  9.36849031e-08  5.03913837e-07 ... -2.37720113e-03
+  1.49815930e-03  8.79041833e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.774348][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:40:54.803717][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.837748][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.39456475e-07 -7.80576497e-08  7.29341482e-07 ...  9.22932655e-05
+ -9.96242522e-05  7.33098672e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.839372][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:40:54.867821][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.901153][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-7.53961412e-07 -4.95282579e-07 -4.43724066e-06 ... -1.27099515e-03
+  1.20035941e-03  7.06357458e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.930665][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.95742523e-21 -3.52702645e-22  2.38123268e-20 ...  4.17980877e-18
+  4.25765266e-18  4.08507366e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.965447][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 3.07790810e-05 -2.20873232e-05 -1.28136597e-04 ...  1.15740537e-03
+  1.31341716e-02 -1.42915769e-02], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:40:54.999786][__main__.TRPOAgent.log][linesearch]: improvement: 0.0019221146836785076
+
+[2020-01-24 02:40:55.023988][__main__.TRPOAgent.log][linesearch]: improvement: 0.000538499648617603
+
+[2020-01-24 02:40:55.043813][__main__.TRPOAgent.log][linesearch]: improvement: 7.024715543720332e-05
+
+[2020-01-24 02:40:55.067930][__main__.TRPOAgent.log][linesearch]: improvement: 1.0251522040619033e-05
+
+[2020-01-24 02:40:55.091834][__main__.TRPOAgent.log][linesearch]: improvement: 1.076180145683555e-06
+
+[2020-01-24 02:40:55.092279][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.795188128890695e-11, Discarded policy loss value: -1.0761801454571736e-06
+
+[2020-01-24 02:40:56.157355][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1894.0358172530084
+
+[2020-01-24 02:40:56.163243][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4096
+
+[2020-01-24 02:41:00.913036][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:00.942439][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:00.976442][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.43042249e-05 ... -6.76106471e-03
+  1.38362967e-04  6.62270174e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:00.977839][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:01.006297][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.042173][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  3.05995138e-06 ...  2.73215520e-04
+ -5.60137290e-04  2.86921770e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.043469][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:01.074312][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.107010][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.92447571e-07 ... -9.81075822e-05
+  1.91772619e-04 -9.36650368e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.108678][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:01.138695][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.173343][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.21896090e-06 ...  1.07591679e-04
+ -2.54843829e-04  1.47252150e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.174913][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:01.201213][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.240815][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.35479270e-06 ... -1.28193997e-04
+  1.06647777e-04  2.15462206e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.242891][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:01.272467][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.308637][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.01400292e-06 ...  2.11461662e-03
+ -6.62095942e-04 -1.45252068e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.310595][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:01.342023][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.375185][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  6.26448980e-07 ... -3.09543281e-05
+ -1.09029627e-04  1.39983956e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.376982][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:01.408068][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.440101][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -9.30581899e-07 ...  1.69178753e-05
+  5.46610847e-05 -7.15789600e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.441768][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:01.472891][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.505877][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  2.61406729e-06 ... -3.85971931e-04
+ -5.78241098e-04  9.64213028e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.507309][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:01.534539][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.569705][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.82955757e-07 ...  2.08862113e-04
+ -5.86301237e-05 -1.50231990e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.599973][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.57033326e-08 ...  1.65820851e-07
+ -3.01484556e-06  2.84902470e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.632064][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.50051647e-05 ... -7.13902692e-03
+ -7.36002236e-04  7.87502915e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:01.672010][__main__.TRPOAgent.log][linesearch]: improvement: 0.002613021010559797
+
+[2020-01-24 02:41:01.693911][__main__.TRPOAgent.log][linesearch]: improvement: 0.00035615654103329244
+
+[2020-01-24 02:41:01.714941][__main__.TRPOAgent.log][linesearch]: improvement: 6.332219397486524e-05
+
+[2020-01-24 02:41:01.738438][__main__.TRPOAgent.log][linesearch]: improvement: 7.080455823170245e-06
+
+[2020-01-24 02:41:01.760270][__main__.TRPOAgent.log][linesearch]: improvement: 9.24141908068216e-07
+
+[2020-01-24 02:41:01.760923][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.826603552889313e-11, Discarded policy loss value: -6.702452606621809e-07
+
+[2020-01-24 02:41:02.538747][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1582.6990093505392
+
+[2020-01-24 02:41:02.544837][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4096
+
+[2020-01-24 02:41:07.417430][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:07.451880][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.491808][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -7.74789136e-06 ...  7.29411070e-03
+  5.32063716e-04 -7.82617442e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.493751][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:07.526251][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.563968][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.76456959e-06 ... -3.89796843e-04
+  6.97552138e-04 -3.07755295e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.565337][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:07.598970][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.641361][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  9.56537865e-08 ...  2.28216602e-06
+ -9.49939258e-06  7.21722656e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.642862][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:07.675869][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.715320][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  2.84337598e-07 ...  1.07036522e-04
+ -1.20186385e-04  1.31498632e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.716868][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:07.751033][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.792266][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  5.42774984e-08 ... -2.16292656e-05
+ -7.10809802e-06  2.87373636e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.794257][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:07.828526][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.866725][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -5.76064935e-07 ...  1.16096996e-04
+  1.72922137e-04 -2.89019133e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.868195][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:07.905513][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.947695][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.32673956e-07 ... -3.05226514e-05
+ -3.12397140e-05  6.17623655e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:07.948992][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:07.983097][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.021462][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -5.89426090e-08 ...  6.46349096e-05
+  7.51585371e-06 -7.21507633e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.023796][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:08.053787][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.089947][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -4.45112520e-08 ... -1.09793637e-04
+  5.25099316e-05  5.72837055e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.092110][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:08.119391][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.157891][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.85334732e-07 ...  6.83858631e-05
+ -7.36428493e-05  5.25698615e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.193724][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.45408129e-09 ...  1.96473145e-06
+  6.18929634e-07 -2.58366108e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.227526][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.59443114e-06 ...  7.68521764e-03
+  1.21218311e-03 -8.89740075e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:08.264831][__main__.TRPOAgent.log][linesearch]: improvement: 0.0017032176212774285
+
+[2020-01-24 02:41:08.290761][__main__.TRPOAgent.log][linesearch]: improvement: 0.00024513569945939107
+
+[2020-01-24 02:41:08.313518][__main__.TRPOAgent.log][linesearch]: improvement: 2.876476468285146e-05
+
+[2020-01-24 02:41:08.335832][__main__.TRPOAgent.log][linesearch]: improvement: 4.026597668741827e-06
+
+[2020-01-24 02:41:08.360781][__main__.TRPOAgent.log][linesearch]: improvement: 5.33608103500758e-07
+
+[2020-01-24 02:41:08.361234][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.767057968657723e-11, Discarded policy loss value: -4.4163710040336264e-07
+
+[2020-01-24 02:41:09.175994][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1562.4138952993246
+
+[2020-01-24 02:41:09.181944][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4096
+
+[2020-01-24 02:41:13.720645][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:13.759038][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.796264][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 3.38151419e-07  1.62324586e-07 -1.84590326e-05 ... -6.26211307e-03
+  5.90360624e-03  3.58506829e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.798000][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:13.827426][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.861704][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-2.32109815e-08  6.74135824e-08 -3.22024920e-06 ...  2.97910476e-04
+  3.50875134e-04 -6.48785609e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.862991][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:13.888251][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.921842][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-6.50358239e-08  7.25471414e-08 -1.49587438e-06 ... -1.65556751e-05
+ -7.99477629e-05  9.65034380e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.923571][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:13.951950][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.986333][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.38071892e-08 -2.25320703e-10 -7.59580349e-07 ...  3.56480562e-05
+  7.87890692e-05 -1.14437125e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:13.987636][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:14.013848][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.050392][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.34514322e-07 -1.80837768e-07 -1.52419224e-06 ... -3.48965024e-04
+ -1.77697506e-04  5.26662530e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.051642][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:14.080346][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.113174][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.28123352e-07 -7.28054637e-08 -5.23657155e-06 ...  1.84583761e-03
+ -4.46012034e-04 -1.39982558e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.114437][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:14.141158][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.172973][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 3.22989263e-08  5.12518304e-09 -1.67967498e-06 ... -3.32306126e-04
+  4.11633165e-04 -7.93270396e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.174840][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:14.202403][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.236205][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.26321499e-09 -9.40371025e-09  2.36176015e-07 ...  2.49398225e-05
+ -5.87538703e-05  3.38140478e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.237518][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:14.263774][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.298481][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.42559411e-08 -1.21094539e-08 -1.47411850e-06 ... -1.30534325e-04
+  2.89891757e-04 -1.59357432e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.300030][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:14.329559][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.363278][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-2.83637750e-09 -3.66863470e-08  9.91730222e-07 ...  1.84048004e-04
+ -2.74771109e-04  9.07231053e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.393157][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[-1.56543103e-10  1.24146688e-09  3.98373455e-09 ... -3.29706836e-06
+ -6.18758418e-07  3.91582678e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.425869][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.66754666e-06  1.26363827e-07 -1.19732154e-04 ... -6.01726061e-03
+  6.60558223e-03 -5.88321624e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:14.463243][__main__.TRPOAgent.log][linesearch]: improvement: 0.0016063958302279181
+
+[2020-01-24 02:41:14.485808][__main__.TRPOAgent.log][linesearch]: improvement: -3.6595866727345e-05
+
+[2020-01-24 02:41:14.486250][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 3.6754181861988096e-05
+
+[2020-01-24 02:41:15.244109][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1559.0410024773712
+
+[2020-01-24 02:41:15.244535][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-24 02:41:15.257902][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4096
+
+[2020-01-24 02:41:19.509753][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:19.534960][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.567640][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.27655892e-07  0.00000000e+00  6.44400773e-05 ...  6.66948139e-03
+ -9.07350914e-04 -5.76213047e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.569025][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:19.596060][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.630163][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.25443322e-08  0.00000000e+00  2.64612100e-06 ...  3.82148719e-05
+ -1.04773060e-04  6.65581885e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.631606][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:19.655598][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.690960][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-6.61154480e-08  0.00000000e+00 -1.88572616e-04 ... -3.41366703e-03
+  8.20824815e-03 -4.79458112e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.693231][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:19.722972][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.760282][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.13699042e-08  0.00000000e+00  7.52267749e-07 ...  8.30101645e-06
+ -2.44163947e-05  1.61153783e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.762116][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:19.792969][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.827710][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-9.45128821e-08  0.00000000e+00 -4.60059627e-05 ... -7.09999667e-04
+  2.02999758e-03 -1.31999791e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.828981][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:19.854405][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.889277][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-2.92596543e-09  0.00000000e+00 -3.84308555e-08 ... -2.00427777e-05
+ -1.12701125e-05  3.13128902e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.891329][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:19.918410][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.955272][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.19609685e-08  0.00000000e+00 -3.10467157e-06 ...  1.18252899e-03
+  4.87498243e-04 -1.67002723e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:19.957044][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:19.987276][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.019988][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 5.58787285e-09  0.00000000e+00  4.07358213e-07 ... -2.86320396e-05
+ -4.82093889e-05  7.68414285e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.021276][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:20.048847][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.081964][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 5.66199350e-08  0.00000000e+00 -1.42100897e-05 ...  3.52007244e-04
+  6.16040692e-04 -9.68047936e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.083201][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:20.175532][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.209324][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.12819371e-08  0.00000000e+00  5.85723084e-06 ... -1.70099474e-05
+ -3.07799187e-04  3.24809134e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.238291][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[2.46126741e-22 0.00000000e+00 5.35395403e-19 ... 4.43865263e-18
+ 4.46028294e-18 4.21991072e-18], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.270144][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.99444134e-06  0.00000000e+00  1.24396315e-04 ...  1.00970424e-02
+ -2.04744044e-03 -8.04960200e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:20.311617][__main__.TRPOAgent.log][linesearch]: improvement: 0.0038021509812167656
+
+[2020-01-24 02:41:20.332145][__main__.TRPOAgent.log][linesearch]: improvement: 0.000552458661398474
+
+[2020-01-24 02:41:20.354533][__main__.TRPOAgent.log][linesearch]: improvement: 0.00012308539250416805
+
+[2020-01-24 02:41:20.379592][__main__.TRPOAgent.log][linesearch]: improvement: 1.4367563444968789e-05
+
+[2020-01-24 02:41:20.400627][__main__.TRPOAgent.log][linesearch]: improvement: 1.4667589117946158e-06
+
+[2020-01-24 02:41:20.401086][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.382534305669747e-11, Discarded policy loss value: -1.466758911752332e-06
+
+[2020-01-24 02:41:21.185056][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1536.4572089472508
+
+[2020-01-24 02:41:21.191735][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4096
+
+[2020-01-24 02:41:25.479480][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:25.506206][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.538638][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.17818070e-05 ... -1.11705016e-04
+  1.44352842e-03 -1.33182340e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.539934][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:25.570685][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.603453][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  1.01254546e-06 ...  2.38487871e-05
+ -2.24913041e-05 -1.35748300e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.605058][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:25.635643][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.673126][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.89536228e-05 ... -1.46841894e-03
+  5.60325877e-04  9.08093059e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.674922][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:25.703092][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.738771][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.56161315e-07 ...  1.07447412e-06
+  2.73267265e-06 -3.80714677e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.740022][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:25.770440][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.803349][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  3.22223592e-06 ...  6.59475180e-05
+ -1.39918143e-04  7.39706251e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.804603][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:25.833210][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.865303][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.38151618e-06 ... -1.63858881e-05
+  4.12116373e-05 -2.48257492e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.866546][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:25.897495][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.931865][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00  3.23249813e-06 ...  5.85505097e-05
+ -1.42217913e-04  8.36674035e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.933388][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:25.965447][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.998281][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -4.79584869e-07 ... -3.59121509e-06
+  1.31810887e-05 -9.58987357e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:25.999614][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:26.023835][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.060007][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -5.28796884e-08 ... -8.29425186e-06
+ -3.77679802e-06  1.20710499e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.062082][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:26.091190][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.124616][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.57859048e-07 ...  4.12896955e-05
+  1.08859284e-05 -5.21756239e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.154818][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -3.66723346e-08 ... -1.12143842e-06
+  1.45930861e-06 -3.37870193e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.190020][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 0.00000000e+00  0.00000000e+00 -1.62217776e-05 ...  2.50730345e-05
+  1.70546153e-03 -1.73053456e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:26.224095][__main__.TRPOAgent.log][linesearch]: improvement: 0.003639862536190087
+
+[2020-01-24 02:41:26.248645][__main__.TRPOAgent.log][linesearch]: improvement: 0.00032740112483269665
+
+[2020-01-24 02:41:26.269013][__main__.TRPOAgent.log][linesearch]: improvement: 3.408743021439311e-05
+
+[2020-01-24 02:41:26.296805][__main__.TRPOAgent.log][linesearch]: improvement: 4.614052854825775e-06
+
+[2020-01-24 02:41:26.317227][__main__.TRPOAgent.log][linesearch]: improvement: 4.272175658523794e-07
+
+[2020-01-24 02:41:26.317680][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.180747757998951e-11, Discarded policy loss value: -5.115004340766876e-07
+
+[2020-01-24 02:41:27.077607][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1564.5261904032618
+
+[2020-01-24 02:41:27.083603][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4096
+
+[2020-01-24 02:41:31.371102][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:31.397105][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.428468][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-5.20684204e-06 -4.97826346e-06  7.12341334e-05 ... -1.35730700e-03
+ -3.43787763e-03  4.79518463e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.430985][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:31.458846][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.495773][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-4.95937897e-06  4.72781704e-06  9.64436731e-07 ...  8.72745899e-05
+  1.40055128e-04 -2.27329718e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.497251][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:31.523035][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.558547][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-2.22194123e-06 -5.33991091e-07  3.91461582e-06 ...  2.88581456e-04
+ -2.25760920e-04 -6.28205364e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.560792][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:31.588140][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.623179][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-8.63567404e-06 -6.51184778e-06 -6.06430488e-05 ... -3.70690752e-03
+  2.60029671e-03  1.10661081e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.624441][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:31.652507][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.683762][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-5.74787820e-07 -7.97444904e-07  1.01530931e-06 ...  5.97004272e-05
+ -3.40296708e-05 -2.56707564e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.685336][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:31.711139][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.742640][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.85198479e-06 -2.37508754e-06 -1.68079942e-05 ... -1.97984969e-03
+  8.91674601e-04  1.08817509e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.745307][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:31.773530][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.806974][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.01411746e-06  7.92694434e-07  6.50088703e-07 ...  2.00431814e-05
+  3.55605074e-05 -5.56036888e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.808245][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:31.835400][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.866767][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 1.14162366e-06 -1.10130619e-06  1.83644006e-05 ... -3.58595689e-04
+ -8.84609153e-04  1.24320484e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.868044][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:31.898344][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.932879][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 6.72750519e-08  9.95742968e-08 -2.52648432e-06 ... -2.22789775e-05
+  3.91265048e-05 -1.68475273e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.934553][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:31.966417][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:31.997316][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.81539147e-06 -4.91165665e-07  1.56934669e-05 ...  7.29289239e-04
+ -8.38220762e-04  1.08931523e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:32.024281][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.91919665e-08  2.93261493e-08  1.09038362e-07 ... -2.29753995e-07
+ -7.34879642e-07  9.64633637e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:32.056072][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.89911139e-04  3.90153408e-05  1.61533242e-04 ... -1.25564109e-03
+ -4.60364964e-03  5.85929073e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:32.097873][__main__.TRPOAgent.log][linesearch]: improvement: 0.0021736795757001694
+
+[2020-01-24 02:41:32.119738][__main__.TRPOAgent.log][linesearch]: improvement: 0.0004827336593379275
+
+[2020-01-24 02:41:32.143524][__main__.TRPOAgent.log][linesearch]: improvement: 9.430257809272939e-05
+
+[2020-01-24 02:41:32.167543][__main__.TRPOAgent.log][linesearch]: improvement: 1.1600579027912488e-05
+
+[2020-01-24 02:41:32.187822][__main__.TRPOAgent.log][linesearch]: improvement: 1.573758888395423e-06
+
+[2020-01-24 02:41:32.188269][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.670247876542688e-11, Discarded policy loss value: -1.1407562332970723e-06
+
+[2020-01-24 02:41:32.939384][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1550.6661526158755
+
+[2020-01-24 02:41:32.946752][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4096
+
+[2020-01-24 02:41:37.122951][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 0
+
+[2020-01-24 02:41:37.149756][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.184580][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.01763511e-05  1.04031346e-05  1.46790471e-05 ...  1.07386337e-02
+ -8.66741301e-04 -9.87189244e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.185900][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 1
+
+[2020-01-24 02:41:37.211500][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.244436][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-3.14976228e-06  2.77220156e-06  3.52922782e-06 ...  1.47329522e-04
+ -3.11603599e-04  1.64274077e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.246389][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 2
+
+[2020-01-24 02:41:37.273392][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.308849][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-1.39424741e-07  6.88374025e-06 -1.01690255e-04 ... -2.07073625e-03
+  4.53532158e-03 -2.46458533e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.310132][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 3
+
+[2020-01-24 02:41:37.338762][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.371445][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 2.25360122e-07  3.61370064e-07 -3.37365721e-06 ... -1.53527720e-05
+ -4.37157909e-05  5.90685628e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.372718][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 4
+
+[2020-01-24 02:41:37.400476][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.433351][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[ 4.90656481e-07  4.73896493e-07  4.41409944e-07 ...  2.66331242e-06
+  7.13044979e-06 -9.79376221e-06], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.435353][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 5
+
+[2020-01-24 02:41:37.462722][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.496019][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-2.50182529e-07 -7.23454124e-07 -4.09012049e-06 ... -2.08865859e-04
+  1.13281883e-04  9.55839757e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.497623][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 6
+
+[2020-01-24 02:41:37.524202][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.559139][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-5.53762748e-06 -4.45267851e-06  2.38505454e-05 ...  2.53142988e-03
+ -1.71820097e-03 -8.13228916e-04], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.560926][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 7
+
+[2020-01-24 02:41:37.588740][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.624529][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-9.06061628e-08 -2.59454069e-07 -4.25580928e-07 ... -4.24984670e-05
+  1.90631719e-05  2.34352951e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.625894][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 8
+
+[2020-01-24 02:41:37.654395][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.687393][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-3.41480882e-06 -5.11842819e-07  2.40652151e-05 ...  2.75193800e-03
+ -1.12785446e-03 -1.62408354e-03], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.688670][__main__.TRPOAgent.conjugate_gradients][cg]: Conjugate gradients iteration: 9
+
+[2020-01-24 02:41:37.717303][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.752114][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-8.55914285e-08  3.37849981e-07  1.09101332e-06 ... -6.20288295e-05
+ -6.44206498e-06  6.84708945e-05], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.782661][utils.log][utils_kl]: KL divergence gradients: tf.Tensor(
+[ 1.95615095e-08 -5.44351401e-09 -3.18500946e-08 ...  1.38472906e-07
+  7.94947340e-07 -9.33420246e-07], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.816917][utils.log][utils_kl]: KL divergence Hessian: tf.Tensor(
+[-6.62800499e-05  1.20524416e-04 -1.84470046e-04 ...  1.62343725e-02
+ -2.49065120e-03 -1.37437213e-02], shape=(4547,), dtype=float64)
+
+[2020-01-24 02:41:37.854673][__main__.TRPOAgent.log][linesearch]: improvement: 0.0027439718822003787
+
+[2020-01-24 02:41:37.877854][__main__.TRPOAgent.log][linesearch]: improvement: 0.0005391886294334241
+
+[2020-01-24 02:41:37.902190][__main__.TRPOAgent.log][linesearch]: improvement: 0.000115801125907972
+
+[2020-01-24 02:41:37.923017][__main__.TRPOAgent.log][linesearch]: improvement: 1.5021349828597125e-05
+
+[2020-01-24 02:41:37.948439][__main__.TRPOAgent.log][linesearch]: improvement: 1.233481334400946e-06
+
+[2020-01-24 02:41:37.948932][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 6.580877156356914e-11, Discarded policy loss value: -1.5947359940844154e-06
+
+[2020-01-24 02:41:38.700010][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1473.0713100634187
+
+[2020-01-24 02:41:38.701437][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-24 02:41:38.707091][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 2048
+
+[2020-01-24 02:41:38.727533][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-24 02:41:38.728867][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-24 02:41:38.728504][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-24 02:41:38.730694][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-24 02:41:38.730530][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-24 02:41:38.735747][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-24 02:41:38.735950][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-24 02:41:38.748642][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-24 02:41:38.757829][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-24 02:41:38.786290][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-24 02:41:38.787819][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-24 02:41:38.811416][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-24 02:41:38.808872][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-24 02:41:38.841730][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-24 02:41:38.843657][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-24 02:41:38.868786][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-24 02:42:05.372329][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1797
+

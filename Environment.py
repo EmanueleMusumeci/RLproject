@@ -3,6 +3,7 @@ from gym.envs.registration import registry, register, make, spec
 from gym.wrappers import AtariPreprocessing
 from collections import namedtuple, defaultdict
 import time
+import threading
 from AtariWrapper import AtariWrapper
 from GenericWrapper import GenericWrapper
 import matplotlib.pyplot as plt
@@ -28,7 +29,7 @@ class CustomEnvironmentRegister:
         register(
             id='MountainCarCustom-v0',
             entry_point='gym.envs.classic_control:MountainCarEnv',
-            max_episode_steps=1000,      # MountainCar-v0 uses 200
+            max_episode_steps=2048,      # MountainCar-v0 uses 200
             #reward_threshold=-110.0,
         )
         self.registeredEnvironments["MountainCar-v0"] = GenericEnvironmentInfo("MountainCarCustom-v0","classic",0.0)
@@ -163,6 +164,9 @@ class Environment:
 
         self.log("self.observation_space: ", self.observation_space, writeToFile=True, debug_channel="environment")
 
+    def __del__(self):
+        self.gym_wrapper.close()
+
     def step(self,action,render=False):
         observation, reward, done, info = self.gym_wrapper.step(action)
         if render: 
@@ -181,36 +185,37 @@ class Environment:
         else:
             self.gym_wrapper.render()
 
-    def rollout(self, agent, nSteps, render=False, delay=0.0):
-        rollout_info = []
 
-        #get first observation
-        observation = self.reset()
-        done = False
-        for i in range(nSteps):
-            #Compute next agentStep
-            action, action_probabilities = agent.act(observation)
-
-            self.log("Required action space: ", self.action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
-            #Perform environment step
-            observation, reward, done, info = self.gym_wrapper.step(action)
-
-            #Render environment after action
-            if render:
-                self.render()
-            
-            #Save informations to info list
-            rollout_info.append(RolloutTuple(observation,reward,action,action_probabilities))
-
-            #Terminate prematurely if environment is DONE
-            if done:
-                break
-        
-        return rollout_info, done
 
     ## NOTICE PARAMETERS THAT MAY BECOME GLOBAL ##
     ##delay
     def collect_rollouts(self, agent, nRollouts, nSteps, render=False):
+        def perform_rollout(agent, nSteps, render=False, delay=0.0):
+            rollout_info = []
+
+            #get first observation
+            observation = self.reset()
+            done = False
+            for i in range(nSteps):
+                #Compute next agentStep
+                action, action_probabilities = agent.act(observation)
+
+                self.log("Required action space: ", self.action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
+                #Perform environment step
+                observation, reward, done, info = self.gym_wrapper.step(action)
+
+                #Render environment after action
+                if render:
+                    self.render()
+                
+                #Save informations to info list
+                rollout_info.append(RolloutTuple(observation,reward,action,action_probabilities))
+
+                #Terminate prematurely if environment is DONE
+                if done:
+                    break
+            
+            return rollout_info, done
         '''
         Collects nRollouts rollouts (different execution of an environment), each one of
         nSteps using a certain agent
@@ -225,9 +230,9 @@ class Environment:
         '''
         rollouts = []
         for i in range(nRollouts):
-            self.log("Rollout #"+str(i), writeToFile=True, debug_channel="environment")
-            rollout, done = self.rollout(agent, nSteps, render=render, delay=self.rendering_delay)
-            self.log("rollout: ", rollout, ", done: ", done, writeToFile=True, debug_channel="environment")
+            self.log("Rollout #"+str(i+1), writeToFile=True, debug_channel="rollouts")
+            rollout, done = perform_rollout(agent, nSteps, render=render, delay=self.rendering_delay)
+            self.log("rollout: ", rollout, ", done: ", done, writeToFile=True, debug_channel="rollouts_dump")
             rollouts.append(rollout)
             
             #Terminate prematurely if environment is DONE
@@ -235,6 +240,62 @@ class Environment:
                 continue
         
         return rollouts, done
+
+    def collect_rollouts_multithreaded(self, agent, nRollouts, nSteps, maxThreads, render=False):
+        
+        rollouts = [[]]*nRollouts
+        envs = []
+        for _ in range(nRollouts):
+            if self.env_register!=None: 
+                envs.append(self.env_register.get_environment(self.environment_name)[0])
+            else:
+                envs.append(gym.make(self.environment_name))
+
+        def perform_rollout_thread(agent, nSteps, rolloutNumber, render=False, delay=0.0):
+            rollout_info = []
+            self.log("Thread number: ", rolloutNumber, writeToFile=True, debug_channel="thread_rollouts")
+
+            #get first observation
+            #Necessary because of the implementation produced by my twisted mind
+            observation = envs[rolloutNumber].reset()
+            done = False
+            for i in range(nSteps):
+                #Compute next agentStep
+                action, action_probabilities = agent.act(observation)
+
+                #self.log("Required action space: ", envs[rolloutNumber].action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
+                #Perform environment step
+                observation, reward, done, info = envs[rolloutNumber].step(action)
+
+                #Render environment after action
+                if render:
+                    self.render()
+                
+                #Save informations to info list
+                rollout_info.append(RolloutTuple(observation,reward,action,action_probabilities))
+
+                #Terminate prematurely if environment is DONE
+                if done:
+                    break
+            
+            self.log("Thread number: ", rolloutNumber,", Steps performed: ",len(rollout_info), writeToFile=True, debug_channel="thread_rollouts")
+            rollouts[rolloutNumber] = rollout_info
+        
+        current_rollout = 0
+        while current_rollout < nRollouts:
+            current_thread = 0
+            threads = []
+            while current_thread < maxThreads and current_rollout < nRollouts:
+                self.log("Rollout thread #"+str(current_rollout+1), writeToFile=True, debug_channel="rollouts")
+                thread = threading.Thread(target=perform_rollout_thread, args=[agent, nSteps, current_rollout, render, 0.0])
+                thread.start()
+                threads.append(thread)
+                current_thread += 1
+                current_rollout += 1
+            for thread in threads:
+                thread.join() 
+        
+        return rollouts
 
     def render_agent(self, agent, nSteps=-1):
         #nSteps = -1 means render until done
@@ -272,7 +333,7 @@ class Environment:
 
 if __name__ == "__main__":
 
-    env_name = "PongPreprocessed-v0"
+    env_name = "MountainCar-v0"
 
     logger = Logger(name=env_name,log_directory="TRPO_project/Testing/Environment") 
     env = Environment(env_name,logger,use_custom_env_register=True,debug=True, show_preprocessed=False)

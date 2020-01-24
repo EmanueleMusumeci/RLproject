@@ -73,6 +73,9 @@ class AtariWrapper(gym.Wrapper):
         else:
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height, 3), dtype=_obs_dtype)
 
+    def __del__(self):
+        self.env.close()
+
     def step(self, action):
         R = 0.0
 

@@ -56,18 +56,20 @@ class Policy:
     
     def __call__(self, observation, tensor=False):
         if self.convolutional:
-            self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
+            #self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
             #Add an axis if the image has only 1 channel (grayscale) because the shape has to be like 
             # (batch size, img_height, img_width, channels) but if the image is grayscale, the shape is
             # (batch_size, img_height, img_width)
             if self.input_shape[2]==1:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 1)
         
-        self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
-        if tensor:
-            return self.model(observation)
-        else:
-            return self.model.predict(observation)
+        #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
+        #if tensor:
+        observation = tf.cast(observation,'float64')
+        #self.log("Observation.dtype: ",observation.dtype, debug_channel="model")
+        return self.model(observation)
+        #else:
+            #return self.model.predict(observation)
 
     def get_flat_params(self, numpy=True):
         params = tf.concat([tf.reshape(v, [-1]) for v in self.model.trainable_variables], axis=0)
@@ -111,9 +113,9 @@ class Policy:
             if args==None:
                 #NOTICE: if you get an error here it means that the passed function required more than one argument
                 #You need to pass them as a DICTIONARY ({"parameter_name":parameter_value}) in the args argument (see below)
-                f= function()
+                f= function(logger=self.logger)
             else:
-                f = function(args)
+                f = function(args, logger=self.logger)
         
         gradient = t.gradient(f, trainable_variables, unconnected_gradients=tf.UnconnectedGradients.ZERO) 
             #UnconnectedGradients.ZERO serve a evitare che ti restituisca None quando il gradiente è zero
@@ -136,7 +138,7 @@ class Policy:
             self.logger.print(strings, writeToFile=writeToFile, debug_channel=debug_channel)
 
 class Value:
-    def __init__(self, environment, logger, debug=False):
+    def __init__(self, environment, logger, value_lr, debug=False):
         
         self.logger = logger
 
@@ -155,6 +157,9 @@ class Value:
             self.model.add(keras.layers.Dense(64, input_shape=self.input_shape, activation="relu"))
             self.model.add(keras.layers.Dense(64, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
+            adam = keras.optimizers.Adam(learning_rate=value_lr)
+            self.model.compile(loss="mean_squared_error", optimizer=adam)
+
         else:
             self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
             self.model.add(keras.layers.MaxPooling2D((3, 3)))
@@ -175,18 +180,19 @@ class Value:
     
     def __call__(self, observation, tensor=False):
         if self.convolutional:
-            self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
+            #self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
             #Add an axis if the image has only 1 channel (grayscale) because the shape has to be like 
             # (batch size, img_height, img_width, channels) but if the image is grayscale, the shape is
             # (batch_size, img_height, img_width)
             if self.input_shape[2]==1:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 1)
         
-        self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
-        if tensor:
-            return self.model(observation)
-        else:
-            return self.model.predict(observation)
+        #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
+        #if tensor:
+        if self.convolutional: observation.astype('uint8')
+        return self.model(observation)
+        #else:
+            #return self.model.predict(observation)
     
     def fit(self, observations, discounted_rewards, epochs=5, verbose=0):
         if(len(observations.shape)==3):    
@@ -241,7 +247,7 @@ class Value:
         self.model.load_weights(filename + ".h5")
         
     def clone(self):
-        cloned_model = Value(self.environment, self.logger)
+        cloned_model = Value(self.environment, self.logger, self.value_lr)
         cloned_model.set_flat_params(self.get_flat_params())
         return cloned_model
 
@@ -259,7 +265,7 @@ if __name__ =="__main__":
     logger = Logger(name=env_name,log_directory="TRPO_project/Testing/Model")
     env = Environment(env_name, logger, True,True)
     policy = Policy(env, logger)
-    value = Value(env, logger)
+    value = Value(env, logger, 1e-3)
     policy_params = policy.get_flat_params()
     value_params = value.get_flat_params()
     print("policy_params:\n",policy_params)
