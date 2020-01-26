@@ -301,6 +301,65 @@ class Environment:
                 thread.join() 
         
         return rollouts
+    def collect_rollouts_multithreaded_only_successful(self, agent, nRollouts, nSteps, maxThreads, render=False):
+        
+        rollouts = [[]]*nRollouts
+        envs = []
+        for _ in range(nRollouts):
+            if self.same_seed:
+                envs.append(copy.deepcopy(self.gym_wrapper))
+            else:
+                envs.append(Environment(self.environment_name, self.logger))
+
+        def perform_rollout_thread(agent, nSteps, rolloutNumber, render=False, delay=0.0):
+            rollout_info = []
+            self.log("Thread number: ", rolloutNumber, writeToFile=True, debug_channel="thread_rollouts")
+
+            #get first observation
+            #Necessary because of the implementation produced by my twisted mind
+            done = False
+            last_action=None
+            while not done:
+                rollout_info = []
+                old_observation = envs[rolloutNumber].reset()
+                for i in range(nSteps):
+                    #Compute next agentStep
+                    action, action_probabilities = agent.act(old_observation,last_action)
+                    last_action = action
+                    #self.log("Required action space: ", envs[rolloutNumber].action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
+                    #Perform environment step
+                    observation, reward, done, info = envs[rolloutNumber].step(action)
+
+                    #Render environment after action
+                    if render:
+                        self.render()
+                    
+                    #Save informations to info list
+                    rollout_info.append(RolloutTuple(old_observation,reward,action,action_probabilities))
+                    old_observation = observation
+                    #Terminate prematurely if environment is DONE
+                    if done:
+                        self.log("Thread number: ", rolloutNumber, " terminated because of DONE!!!", debug_channel="thread_rollouts")
+                        break
+                
+            self.log("Thread number: ", rolloutNumber,", Steps performed: ",len(rollout_info), writeToFile=True, debug_channel="thread_rollouts")
+            rollouts[rolloutNumber] = rollout_info
+        
+        current_rollout = 0
+        while current_rollout < nRollouts:
+            current_thread = 0
+            threads = []
+            while current_thread < maxThreads and current_rollout < nRollouts:
+                self.log("Rollout thread #"+str(current_rollout+1), writeToFile=True, debug_channel="rollouts")
+                thread = threading.Thread(target=perform_rollout_thread, args=[agent, nSteps, current_rollout, render, 0.0])
+                thread.start()
+                threads.append(thread)
+                current_thread += 1
+                current_rollout += 1
+            for thread in threads:
+                thread.join() 
+        
+        return rollouts
 
     def render_agent(self, agent, nSteps=-1):
         #nSteps = -1 means render until done

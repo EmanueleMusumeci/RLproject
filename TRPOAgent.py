@@ -156,10 +156,13 @@ class TRPOAgent:
 
         self.last_action=None
 
-    def collect_rollout_statistics(self, multithreaded=False):
+    def collect_rollout_statistics(self, multithreaded=False, only_successful=False):
         print(multithreaded)
-        if multithreaded: 
-            rollouts = env.collect_rollouts_multithreaded(self,self.rollouts_per_sampling,self.steps_per_rollout,THREADS_NUMBER)
+        if multithreaded:
+            if only_successful:
+                rollouts = env.collect_rollouts_multithreaded_only_successful(self,self.rollouts_per_sampling,self.steps_per_rollout,THREADS_NUMBER)
+            else: 
+                rollouts = env.collect_rollouts_multithreaded(self,self.rollouts_per_sampling,self.steps_per_rollout,THREADS_NUMBER)
         else: 
             rollouts, _ = env.collect_rollouts(self,self.rollouts_per_sampling,self.steps_per_rollout)
 
@@ -355,7 +358,8 @@ class TRPOAgent:
         if self.steps_since_last_rollout == self.steps_between_rollouts:
             self.log("Performing rollouts: rollout length: ",self.steps_per_rollout,writeToFile=True,debug_channel="learning")
             self.steps_since_last_rollout = 0
-            self.rollout_statistics = self.collect_rollout_statistics(multithreaded=self.multithreaded_rollout)
+            #self.rollout_statistics = self.collect_rollout_statistics(multithreaded=self.multithreaded_rollout)
+            self.rollout_statistics = self.collect_rollout_statistics(multithreaded=self.multithreaded_rollout,only_successful=True)
             self.log("Rollouts performed",writeToFile=True,debug_channel="learning")
 
             #Change theta_old old policy params once every steps_between_rollouts rollouts
@@ -673,7 +677,7 @@ if __name__ == '__main__':
 
     env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
 
-    agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=30, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
+    agent = TRPOAgent(env,logger,steps_per_rollout=3000,steps_between_rollouts=5, rollouts_per_sampling=30, multithreaded_rollout=True, batch_size=12000, DELTA=0.01)
     #agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=1, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
       
     #initial_time = time.time()
@@ -686,7 +690,7 @@ if __name__ == '__main__':
     #agent.load_weights(0)
 
     #agent.training_step(0)
-    history = agent.learn(500,episodesBetweenModelBackups=5,start_from_episode=0)
+    history = agent.learn(500,episodesBetweenModelBackups=1,start_from_episode=0)
     #plt.plot(history)
     #plt.show()
         

@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
 
-    agent = TRPOAgent(env,logger,steps_per_rollout=512,steps_between_rollouts=1, rollouts_per_sampling=8, multithreaded_rollout=True, batch_size=512, DELTA=0.01,
+    agent = TRPOAgent(env,None,steps_per_rollout=512,steps_between_rollouts=1, rollouts_per_sampling=8, multithreaded_rollout=True, batch_size=512, DELTA=0.01,
     debug_rollouts=True, debug_act=True, debug_training=True, debug_model=True, debug_learning=True)
     
     #initial_time = time.time()
@@ -54,6 +54,6 @@ if __name__ == '__main__':
     #plt.plot(history)
     #plt.show()
         
-    agent.load_weights(135)
+    agent.load_weights(10)
 
     env.render_agent(agent)
