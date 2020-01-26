@@ -1,8 +1,18 @@
-LOGGER started at 2020-01-24 10:57:43.640101.
+LOGGER started at 2020-01-26 13:50:26.002703.
 Currently active debug channels:
+	rollouts
 	batch_info
-	linesearch
 	learning
 	thread_rollouts
-	utils_kl
-	cg
+[2020-01-26 13:50:26.128683][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-26 13:50:26.322725][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-26 13:50:26.355528][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-26 13:50:26.356309][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-26 13:50:26.356429][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-26 13:50:26.360827][Environment.Environment.log][thread_rollouts]: Thread number: 1
+

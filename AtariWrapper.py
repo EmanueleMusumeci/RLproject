@@ -63,7 +63,10 @@ class AtariWrapper(gym.Wrapper):
             self.obs_buffer = [np.empty(env.observation_space.shape, dtype=np.uint8),
                                np.empty(env.observation_space.shape, dtype=np.uint8)]
 
+        print("B1")
+
         self.ale = env.unwrapped.ale
+        print("B2")
         self.lives = 0
         self.game_over = False
 
@@ -72,7 +75,8 @@ class AtariWrapper(gym.Wrapper):
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height), dtype=_obs_dtype)
         else:
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height, 3), dtype=_obs_dtype)
-
+        print("B3")
+        
     def __del__(self):
         self.env.close()
 
@@ -105,19 +109,32 @@ class AtariWrapper(gym.Wrapper):
 
     def reset(self, **kwargs):
         # NoopReset
+        print("reset1")
         self.env.reset(**kwargs)
+        
+        print("reset2")
         noops = self.env.unwrapped.np_random.randint(1, self.noop_max + 1) if self.noop_max > 0 else 0
+        
+        print("reset3")
         for _ in range(noops):
             _, _, done, _ = self.env.step(0)
             if done:
                 self.env.reset(**kwargs)
 
-        self.lives = self.ale.lives()
+        print("reset4")
+        #CAUSES SEGMENTATION FAULT (CORE DUMPED)
+        #self.lives = self.ale.lives()
+        self.lives = 0
+        print("reset5")
         if self.grayscale_obs:
+            print("reset5.1")
             self.ale.getScreenGrayscale(self.obs_buffer[0])
         else:
+            print("reset5.1")
             self.ale.getScreenRGB2(self.obs_buffer[0])
+        print("reset7")
         self.obs_buffer[1].fill(0)
+        print("reset8")
         return self._get_obs()
 
     def _get_obs(self):

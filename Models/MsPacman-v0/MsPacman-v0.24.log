@@ -1,0 +1,122 @@
+LOGGER started at 2020-01-26 00:54:27.053216.
+Currently active debug channels:
+	rollouts
+	advantages
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+	utils_kl
+	cg
+	GAE
+[2020-01-26 00:54:27.386409][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-26 00:54:27.592952][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 5000
+
+[2020-01-26 00:54:28.994638][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-26 00:54:28.995417][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-26 00:54:28.995347][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-26 00:54:28.996588][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-26 00:54:28.996744][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-26 00:54:28.998164][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-26 00:54:28.998234][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-26 00:54:28.999399][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-26 00:54:28.999344][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-26 00:54:29.000695][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-26 00:54:29.000751][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-26 00:54:29.002384][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-26 00:54:29.002446][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-26 00:54:29.010461][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-26 00:54:29.016860][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-26 00:54:29.029319][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-26 00:54:51.705146][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 582
+
+[2020-01-26 00:54:57.962645][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 757
+
+[2020-01-26 00:54:58.688169][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 770
+
+[2020-01-26 00:54:58.971858][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 796
+
+[2020-01-26 00:55:00.643178][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 867
+
+[2020-01-26 00:55:00.829326][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 871
+
+[2020-01-26 00:55:01.029561][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 893
+
+[2020-01-26 00:55:01.209783][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 906
+
+[2020-01-26 00:55:01.210248][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-26 00:55:01.212677][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-26 00:55:01.225968][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-26 00:55:01.227457][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-26 00:55:01.228635][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 6442, Batch size: 10000, Number of batches: 1
+
+[2020-01-26 00:55:01.228965][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-26 00:55:01.497126][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 6442
+
+[2020-01-26 00:55:01.499716][__main__.TRPOAgent.log][advantages]: Computing advantage #0 for batch #0
+
+[2020-01-26 00:55:01.508147][__main__.TRPOAgent.log][advantages]: Computing advantage #1 for batch #0
+
+[2020-01-26 00:55:01.517392][__main__.TRPOAgent.log][advantages]: Computing advantage #2 for batch #0
+
+[2020-01-26 00:55:01.527357][__main__.TRPOAgent.log][advantages]: Computing advantage #3 for batch #0
+
+[2020-01-26 00:55:01.537973][__main__.TRPOAgent.log][advantages]: Computing advantage #4 for batch #0
+
+[2020-01-26 00:55:01.546302][__main__.TRPOAgent.log][advantages]: Computing advantage #5 for batch #0
+
+[2020-01-26 00:55:01.557435][__main__.TRPOAgent.log][advantages]: Computing advantage #6 for batch #0
+
+[2020-01-26 00:55:01.566618][__main__.TRPOAgent.log][advantages]: Computing advantage #7 for batch #0
+
+[2020-01-26 00:55:01.576632][__main__.TRPOAgent.log][advantages]: Computing advantage #8 for batch #0
+
+[2020-01-26 00:55:01.587175][__main__.TRPOAgent.log][advantages]: Computing advantage #9 for batch #0
+
+[2020-01-26 00:55:01.595893][__main__.TRPOAgent.log][advantages]: Computing advantage #10 for batch #0
+
+[2020-01-26 00:55:01.607587][__main__.TRPOAgent.log][advantages]: Computing advantage #11 for batch #0
+
+[2020-01-26 00:55:01.617402][__main__.TRPOAgent.log][advantages]: Computing advantage #12 for batch #0
+
+[2020-01-26 00:55:01.627832][__main__.TRPOAgent.log][advantages]: Computing advantage #13 for batch #0
+
+[2020-01-26 00:55:01.640205][__main__.TRPOAgent.log][advantages]: Computing advantage #14 for batch #0
+
+[2020-01-26 00:55:01.650374][__main__.TRPOAgent.log][advantages]: Computing advantage #15 for batch #0
+
+[2020-01-26 00:55:01.661127][__main__.TRPOAgent.log][advantages]: Computing advantage #16 for batch #0
+
+[2020-01-26 00:55:01.671748][__main__.TRPOAgent.log][advantages]: Computing advantage #17 for batch #0
+
+[2020-01-26 00:55:01.680335][__main__.TRPOAgent.log][advantages]: Computing advantage #18 for batch #0
+

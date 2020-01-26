@@ -6,9 +6,10 @@ import logging
 import inspect
 import errno
 
-import matplotlib.pyplot as plt
 
 import datetime
+
+import matplotlib.pyplot as plt
 
 HistoryValues = namedtuple("HistoryValues","max_reward kl_div value_loss policy_loss")
 

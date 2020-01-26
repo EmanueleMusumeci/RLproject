@@ -7,12 +7,7 @@ import math
 from collections import namedtuple
 import errno
 
-import tensorflow as tf
-from tensorflow import GradientTape
-from tensorflow import keras
-#sets to float64 to avoid compatibility issues between numpy 
-# (whose default is float64) and keras(whose default is float32)
-keras.backend.set_floatx("float64")
+
 
 from matplotlib import pyplot as plt 
 
@@ -20,12 +15,19 @@ from utils import *
 from Environment import Environment, RolloutTuple
 from Models import Policy, Value
 from Logger import Logger
+import tensorflow as tf
+from tensorflow import GradientTape
+from tensorflow import keras
+
+#sets to float64 to avoid compatibility issues between numpy 
+# (whose default is float64) and keras(whose default is float32)
+keras.backend.set_floatx("float64")
 
 #RolloutStatistics = namedtuple("RolloutStatistics","actions action_probabilities rewards discounted_rewards mean_discounted_rewards observations advantages size")
 RolloutStatistics = namedtuple("RolloutStatistics","actions action_probabilities rewards discounted_rewards observations size")
 TrainingInfo = namedtuple("TrainingInfo","mean_value_loss linesearch_successful mean_kl_divergence")
 
-THREADS_NUMBER=8
+THREADS_NUMBER=2
 
 class TRPOAgent:
     def __init__(self, 
@@ -33,29 +35,29 @@ class TRPOAgent:
     logger,
     
     #Rollouts
-    steps_per_rollout=0, 
-    steps_between_rollouts=0, 
-    rollouts_per_sampling=10, 
+    steps_per_rollout=1000, 
+    steps_between_rollouts=5, 
+    rollouts_per_sampling=16, 
     multithreaded_rollout=False,
 
     #Training
-    batch_size = 4096,
+    batch_size = 1000,
 
     #Coefficients
     #conjugate_gradients_damping=0.001, 
     conjugate_gradients_damping = 0.001,
-    conjugate_gradients_iterations = 20,
-    #DELTA=0.01, 
-    DELTA=0.01,
-    #backtrack_coeff=.6,
-    backtrack_coeff=3e-1, 
-    #backtrack_iters=10, 
-    backtrack_iters=5,
+    conjugate_gradients_iterations = 10,
+    DELTA=0.01, 
+    #DELTA=0.02,
+    backtrack_coeff=0.6,
+    #backtrack_coeff=1e-3, 
+    backtrack_iters=10, 
+    #backtrack_iters=5,
     #GAMMA = 0.99,
-    GAMMA= 0.995,
+    GAMMA= 0.99,
     LAMBDA = 0.95,
     value_learning_rate=1e-1,
-    value_function_fitting_epochs=10,
+    value_function_fitting_epochs=5,
     epsilon_greedy=True,
     epsilon=0.4,
     epsilon_decrease_factor=0.005,
@@ -216,9 +218,7 @@ class TRPOAgent:
                     result.append(tupl.reward)
 
                 print(len(rewards[i]))
-                # Compute discounted rewards with a 'bootstrapped' final value.
-                rs_bootstrap = [] if rewards[i] == [] else rewards[i] + [rewards[i][-1]]
-                discounted_rewards.extend(discount(rs_bootstrap, GAMMA)[:-1])
+ 
             
             print(len(discounted_rewards))
             print(len(rewards))
@@ -240,8 +240,9 @@ class TRPOAgent:
         #rewards, discounted_rewards = collect_rewards(rollouts, self.GAMMA)
         #self.log("len(rewards): ",len(rewards),writeToFile=True,debug_channel="rollouts_dump")
         
-        rewards, discounted_rewards = collect_rewards2(rollouts, self.GAMMA, self.LAMBDA)
-        
+        #rewards, discounted_rewards = collect_rewards2(rollouts, self.GAMMA, self.LAMBDA)
+        rewards, discounted_rewards = collect_rewards(rollouts, self.GAMMA)
+
         self.log("Unpacking observations",writeToFile=True,debug_channel="rollouts")
         observations = collect_observations(rollouts)
         self.log("len(observations): ",len(observations),writeToFile=True,debug_channel="rollouts_dump")
@@ -263,115 +264,92 @@ class TRPOAgent:
 
         return statistics
 
-    def surrogate_function(self, args, logger=None):
-        current_batch_observations = args["observation"]
-        actions_one_hot = args["actions_one_hot"]
-        advantage = args["advantage"]
-        
-        #Calcola la nuova policy usando la rete neurale aggiornata ad ogni batch cycle del training step
-        new_policy_action_probabilities = self.new_model(current_batch_observations, tensor=True)
-        new_policy_action_probabilities = tf.nn.softmax(new_policy_action_probabilities)
-        #Calcola la vecchia policy usando la vecchia rete neurale salvata
-        old_policy_action_probabilities = self.policy(current_batch_observations, tensor=True)
-        old_policy_action_probabilities = tf.nn.softmax(old_policy_action_probabilities)
-        
-        self.log("actions_one_hot: ",actions_one_hot, writeToFile=True, debug_channel="training_dump")
-        self.log("new_policy_action_probabilities: ",new_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
-        self.log("old_policy_action_probabilities: ",old_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
-
-        #pi(a|s) ovvero ci interessa solo l'azione che abbiamo compiuto, da cui il prodotto per actions_one_hot
-        new_policy_action_probabilities = tf.reduce_sum(actions_one_hot * new_policy_action_probabilities, axis=1)
-        old_policy_action_probabilities = tf.reduce_sum(actions_one_hot * old_policy_action_probabilities, axis=1)
-
-        self.log("reduced new_policy_action_probabilities: ",new_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
-        self.log("reduced old_policy_action_probabilities: ",old_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
-
-
-        policy_ratio = new_policy_action_probabilities / old_policy_action_probabilities # (Schulman et al., 2017) Equation(14)
-        #logger.print("policy_ratio: ", policy_ratio)
-        #Calcola la loss function: ha anche aggiunto un termine di entropia
-        self.log("policy ratio: ", policy_ratio,", advantage: ", advantage, writeToFile=True, debug_channel="surrogate")
-        loss = tf.reduce_mean(policy_ratio * advantage)
-        self.log("loss value: ", loss, writeToFile=True, debug_channel="surrogate")
-        #return -loss
-        return loss 
-
-    def fisher_vectors_product(self, model, step_direction_vector, damping_factor, args, logger=None):
-        #this method is supposed to compute the Fishers's vector product as the Hessian of the Kullback-Leibler divergence
-
-        def get_mean_kl_divergence(args, logger=None):
-            current_batch_observations = args["observation"]
-            #current_batch_actions_one_hot = args["actions_one_hot"]            
-
-            #4.5) Compute new policy using latest policy (update with latest batch) and old policy (the one that dates back to the latest rollout) 
-            #Calcola la nuova policy usando la rete neurale aggiornata ad ogni batch cycle del training step
-            new_policy_action_probabilities = tf.nn.softmax(self.new_model(current_batch_observations, tensor=True))
-            
-            #Calcola la vecchia policy usando la vecchia rete neurale salvata
-            old_policy_action_probabilities = tf.nn.softmax(self.policy(current_batch_observations, tensor=True))
-
-            kl = tf.reduce_mean(tf.reduce_sum(old_policy_action_probabilities * tf.math.log(old_policy_action_probabilities / new_policy_action_probabilities), axis=1))
-            if math.isinf(kl):
-                if logger!=None:
-                    log("Inf divergence: old_policy_probabilities: ",old_policy_action_probabilities,", new_policy_probabilities: ", new_policy_action_probabilities,writeToFile=True,debug_channel="utils_kl_dump", skip_stack_levels=2, logger=logger)
-            elif math.isnan(kl):
-                if logger!=None:
-                    log("nan divergence: old_policy_probabilities: ",old_policy_action_probabilities,", new_policy_probabilities: ", new_policy_action_probabilities,writeToFile=True,debug_channel="utils_kl_dump", skip_stack_levels=2, logger=logger)
-            else:
-                if logger!=None:
-                    log("Divergence: ",kl,", old_policy_probabilities: ",old_policy_action_probabilities,", new_policy_probabilities: ", new_policy_action_probabilities,writeToFile=True,debug_channel="utils_kl_dump", skip_stack_levels=2, logger=logger)
-            return kl
-
-
-        def kl_value(logger=None):
-            kl_divergence_gradients = model.get_flat_gradients(get_mean_kl_divergence, args)
-            if logger!=None:
-                log("KL divergence gradients: ",kl_divergence_gradients,writeToFile=True,debug_channel="utils_kl", skip_stack_levels=2, logger=logger)
-
-            kl = tf.reduce_sum(kl_divergence_gradients * step_direction_vector)
-            return kl
-
-        kl_flat_grad_grads = model.get_flat_gradients(kl_value)
-
-        if logger!=None:
-            log("KL divergence Hessian: ",kl_flat_grad_grads,writeToFile=True,debug_channel="utils_kl", skip_stack_levels=2, logger=logger)
-
-        return kl_flat_grad_grads + step_direction_vector * damping_factor
-    
-    #    #TODO: Testare se funziona correttamente
-    def conjugate_gradients(self, model, policy_gradient, damping_factor, cg_iters, args, residual_tol=1e-10, logger=None):
-        result = np.zeros_like(policy_gradient)
-        r = tf.identity(policy_gradient)
-        p = tf.identity(policy_gradient)
-
-        rdotr = np.dot(r, r)
-
-        for i in range(cg_iters):
-            if logger!=None:
-                log("Conjugate gradients iteration: ",i, writeToFile=True,debug_channel="cg", skip_stack_levels=3, logger=logger)
-
-            #Verificare se il risultato di fisher_vectors_product è A o A * p
-            temp_fisher_vectors_product = self.fisher_vectors_product(model, p, damping_factor, args, logger)
-            
-            alpha = rdotr / (np.dot(p, temp_fisher_vectors_product) + EPS)
-            self.log("CG alpha: ", alpha,debug_channel="cg")
-            #alpha = rdotr / (np.dot(p, temp_fisher_vectors_product))
-
-            result += alpha * p
-            r -= alpha * temp_fisher_vectors_product
-            new_rdotr = np.dot(r, r)
-            #beta = new_rdotr / rdotr + EPS
-            beta = new_rdotr / rdotr
-            
-            p = r + beta * p
-            rdotr = new_rdotr
-            if rdotr < residual_tol:
-                break
-        return result
-
     def training_step(self, episode):
+        
+        def get_mean_kl_divergence():
+            model = self.new_model
+            output = model(current_batch_observations)
+            new_policy_action_probabilities = tf.nn.softmax(output).numpy() + 1e-8
+            old_output = self.policy(current_batch_observations)
+            old_policy_action_probabilities = tf.nn.softmax(old_output)
+            kl = tf.reduce_mean(tf.reduce_sum(old_policy_action_probabilities * tf.math.log(old_policy_action_probabilities / new_policy_action_probabilities), axis=1))
+            return kl
 
-        #1) Count steps since last rollout: if it is equal to the number of steps between two consecutive rollouts,
+        def fisher_vectors_product(step_direction_vector):
+            def kl_value():
+                kl_divergence_gradients = self.policy.get_flat_gradients(get_mean_kl_divergence)
+                grad_vector_product = tf.reduce_sum(kl_divergence_gradients * step_direction_vector)
+                return grad_vector_product
+
+            kl_flat_grad_grads = self.policy.get_flat_gradients(kl_value)
+
+
+            return (kl_flat_grad_grads + (self.conjugate_gradients_damping * step_direction_vector)).numpy()
+
+        def conjugate_gradients(policy_gradient, residual_tol=1e-10):
+            result = np.zeros_like(policy_gradient)
+            r = tf.identity(policy_gradient)
+            p = tf.identity(policy_gradient)
+
+            rdotr = np.dot(r, r)
+
+            for i in range(self.conjugate_gradients_iterations):
+                if logger!=None:
+                    self.log("Conjugate gradients iteration: ",i, writeToFile=True,debug_channel="cg")
+
+                temp_fisher_vectors_product = fisher_vectors_product(p)
+                
+                alpha = rdotr / (np.dot(p, temp_fisher_vectors_product) + 1e-8)
+                if logger!=None:
+                    self.log("CG Hessian: ",alpha,debug_channel="cg")
+                #alpha = rdotr / (np.dot(p, temp_fisher_vectors_product))
+
+                result += alpha * p
+                r -= alpha * temp_fisher_vectors_product
+                new_rdotr = np.dot(r, r)
+                #beta = new_rdotr / rdotr + EPS
+                beta = new_rdotr / (rdotr + 1e-8)
+                
+                p = r + beta * p
+                rdotr = new_rdotr
+                if rdotr < residual_tol:
+                    break
+            return result
+
+        def surrogate_function():
+            
+            #COSA ASSURDA DI TENSORFLOW 2: se nella predizione delle new_policy_action_probabilities avessi usato direttamente self.new_model(obs)
+            #il policy gradient sarebbe risultato con segni negati!!! Questa assegnazione lo evita (???)
+            model = self.new_model
+            #Calcola la nuova policy usando la rete neurale aggiornata ad ogni batch cycle del training step
+            output = model(current_batch_observations)
+            new_policy_action_probabilities = tf.nn.softmax(output)
+            #Calcola la vecchia policy usando la vecchia rete neurale salvata
+            output = self.policy(current_batch_observations)
+            old_policy_action_probabilities = tf.nn.softmax(output)
+            
+            #self.log("actions_one_hot: ",actions_one_hot, writeToFile=True, debug_channel="training_dump")
+            #self.log("new_policy_action_probabilities: ",new_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
+            #self.log("old_policy_action_probabilities: ",old_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
+
+            #pi(a|s) ovvero ci interessa solo l'azione che abbiamo compiuto, da cui il prodotto per actions_one_hot
+            new_policy_action_probabilities = tf.reduce_sum(current_batch_actions_one_hot * new_policy_action_probabilities, axis=1)
+            old_policy_action_probabilities = tf.reduce_sum(current_batch_actions_one_hot * old_policy_action_probabilities, axis=1) + 1e-8
+
+            #self.log("reduced new_policy_action_probabilities: ",new_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
+            #self.log("reduced old_policy_action_probabilities: ",old_policy_action_probabilities, writeToFile=True, debug_channel="training_dump")
+
+
+            policy_ratio = new_policy_action_probabilities / old_policy_action_probabilities # (Schulman et al., 2017) Equation(14)
+            #logger.print("policy_ratio: ", policy_ratio)
+            #Calcola la loss function: ha anche aggiunto un termine di entropia
+            #self.log("policy ratio: ", policy_ratio,", advantage: ", advantage, writeToFile=True, debug_channel="surrogate")
+            loss = tf.reduce_mean(policy_ratio * current_batch_advantages)
+            #self.log("loss value: ", loss, writeToFile=True, debug_channel="surrogate")
+            #return -loss
+            return loss 
+
+            #1) Count steps since last rollout: if it is equal to the number of steps between two consecutive rollouts,
             #a) Collect new rollouts
             #b) theta_old is updated to the parameters of the current policy
         if self.steps_since_last_rollout == self.steps_between_rollouts:
@@ -395,6 +373,7 @@ class TRPOAgent:
         value_losses = []
         policy_losses = []
         rewards = []
+        max_reward=tf.reduce_sum(self.rollout_statistics.rewards).numpy()
         for batch in range(number_of_batches):
 
             policy_loss = 0
@@ -419,7 +398,7 @@ class TRPOAgent:
                 for i in range(len(current_batch_discounted_rewards)):
                     self.log("Computing advantage #",i," for batch #",batch, writeToFile=True, debug_channel="advantages")
                     q_value = current_batch_discounted_rewards[i]
-                    value_prediction = value_model(np.array([current_batch_observations[i]])).numpy()
+                    value_prediction = value_model(np.array([current_batch_observations[i]]))
 
                     #Predict state value (NOTICE: we use flatten() in case value prediction is a tuple)
                     advantage_value = (q_value - value_prediction).flatten()[0]
@@ -429,35 +408,8 @@ class TRPOAgent:
 
                 return np.array(advantages)
 
-            def GAE(value_model, current_batch_observations, current_batch_rewards, GAMMA, LAMBDA):
-                def discount(rewards, GAMMA):
-                    discounted_rewards = []
-                    discounted_reward=0
-                    for reward in reversed(rewards):
-                        discounted_reward = reward + self.GAMMA*discounted_reward
-                        discounted_rewards.insert(0, discounted_reward)
-                    return discounted_rewards
-                
-                discounted_rewards = []
-                advantages = []
-                  # Compute discounted rewards with a 'bootstrapped' final value.
-                rs_bootstrap = [] if current_batch_rewards == [] else current_batch_rewards + [current_batch_rewards[-1]]
-                discounted_rewards.extend(discount(rs_bootstrap, GAMMA)[:-1])
-
-                state_values = value_model(current_batch_observations).numpy().flatten()
-                self.log("State values: ", state_values, debug_channel="advantage")
-
-                # Compute advantages for each environment using Generalized Advantage Estimation;
-                # see eqn. (16) of [Schulman 2016].
-                #ValueError: operands could not be broadcast together with shapes (4096,) (4095,) 
-                #delta_t = current_batch_rewards + GAMMA*state_values[1:] - state_values[:-1]
-                delta_t = current_batch_rewards + GAMMA*state_values[1:] - state_values[:-1]
-                advantages.extend(discount(delta_t, GAMMA*LAMBDA))
-
-                return advantages
-
-            #current_batch_advantages = compute_advantages(current_batch_discounted_rewards, current_batch_observations, self.state_value)
-            current_batch_advantages = GAE(self.state_value, current_batch_observations, current_batch_rewards, self.GAMMA, self.LAMBDA)
+            current_batch_advantages = compute_advantages_vanilla(current_batch_discounted_rewards, current_batch_observations, self.state_value)
+            #current_batch_advantages = np.array(GAE(self.state_value, current_batch_observations, current_batch_rewards, self.GAMMA, self.LAMBDA))
             #Normalize advantages
             #current_batch_advantages = (current_batch_advantages - current_batch_advantages.mean())/(current_batch_advantages.std() + 1e-8)
 
@@ -466,41 +418,43 @@ class TRPOAgent:
 
             #4.4) Compute current batch policy gradient
             #args to pass to the loss function in order to get the gradient
-            args = {
-                "observation" : current_batch_observations,
-                "actions_one_hot" : current_batch_actions_one_hot,
-                "advantage" : current_batch_advantages
-            }
+#            args = {
+#                "observation" : current_batch_observations,
+#                "actions_one_hot" : current_batch_actions_one_hot,
+#                "advantage" : current_batch_advantages
+#            }
 
             #g vector
-            policy_gradient = self.policy.get_flat_gradients(self.surrogate_function, args)
+
+            #METTENDO IL SEGNO - FUNZIONA
+            policy_gradient = -self.policy.get_flat_gradients(surrogate_function).numpy()
             self.log("policy_gradient: ", policy_gradient, writeToFile=True, debug_channel="training")
 
             #4.5) Compute new policy using latest policy (update with latest batch) and old policy (the one that dates back to the latest rollout)
-            new_policy_action_probabilities = tf.nn.softmax(self.new_model(current_batch_observations, tensor=True))
+            #new_policy_action_probabilities = tf.nn.softmax(self.new_model(current_batch_observations, tensor=True))
            
             #Calcola la vecchia policy usando la vecchia rete neurale salvata
-            old_policy_action_probabilities = tf.nn.softmax(self.policy(current_batch_observations, tensor=True))
+            #old_policy_action_probabilities = tf.nn.softmax(self.policy(current_batch_observations, tensor=True))
 
             #4.6) Mean Kullback-Leibler divergence
-            mean_kl_div = mean_kl_divergence(old_policy_action_probabilities, new_policy_action_probabilities)
-            self.log("mean_kl_divergence: ", mean_kl_div, writeToFile=True, debug_channel="training")
+            #mean_kl_div = mean_kl_divergence(old_policy_action_probabilities, new_policy_action_probabilities)
+            #self.log("mean_kl_divergence: ", mean_kl_div, writeToFile=True, debug_channel="training")
             
             self.log("Initiating conjugate gradients", writeToFile=True, debug_channel="training")
             #4.7) Use conjugate gradients to efficiently compute the gradient direction
 
             #H^-1 * g
-            gradient_step_direction = self.conjugate_gradients(self.policy, policy_gradient, self.conjugate_gradients_damping, self.conjugate_gradients_iterations, args, logger=self.logger)
+            gradient_step_direction = conjugate_gradients(policy_gradient)
             self.log("gradient_step_direction: ", gradient_step_direction, writeToFile=True, debug_channel="training")
 
             #4.8) Fisher vectors product to solve the constrained optimization problem
-            fvp = self.fisher_vectors_product(self.policy,gradient_step_direction,self.conjugate_gradients_damping, args, logger=self.logger).numpy()
-            self.log("fisher_vectors_product: ", fvp, writeToFile=True, debug_channel="training")
+            #fvp = fisher_vectors_product(gradient_step_direction)
+            #self.log("fisher_vectors_product: ", fvp, writeToFile=True, debug_channel="training")
 
             #4.9) Compute the maximum gradient step
             #From spinningup OpenAi implementation
 
-            max_gradient_step = (np.sqrt(2*self.DELTA/np.dot(gradient_step_direction, fvp)+EPS)) * gradient_step_direction
+            max_gradient_step = (np.sqrt(2*self.DELTA/np.dot(gradient_step_direction,fisher_vectors_product(gradient_step_direction)))) * gradient_step_direction
             #max_gradient_step = (np.sqrt(2*self.DELTA/np.dot(gradient_step_direction,fvp.T))) * gradient_step_direction
             if np.isnan(max_gradient_step).any():
             #    self.log("NaN detected in max_gradient_step. Skippping training step to avoid NaN catastrophe!!!",debug_channel="learning")
@@ -513,7 +467,9 @@ class TRPOAgent:
             #4.10) Perform line search to find the optimal gradient step
             def linesearch():
                 theta = self.policy.get_flat_params()
-                old_loss_value = self.surrogate_function(args).numpy()
+                self.new_model.set_flat_params(theta)
+                
+                old_loss_value = surrogate_function().numpy()
                 self.log("loss_value before", old_loss_value)
 
                 for (_n_backtracks, step) in enumerate(self.backtrack_coeff**np.arange(self.backtrack_iters)):
@@ -523,18 +479,17 @@ class TRPOAgent:
                     theta_new = theta + step * max_gradient_step
                     
                     #NaN protection
-                    if np.isnan(theta_new).any():
-                        self.log("NaN detected in new parameters. Linesearch failed. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="linesearch")
-                        return False, theta, 0.0, old_loss_value
-                    else:
-                        self.new_model.set_flat_params(theta_new)
+                    #if np.isnan(theta_new).any():
+                    #    self.log("NaN detected in new parameters. Linesearch failed. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="linesearch")
+                    #    return False, theta, 0.0, old_loss_value
+                    #else:
+                    self.new_model.set_flat_params(theta_new)
 
-                    new_loss_value = self.surrogate_function(args).numpy()
+                    new_loss_value = surrogate_function().numpy()
 
-                    new_policy_action_probabilities = tf.nn.softmax(self.new_model(current_batch_observations, tensor=True))
-                    #self.log("new_policy_action_probabilities: ",new_policy_action_probabilities, writeToFile=True, debug_channel="linesearch")
-                    
-                    mean_kl_div = mean_kl_divergence(old_policy_action_probabilities,new_policy_action_probabilities).numpy()
+                    self.new_model.set_flat_params(theta_new)
+                                        
+                    mean_kl_div = get_mean_kl_divergence().numpy()
 
                     improvement = (old_loss_value - new_loss_value)
 
@@ -566,23 +521,26 @@ class TRPOAgent:
                 else: 
                     self.policy.set_flat_params(new_theta)
 
-            self.log("END OF TRAINING BATCH #", batch, debug_channel="batch_info")
-            self.log("BATCH STATS: Reward: ",current_batch_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Value loss: ", value_loss, ", linesearch_success: ", linesearch_success, ", epsilon: ", self.epsilon, debug_channel="batch_info")
+            #self.log("END OF TRAINING BATCH #", batch, debug_channel="batch_info")
+            #self.log("BATCH STATS: Reward: ",current_batch_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Value loss: ", state_val, ", linesearch_success: ", linesearch_success, ", epsilon: ", self.epsilon, debug_channel="batch_info")
         
-        #mean_reward = tf.reduce_mean(rewards).numpy()
-        if len(rewards)>0: 
-            max_reward = max(rewards)
-            mean_kl_div = tf.reduce_mean(mean_kl_divs).numpy()
-            #mean_value_loss = tf.reduce_mean(value_losses).numpy()
-            #mean_policy_loss = tf.reduce_mean(policy_losses).numpy()
-        else:
-            max_reward=-self.batch_size
-            mean_kl_div = 0.0
-            #mean_value_loss = 0.0
-            #mean_policy_loss = 0.0
-        
+            #mean_reward = tf.reduce_mean(rewards).numpy()
+            if len(current_batch_rewards)>0: 
+                if current_batch_reward > max_reward: max_reward = current_batch_reward
+                mean_kl_div = tf.reduce_mean(mean_kl_divs).numpy()
+                #mean_value_loss = tf.reduce_mean(value_losses).numpy()
+                #mean_policy_loss = tf.reduce_mean(policy_losses).numpy()
+            else:
+                max_reward=-self.batch_size
+                mean_kl_div = 0.0
+                #mean_value_loss = 0.0
+                #mean_policy_loss = 0.0
+
+
+        state_val = tf.reduce_mean(self.state_value(current_batch_observations)).numpy().flatten()
+
         self.log("END OF TRAINING STEP #", episode)
-        self.log("TRAINING STEP STATS: Max reward: ",max_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Value loss: ", value_loss, debug_channel="batch_info")
+        self.log("TRAINING STEP STATS: Max reward: ",max_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Mean state val: ", state_val, debug_channel="batch_info")
 
         self.steps_since_last_rollout += 1
         self.epsilon = self.epsilon - self.epsilon_decrease_factor
@@ -590,7 +548,7 @@ class TRPOAgent:
         return max_reward, mean_kl_div, value_loss, policy_loss
 
     #the ACT function: produces an action from the current policy
-    def act(self,observation):
+    def act(self,observation,last_action=None):
 
         #Trasforma la observation in un vettore riga [[array]]
         observation = observation[np.newaxis, :]
@@ -606,13 +564,13 @@ class TRPOAgent:
 
         exploitation_chance = np.random.uniform(0,1)
         if self.epsilon_greedy and exploitation_chance < self.epsilon:
-            if self.epsilon_greedy and np.random.uniform(0,1) < 0.8 and self.last_action!=None:
-                action = self.last_action
+            if self.epsilon_greedy and np.random.uniform(0,1) < 0.8 and last_action!=None:
+                action = last_action
             else:
             #perform a random action
                 action = np.random.randint(0,self.env.get_action_shape())
         
-        self.last_action = action
+        
 
         return action, action_probabilities
 
@@ -698,14 +656,14 @@ if __name__ == '__main__':
         #"act",
         #"training",
         "batch_info",
-        "linesearch",
+        #"linesearch",
         "learning",
         "thread_rollouts",
         #"model",
         #"utils",
-        "utils_kl",
-        "cg",
-        "GAE",
+        #"utils_kl",
+        #"cg",
+        #"GAE",
         #"surrogate",
         #"EnvironmentRegister",
         #"environment"
@@ -715,9 +673,9 @@ if __name__ == '__main__':
 
     env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
 
-    agent = TRPOAgent(env,logger,steps_per_rollout=1024,steps_between_rollouts=1, rollouts_per_sampling=16, multithreaded_rollout=True, batch_size=4096, DELTA=0.01,
-    debug_rollouts=True, debug_act=True, debug_training=True, debug_model=True, debug_learning=True)
-    
+    agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=30, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
+    #agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=1, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
+      
     #initial_time = time.time()
     #env.collect_rollouts(agent,10,1000)
     #first_time = time.time()
@@ -725,10 +683,10 @@ if __name__ == '__main__':
     #second_time = time.time()
 
     #print("Non-multithreaded: ",first_time-initial_time,", multithreaded: ",second_time-first_time)
-    agent.load_weights(5)
+    #agent.load_weights(0)
 
     #agent.training_step(0)
-    history = agent.learn(500,episodesBetweenModelBackups=5,start_from_episode=5)
+    history = agent.learn(500,episodesBetweenModelBackups=5,start_from_episode=0)
     #plt.plot(history)
     #plt.show()
         

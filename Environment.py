@@ -7,6 +7,7 @@ import threading
 from AtariWrapper import AtariWrapper
 from GenericWrapper import GenericWrapper
 import matplotlib.pyplot as plt
+import copy
 
 from Logger import Logger
 ##TODO: add a way to store the NN shape
@@ -29,7 +30,7 @@ class CustomEnvironmentRegister:
         register(
             id='MountainCarCustom-v0',
             entry_point='gym.envs.classic_control:MountainCarEnv',
-            max_episode_steps=2048,      # MountainCar-v0 uses 200
+            max_episode_steps=5000,      # MountainCar-v0 uses 200
             #reward_threshold=-110.0,
         )
         self.registeredEnvironments["MountainCar-v0"] = GenericEnvironmentInfo("MountainCarCustom-v0","classic",0.0)
@@ -111,7 +112,7 @@ class CustomEnvironmentRegister:
 RolloutTuple = namedtuple("RolloutTuple", "observation reward action action_probabilities")
 
 class Environment:
-    def __init__(self, environment_name, logger, use_custom_env_register=True, debug=False, show_preprocessed=False):
+    def __init__(self, environment_name, logger, use_custom_env_register=True, debug=False, show_preprocessed=False, same_seed=True):
         
         self.debug = debug
         self.environment_name = environment_name
@@ -121,6 +122,8 @@ class Environment:
         #if debug:
         #    self.logger.add_debug_channel("environment")
         
+        self.same_seed=same_seed
+
         if use_custom_env_register:
             self.env_register = CustomEnvironmentRegister(self.logger, debug=True)
             #Create wrapper
@@ -194,13 +197,13 @@ class Environment:
             rollout_info = []
 
             #get first observation
-            observation = self.reset()
+            old_observation = self.reset()
             done = False
             for i in range(nSteps):
                 #Compute next agentStep
-                action, action_probabilities = agent.act(observation)
+                action, action_probabilities = agent.act(old_observation)
 
-                self.log("Required action space: ", self.action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
+                #self.log("Required action space: ", self.action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
                 #Perform environment step
                 observation, reward, done, info = self.gym_wrapper.step(action)
 
@@ -209,8 +212,8 @@ class Environment:
                     self.render()
                 
                 #Save informations to info list
-                rollout_info.append(RolloutTuple(observation,reward,action,action_probabilities))
-
+                rollout_info.append(RolloutTuple(old_observation,reward,action,action_probabilities))
+                old_observation = observation
                 #Terminate prematurely if environment is DONE
                 if done:
                     break
@@ -230,9 +233,9 @@ class Environment:
         '''
         rollouts = []
         for i in range(nRollouts):
-            self.log("Rollout #"+str(i+1), writeToFile=True, debug_channel="rollouts")
+            #self.log("Rollout #"+str(i+1), writeToFile=True, debug_channel="rollouts")
             rollout, done = perform_rollout(agent, nSteps, render=render, delay=self.rendering_delay)
-            self.log("rollout: ", rollout, ", done: ", done, writeToFile=True, debug_channel="rollouts_dump")
+            #self.log("rollout: ", rollout, ", done: ", done, writeToFile=True, debug_channel="rollouts_dump")
             rollouts.append(rollout)
             
             #Terminate prematurely if environment is DONE
@@ -246,10 +249,10 @@ class Environment:
         rollouts = [[]]*nRollouts
         envs = []
         for _ in range(nRollouts):
-            if self.env_register!=None: 
-                envs.append(self.env_register.get_environment(self.environment_name)[0])
+            if self.same_seed:
+                envs.append(copy.deepcopy(self.gym_wrapper))
             else:
-                envs.append(gym.make(self.environment_name))
+                envs.append(Environment(self.environment_name, self.logger))
 
         def perform_rollout_thread(agent, nSteps, rolloutNumber, render=False, delay=0.0):
             rollout_info = []
@@ -257,12 +260,13 @@ class Environment:
 
             #get first observation
             #Necessary because of the implementation produced by my twisted mind
-            observation = envs[rolloutNumber].reset()
+            old_observation = envs[rolloutNumber].reset()
             done = False
+            last_action=None
             for i in range(nSteps):
                 #Compute next agentStep
-                action, action_probabilities = agent.act(observation)
-
+                action, action_probabilities = agent.act(old_observation,last_action)
+                last_action = action
                 #self.log("Required action space: ", envs[rolloutNumber].action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
                 #Perform environment step
                 observation, reward, done, info = envs[rolloutNumber].step(action)
@@ -272,12 +276,13 @@ class Environment:
                     self.render()
                 
                 #Save informations to info list
-                rollout_info.append(RolloutTuple(observation,reward,action,action_probabilities))
-
+                rollout_info.append(RolloutTuple(old_observation,reward,action,action_probabilities))
+                old_observation = observation
                 #Terminate prematurely if environment is DONE
                 if done:
+                    self.log("Thread number: ", rolloutNumber, " terminated because of DONE!!!", debug_channel="thread_rollouts")
                     break
-            
+                
             self.log("Thread number: ", rolloutNumber,", Steps performed: ",len(rollout_info), writeToFile=True, debug_channel="thread_rollouts")
             rollouts[rolloutNumber] = rollout_info
         
@@ -301,8 +306,11 @@ class Environment:
         #nSteps = -1 means render until done
         observation = self.reset()
         done = False
+        last_action = None
         while not done and nSteps!=0:
-            action, _ = agent.act(observation)
+            action, _ = agent.act(observation, last_action)
+            last_action = action
+            print(action)
             observation, reward, done, info = self.step(action)
             time.sleep(self.rendering_delay)
             if done: break
@@ -336,6 +344,6 @@ if __name__ == "__main__":
     env_name = "MountainCar-v0"
 
     logger = Logger(name=env_name,log_directory="TRPO_project/Testing/Environment") 
-    env = Environment(env_name,logger,use_custom_env_register=True,debug=True, show_preprocessed=False)
+    env = Environment(env_name,logger,use_custom_env_register=True,debug=True, show_preprocessed=False, same_seed=True)
     print(env.get_action_shape())
     print(env.get_observation_shape())

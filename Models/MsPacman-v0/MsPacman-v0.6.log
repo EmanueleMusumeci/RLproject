@@ -1,0 +1,40 @@
+LOGGER started at 2020-01-26 00:20:24.447419.
+Currently active debug channels:
+	rollouts
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+	utils_kl
+	cg
+	GAE
+[2020-01-26 00:20:24.786897][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-26 00:20:24.985607][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-26 00:20:25.163423][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-26 00:20:25.164171][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-26 00:20:31.583462][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 734
+
+[2020-01-26 00:20:31.583894][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-26 00:20:31.584775][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-26 00:20:31.586082][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-26 00:20:31.586829][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-26 00:20:31.588671][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 734, Batch size: 4500, Number of batches: 1
+
+[2020-01-26 00:20:31.589183][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-26 00:20:31.628119][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 734
+

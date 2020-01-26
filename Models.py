@@ -1,9 +1,4 @@
 import numpy as np
-import tensorflow as tf
-
-
-
-from tensorflow import keras as keras
 #from tensorflow.keras import layers, optimizers, losses, models
 #from tensorflow.keras.layers import Dense, Sequential
 #sets to float64 to avoid compatibility issues between numpy 
@@ -11,6 +6,9 @@ from tensorflow import keras as keras
 
 from Environment import Environment
 from Logger import Logger
+
+import tensorflow as tf
+from tensorflow import keras as keras
 
 #    #TODO:Get NN shape from CustomEnvironmentRegister
 #DONE#TODO:Use Atari preprocessing wrapper to preprocess the image
@@ -37,7 +35,13 @@ class Policy:
             self.model.add(keras.layers.Dense(64, input_shape=self.input_shape, activation="relu"))
             self.model.add(keras.layers.Dense(64, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
-            
+        else:
+            self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
+            self.model.add(keras.layers.MaxPooling2D((3, 3)))
+            self.model.add(keras.layers.Conv2D(5, (3, 3), activation='relu'))
+            self.model.add(keras.layers.MaxPooling2D((3, 3)))
+            self.model.add(keras.layers.Flatten())
+            self.model.add(keras.layers.Dense(self.output_shape))            
 
 		#crea la lista delle shape di ogni strato della rete neurale
         self.shape_list = [layer.shape.as_list() for layer in self.model.trainable_variables]
@@ -58,8 +62,11 @@ class Policy:
         
         #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
         #if tensor:
-        observation = tf.cast(observation,'float64')
+
+        if self.convolutional: #observation.astype('uint8')
+            observation = tf.cast(observation,'float64')
         #self.log("Observation.dtype: ",observation.dtype, debug_channel="model")
+        
         return self.model(observation)
         #else:
             #return self.model.predict(observation)
@@ -95,24 +102,17 @@ class Policy:
     #args is a dictionary containing all remaining arguments to be passed to the function as:
     # ({"parameter_name":parameter_value}). The function is supposed to unpack them
     def get_flat_gradients(self, function, args=None):
-        #trainable_variables = self.model.trainable_variables
-
         #create a tensorflow array out of the numpy one containing the nn parameters
         trainable_variables = self.model.trainable_variables
         #observation = tf.Variable(observation)
-        self.log("trainable variables:\n",self.model.trainable_variables, writeToFile=True, debug_channel="model")
+#        self.log("trainable variables:\n",self.model.trainable_variables, writeToFile=True, debug_channel="model")
 
         with tf.GradientTape() as t:
-            if args==None:
-                #NOTICE: if you get an error here it means that the passed function required more than one argument
-                #You need to pass them as a DICTIONARY ({"parameter_name":parameter_value}) in the args argument (see below)
-                f= function(logger=self.logger)
-            else:
-                f = function(args, logger=self.logger)
+                f= function()
         
         gradient = t.gradient(f, trainable_variables, unconnected_gradients=tf.UnconnectedGradients.ZERO) 
             #UnconnectedGradients.ZERO serve a evitare che ti restituisca None quando il gradiente è zero
-        self.log("gradient:\n",gradient, writeToFile=True, debug_channel="model")
+ #       self.log("gradient:\n",gradient, writeToFile=True, debug_channel="model")
         return tf.concat([tf.reshape(v, [-1]) for v in gradient], axis=0)
 
     def save_model_weights(self,filename):
@@ -138,7 +138,7 @@ class Value:
         self.input_shape = environment.get_observation_shape()
         self.output_shape = 1
         self.environment = environment
-        
+        self.value_lr = value_lr
         self.debug=debug
 
         #Determine if we're going to use a Convolutional NN (Image analysis required)
@@ -152,8 +152,15 @@ class Value:
             self.model.add(keras.layers.Dense(self.output_shape))
             adam = keras.optimizers.Adam(learning_rate=value_lr)
             self.model.compile(loss="mean_squared_error", optimizer=adam)
-
-        self.model.compile(loss='mse', optimizer='adam', metrics=['mse'])
+        else:
+            self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
+            self.model.add(keras.layers.MaxPooling2D((3, 3)))
+            self.model.add(keras.layers.Conv2D(5, (3, 3), activation='relu'))
+            self.model.add(keras.layers.MaxPooling2D((3, 3)))
+            self.model.add(keras.layers.Flatten())
+            self.model.add(keras.layers.Dense(self.output_shape))          
+            adam = keras.optimizers.Adam(learning_rate=value_lr)
+            self.model.compile(loss="mean_squared_error", optimizer=adam)
 
 		#crea la lista delle shape di ogni strato della rete neurale
         self.shape_list = [layer.shape.as_list() for layer in self.model.trainable_variables]
@@ -171,11 +178,21 @@ class Value:
             # (batch_size, img_height, img_width)
             if self.input_shape[2]==1:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 1)
+            if self.input_shape[2]==3:
+                observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 3)
         
+        #print("A")
+
         #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
         #if tensor:
-        if self.convolutional: observation.astype('uint8')
-        return self.model(observation)
+        if self.convolutional: #observation.astype('uint8')
+            observation = tf.cast(observation,'float64')
+
+        #print("B")
+        #print("Obs shape: ", observation.shape, ", Known shape: ", self.input_shape)
+        val = self.model(observation).numpy().flatten()
+        #print("VALUE PREDICTION: ", val)
+        return val
         #else:
             #return self.model.predict(observation)
     
@@ -207,23 +224,6 @@ class Value:
         #verifica con una assertion che il numero di parametri assegnati sia corretto
         assert assigned_parameters == self.number_of_parameters
     
-    #args is a dictionary containing the arguments the function needs
-    def get_flat_gradients(self, function, args=None):
-        #trainable_variables = self.model.trainable_variables
-
-        #create a tensorflow array out of the numpy one containing the nn parameters
-        trainable_variables = tf.Variable(self.get_flat_params())
-        self.log("trainable_variables:\nb",self.model.trainable_variables, writeToFile=True, debug_channel="model")
-
-        with tf.GradientTape() as t:
-            if args==None:
-                f = function(trainable_variables)
-            else:
-                f = function(trainable_variables,args)
-        flat_gradient = t.gradient(f, trainable_variables)
-        self.log("flat_gradient:\nb",flat_gradient, writeToFile=True, debug_channel="model")
-
-        return flat_gradient
 
     def save_model_weights(self,filename):
         self.model.save_weights(filename + ".h5")

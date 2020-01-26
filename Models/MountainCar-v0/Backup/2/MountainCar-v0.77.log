@@ -1,0 +1,3176 @@
+LOGGER started at 2020-01-25 23:37:17.159601.
+Currently active debug channels:
+	rollouts
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+	utils_kl
+	cg
+	GAE
+[2020-01-25 23:37:17.287766][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-25 23:37:17.475901][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:37:17.511303][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:37:17.512287][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:37:17.512051][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:37:17.513972][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:37:17.514030][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:37:17.522102][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:37:17.522514][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:37:17.541040][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:37:17.538360][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:37:17.561542][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:37:17.559373][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:37:17.574229][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:37:17.575184][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:37:17.619685][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:37:17.619116][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:37:17.647153][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:37:29.966604][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 691
+
+[2020-01-25 23:37:30.688486][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 764
+
+[2020-01-25 23:37:36.426504][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+
+[2020-01-25 23:37:37.046038][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 1500
+
+[2020-01-25 23:37:37.054839][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 1500
+
+[2020-01-25 23:37:37.161147][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1500
+
+[2020-01-25 23:37:37.228589][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1500
+
+[2020-01-25 23:37:37.340104][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1500
+
+[2020-01-25 23:37:37.340651][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:37:37.341357][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:37:37.341815][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:37:37.343815][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:37:37.344023][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:37:37.349941][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:37:37.350184][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:37:37.361445][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:37:37.360404][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:37:37.367379][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:37:37.369283][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:37:37.392884][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:37:37.393192][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:37:37.437954][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:37:37.439895][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:37:37.479141][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:38:11.554819][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 1500
+
+[2020-01-25 23:38:11.771918][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 1500
+
+[2020-01-25 23:38:11.813511][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1500
+
+[2020-01-25 23:38:11.827527][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1500
+
+[2020-01-25 23:38:11.863717][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 1500
+
+[2020-01-25 23:38:11.894926][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1500
+
+[2020-01-25 23:38:12.002345][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 1500
+
+[2020-01-25 23:38:12.018572][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 1500
+
+[2020-01-25 23:38:12.019100][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:38:12.019635][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:38:12.019694][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:38:12.022316][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:38:12.022472][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:38:12.032442][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:38:12.032665][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:38:12.046271][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:38:12.046581][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:38:12.058166][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:38:12.058583][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:38:12.075715][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:38:12.074629][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:38:12.111174][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:38:12.111996][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:38:12.150453][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:38:45.155236][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 1500
+
+[2020-01-25 23:38:45.830665][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 1500
+
+[2020-01-25 23:38:46.100927][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 1500
+
+[2020-01-25 23:38:46.093924][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 1500
+
+[2020-01-25 23:38:46.109863][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 1500
+
+[2020-01-25 23:38:46.173815][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 1500
+
+[2020-01-25 23:38:46.284385][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 1500
+
+[2020-01-25 23:38:46.302159][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 1500
+
+[2020-01-25 23:38:46.302678][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:38:46.303434][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:38:46.303485][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:38:46.305479][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:38:46.306035][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:38:46.312720][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:38:46.312570][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:38:46.317847][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:38:46.318659][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:38:46.330575][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:38:46.329607][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:38:46.352830][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:38:59.059922][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 1500
+
+[2020-01-25 23:38:59.927594][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 1500
+
+[2020-01-25 23:39:00.348466][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 1500
+
+[2020-01-25 23:39:00.503534][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 1500
+
+[2020-01-25 23:39:00.547424][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 1500
+
+[2020-01-25 23:39:00.566129][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 1500
+
+[2020-01-25 23:39:00.566639][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:39:00.580316][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:39:01.030991][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:39:01.041553][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:39:01.042829][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 43455, Batch size: 4500, Number of batches: 10
+
+[2020-01-25 23:39:01.043154][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:39:01.072250][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:39:04.359580][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:04.405669][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:04.448086][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:04.489719][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:04.532411][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:04.574388][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:04.619750][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:04.661190][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:04.702316][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:04.741977][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:04.862218][__main__.TRPOAgent.log][linesearch]: improvement: -0.8260886495962012
+
+[2020-01-25 23:39:04.888233][__main__.TRPOAgent.log][linesearch]: improvement: -0.5352945354528913
+
+[2020-01-25 23:39:04.912763][__main__.TRPOAgent.log][linesearch]: improvement: -0.31758149149422366
+
+[2020-01-25 23:39:04.940591][__main__.TRPOAgent.log][linesearch]: improvement: -0.19414881252748728
+
+[2020-01-25 23:39:04.964686][__main__.TRPOAgent.log][linesearch]: improvement: -0.12598451994266213
+
+[2020-01-25 23:39:04.993311][__main__.TRPOAgent.log][linesearch]: improvement: -0.07823973331693423
+
+[2020-01-25 23:39:05.017929][__main__.TRPOAgent.log][linesearch]: improvement: -0.0436964645729887
+
+[2020-01-25 23:39:05.043690][__main__.TRPOAgent.log][linesearch]: improvement: -0.023476831521250574
+
+[2020-01-25 23:39:05.068973][__main__.TRPOAgent.log][linesearch]: improvement: -0.013021808957759617
+
+[2020-01-25 23:39:05.094905][__main__.TRPOAgent.log][linesearch]: improvement: -0.008211280206609217
+
+[2020-01-25 23:39:05.095353][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.817854662724484e-07, Discarded policy loss value: -93.40717640493065
+
+[2020-01-25 23:39:05.992394][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 312.3876435674499
+
+[2020-01-25 23:39:05.997468][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:39:09.322653][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:09.365101][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:09.408065][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:09.450739][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:09.493581][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:09.535812][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:09.577348][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:09.619285][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:09.659682][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:09.700848][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:09.823355][__main__.TRPOAgent.log][linesearch]: improvement: 0.12599190375929226
+
+[2020-01-25 23:39:09.846391][__main__.TRPOAgent.log][linesearch]: improvement: 0.04550385660913214
+
+[2020-01-25 23:39:09.876168][__main__.TRPOAgent.log][linesearch]: improvement: 0.01641099822021097
+
+[2020-01-25 23:39:09.898917][__main__.TRPOAgent.log][linesearch]: improvement: 0.0015485369227103973
+
+[2020-01-25 23:39:09.928332][__main__.TRPOAgent.log][linesearch]: improvement: -0.00040254149379670423
+
+[2020-01-25 23:39:09.952710][__main__.TRPOAgent.log][linesearch]: improvement: -0.001126701307130773
+
+[2020-01-25 23:39:09.980658][__main__.TRPOAgent.log][linesearch]: improvement: -0.0019918153257849625
+
+[2020-01-25 23:39:10.007826][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021610340554278906
+
+[2020-01-25 23:39:10.031606][__main__.TRPOAgent.log][linesearch]: improvement: -0.0018381816786368077
+
+[2020-01-25 23:39:10.059632][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013584614767374603
+
+[2020-01-25 23:39:10.060084][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 4.291612427887595e-07, Discarded policy loss value: -4.873002260888874
+
+[2020-01-25 23:39:10.744210][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 288.6967316527651
+
+[2020-01-25 23:39:10.751493][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:39:14.071910][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:14.112864][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:14.153989][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:14.195575][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:14.239071][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:14.281152][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:14.324240][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:14.366129][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:14.406545][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:14.448962][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:14.572615][__main__.TRPOAgent.log][linesearch]: improvement: 0.11934277770551915
+
+[2020-01-25 23:39:14.599374][__main__.TRPOAgent.log][linesearch]: improvement: 0.07544074885991181
+
+[2020-01-25 23:39:14.625908][__main__.TRPOAgent.log][linesearch]: improvement: 0.042895018312652855
+
+[2020-01-25 23:39:14.649553][__main__.TRPOAgent.log][linesearch]: improvement: 0.022336698497173124
+
+[2020-01-25 23:39:14.678636][__main__.TRPOAgent.log][linesearch]: improvement: 0.00899619331276158
+
+[2020-01-25 23:39:14.702244][__main__.TRPOAgent.log][linesearch]: improvement: 0.0029233636037990784
+
+[2020-01-25 23:39:14.729363][__main__.TRPOAgent.log][linesearch]: improvement: -8.671752570688085e-05
+
+[2020-01-25 23:39:14.752869][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010197685636104126
+
+[2020-01-25 23:39:14.779795][__main__.TRPOAgent.log][linesearch]: improvement: -0.0009299913262874604
+
+[2020-01-25 23:39:14.804107][__main__.TRPOAgent.log][linesearch]: improvement: -0.0007414469348199226
+
+[2020-01-25 23:39:14.804572][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 3.124860664220386e-07, Discarded policy loss value: -2.2387661616727366
+
+[2020-01-25 23:39:15.548402][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 293.71520301164685
+
+[2020-01-25 23:39:15.556713][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:39:18.850063][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:18.891643][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:18.932686][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:18.974525][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:19.016528][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:19.059373][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:19.104867][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:19.147128][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:19.188369][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:19.231475][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:19.353952][__main__.TRPOAgent.log][linesearch]: improvement: -0.1051097438077302
+
+[2020-01-25 23:39:19.380456][__main__.TRPOAgent.log][linesearch]: improvement: -0.08251038611474604
+
+[2020-01-25 23:39:19.405117][__main__.TRPOAgent.log][linesearch]: improvement: -0.055317766084272524
+
+[2020-01-25 23:39:19.405609][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 2.274969996519238
+
+[2020-01-25 23:39:20.153878][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 284.6582578016137
+
+[2020-01-25 23:39:20.154299][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:39:20.167160][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:39:23.462105][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:23.504583][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:23.546546][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:23.589296][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:23.631494][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:23.678656][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:23.721901][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:23.766804][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:23.808051][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:23.851733][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:23.977678][__main__.TRPOAgent.log][linesearch]: improvement: 0.04939258902038071
+
+[2020-01-25 23:39:24.001466][__main__.TRPOAgent.log][linesearch]: improvement: 0.03267881498156344
+
+[2020-01-25 23:39:24.001905][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 0.12372895955319291
+
+[2020-01-25 23:39:24.753476][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 292.97001095017475
+
+[2020-01-25 23:39:24.753882][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:39:24.761310][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-25 23:39:28.070318][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:28.112147][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:28.154663][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:28.194857][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:28.239140][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:28.281874][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:28.324240][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:28.365497][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:28.410613][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:28.455610][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:28.573359][__main__.TRPOAgent.log][linesearch]: improvement: 0.0714257165439105
+
+[2020-01-25 23:39:28.600706][__main__.TRPOAgent.log][linesearch]: improvement: 0.03696947697295025
+
+[2020-01-25 23:39:28.628099][__main__.TRPOAgent.log][linesearch]: improvement: 0.013907340017128456
+
+[2020-01-25 23:39:28.652959][__main__.TRPOAgent.log][linesearch]: improvement: 0.004295804031791611
+
+[2020-01-25 23:39:28.682872][__main__.TRPOAgent.log][linesearch]: improvement: 0.000309782762314581
+
+[2020-01-25 23:39:28.708773][__main__.TRPOAgent.log][linesearch]: improvement: -0.00199443330449231
+
+[2020-01-25 23:39:28.736527][__main__.TRPOAgent.log][linesearch]: improvement: -0.00283377410397094
+
+[2020-01-25 23:39:28.760177][__main__.TRPOAgent.log][linesearch]: improvement: -0.003051004689011788
+
+[2020-01-25 23:39:28.783886][__main__.TRPOAgent.log][linesearch]: improvement: -0.002224308989985324
+
+[2020-01-25 23:39:28.809534][__main__.TRPOAgent.log][linesearch]: improvement: -0.0015686426598135184
+
+[2020-01-25 23:39:28.810000][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 4.952636335603404e-07, Discarded policy loss value: -0.1254863562501699
+
+[2020-01-25 23:39:29.554519][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 288.784005376034
+
+[2020-01-25 23:39:29.560329][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-25 23:39:32.880255][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:32.923579][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:32.973731][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:33.015959][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:33.061355][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:33.103009][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:33.146709][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:33.189696][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:33.230394][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:33.272702][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:33.394837][__main__.TRPOAgent.log][linesearch]: improvement: -0.22576597131861864
+
+[2020-01-25 23:39:33.421432][__main__.TRPOAgent.log][linesearch]: improvement: -0.1265308539129988
+
+[2020-01-25 23:39:33.447915][__main__.TRPOAgent.log][linesearch]: improvement: -0.06733235624466505
+
+[2020-01-25 23:39:33.448375][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 1.1005096072123195
+
+[2020-01-25 23:39:34.179366][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 286.30844165442807
+
+[2020-01-25 23:39:34.179750][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:39:34.191582][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4500
+
+[2020-01-25 23:39:37.436563][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:37.480138][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:37.527660][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:37.575490][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:37.619253][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:37.667622][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:37.710994][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:37.751922][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:37.795628][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:37.844117][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:37.964141][__main__.TRPOAgent.log][linesearch]: improvement: -0.31819641000958043
+
+[2020-01-25 23:39:37.986969][__main__.TRPOAgent.log][linesearch]: improvement: -0.19095526012478903
+
+[2020-01-25 23:39:38.014344][__main__.TRPOAgent.log][linesearch]: improvement: -0.10996897810506123
+
+[2020-01-25 23:39:38.039610][__main__.TRPOAgent.log][linesearch]: improvement: -0.06110644793689968
+
+[2020-01-25 23:39:38.067520][__main__.TRPOAgent.log][linesearch]: improvement: -0.03401425933002766
+
+[2020-01-25 23:39:38.091559][__main__.TRPOAgent.log][linesearch]: improvement: -0.019018935011976268
+
+[2020-01-25 23:39:38.118475][__main__.TRPOAgent.log][linesearch]: improvement: -0.010720923553879658
+
+[2020-01-25 23:39:38.145845][__main__.TRPOAgent.log][linesearch]: improvement: -0.006293304020935864
+
+[2020-01-25 23:39:38.170631][__main__.TRPOAgent.log][linesearch]: improvement: -0.0037456821463015544
+
+[2020-01-25 23:39:38.197363][__main__.TRPOAgent.log][linesearch]: improvement: -0.002246451939844185
+
+[2020-01-25 23:39:38.197835][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.580482361349584e-07, Discarded policy loss value: -5.449907809535208
+
+[2020-01-25 23:39:38.940365][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 290.5432670213982
+
+[2020-01-25 23:39:38.945774][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 4500
+
+[2020-01-25 23:39:42.179897][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:42.222963][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:42.265825][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:42.308196][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:42.349459][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:42.393785][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:42.435860][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:42.478150][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:42.519128][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:42.560361][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:42.692862][__main__.TRPOAgent.log][linesearch]: improvement: 0.22496128178737507
+
+[2020-01-25 23:39:42.720747][__main__.TRPOAgent.log][linesearch]: improvement: 0.11162425057238723
+
+[2020-01-25 23:39:42.745964][__main__.TRPOAgent.log][linesearch]: improvement: 0.04276782987597327
+
+[2020-01-25 23:39:42.773044][__main__.TRPOAgent.log][linesearch]: improvement: 0.01270563270271019
+
+[2020-01-25 23:39:42.773498][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 3, New policy loss value: 1.0999352542091692
+
+[2020-01-25 23:39:43.534657][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 290.78801711244796
+
+[2020-01-25 23:39:43.535068][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:39:43.547418][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 2955
+
+[2020-01-25 23:39:45.700891][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:39:45.734384][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:39:45.768387][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:39:45.804175][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:39:45.837834][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:39:45.873483][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:39:45.906965][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:39:45.938929][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:39:45.973083][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:39:46.006993][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:39:46.100767][__main__.TRPOAgent.log][linesearch]: improvement: -0.659445330124214
+
+[2020-01-25 23:39:46.122257][__main__.TRPOAgent.log][linesearch]: improvement: -0.36880820733899533
+
+[2020-01-25 23:39:46.122753][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 7.39641806089013
+
+[2020-01-25 23:39:46.615406][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 407.50775149580335
+
+[2020-01-25 23:39:46.615795][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:39:46.622581][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-25 23:39:46.622827][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:39:46.658780][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:39:46.659348][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:39:46.659292][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:39:46.660382][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:39:46.660258][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:39:46.665352][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:39:46.664324][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:39:46.673558][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:39:46.672328][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:39:46.687511][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:39:46.687172][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:39:46.703486][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:39:46.704329][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:39:46.734486][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:39:46.732424][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:39:46.763694][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:40:03.179178][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 740
+
+[2020-01-25 23:40:10.482104][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1500
+
+[2020-01-25 23:40:11.039254][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1500
+
+[2020-01-25 23:40:11.210616][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+
+[2020-01-25 23:40:11.252032][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 1500
+
+[2020-01-25 23:40:11.373988][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1500
+
+[2020-01-25 23:40:11.412306][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-25 23:40:11.466100][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 1500
+
+[2020-01-25 23:40:11.466607][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:40:11.467144][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:40:11.467208][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:40:11.469163][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:40:11.469288][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:40:11.480377][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:40:11.487927][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:40:11.478061][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:40:11.488319][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:40:11.505952][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:40:11.504317][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:40:11.534703][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:40:11.534981][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:40:11.562623][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:40:11.576481][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:40:11.560652][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:40:36.338400][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 1144
+
+[2020-01-25 23:40:38.809399][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 1345
+
+[2020-01-25 23:40:39.665973][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 1500
+
+[2020-01-25 23:40:39.668505][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 1500
+
+[2020-01-25 23:40:39.675780][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1500
+
+[2020-01-25 23:40:39.838680][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1500
+
+[2020-01-25 23:40:39.871077][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 1500
+
+[2020-01-25 23:40:39.869159][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1500
+
+[2020-01-25 23:40:39.872166][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:40:39.872864][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:40:39.872803][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:40:39.873831][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:40:39.873898][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:40:39.886671][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:40:39.885549][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:40:39.895165][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:40:39.894560][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:40:39.914950][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:40:39.914208][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:40:39.954496][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:40:39.953831][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:40:39.969358][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:40:39.967140][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:40:39.985192][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:40:59.419544][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 958
+
+[2020-01-25 23:41:01.683948][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 1158
+
+[2020-01-25 23:41:02.197322][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 1199
+
+[2020-01-25 23:41:02.931675][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 1276
+
+[2020-01-25 23:41:03.838635][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 1394
+
+[2020-01-25 23:41:03.978481][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 1500
+
+[2020-01-25 23:41:04.116472][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 1500
+
+[2020-01-25 23:41:04.126909][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 1500
+
+[2020-01-25 23:41:04.127389][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:41:04.127779][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:41:04.127825][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:41:04.129546][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:41:04.129645][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:41:04.138154][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:41:04.144554][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:41:04.137935][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:41:04.144719][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:41:04.157257][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:41:04.156500][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:41:04.174994][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:41:10.453743][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 684
+
+[2020-01-25 23:41:13.587123][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 1069
+
+[2020-01-25 23:41:14.365537][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 1098
+
+[2020-01-25 23:41:14.981834][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 1500
+
+[2020-01-25 23:41:15.015455][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 1500
+
+[2020-01-25 23:41:15.068843][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 1500
+
+[2020-01-25 23:41:15.069375][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:41:15.081479][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:41:15.483623][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:41:15.513565][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:41:15.514908][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 40565, Batch size: 4500, Number of batches: 10
+
+[2020-01-25 23:41:15.515246][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:41:15.545132][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:41:18.839147][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:18.887488][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:18.930565][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:18.972960][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:19.015802][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:19.059712][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:19.102797][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:19.142564][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:19.189553][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:19.231567][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:19.349701][__main__.TRPOAgent.log][linesearch]: improvement: -0.006059495840011919
+
+[2020-01-25 23:41:19.378233][__main__.TRPOAgent.log][linesearch]: improvement: -0.018467047333769804
+
+[2020-01-25 23:41:19.403143][__main__.TRPOAgent.log][linesearch]: improvement: -0.01511223685069335
+
+[2020-01-25 23:41:19.430365][__main__.TRPOAgent.log][linesearch]: improvement: -0.011930083746789721
+
+[2020-01-25 23:41:19.453682][__main__.TRPOAgent.log][linesearch]: improvement: -0.009555267569318626
+
+[2020-01-25 23:41:19.482015][__main__.TRPOAgent.log][linesearch]: improvement: -0.0063944794085593615
+
+[2020-01-25 23:41:19.507171][__main__.TRPOAgent.log][linesearch]: improvement: -0.0034508803600581395
+
+[2020-01-25 23:41:19.534070][__main__.TRPOAgent.log][linesearch]: improvement: -0.002965164459646452
+
+[2020-01-25 23:41:19.560296][__main__.TRPOAgent.log][linesearch]: improvement: -0.002336577214783586
+
+[2020-01-25 23:41:19.583256][__main__.TRPOAgent.log][linesearch]: improvement: -0.0015759549673863837
+
+[2020-01-25 23:41:19.583695][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 5.956959500785256e-07, Discarded policy loss value: -0.49367949049605975
+
+[2020-01-25 23:41:20.333345][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 292.78501703408864
+
+[2020-01-25 23:41:20.339106][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:41:23.664150][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:23.707848][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:23.751575][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:23.791530][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:23.834030][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:23.875646][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:23.915411][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:23.957740][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:24.002270][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:24.048077][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:24.174983][__main__.TRPOAgent.log][linesearch]: improvement: -0.19633414541752536
+
+[2020-01-25 23:41:24.201416][__main__.TRPOAgent.log][linesearch]: improvement: -0.12202663623871413
+
+[2020-01-25 23:41:24.229098][__main__.TRPOAgent.log][linesearch]: improvement: -0.06398914689114421
+
+[2020-01-25 23:41:24.252021][__main__.TRPOAgent.log][linesearch]: improvement: -0.028103241901783038
+
+[2020-01-25 23:41:24.280024][__main__.TRPOAgent.log][linesearch]: improvement: -0.010406157575493014
+
+[2020-01-25 23:41:24.305134][__main__.TRPOAgent.log][linesearch]: improvement: -0.005487625803009655
+
+[2020-01-25 23:41:24.332219][__main__.TRPOAgent.log][linesearch]: improvement: -0.0038447209151464268
+
+[2020-01-25 23:41:24.355861][__main__.TRPOAgent.log][linesearch]: improvement: -0.002744443538631236
+
+[2020-01-25 23:41:24.382229][__main__.TRPOAgent.log][linesearch]: improvement: -0.0022143326018089216
+
+[2020-01-25 23:41:24.405650][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013684539680365315
+
+[2020-01-25 23:41:24.406260][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.960235046807643e-07, Discarded policy loss value: -1.4062404079774806
+
+[2020-01-25 23:41:25.153807][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 368.051583205578
+
+[2020-01-25 23:41:25.159586][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:41:28.469960][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:28.511987][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:28.555817][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:28.599087][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:28.642274][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:28.683064][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:28.724730][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:28.770681][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:28.813290][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:28.861518][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:28.981589][__main__.TRPOAgent.log][linesearch]: improvement: 0.1546931900702022
+
+[2020-01-25 23:41:29.006982][__main__.TRPOAgent.log][linesearch]: improvement: 0.08821840633648215
+
+[2020-01-25 23:41:29.034731][__main__.TRPOAgent.log][linesearch]: improvement: 0.04596999337804775
+
+[2020-01-25 23:41:29.035170][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 3.7806113862877626
+
+[2020-01-25 23:41:29.783201][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 286.2076971923974
+
+[2020-01-25 23:41:29.783609][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:29.791401][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:41:33.051731][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:33.094667][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:33.140047][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:33.182091][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:33.226949][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:33.268306][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:33.310215][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:33.350622][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:33.398466][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:33.442645][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:33.559694][__main__.TRPOAgent.log][linesearch]: improvement: -0.2312890119382638
+
+[2020-01-25 23:41:33.586217][__main__.TRPOAgent.log][linesearch]: improvement: -0.13222033732370497
+
+[2020-01-25 23:41:33.608946][__main__.TRPOAgent.log][linesearch]: improvement: -0.07566278735391885
+
+[2020-01-25 23:41:33.609484][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 1.3167290216754117
+
+[2020-01-25 23:41:34.389013][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 361.08407119271794
+
+[2020-01-25 23:41:34.389405][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:34.397196][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:41:37.692785][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:37.735222][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:37.778037][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:37.820035][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:37.861775][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:37.902909][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:37.951255][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:37.993194][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:38.035150][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:38.083546][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:38.201543][__main__.TRPOAgent.log][linesearch]: improvement: 0.022375282993193746
+
+[2020-01-25 23:41:38.202001][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 0.1715273632222759
+
+[2020-01-25 23:41:38.953817][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 287.28802966919204
+
+[2020-01-25 23:41:38.954225][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:38.961639][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-25 23:41:42.231935][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:42.273729][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:42.316310][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:42.357573][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:42.400406][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:42.442720][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:42.486270][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:42.528616][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:42.569780][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:42.611497][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:42.737847][__main__.TRPOAgent.log][linesearch]: improvement: -0.023717708626890932
+
+[2020-01-25 23:41:42.761225][__main__.TRPOAgent.log][linesearch]: improvement: -0.01903851081236141
+
+[2020-01-25 23:41:42.761739][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 2.616559815208611
+
+[2020-01-25 23:41:43.435636][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 289.14166038931205
+
+[2020-01-25 23:41:43.435999][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:43.450023][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-25 23:41:46.685573][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:46.729402][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:46.771158][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:46.813862][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:46.854947][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:46.897823][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:46.944602][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:46.988995][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:47.035769][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:47.077577][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:47.196015][__main__.TRPOAgent.log][linesearch]: improvement: -0.034807841901395964
+
+[2020-01-25 23:41:47.196527][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 1.119958937140705
+
+[2020-01-25 23:41:47.931858][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 289.60709157362834
+
+[2020-01-25 23:41:47.932252][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:47.943929][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4500
+
+[2020-01-25 23:41:51.211019][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:51.257631][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:51.299634][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:51.340853][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:51.381882][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:51.423860][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:51.466113][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:51.509244][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:51.552538][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:51.595895][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:51.714479][__main__.TRPOAgent.log][linesearch]: improvement: 0.21310907894329234
+
+[2020-01-25 23:41:51.741114][__main__.TRPOAgent.log][linesearch]: improvement: 0.08258862874873452
+
+[2020-01-25 23:41:51.765470][__main__.TRPOAgent.log][linesearch]: improvement: 0.020417707743023872
+
+[2020-01-25 23:41:51.765920][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 2.060270082408237
+
+[2020-01-25 23:41:52.495841][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 301.53073849542056
+
+[2020-01-25 23:41:52.496231][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:41:52.507454][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 4500
+
+[2020-01-25 23:41:55.745936][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:55.787754][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:55.828675][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:55.870218][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:55.911200][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:55.953944][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:55.994060][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:56.034949][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:56.079660][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:56.122388][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:56.242242][__main__.TRPOAgent.log][linesearch]: improvement: -0.10895990415748313
+
+[2020-01-25 23:41:56.267652][__main__.TRPOAgent.log][linesearch]: improvement: -0.0590271460330829
+
+[2020-01-25 23:41:56.294646][__main__.TRPOAgent.log][linesearch]: improvement: -0.0360455412173879
+
+[2020-01-25 23:41:56.321875][__main__.TRPOAgent.log][linesearch]: improvement: -0.020045207977779533
+
+[2020-01-25 23:41:56.345454][__main__.TRPOAgent.log][linesearch]: improvement: -0.011508250402877174
+
+[2020-01-25 23:41:56.374064][__main__.TRPOAgent.log][linesearch]: improvement: -0.006825749400401371
+
+[2020-01-25 23:41:56.397000][__main__.TRPOAgent.log][linesearch]: improvement: -0.004063635831952794
+
+[2020-01-25 23:41:56.424640][__main__.TRPOAgent.log][linesearch]: improvement: -0.002365339485890683
+
+[2020-01-25 23:41:56.448237][__main__.TRPOAgent.log][linesearch]: improvement: -0.001416037610447507
+
+[2020-01-25 23:41:56.474765][__main__.TRPOAgent.log][linesearch]: improvement: -0.0008455174182810943
+
+[2020-01-25 23:41:56.475204][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.956638418075915e-07, Discarded policy loss value: -3.13276593427627
+
+[2020-01-25 23:41:57.221362][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 287.7533087849763
+
+[2020-01-25 23:41:57.222279][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 65
+
+[2020-01-25 23:41:57.286405][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:41:57.298011][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:41:57.311821][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:41:57.326808][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:41:57.340576][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:41:57.354934][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:41:57.368445][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:41:57.382892][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:41:57.396674][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:41:57.410916][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:41:57.439800][__main__.TRPOAgent.log][learning]: Episode #2
+
+[2020-01-25 23:41:57.440225][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:41:57.478732][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:41:57.479269][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:41:57.479320][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:41:57.481514][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:41:57.481764][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:41:57.489175][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:41:57.488040][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:41:57.501829][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:41:57.503465][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:41:57.522227][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:41:57.546237][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:41:57.518007][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:41:57.545117][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:41:57.558596][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:41:57.557901][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:41:57.607505][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:42:14.811285][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 739
+
+[2020-01-25 23:42:18.518468][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1050
+
+[2020-01-25 23:42:18.777087][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1208
+
+[2020-01-25 23:42:20.531060][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 1500
+
+[2020-01-25 23:42:20.574124][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+
+[2020-01-25 23:42:20.700130][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-25 23:42:20.716956][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 1500
+
+[2020-01-25 23:42:20.783334][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1500
+
+[2020-01-25 23:42:20.783857][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:42:20.784336][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:42:20.784471][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:42:20.787726][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:42:20.787973][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:42:20.794915][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:42:20.795922][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:42:20.808288][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:42:20.806954][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:42:20.822874][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:42:20.825614][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:42:20.868783][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:42:20.868363][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:42:20.883620][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:42:20.896488][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:42:20.883202][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:42:45.522355][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1500
+
+[2020-01-25 23:42:45.829285][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 1500
+
+[2020-01-25 23:42:45.887388][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 1500
+
+[2020-01-25 23:42:45.885398][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 1500
+
+[2020-01-25 23:42:46.156235][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1486
+
+[2020-01-25 23:42:46.221515][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 1500
+
+[2020-01-25 23:42:46.230401][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 1500
+
+[2020-01-25 23:42:46.245271][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1500
+
+[2020-01-25 23:42:46.245997][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:42:46.246635][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:42:46.246712][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:42:46.249289][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:42:46.248823][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:42:46.254910][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:42:46.256886][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:42:46.271314][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:42:46.271593][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:42:46.287713][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:42:46.288540][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:42:46.321630][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:42:46.322461][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:42:46.357227][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:42:46.358701][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:42:46.400646][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:42:55.379863][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 657
+
+[2020-01-25 23:42:56.178533][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 777
+
+[2020-01-25 23:42:57.072771][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 864
+
+[2020-01-25 23:42:59.407734][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 1277
+
+[2020-01-25 23:42:59.869619][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 1343
+
+[2020-01-25 23:43:00.420548][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 1500
+
+[2020-01-25 23:43:00.539052][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 1500
+
+[2020-01-25 23:43:00.547830][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 1500
+
+[2020-01-25 23:43:00.548427][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:43:00.548954][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:43:00.549018][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:43:00.550965][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:43:00.551627][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:43:00.557658][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:43:00.557992][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:43:00.572692][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:43:00.572202][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:43:00.587312][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:43:00.587503][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:43:00.603209][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:43:06.683202][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 680
+
+[2020-01-25 23:43:08.093510][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 920
+
+[2020-01-25 23:43:08.465359][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 999
+
+[2020-01-25 23:43:10.025328][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 1340
+
+[2020-01-25 23:43:10.346419][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 1500
+
+[2020-01-25 23:43:10.418601][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 1500
+
+[2020-01-25 23:43:10.419233][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:43:10.439172][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:43:10.822012][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:43:10.848659][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:43:10.849971][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 38840, Batch size: 4500, Number of batches: 9
+
+[2020-01-25 23:43:10.850307][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:43:10.877903][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:43:14.540112][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:14.585916][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:14.633445][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:14.682286][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:14.728836][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:14.775126][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:14.818248][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:14.863665][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:14.916837][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:14.961923][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:15.092503][__main__.TRPOAgent.log][linesearch]: improvement: 0.11479091379217587
+
+[2020-01-25 23:43:15.118534][__main__.TRPOAgent.log][linesearch]: improvement: 0.019872873809119618
+
+[2020-01-25 23:43:15.146950][__main__.TRPOAgent.log][linesearch]: improvement: -0.00904416254545426
+
+[2020-01-25 23:43:15.147384][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 3.400950247215866
+
+[2020-01-25 23:43:15.917135][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 292.9466689379015
+
+[2020-01-25 23:43:15.917518][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:43:15.925682][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:43:19.566312][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:19.612532][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:19.659432][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:19.702685][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:19.746865][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:19.794093][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:19.838508][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:19.886808][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:19.934951][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:19.979996][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:20.110649][__main__.TRPOAgent.log][linesearch]: improvement: -0.027539253963067
+
+[2020-01-25 23:43:20.136938][__main__.TRPOAgent.log][linesearch]: improvement: -0.01594474147792324
+
+[2020-01-25 23:43:20.166188][__main__.TRPOAgent.log][linesearch]: improvement: -0.009182183066461347
+
+[2020-01-25 23:43:20.192989][__main__.TRPOAgent.log][linesearch]: improvement: -0.004331172315756637
+
+[2020-01-25 23:43:20.217997][__main__.TRPOAgent.log][linesearch]: improvement: -0.0032430348708014645
+
+[2020-01-25 23:43:20.246526][__main__.TRPOAgent.log][linesearch]: improvement: -0.0019127410848784887
+
+[2020-01-25 23:43:20.273960][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010438847905618331
+
+[2020-01-25 23:43:20.300043][__main__.TRPOAgent.log][linesearch]: improvement: -0.0007625670647826155
+
+[2020-01-25 23:43:20.328862][__main__.TRPOAgent.log][linesearch]: improvement: -0.0005057423757472979
+
+[2020-01-25 23:43:20.354163][__main__.TRPOAgent.log][linesearch]: improvement: -0.0003094379061521213
+
+[2020-01-25 23:43:20.354781][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.553936083908714e-07, Discarded policy loss value: -1.2844722267012536
+
+[2020-01-25 23:43:21.141351][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 361.6898889806315
+
+[2020-01-25 23:43:21.147462][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:43:24.874952][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:24.918888][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:24.979624][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:25.031938][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:25.083930][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:25.128454][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:25.177167][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:25.221189][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:25.269040][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:25.317531][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:25.449939][__main__.TRPOAgent.log][linesearch]: improvement: -0.0184312233618269
+
+[2020-01-25 23:43:25.475960][__main__.TRPOAgent.log][linesearch]: improvement: -0.037968273593099955
+
+[2020-01-25 23:43:25.476441][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 2.4627266711441895
+
+[2020-01-25 23:43:26.261523][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 367.8072949265047
+
+[2020-01-25 23:43:26.261929][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:43:26.269960][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:43:29.981541][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:30.026643][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:30.073841][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:30.120515][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:30.169373][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:30.215026][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:30.261553][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:30.307787][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:30.354783][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:30.403257][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:30.531722][__main__.TRPOAgent.log][linesearch]: improvement: -0.14948162873961124
+
+[2020-01-25 23:43:30.557046][__main__.TRPOAgent.log][linesearch]: improvement: -0.10572026325052031
+
+[2020-01-25 23:43:30.583987][__main__.TRPOAgent.log][linesearch]: improvement: -0.07262396819749162
+
+[2020-01-25 23:43:30.612117][__main__.TRPOAgent.log][linesearch]: improvement: -0.04717534816194613
+
+[2020-01-25 23:43:30.636805][__main__.TRPOAgent.log][linesearch]: improvement: -0.029266210883708954
+
+[2020-01-25 23:43:30.665027][__main__.TRPOAgent.log][linesearch]: improvement: -0.01742510856801527
+
+[2020-01-25 23:43:30.691862][__main__.TRPOAgent.log][linesearch]: improvement: -0.010266457257778416
+
+[2020-01-25 23:43:30.719065][__main__.TRPOAgent.log][linesearch]: improvement: -0.006043063721321129
+
+[2020-01-25 23:43:30.747033][__main__.TRPOAgent.log][linesearch]: improvement: -0.0035730335210528708
+
+[2020-01-25 23:43:30.771775][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021293591746309737
+
+[2020-01-25 23:43:30.772218][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.168854280638367e-07, Discarded policy loss value: -2.513041878383602
+
+[2020-01-25 23:43:31.532731][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 360.7681569856402
+
+[2020-01-25 23:43:31.538419][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:43:35.167961][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:35.212801][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:35.257481][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:35.302635][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:35.348502][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:35.393339][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:35.438740][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:35.485985][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:35.530949][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:35.579102][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:35.716218][__main__.TRPOAgent.log][linesearch]: improvement: -0.11221777698224433
+
+[2020-01-25 23:43:35.741102][__main__.TRPOAgent.log][linesearch]: improvement: -0.11066708467773301
+
+[2020-01-25 23:43:35.769323][__main__.TRPOAgent.log][linesearch]: improvement: -0.07683592010583107
+
+[2020-01-25 23:43:35.795676][__main__.TRPOAgent.log][linesearch]: improvement: -0.046862513076389445
+
+[2020-01-25 23:43:35.821042][__main__.TRPOAgent.log][linesearch]: improvement: -0.029286963360865337
+
+[2020-01-25 23:43:35.850366][__main__.TRPOAgent.log][linesearch]: improvement: -0.019762016611411193
+
+[2020-01-25 23:43:35.876776][__main__.TRPOAgent.log][linesearch]: improvement: -0.013453415400879742
+
+[2020-01-25 23:43:35.903952][__main__.TRPOAgent.log][linesearch]: improvement: -0.007727431738818291
+
+[2020-01-25 23:43:35.933424][__main__.TRPOAgent.log][linesearch]: improvement: -0.00536110144626778
+
+[2020-01-25 23:43:35.962566][__main__.TRPOAgent.log][linesearch]: improvement: -0.0035202652362585907
+
+[2020-01-25 23:43:35.963026][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 1.6436115619400996e-06, Discarded policy loss value: -0.9372236677987951
+
+[2020-01-25 23:43:36.747922][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 289.5444673314298
+
+[2020-01-25 23:43:36.756171][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-25 23:43:40.463980][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:40.511006][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:40.555593][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:40.600937][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:40.647341][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:40.691590][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:40.735722][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:40.780703][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:40.827120][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:40.873158][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:41.003795][__main__.TRPOAgent.log][linesearch]: improvement: 0.02026382014131789
+
+[2020-01-25 23:43:41.030169][__main__.TRPOAgent.log][linesearch]: improvement: -0.006686673878523397
+
+[2020-01-25 23:43:41.057241][__main__.TRPOAgent.log][linesearch]: improvement: -0.021460368316663647
+
+[2020-01-25 23:43:41.084139][__main__.TRPOAgent.log][linesearch]: improvement: -0.02724672821514762
+
+[2020-01-25 23:43:41.111949][__main__.TRPOAgent.log][linesearch]: improvement: -0.021535599766297153
+
+[2020-01-25 23:43:41.138142][__main__.TRPOAgent.log][linesearch]: improvement: -0.014663191240785522
+
+[2020-01-25 23:43:41.164707][__main__.TRPOAgent.log][linesearch]: improvement: -0.009203955595629587
+
+[2020-01-25 23:43:41.191619][__main__.TRPOAgent.log][linesearch]: improvement: -0.005677295907558388
+
+[2020-01-25 23:43:41.220117][__main__.TRPOAgent.log][linesearch]: improvement: -0.003413386135333152
+
+[2020-01-25 23:43:41.246875][__main__.TRPOAgent.log][linesearch]: improvement: -0.0020225230034744968
+
+[2020-01-25 23:43:41.247359][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.558362456368687e-07, Discarded policy loss value: -2.9387514484295245
+
+[2020-01-25 23:43:42.043677][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 289.3599895968607
+
+[2020-01-25 23:43:42.052183][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-25 23:43:45.700720][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:45.743239][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:45.790404][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:45.834247][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:45.878049][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:45.923281][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:45.971578][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:46.017018][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:46.061216][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:46.105841][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:46.237305][__main__.TRPOAgent.log][linesearch]: improvement: -0.21130501611371377
+
+[2020-01-25 23:43:46.265146][__main__.TRPOAgent.log][linesearch]: improvement: -0.148159461614346
+
+[2020-01-25 23:43:46.291511][__main__.TRPOAgent.log][linesearch]: improvement: -0.08562191935867602
+
+[2020-01-25 23:43:46.320654][__main__.TRPOAgent.log][linesearch]: improvement: -0.0392554740463642
+
+[2020-01-25 23:43:46.347988][__main__.TRPOAgent.log][linesearch]: improvement: -0.01824460805064687
+
+[2020-01-25 23:43:46.375757][__main__.TRPOAgent.log][linesearch]: improvement: -0.01149532781330409
+
+[2020-01-25 23:43:46.403942][__main__.TRPOAgent.log][linesearch]: improvement: -0.006505283074266899
+
+[2020-01-25 23:43:46.431631][__main__.TRPOAgent.log][linesearch]: improvement: -0.0037307367856671547
+
+[2020-01-25 23:43:46.456526][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021605463897018673
+
+[2020-01-25 23:43:46.486895][__main__.TRPOAgent.log][linesearch]: improvement: -0.0012783603557084966
+
+[2020-01-25 23:43:46.487348][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.248744471579691e-07, Discarded policy loss value: -2.216051157543988
+
+[2020-01-25 23:43:47.271036][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 288.7761194438004
+
+[2020-01-25 23:43:47.276524][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4500
+
+[2020-01-25 23:43:50.877889][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:50.922634][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:50.969311][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:51.011293][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:51.061089][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:51.106093][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:51.151537][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:51.196122][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:51.241167][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:51.287811][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:51.420442][__main__.TRPOAgent.log][linesearch]: improvement: 0.40646158264989074
+
+[2020-01-25 23:43:51.444716][__main__.TRPOAgent.log][linesearch]: improvement: 0.09810704938308934
+
+[2020-01-25 23:43:51.445156][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 4.2639985504727616
+
+[2020-01-25 23:43:52.226242][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 362.61986799488415
+
+[2020-01-25 23:43:52.226678][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:43:52.233245][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 2840
+
+[2020-01-25 23:43:54.581594][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:43:54.614043][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:43:54.648068][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:43:54.684024][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:43:54.718575][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:43:54.752773][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:43:54.787579][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:43:54.822274][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:43:54.856194][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:43:54.890706][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:43:54.991444][__main__.TRPOAgent.log][linesearch]: improvement: -0.4114920300467806
+
+[2020-01-25 23:43:55.011961][__main__.TRPOAgent.log][linesearch]: improvement: -0.23128483234638986
+
+[2020-01-25 23:43:55.033561][__main__.TRPOAgent.log][linesearch]: improvement: -0.12245305528970452
+
+[2020-01-25 23:43:55.055613][__main__.TRPOAgent.log][linesearch]: improvement: -0.06748254690623257
+
+[2020-01-25 23:43:55.076955][__main__.TRPOAgent.log][linesearch]: improvement: -0.03804267851498122
+
+[2020-01-25 23:43:55.101428][__main__.TRPOAgent.log][linesearch]: improvement: -0.02188452275485364
+
+[2020-01-25 23:43:55.123322][__main__.TRPOAgent.log][linesearch]: improvement: -0.012812759531278584
+
+[2020-01-25 23:43:55.144343][__main__.TRPOAgent.log][linesearch]: improvement: -0.0075876939700212365
+
+[2020-01-25 23:43:55.168701][__main__.TRPOAgent.log][linesearch]: improvement: -0.004510077004162172
+
+[2020-01-25 23:43:55.189585][__main__.TRPOAgent.log][linesearch]: improvement: -0.0026632406931337282
+
+[2020-01-25 23:43:55.190021][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.818194628556855e-06, Discarded policy loss value: -1.1842485951811343
+
+[2020-01-25 23:43:55.697481][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 303.1211174964277
+
+[2020-01-25 23:43:55.703069][__main__.TRPOAgent.log][learning]: Episode #3
+
+[2020-01-25 23:43:55.703322][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:43:55.742083][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:43:55.742744][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:43:55.742628][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:43:55.746867][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:43:55.746751][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:43:55.753271][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:43:55.753414][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:43:55.765086][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:43:55.766399][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:43:55.785961][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:43:55.785081][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:43:55.803541][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:43:55.804299][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:43:55.837259][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:43:55.841104][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:43:55.883230][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:44:02.813523][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 569
+
+[2020-01-25 23:44:05.298597][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 854
+
+[2020-01-25 23:44:05.934286][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 883
+
+[2020-01-25 23:44:06.731904][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1016
+
+[2020-01-25 23:44:06.848096][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 1065
+
+[2020-01-25 23:44:08.026076][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1393
+
+[2020-01-25 23:44:08.327513][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+
+[2020-01-25 23:44:08.385474][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-25 23:44:08.386042][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:44:08.386736][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:44:08.386669][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:44:08.387861][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:44:08.387773][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:44:08.392566][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:44:08.392673][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:44:08.408459][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:44:08.410523][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:44:08.457805][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:44:08.474519][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:44:08.455976][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:44:08.485520][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:44:08.473040][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:44:08.497041][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:44:08.483421][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:44:17.491003][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 879
+
+[2020-01-25 23:44:21.658676][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1244
+
+[2020-01-25 23:44:23.518011][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1500
+
+[2020-01-25 23:44:23.523080][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 1500
+
+[2020-01-25 23:44:23.590813][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1500
+
+[2020-01-25 23:44:23.624538][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 1500
+
+[2020-01-25 23:44:23.743969][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 1500
+
+[2020-01-25 23:44:23.765531][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 1500
+
+[2020-01-25 23:44:23.766057][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:44:23.766517][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:44:23.766608][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:44:23.768318][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:44:23.768430][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:44:23.774936][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:44:23.774579][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:44:23.781561][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:44:23.779801][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:44:23.796063][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:44:23.797828][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:44:23.826437][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:44:23.826107][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:44:23.846340][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:44:23.845899][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:44:23.871933][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:44:28.877701][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 475
+
+[2020-01-25 23:44:34.402645][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 1033
+
+[2020-01-25 23:44:36.292730][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 1307
+
+[2020-01-25 23:44:36.959333][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 1354
+
+[2020-01-25 23:44:37.763418][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 1483
+
+[2020-01-25 23:44:37.816344][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 1500
+
+[2020-01-25 23:44:37.881449][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 1500
+
+[2020-01-25 23:44:37.936196][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 1500
+
+[2020-01-25 23:44:37.936766][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:44:37.937333][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:44:37.937397][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:44:37.940270][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:44:37.939962][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:44:37.948970][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:44:37.948630][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:44:37.962131][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:44:37.962801][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:44:38.001515][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:44:38.002092][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:44:38.024115][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:44:43.155550][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 644
+
+[2020-01-25 23:44:43.612934][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 679
+
+[2020-01-25 23:44:44.484769][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 899
+
+[2020-01-25 23:44:44.715656][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 925
+
+[2020-01-25 23:44:45.009956][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 1017
+
+[2020-01-25 23:44:45.487707][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 1500
+
+[2020-01-25 23:44:45.488222][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:44:45.499761][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:44:45.832208][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:44:45.859562][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:44:45.861109][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 35719, Batch size: 4500, Number of batches: 8
+
+[2020-01-25 23:44:45.861551][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:44:45.888045][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:44:49.602661][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:44:49.650862][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:44:49.695937][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:44:49.741712][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:44:49.786363][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:44:49.831950][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:44:49.878090][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:44:49.924017][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:44:49.971567][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:44:50.015652][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:44:50.145371][__main__.TRPOAgent.log][linesearch]: improvement: -0.8464509575980796
+
+[2020-01-25 23:44:50.173844][__main__.TRPOAgent.log][linesearch]: improvement: -0.42735529792591365
+
+[2020-01-25 23:44:50.200720][__main__.TRPOAgent.log][linesearch]: improvement: -0.15143281189507674
+
+[2020-01-25 23:44:50.226593][__main__.TRPOAgent.log][linesearch]: improvement: -0.0615784974854261
+
+[2020-01-25 23:44:50.227037][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 3, New policy loss value: 1.0086034062865947
+
+[2020-01-25 23:44:51.023381][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 365.798694403894
+
+[2020-01-25 23:44:51.023794][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:44:51.032936][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:44:54.683653][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:44:54.726538][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:44:54.773137][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:44:54.820462][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:44:54.869004][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:44:54.913171][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:44:54.958091][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:44:55.009072][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:44:55.055993][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:44:55.103614][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:44:55.236844][__main__.TRPOAgent.log][linesearch]: improvement: -0.10721711909220755
+
+[2020-01-25 23:44:55.262550][__main__.TRPOAgent.log][linesearch]: improvement: -0.06833058963533212
+
+[2020-01-25 23:44:55.289978][__main__.TRPOAgent.log][linesearch]: improvement: -0.04177302737109656
+
+[2020-01-25 23:44:55.316337][__main__.TRPOAgent.log][linesearch]: improvement: -0.025053582130697194
+
+[2020-01-25 23:44:55.342767][__main__.TRPOAgent.log][linesearch]: improvement: -0.015570382539435101
+
+[2020-01-25 23:44:55.371317][__main__.TRPOAgent.log][linesearch]: improvement: -0.010229243652504216
+
+[2020-01-25 23:44:55.396306][__main__.TRPOAgent.log][linesearch]: improvement: -0.006898877322682573
+
+[2020-01-25 23:44:55.424292][__main__.TRPOAgent.log][linesearch]: improvement: -0.004679011521396603
+
+[2020-01-25 23:44:55.452404][__main__.TRPOAgent.log][linesearch]: improvement: -0.0030027489463373414
+
+[2020-01-25 23:44:55.479470][__main__.TRPOAgent.log][linesearch]: improvement: -0.0019473674010530573
+
+[2020-01-25 23:44:55.480076][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.426331935767242e-07, Discarded policy loss value: -5.599594801873305
+
+[2020-01-25 23:44:56.267691][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 367.4532747071942
+
+[2020-01-25 23:44:56.273949][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:44:59.926278][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:44:59.973531][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:00.020631][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:00.066617][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:00.113038][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:00.159679][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:00.206032][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:00.252257][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:00.299408][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:00.345269][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:00.474975][__main__.TRPOAgent.log][linesearch]: improvement: -0.24939239295547072
+
+[2020-01-25 23:45:00.501772][__main__.TRPOAgent.log][linesearch]: improvement: -0.10915621895717265
+
+[2020-01-25 23:45:00.526854][__main__.TRPOAgent.log][linesearch]: improvement: -0.05088753864940404
+
+[2020-01-25 23:45:00.527303][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 0.30460151257944745
+
+[2020-01-25 23:45:01.298010][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 288.0205336896023
+
+[2020-01-25 23:45:01.298390][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:45:01.305862][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:45:04.965210][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:45:05.008738][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:05.054518][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:05.099692][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:05.146070][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:05.190208][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:05.237537][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:05.281886][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:05.330163][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:05.378393][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:05.510547][__main__.TRPOAgent.log][linesearch]: improvement: -0.08600415598093081
+
+[2020-01-25 23:45:05.538663][__main__.TRPOAgent.log][linesearch]: improvement: -0.050048018163654895
+
+[2020-01-25 23:45:05.563219][__main__.TRPOAgent.log][linesearch]: improvement: -0.02632992743885998
+
+[2020-01-25 23:45:05.563651][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 2.9633852606692064
+
+[2020-01-25 23:45:06.310363][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 363.6347271260049
+
+[2020-01-25 23:45:06.310741][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:45:06.318580][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:45:09.971378][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:45:10.016286][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:10.061234][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:10.105049][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:10.150529][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:10.199744][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:10.246227][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:10.292301][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:10.338696][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:10.384979][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:10.521319][__main__.TRPOAgent.log][linesearch]: improvement: -0.01742378387503596
+
+[2020-01-25 23:45:10.546710][__main__.TRPOAgent.log][linesearch]: improvement: -0.05969093380971113
+
+[2020-01-25 23:45:10.547195][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 4.322644650210774
+
+[2020-01-25 23:45:11.340964][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 362.809740905707
+
+[2020-01-25 23:45:11.341381][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:45:11.355367][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-25 23:45:14.997398][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:45:15.044065][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:15.088154][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:15.133276][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:15.177710][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:15.223051][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:15.268335][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:15.315601][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:15.359633][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:15.406479][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:15.534521][__main__.TRPOAgent.log][linesearch]: improvement: -0.5279412334046105
+
+[2020-01-25 23:45:15.563145][__main__.TRPOAgent.log][linesearch]: improvement: -0.3102588126142125
+
+[2020-01-25 23:45:15.590932][__main__.TRPOAgent.log][linesearch]: improvement: -0.16809860913163366
+
+[2020-01-25 23:45:15.615631][__main__.TRPOAgent.log][linesearch]: improvement: -0.07871722677225534
+
+[2020-01-25 23:45:15.642350][__main__.TRPOAgent.log][linesearch]: improvement: -0.040275456487091965
+
+[2020-01-25 23:45:15.668322][__main__.TRPOAgent.log][linesearch]: improvement: -0.023994102263166006
+
+[2020-01-25 23:45:15.696410][__main__.TRPOAgent.log][linesearch]: improvement: -0.014165453076310008
+
+[2020-01-25 23:45:15.724648][__main__.TRPOAgent.log][linesearch]: improvement: -0.008429097200597369
+
+[2020-01-25 23:45:15.749118][__main__.TRPOAgent.log][linesearch]: improvement: -0.005032550170264827
+
+[2020-01-25 23:45:15.776694][__main__.TRPOAgent.log][linesearch]: improvement: -0.003011154084012091
+
+[2020-01-25 23:45:15.777138][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.284789580917762e-07, Discarded policy loss value: -6.4641871658932235
+
+[2020-01-25 23:45:16.537130][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 287.5772188727972
+
+[2020-01-25 23:45:16.545330][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-25 23:45:20.279873][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:45:20.324886][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:20.371725][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:20.419118][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:20.469610][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:20.519575][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:20.565283][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:20.611618][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:20.659482][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:20.707691][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:20.834970][__main__.TRPOAgent.log][linesearch]: improvement: -0.2700854371428342
+
+[2020-01-25 23:45:20.864216][__main__.TRPOAgent.log][linesearch]: improvement: -0.14372470777421953
+
+[2020-01-25 23:45:20.892808][__main__.TRPOAgent.log][linesearch]: improvement: -0.08583772171591264
+
+[2020-01-25 23:45:20.893261][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 1.0566703744991648
+
+[2020-01-25 23:45:21.682079][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 362.92412325791065
+
+[2020-01-25 23:45:21.682505][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:45:21.692095][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4219
+
+[2020-01-25 23:45:25.152130][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:45:25.192625][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:45:25.235928][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:45:25.279168][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:45:25.323254][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:45:25.367580][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:45:25.414223][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:45:25.455495][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:45:25.498268][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:45:25.540247][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:45:25.667259][__main__.TRPOAgent.log][linesearch]: improvement: -0.07407598175062025
+
+[2020-01-25 23:45:25.667711][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 2.0623773757139685
+
+[2020-01-25 23:45:26.431510][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 387.4283827211615
+
+[2020-01-25 23:45:26.431915][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:45:26.440803][__main__.TRPOAgent.log][learning]: Episode #4
+
+[2020-01-25 23:45:26.441217][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:45:26.483150][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:45:26.483751][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:45:26.483902][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:45:26.487385][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:45:26.487676][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:45:26.494618][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:45:26.495020][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:45:26.518360][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:45:26.515998][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:45:26.535028][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:45:26.537103][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:45:26.565711][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:45:26.568305][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:45:26.594478][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:45:26.596693][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:45:26.664792][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:45:36.123136][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 621
+
+[2020-01-25 23:45:37.107906][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 628
+
+[2020-01-25 23:45:37.805472][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 723
+
+[2020-01-25 23:45:38.146756][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 805
+
+[2020-01-25 23:45:38.923703][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 972
+
+[2020-01-25 23:45:39.403065][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1032
+
+[2020-01-25 23:45:39.564881][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1128
+
+[2020-01-25 23:45:39.917508][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-25 23:45:39.918102][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:45:39.918741][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:45:39.918841][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:45:39.920631][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:45:39.920870][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:45:39.927414][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:45:39.927610][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:45:39.948245][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:45:39.952536][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:45:39.973844][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:45:39.974190][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:45:40.004025][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:45:40.005298][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:45:40.071306][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:45:40.072811][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:45:40.123491][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:45:50.152842][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 570
+
+[2020-01-25 23:45:51.768052][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 756
+
+[2020-01-25 23:45:53.063933][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 869
+
+[2020-01-25 23:45:53.753290][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1009
+
+[2020-01-25 23:45:54.783022][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 1224
+
+[2020-01-25 23:45:54.971102][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1153
+
+[2020-01-25 23:45:55.115236][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 1219
+
+[2020-01-25 23:45:55.222644][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1434
+
+[2020-01-25 23:45:55.223295][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:45:55.229966][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:45:55.230048][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:45:55.233703][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:45:55.232756][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:45:55.238678][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:45:55.238552][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:45:55.250291][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:45:55.250515][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:45:55.274804][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:45:55.299441][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:45:55.299763][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:45:55.273268][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:45:55.318421][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:45:55.318613][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:45:55.357496][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:46:03.037345][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 358
+
+[2020-01-25 23:46:04.561991][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 493
+
+[2020-01-25 23:46:04.740798][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 543
+
+[2020-01-25 23:46:04.946472][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 561
+
+[2020-01-25 23:46:05.547333][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 709
+
+[2020-01-25 23:46:05.715006][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 702
+
+[2020-01-25 23:46:06.040247][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 879
+
+[2020-01-25 23:46:06.640779][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 1500
+
+[2020-01-25 23:46:06.641329][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:46:06.641908][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:46:06.642004][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:46:06.643970][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:46:06.647919][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:46:06.643590][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:46:06.648311][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:46:06.659800][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:46:06.659604][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:46:06.673656][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:46:06.672817][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:46:06.695000][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:46:11.975823][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 606
+
+[2020-01-25 23:46:12.449149][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 621
+
+[2020-01-25 23:46:12.900842][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 795
+
+[2020-01-25 23:46:13.372627][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 831
+
+[2020-01-25 23:46:14.125330][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 1227
+
+[2020-01-25 23:46:14.243427][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 1320
+
+[2020-01-25 23:46:14.244039][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:46:14.251883][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:46:14.429509][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:46:14.454096][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:46:14.455714][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 26788, Batch size: 4500, Number of batches: 6
+
+[2020-01-25 23:46:14.456232][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:46:14.478084][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:46:17.772732][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:17.815720][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:17.863331][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:17.906134][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:17.948252][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:17.993337][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:18.037165][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:18.079729][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:18.121607][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:18.163832][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:18.283017][__main__.TRPOAgent.log][linesearch]: improvement: -0.04276206824167175
+
+[2020-01-25 23:46:18.311957][__main__.TRPOAgent.log][linesearch]: improvement: -0.04127342462651805
+
+[2020-01-25 23:46:18.334877][__main__.TRPOAgent.log][linesearch]: improvement: -0.030406243923143658
+
+[2020-01-25 23:46:18.361825][__main__.TRPOAgent.log][linesearch]: improvement: -0.02061316088656412
+
+[2020-01-25 23:46:18.387428][__main__.TRPOAgent.log][linesearch]: improvement: -0.013599142379357443
+
+[2020-01-25 23:46:18.415357][__main__.TRPOAgent.log][linesearch]: improvement: -0.008960651046115459
+
+[2020-01-25 23:46:18.441232][__main__.TRPOAgent.log][linesearch]: improvement: -0.005710498169318373
+
+[2020-01-25 23:46:18.464997][__main__.TRPOAgent.log][linesearch]: improvement: -0.0035420147637172106
+
+[2020-01-25 23:46:18.494204][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021785500799152147
+
+[2020-01-25 23:46:18.519702][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013384623586611688
+
+[2020-01-25 23:46:18.520205][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.012472031069182e-07, Discarded policy loss value: -0.1492430666196051
+
+[2020-01-25 23:46:19.275051][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 363.7684202257098
+
+[2020-01-25 23:46:19.284162][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:46:22.609950][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:22.652300][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:22.695446][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:22.737890][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:22.782782][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:22.840334][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:22.882793][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:22.924359][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:22.965362][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:23.011779][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:23.140101][__main__.TRPOAgent.log][linesearch]: improvement: -0.1783200224576742
+
+[2020-01-25 23:46:23.164830][__main__.TRPOAgent.log][linesearch]: improvement: -0.10291466813293582
+
+[2020-01-25 23:46:23.165268][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 8.301293471740404
+
+[2020-01-25 23:46:23.852736][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 537.6577817604826
+
+[2020-01-25 23:46:23.853110][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:46:23.859901][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:46:27.199352][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:27.242143][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:27.285677][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:27.326931][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:27.371090][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:27.415895][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:27.459957][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:27.501663][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:27.543544][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:27.585299][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:27.707911][__main__.TRPOAgent.log][linesearch]: improvement: -0.20652036824995168
+
+[2020-01-25 23:46:27.732755][__main__.TRPOAgent.log][linesearch]: improvement: -0.11282284343061733
+
+[2020-01-25 23:46:27.760550][__main__.TRPOAgent.log][linesearch]: improvement: -0.06550316870433726
+
+[2020-01-25 23:46:27.785478][__main__.TRPOAgent.log][linesearch]: improvement: -0.039566086742599094
+
+[2020-01-25 23:46:27.812992][__main__.TRPOAgent.log][linesearch]: improvement: -0.022829808757732994
+
+[2020-01-25 23:46:27.837522][__main__.TRPOAgent.log][linesearch]: improvement: -0.01303500812645364
+
+[2020-01-25 23:46:27.864765][__main__.TRPOAgent.log][linesearch]: improvement: -0.007618850119904597
+
+[2020-01-25 23:46:27.887967][__main__.TRPOAgent.log][linesearch]: improvement: -0.004509283854029267
+
+[2020-01-25 23:46:27.914928][__main__.TRPOAgent.log][linesearch]: improvement: -0.0026900607085384998
+
+[2020-01-25 23:46:27.939262][__main__.TRPOAgent.log][linesearch]: improvement: -0.0016248269013496852
+
+[2020-01-25 23:46:27.939706][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.340003319003128e-07, Discarded policy loss value: -2.388698307485744
+
+[2020-01-25 23:46:28.683143][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 362.88414019243993
+
+[2020-01-25 23:46:28.688968][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:46:31.989549][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:32.031975][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:32.075236][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:32.117229][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:32.161564][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:32.203484][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:32.245954][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:32.288559][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:32.331072][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:32.374631][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:32.495286][__main__.TRPOAgent.log][linesearch]: improvement: -0.2460696010848622
+
+[2020-01-25 23:46:32.520774][__main__.TRPOAgent.log][linesearch]: improvement: -0.13880375664656341
+
+[2020-01-25 23:46:32.521226][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 2.4756302452666765
+
+[2020-01-25 23:46:33.268859][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 432.5156793019811
+
+[2020-01-25 23:46:33.269263][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:46:33.280831][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:46:36.571269][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:36.613766][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:36.657625][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:36.699095][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:36.741651][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:36.784569][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:36.826100][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:36.871485][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:36.920952][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:36.974213][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:37.101841][__main__.TRPOAgent.log][linesearch]: improvement: 0.1625117716644049
+
+[2020-01-25 23:46:37.128379][__main__.TRPOAgent.log][linesearch]: improvement: 0.07947994743459197
+
+[2020-01-25 23:46:37.154098][__main__.TRPOAgent.log][linesearch]: improvement: 0.013239033382858922
+
+[2020-01-25 23:46:37.182303][__main__.TRPOAgent.log][linesearch]: improvement: -0.0306277920093736
+
+[2020-01-25 23:46:37.182755][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 3, New policy loss value: 1.9724196193772356
+
+[2020-01-25 23:46:37.929641][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 429.6793958385249
+
+[2020-01-25 23:46:37.930044][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:46:37.937396][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4288
+
+[2020-01-25 23:46:41.051456][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:46:41.089881][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:46:41.131390][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:46:41.171591][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:46:41.212199][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:46:41.252397][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:46:41.292937][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:46:41.333467][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:46:41.375148][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:46:41.418896][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:46:41.532874][__main__.TRPOAgent.log][linesearch]: improvement: -0.22974198293125703
+
+[2020-01-25 23:46:41.562302][__main__.TRPOAgent.log][linesearch]: improvement: -0.1404920817955535
+
+[2020-01-25 23:46:41.585877][__main__.TRPOAgent.log][linesearch]: improvement: -0.0840962906911975
+
+[2020-01-25 23:46:41.611738][__main__.TRPOAgent.log][linesearch]: improvement: -0.0497845368957095
+
+[2020-01-25 23:46:41.635719][__main__.TRPOAgent.log][linesearch]: improvement: -0.02960514967270056
+
+[2020-01-25 23:46:41.661648][__main__.TRPOAgent.log][linesearch]: improvement: -0.017558937495921523
+
+[2020-01-25 23:46:41.684188][__main__.TRPOAgent.log][linesearch]: improvement: -0.010862682008563773
+
+[2020-01-25 23:46:41.709545][__main__.TRPOAgent.log][linesearch]: improvement: -0.006971523995192186
+
+[2020-01-25 23:46:41.734846][__main__.TRPOAgent.log][linesearch]: improvement: -0.004351090462629603
+
+[2020-01-25 23:46:41.757199][__main__.TRPOAgent.log][linesearch]: improvement: -0.002703466443595648
+
+[2020-01-25 23:46:41.757644][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.562996271519795e-07, Discarded policy loss value: -2.2644454170231763
+
+[2020-01-25 23:46:42.516865][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 448.3108198939749
+
+[2020-01-25 23:46:42.522484][__main__.TRPOAgent.log][learning]: Episode #5
+
+[2020-01-25 23:46:42.522730][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:46:42.558744][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:46:42.559493][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:46:42.559689][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:46:42.563656][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:46:42.562746][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:46:42.568849][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:46:42.568980][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:46:42.584009][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:46:42.586078][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:46:42.599612][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:46:42.605006][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:46:42.623232][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:46:42.624859][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:46:42.651511][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:46:42.652543][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:46:42.689822][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:46:55.796896][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 637
+
+[2020-01-25 23:46:55.940067][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 606
+
+[2020-01-25 23:46:56.246196][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 659
+
+[2020-01-25 23:46:57.043273][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 733
+
+[2020-01-25 23:46:57.510495][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 882
+
+[2020-01-25 23:46:57.811873][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 867
+
+[2020-01-25 23:46:58.027939][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1013
+
+[2020-01-25 23:46:58.487880][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-25 23:46:58.488513][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-25 23:46:58.489218][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-25 23:46:58.489152][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-25 23:46:58.490411][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-25 23:46:58.490320][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-25 23:46:58.494404][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-25 23:46:58.494292][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-25 23:46:58.504777][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-25 23:46:58.504432][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-25 23:46:58.511171][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-25 23:46:58.510761][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-25 23:46:58.524898][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-25 23:46:58.524723][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-25 23:46:58.548587][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-25 23:46:58.548108][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-25 23:46:58.583853][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-25 23:47:06.278819][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 382
+
+[2020-01-25 23:47:07.806607][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 509
+
+[2020-01-25 23:47:09.330588][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 714
+
+[2020-01-25 23:47:10.475485][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 902
+
+[2020-01-25 23:47:10.490748][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 834
+
+[2020-01-25 23:47:11.054577][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 980
+
+[2020-01-25 23:47:11.421223][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 1167
+
+[2020-01-25 23:47:11.532530][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 1223
+
+[2020-01-25 23:47:11.533319][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-25 23:47:11.533935][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-25 23:47:11.534019][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-25 23:47:11.537442][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-25 23:47:11.537623][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-25 23:47:11.544383][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-25 23:47:11.545056][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-25 23:47:11.557368][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-25 23:47:11.557749][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-25 23:47:11.586220][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-25 23:47:11.585540][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-25 23:47:11.619449][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-25 23:47:11.619017][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-25 23:47:11.652318][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-25 23:47:11.651278][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-25 23:47:11.695379][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-25 23:47:16.940832][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 398
+
+[2020-01-25 23:47:17.908210][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 474
+
+[2020-01-25 23:47:19.666034][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 704
+
+[2020-01-25 23:47:20.046037][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 750
+
+[2020-01-25 23:47:20.471178][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 801
+
+[2020-01-25 23:47:21.498180][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 1027
+
+[2020-01-25 23:47:21.635625][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 1058
+
+[2020-01-25 23:47:22.049566][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 1492
+
+[2020-01-25 23:47:22.050163][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-25 23:47:22.056727][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-25 23:47:22.056823][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-25 23:47:22.060184][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-25 23:47:22.059914][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-25 23:47:22.064661][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-25 23:47:22.064389][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-25 23:47:22.071788][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-25 23:47:22.073838][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-25 23:47:22.090402][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-25 23:47:22.091899][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-25 23:47:22.117505][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-25 23:47:27.735248][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 666
+
+[2020-01-25 23:47:27.998864][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 701
+
+[2020-01-25 23:47:28.752861][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 931
+
+[2020-01-25 23:47:28.756351][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 821
+
+[2020-01-25 23:47:28.879445][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 861
+
+[2020-01-25 23:47:29.021168][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 875
+
+[2020-01-25 23:47:29.021784][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-25 23:47:29.028579][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-25 23:47:29.185144][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-25 23:47:29.205009][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-25 23:47:29.206852][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 25167, Batch size: 4500, Number of batches: 6
+
+[2020-01-25 23:47:29.207382][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-25 23:47:29.228655][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-25 23:47:33.463012][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:33.505533][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:33.547093][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:33.590216][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:33.631362][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:33.674986][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:33.716546][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:33.762157][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:33.807347][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:33.850279][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:33.979347][__main__.TRPOAgent.log][linesearch]: improvement: -0.12153461104511515
+
+[2020-01-25 23:47:33.979794][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 0.5579348525916746
+
+[2020-01-25 23:47:34.668098][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 427.6715228015769
+
+[2020-01-25 23:47:34.668503][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:47:34.675284][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-25 23:47:38.152567][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:38.199421][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:38.247693][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:38.292818][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:38.337805][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:38.385064][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:38.428738][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:38.473585][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:38.517859][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:38.560204][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:38.684828][__main__.TRPOAgent.log][linesearch]: improvement: -0.08554478117931497
+
+[2020-01-25 23:47:38.710165][__main__.TRPOAgent.log][linesearch]: improvement: -0.06719441925365133
+
+[2020-01-25 23:47:38.710672][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 0.8549389161504102
+
+[2020-01-25 23:47:39.477196][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 460.9031226167119
+
+[2020-01-25 23:47:39.477606][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-25 23:47:39.485086][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-25 23:47:42.911004][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:42.954531][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:42.995419][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:43.039587][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:43.080873][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:43.122410][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:43.164171][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:43.206434][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:43.250399][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:43.293830][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:43.417764][__main__.TRPOAgent.log][linesearch]: improvement: -0.3801076163719813
+
+[2020-01-25 23:47:43.441761][__main__.TRPOAgent.log][linesearch]: improvement: -0.21800215988340987
+
+[2020-01-25 23:47:43.468833][__main__.TRPOAgent.log][linesearch]: improvement: -0.12680352107674953
+
+[2020-01-25 23:47:43.494214][__main__.TRPOAgent.log][linesearch]: improvement: -0.07451219469792925
+
+[2020-01-25 23:47:43.517887][__main__.TRPOAgent.log][linesearch]: improvement: -0.04397325127804508
+
+[2020-01-25 23:47:43.545515][__main__.TRPOAgent.log][linesearch]: improvement: -0.026242264154933137
+
+[2020-01-25 23:47:43.569254][__main__.TRPOAgent.log][linesearch]: improvement: -0.015606056217547959
+
+[2020-01-25 23:47:43.596935][__main__.TRPOAgent.log][linesearch]: improvement: -0.00932438038152883
+
+[2020-01-25 23:47:43.621166][__main__.TRPOAgent.log][linesearch]: improvement: -0.005564682437984025
+
+[2020-01-25 23:47:43.649837][__main__.TRPOAgent.log][linesearch]: improvement: -0.0033295958756589528
+
+[2020-01-25 23:47:43.650284][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.875841734300927e-07, Discarded policy loss value: -1.294682845002334
+
+[2020-01-25 23:47:44.397286][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 463.2661165687592
+
+[2020-01-25 23:47:44.402691][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-25 23:47:48.095348][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:48.136712][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:48.182558][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:48.227708][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:48.271961][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:48.314758][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:48.357082][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:48.399216][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:48.440760][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:48.482266][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:48.601914][__main__.TRPOAgent.log][linesearch]: improvement: 0.002844623107905342
+
+[2020-01-25 23:47:48.625594][__main__.TRPOAgent.log][linesearch]: improvement: -0.018727333478948616
+
+[2020-01-25 23:47:48.651528][__main__.TRPOAgent.log][linesearch]: improvement: -0.023372162961715848
+
+[2020-01-25 23:47:48.677497][__main__.TRPOAgent.log][linesearch]: improvement: -0.024442202656394407
+
+[2020-01-25 23:47:48.704698][__main__.TRPOAgent.log][linesearch]: improvement: -0.01995018781724278
+
+[2020-01-25 23:47:48.732330][__main__.TRPOAgent.log][linesearch]: improvement: -0.013890208339889298
+
+[2020-01-25 23:47:48.756944][__main__.TRPOAgent.log][linesearch]: improvement: -0.009293429169042966
+
+[2020-01-25 23:47:48.783354][__main__.TRPOAgent.log][linesearch]: improvement: -0.005911598336156398
+
+[2020-01-25 23:47:48.808344][__main__.TRPOAgent.log][linesearch]: improvement: -0.0036537492986483677
+
+[2020-01-25 23:47:48.835328][__main__.TRPOAgent.log][linesearch]: improvement: -0.0022057136236934838
+
+[2020-01-25 23:47:48.835772][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.279951466853796e-07, Discarded policy loss value: -2.6275634299651336
+
+[2020-01-25 23:47:49.585383][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 426.86743698455695
+
+[2020-01-25 23:47:49.590864][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-25 23:47:53.204019][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:53.248278][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:53.291183][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:53.334192][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:53.377864][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:53.420111][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:53.462828][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:53.507446][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:53.548422][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:53.590826][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:53.712046][__main__.TRPOAgent.log][linesearch]: improvement: -0.19108418400662464
+
+[2020-01-25 23:47:53.737818][__main__.TRPOAgent.log][linesearch]: improvement: -0.12313514053991315
+
+[2020-01-25 23:47:53.763022][__main__.TRPOAgent.log][linesearch]: improvement: -0.07481952244105239
+
+[2020-01-25 23:47:53.788466][__main__.TRPOAgent.log][linesearch]: improvement: -0.04598074729889623
+
+[2020-01-25 23:47:53.813272][__main__.TRPOAgent.log][linesearch]: improvement: -0.028590587031767756
+
+[2020-01-25 23:47:53.839328][__main__.TRPOAgent.log][linesearch]: improvement: -0.0181572728643431
+
+[2020-01-25 23:47:53.867508][__main__.TRPOAgent.log][linesearch]: improvement: -0.011134150926730424
+
+[2020-01-25 23:47:53.893017][__main__.TRPOAgent.log][linesearch]: improvement: -0.006612424211337231
+
+[2020-01-25 23:47:53.919773][__main__.TRPOAgent.log][linesearch]: improvement: -0.004138128211858327
+
+[2020-01-25 23:47:53.949139][__main__.TRPOAgent.log][linesearch]: improvement: -0.0025735853564460287
+
+[2020-01-25 23:47:53.949589][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.919438561256806e-07, Discarded policy loss value: -0.7997338869907501
+
+[2020-01-25 23:47:54.773940][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 489.37816814416965
+
+[2020-01-25 23:47:54.778274][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 2667
+
+[2020-01-25 23:47:57.077805][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 0
+
+[2020-01-25 23:47:57.108515][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 1
+
+[2020-01-25 23:47:57.140755][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 2
+
+[2020-01-25 23:47:57.172775][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 3
+
+[2020-01-25 23:47:57.206203][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 4
+
+[2020-01-25 23:47:57.237294][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 5
+
+[2020-01-25 23:47:57.269381][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 6
+
+[2020-01-25 23:47:57.300928][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 7
+
+[2020-01-25 23:47:57.338315][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 8
+
+[2020-01-25 23:47:57.372003][__main__.TRPOAgent.log][cg]: Conjugate gradients iteration: 9
+
+[2020-01-25 23:47:57.468855][__main__.TRPOAgent.log][linesearch]: improvement: -0.15319505734273764
+
+[2020-01-25 23:47:57.491694][__main__.TRPOAgent.log][linesearch]: improvement: -0.09419292781071942
+
+[2020-01-25 23:47:57.514346][__main__.TRPOAgent.log][linesearch]: improvement: -0.058111941436610026
+
+[2020-01-25 23:47:57.535449][__main__.TRPOAgent.log][linesearch]: improvement: -0.04002594504471935
+
+[2020-01-25 23:47:57.554505][__main__.TRPOAgent.log][linesearch]: improvement: -0.027969449832151216
+
+[2020-01-25 23:47:57.574623][__main__.TRPOAgent.log][linesearch]: improvement: -0.017047362667401034
+
+[2020-01-25 23:47:57.597774][__main__.TRPOAgent.log][linesearch]: improvement: -0.010077147062782954
+
+[2020-01-25 23:47:57.618126][__main__.TRPOAgent.log][linesearch]: improvement: -0.006100993553620704
+
+[2020-01-25 23:47:57.639543][__main__.TRPOAgent.log][linesearch]: improvement: -0.003980939542131301
+
+[2020-01-25 23:47:57.659665][__main__.TRPOAgent.log][linesearch]: improvement: -0.0024660732190955326
+
+[2020-01-25 23:47:57.660104][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.869057433964672e-07, Discarded policy loss value: -1.3124656274261235
+
+[2020-01-25 23:47:58.135007][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 436.52614044282325
+
+[2020-01-25 23:47:58.152096][__main__.TRPOAgent.log][learning]: Episode #6
+
+[2020-01-25 23:47:58.152517][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-25 23:47:58.196532][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-25 23:47:58.197278][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-25 23:47:58.197113][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-25 23:47:58.200552][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-25 23:47:58.200796][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-25 23:47:58.208407][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-25 23:47:58.208831][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-25 23:47:58.233302][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-25 23:47:58.233868][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-25 23:47:58.254494][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-25 23:47:58.264017][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-25 23:47:58.301052][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-25 23:47:58.299245][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-25 23:47:58.332912][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-25 23:47:58.369162][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-25 23:47:58.331612][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-25 23:48:06.958397][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 647
+
+[2020-01-25 23:48:07.766575][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 655
+
+[2020-01-25 23:48:08.947473][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 874
+
+[2020-01-25 23:48:12.104088][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1296
+
+[2020-01-25 23:48:12.105136][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1322
+
+[2020-01-25 23:48:12.737326][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1430
+
+[2020-01-25 23:48:12.822047][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1500
+
+[2020-01-25 23:48:12.867241][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 1500
+
