@@ -1,0 +1,49 @@
+LOGGER started at 2020-01-27 17:56:26.348805.
+Currently active debug channels:
+	rollouts
+	act
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-27 17:56:26.507164][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-27 17:56:26.757056][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-27 17:56:26.772940][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-27 17:56:26.773655][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-27 17:56:26.773732][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-27 17:56:26.778761][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-27 17:56:30.823428][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1500
+
+[2020-01-27 17:56:30.831491][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+
+[2020-01-27 17:56:30.838718][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-27 17:56:30.839323][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-27 17:56:30.839419][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-27 17:56:30.841310][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-27 17:56:34.350114][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 1500
+
+[2020-01-27 17:56:34.353286][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 1500
+
+[2020-01-27 17:56:34.353742][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-27 17:56:34.354247][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-27 17:56:34.354295][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-27 17:56:34.356440][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-27 17:56:38.257025][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1500
+
+[2020-01-27 17:56:38.397883][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 1500
+

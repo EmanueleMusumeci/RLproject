@@ -13,7 +13,7 @@ if __name__ == '__main__':
     
     tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     
-    env_name = "MountainCar-v0"
+    env_name = "CartPole-v0"
     
     channels = [
         #"rollouts",
@@ -38,8 +38,14 @@ if __name__ == '__main__':
 
     env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
 
-    agent = TRPOAgent(env,None,steps_per_rollout=512,steps_between_rollouts=1, rollouts_per_sampling=8, multithreaded_rollout=True, batch_size=512, DELTA=0.01,
-    debug_rollouts=True, debug_act=True, debug_training=True, debug_model=True, debug_learning=True)
+    starting_episode = 100
+    EPSILON = 0.4
+    EPSILON_DECAY = 0.005
+
+    #Apply epsilon greediness
+    epsilon = EPSILON-starting_episode * EPSILON_DECAY
+    agent = TRPOAgent(env,None,steps_per_rollout=512,steps_between_rollouts=1, rollouts_per_sampling=8, multithreaded_rollout=True, batch_size=512, DELTA=0.01, epsilon=EPSILON, epsilon_greedy=False)
+    #agent = TRPOAgent(env,None,steps_per_rollout=512,steps_between_rollouts=1, rollouts_per_sampling=8, multithreaded_rollout=True, batch_size=512, DELTA=0.01)
     
     #initial_time = time.time()
     #env.collect_rollouts(agent,10,1000)
@@ -54,6 +60,6 @@ if __name__ == '__main__':
     #plt.plot(history)
     #plt.show()
         
-    agent.load_weights(10)
+    agent.load_weights(starting_episode)
 
     env.render_agent(agent)

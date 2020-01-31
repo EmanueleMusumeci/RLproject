@@ -18,8 +18,14 @@ from Logger import Logger
 #Named tuple used to store useful info about the custom environment being registered
 GenericEnvironmentInfo = namedtuple("EnvironmentInfo","custom_id type render_delay")
 AtariEnvironmentInfo = namedtuple("EnvironmentInfo","custom_id type render_delay frame_skip screen_width screen_height crop_height_factor crop_width_factor preprocess")
+
+
 class CustomEnvironmentRegister:
+
+    custom_environment_register_singleton = None
+
     def __init__(self, logger, debug=False):
+        CustomEnvironmentRegister.custom_environment_register_singleton = self
         self.registeredEnvironments = {}
         
         #assert(logger!=None), "You need to create a logger first"
@@ -51,7 +57,7 @@ class CustomEnvironmentRegister:
 
         #
         self.registeredEnvironments["MsPacmanPreprocessed-v0"] = AtariEnvironmentInfo("MsPacman-v0","atari",
-        0.05,
+        0.005,
         1,
         88,
         88,
@@ -93,15 +99,14 @@ class CustomEnvironmentRegister:
         #Implement uploading environment from path
         return
 
-    def get_environment(self, env_name):
+    def get_environment_info(self, env_name):
         #Check if we have registered a custom version
         if env_name in self.registeredEnvironments.keys():
-            env = gym.make(self.registeredEnvironments[env_name].custom_id)
             env_info = self.registeredEnvironments[env_name]
         
-            return env, env_info
+            return env_info
         else:
-            return gym.make(env_name), None
+            return None
 
     def log(self, *strings, writeToFile=False, debug_channel="Generic"):
         if self.logger!=None:
@@ -115,7 +120,6 @@ class Environment:
     def __init__(self, environment_name, logger, use_custom_env_register=True, debug=False, show_preprocessed=False, same_seed=True):
         
         self.debug = debug
-        self.environment_name = environment_name
 
         #assert(logger!=None), "You need to create a logger first"
         self.logger = logger
@@ -125,34 +129,37 @@ class Environment:
         self.same_seed=same_seed
 
         if use_custom_env_register:
-            self.env_register = CustomEnvironmentRegister(self.logger, debug=True)
+            if CustomEnvironmentRegister.custom_environment_register_singleton==None:
+                self.env_register = CustomEnvironmentRegister(self.logger, debug=True)
+            else:
+                self.env_register = CustomEnvironmentRegister.custom_environment_register_singleton
             #Create wrapper
             self.log("Using custom environment register", writeToFile=True, debug_channel="environment")
-            env, env_info = self.env_register.get_environment(environment_name)
-            self.observation_space = env.observation_space
-            self.action_space = env.action_space
+            env_info = self.env_register.get_environment_info(environment_name)
+            
             self.show_preprocessed = show_preprocessed
+            self.gym_wrapper=None
             if env_info!=None:
                 self.log("Environment info: ",env_info, writeToFile=True, debug_channel="environment")
+                self.environment_name = env_info.custom_id
+
                 self.type = env_info.type
                 self.rendering_delay = env_info.render_delay
                 
-                if(self.type == "atari"):
+                if self.type == "atari":
                     self.frame_skip = env_info.frame_skip
                     self.screen_width = env_info.screen_width
                     self.screen_height = env_info.screen_height
 
                     self.preprocess = env_info.preprocess
                     if self.preprocess:
-                        self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
+                        self.gym_wrapper = AtariWrapper(self.environment_name, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
                         #Set the right observation space (if the image is preprocessed it will be grayscale, therefore will only have 1 channel)
-                        self.observation_space = self.gym_wrapper.preprocessed_shape()
                     else:
-                        self.gym_wrapper = AtariWrapper(env, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
-                        #Set the right observation space (if the image is not preprocessed it will have 3 channels)
-                        self.observation_space = env.observation_space                    
+                        self.gym_wrapper = AtariWrapper(self.environment_name, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
+                        #Set the right observation space (if the image is not preprocessed it will have 3 channels)           
                 else:
-                    self.gym_wrapper=GenericWrapper(env)
+                    self.gym_wrapper=GenericWrapper(self.environment_name)
                     self.preprocess = False
 
         if not use_custom_env_register or env_info==None:
@@ -161,10 +168,12 @@ class Environment:
             self.rendering_delay = 0.0
             self.preprocess = False
 
-            env = gym.make(environment_name)
             self.environment_name = environment_name
-            self.gym_wrapper = GenericWrapper(env)
+            self.gym_wrapper = GenericWrapper(self.environment_name)
 
+        self.observation_space = self.gym_wrapper.get_observation_space()
+        self.action_space = self.gym_wrapper.get_action_space()
+        self.gym_wrapper.env.seed(0)
         self.log("self.observation_space: ", self.observation_space, writeToFile=True, debug_channel="environment")
 
     def __del__(self):
@@ -249,10 +258,11 @@ class Environment:
         rollouts = [[]]*nRollouts
         envs = []
         for _ in range(nRollouts):
+            env = self.gym_wrapper.clone()
             if self.same_seed:
-                envs.append(copy.deepcopy(self.gym_wrapper))
-            else:
-                envs.append(Environment(self.environment_name, self.logger))
+                env.seed(0)
+            
+            envs.append(env)
 
         def perform_rollout_thread(agent, nSteps, rolloutNumber, render=False, delay=0.0):
             rollout_info = []
@@ -307,7 +317,7 @@ class Environment:
         envs = []
         for _ in range(nRollouts):
             if self.same_seed:
-                envs.append(copy.deepcopy(self.gym_wrapper))
+                envs.append(copy.deepcopy(self.gym_wrapper.env))
             else:
                 envs.append(Environment(self.environment_name, self.logger))
 
@@ -318,14 +328,13 @@ class Environment:
             #get first observation
             #Necessary because of the implementation produced by my twisted mind
             done = False
-            last_action=None
             while not done:
                 rollout_info = []
                 old_observation = envs[rolloutNumber].reset()
+                last_action=None
                 for i in range(nSteps):
                     #Compute next agentStep
                     action, action_probabilities = agent.act(old_observation,last_action)
-                    last_action = action
                     #self.log("Required action space: ", envs[rolloutNumber].action_space, ", Provided action space: ", len(action_probabilities), writeToFile=True, debug_channel="environment")
                     #Perform environment step
                     observation, reward, done, info = envs[rolloutNumber].step(action)
@@ -336,6 +345,7 @@ class Environment:
                     
                     #Save informations to info list
                     rollout_info.append(RolloutTuple(old_observation,reward,action,action_probabilities))
+                    last_action = action
                     old_observation = observation
                     #Terminate prematurely if environment is DONE
                     if done:
@@ -383,7 +393,7 @@ class Environment:
             self.log("preprocessed_shape: ", self.observation_space, writeToFile=True, debug_channel="environment")
             return self.gym_wrapper.preprocessed_shape()
         else:
-            return self.observation_space.shape
+            return self.gym_wrapper.env.observation_space.shape
 
     def get_action_shape(self):
         return self.action_space.n

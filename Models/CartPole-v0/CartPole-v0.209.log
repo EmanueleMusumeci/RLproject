@@ -1,0 +1,322 @@
+LOGGER started at 2020-01-28 18:44:50.298678.
+Currently active debug channels:
+	act
+	batch_info
+	linesearch
+	learning
+[2020-01-28 18:44:50.730694][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-28 18:44:50.930027][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:44:58.182403][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:44:58.191165][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 6308, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:44:58.191555][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:44:58.194472][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 6308
+
+[2020-01-28 18:44:58.506248][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New mean kl div: 0.025965652601537728, New policy loss value: -0.040317665072868554
+
+[2020-01-28 18:44:58.902581][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 117.37208453282688
+
+[2020-01-28 18:44:58.902963][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:00.168965][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-28 18:45:00.169441][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:01.620524][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:01.624789][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1017, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:01.625375][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:01.626564][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1017
+
+[2020-01-28 18:45:01.753122][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.0016945770258917628, New policy loss value: -0.0015789786051511462
+
+[2020-01-28 18:45:01.809785][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 79.95639463207947
+
+[2020-01-28 18:45:01.810196][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:02.363720][__main__.TRPOAgent.log][learning]: Episode #2
+
+[2020-01-28 18:45:02.364207][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:03.678085][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:03.681283][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1021, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:03.681727][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:03.682560][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1021
+
+[2020-01-28 18:45:03.776944][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.02483493974142277, New policy loss value: -0.0067863124003579465
+
+[2020-01-28 18:45:03.835700][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 17.755094637074073
+
+[2020-01-28 18:45:03.836111][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:04.395930][__main__.TRPOAgent.log][learning]: Episode #3
+
+[2020-01-28 18:45:04.396363][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:05.647265][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:05.651044][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1011, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:05.651504][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:05.652227][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1011
+
+[2020-01-28 18:45:05.746841][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.02708354724696286, New policy loss value: -0.00505543780067818
+
+[2020-01-28 18:45:05.805049][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 10.198823605806384
+
+[2020-01-28 18:45:05.805453][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:06.367073][__main__.TRPOAgent.log][learning]: Episode #4
+
+[2020-01-28 18:45:06.367601][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:07.566300][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:07.569074][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1015, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:07.569431][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:07.569989][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1015
+
+[2020-01-28 18:45:07.662648][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.026913538563886983, New policy loss value: -0.002998034574925345
+
+[2020-01-28 18:45:07.722527][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.378861729099166
+
+[2020-01-28 18:45:07.722957][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:08.330461][__main__.TRPOAgent.log][learning]: Episode #5
+
+[2020-01-28 18:45:08.330909][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:09.547269][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:09.550218][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1018, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:09.550584][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:09.551264][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1018
+
+[2020-01-28 18:45:09.645823][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.025511725400203474, New policy loss value: -0.007533384481066711
+
+[2020-01-28 18:45:09.703654][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.006299388910579
+
+[2020-01-28 18:45:09.704082][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:10.272578][__main__.TRPOAgent.log][learning]: Episode #6
+
+[2020-01-28 18:45:10.273063][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:11.621095][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:11.624565][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1006, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:11.625022][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:11.625691][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1006
+
+[2020-01-28 18:45:11.721094][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.023660809735681916, New policy loss value: -0.0028834732221101208
+
+[2020-01-28 18:45:11.807664][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.60613484589557
+
+[2020-01-28 18:45:11.808373][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:12.559400][__main__.TRPOAgent.log][learning]: Episode #7
+
+[2020-01-28 18:45:12.559794][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:13.986684][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:13.990417][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1017, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:13.990896][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:13.991846][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1017
+
+[2020-01-28 18:45:14.106682][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.021052154732860442, New policy loss value: -0.00727358720641155
+
+[2020-01-28 18:45:14.166751][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.904980287234223
+
+[2020-01-28 18:45:14.167151][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:14.771448][__main__.TRPOAgent.log][learning]: Episode #8
+
+[2020-01-28 18:45:14.772061][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:16.138151][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:16.142095][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1017, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:16.142508][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:16.143243][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1017
+
+[2020-01-28 18:45:16.256252][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.01719085697815843, New policy loss value: -0.011042597284239529
+
+[2020-01-28 18:45:16.316933][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.902247376000049
+
+[2020-01-28 18:45:16.317355][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:16.945127][__main__.TRPOAgent.log][learning]: Episode #9
+
+[2020-01-28 18:45:16.945597][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:18.387849][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:18.391801][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1019, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:18.392438][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:18.393378][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1019
+
+[2020-01-28 18:45:18.496473][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.007815926233532, New policy loss value: -0.01683908326693615
+
+[2020-01-28 18:45:18.558118][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.9756044296655615
+
+[2020-01-28 18:45:18.558549][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:19.189097][__main__.TRPOAgent.log][learning]: Episode #10
+
+[2020-01-28 18:45:19.189544][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:20.796238][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:20.799518][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1011, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:20.799903][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:20.800603][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1011
+
+[2020-01-28 18:45:20.922494][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 4.45083488111121e-09, New policy loss value: -0.0068844718999550745
+
+[2020-01-28 18:45:20.999372][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.718386283510989
+
+[2020-01-28 18:45:20.999775][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:21.608318][__main__.TRPOAgent.log][learning]: Episode #11
+
+[2020-01-28 18:45:21.608690][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:23.140748][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:23.143857][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1021, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:23.144287][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:23.145095][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1021
+
+[2020-01-28 18:45:23.254591][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 2.8463291392285666e-47, New policy loss value: -0.014243785408291083
+
+[2020-01-28 18:45:23.327799][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.9784630673493275
+
+[2020-01-28 18:45:23.328288][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:24.097924][__main__.TRPOAgent.log][learning]: Episode #12
+
+[2020-01-28 18:45:24.098514][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-28 18:45:25.811165][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 18:45:25.814421][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1023, Batch size: 500, Number of batches: 1
+
+[2020-01-28 18:45:25.815016][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 18:45:25.816070][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1023
+
+[2020-01-28 18:45:25.937584][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 5.980310944713839e-122, New policy loss value: -0.01380109710958528
+
+[2020-01-28 18:45:26.007075][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.946417237146742
+
+[2020-01-28 18:45:26.007512][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-28 18:45:26.736076][__main__.TRPOAgent.log][learning]: Episode #13
+
+[2020-01-28 18:45:26.736887][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+

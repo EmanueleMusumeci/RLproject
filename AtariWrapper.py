@@ -32,19 +32,20 @@ class AtariWrapper(gym.Wrapper):
             optimization benefits of FrameStack Wrapper.
     """
 
-    def __init__(self, env, noop_max=30, frame_skip=4, screen_width=88, screen_height=80, terminal_on_life_loss=False, grayscale_obs=True,scale_obs=False,render_scale_factor=3,
+    def __init__(self, environment_name, noop_max=30, frame_skip=4, screen_width=88, screen_height=80, terminal_on_life_loss=False, grayscale_obs=True,scale_obs=False,render_scale_factor=3,
     crop_height_factor=0,crop_width_factor=0):
-        super().__init__(env)
+        super().__init__(gym.make(environment_name))
         assert frame_skip > 0
         assert screen_width > 0
         assert screen_height > 0
         assert noop_max >= 0
         if frame_skip > 1:
-            assert 'NoFrameskip' in env.spec.id, 'disable frame-skipping in the original env. for more than one' \
+            assert 'NoFrameskip' in self.env.spec.id, 'disable frame-skipping in the original env. for more than one' \
                                                  ' frame-skip as it will be done by the wrapper'
         self.noop_max = noop_max
-        assert env.unwrapped.get_action_meanings()[0] == 'NOOP'
+        assert self.env.unwrapped.get_action_meanings()[0] == 'NOOP'
 
+        self.environment_name=environment_name
         self.frame_skip = frame_skip
         self.screen_width = screen_width
         self.screen_height = screen_height
@@ -57,16 +58,14 @@ class AtariWrapper(gym.Wrapper):
 
         # buffer of most recent two observations for max pooling
         if grayscale_obs:
-            self.obs_buffer = [np.empty(env.observation_space.shape[:2], dtype=np.uint8),
-                               np.empty(env.observation_space.shape[:2], dtype=np.uint8)]
+            self.obs_buffer = [np.empty(self.env.observation_space.shape[:2], dtype=np.uint8),
+                               np.empty(self.env.observation_space.shape[:2], dtype=np.uint8)]
         else:
-            self.obs_buffer = [np.empty(env.observation_space.shape, dtype=np.uint8),
-                               np.empty(env.observation_space.shape, dtype=np.uint8)]
+            self.obs_buffer = [np.empty(self.env.observation_space.shape, dtype=np.uint8),
+                               np.empty(self.env.observation_space.shape, dtype=np.uint8)]
 
-        print("B1")
-
-        self.ale = env.unwrapped.ale
-        print("B2")
+        
+        self.ale = self.env.unwrapped.ale
         self.lives = 0
         self.game_over = False
 
@@ -75,10 +74,9 @@ class AtariWrapper(gym.Wrapper):
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height), dtype=_obs_dtype)
         else:
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height, 3), dtype=_obs_dtype)
-        print("B3")
         
-    def __del__(self):
-        self.env.close()
+    #def __del__(self):
+    #    self.env.close()
 
     def step(self, action):
         R = 0.0
@@ -109,32 +107,22 @@ class AtariWrapper(gym.Wrapper):
 
     def reset(self, **kwargs):
         # NoopReset
-        print("reset1")
         self.env.reset(**kwargs)
         
-        print("reset2")
         noops = self.env.unwrapped.np_random.randint(1, self.noop_max + 1) if self.noop_max > 0 else 0
         
-        print("reset3")
         for _ in range(noops):
             _, _, done, _ = self.env.step(0)
             if done:
                 self.env.reset(**kwargs)
 
-        print("reset4")
-        #CAUSES SEGMENTATION FAULT (CORE DUMPED)
-        #self.lives = self.ale.lives()
-        self.lives = 0
-        print("reset5")
+        self.lives = self.ale.lives()
+        #self.lives = 0
         if self.grayscale_obs:
-            print("reset5.1")
             self.ale.getScreenGrayscale(self.obs_buffer[0])
         else:
-            print("reset5.1")
             self.ale.getScreenRGB2(self.obs_buffer[0])
-        print("reset7")
         self.obs_buffer[1].fill(0)
-        print("reset8")
         return self._get_obs()
 
     def _get_obs(self):
@@ -165,5 +153,12 @@ class AtariWrapper(gym.Wrapper):
         resized_width = self.screen_width
 
         return resized_height,resized_width,channels
-
     
+    def clone(self):
+        return AtariWrapper(self.environment_name,self.noop_max,self.frame_skip,self.screen_width,self.screen_height,self.terminal_on_life_loss,self.grayscale_obs,self.scale_obs, self.render_scale_factor,self.crop_height_factor,self.crop_width_factor)
+
+    def get_observation_space(self):
+        return self.preprocessed_shape()    
+
+    def get_action_space(self):
+        return self.env.action_space

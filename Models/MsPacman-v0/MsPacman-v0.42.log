@@ -1,0 +1,171 @@
+LOGGER started at 2020-01-28 14:28:39.698451.
+Currently active debug channels:
+	rollouts
+	act
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-28 14:28:40.586282][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-28 14:28:40.806216][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 32
+
+[2020-01-28 14:28:44.284151][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-28 14:28:44.285001][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-28 14:28:44.286419][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-28 14:28:44.284932][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-28 14:28:44.718706][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 32
+
+[2020-01-28 14:28:44.719027][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 32
+
+[2020-01-28 14:28:44.719874][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-28 14:28:44.720440][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-28 14:28:44.720495][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-28 14:28:44.721659][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-28 14:28:45.150726][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 32
+
+[2020-01-28 14:28:45.151135][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 32
+
+[2020-01-28 14:28:45.151947][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-28 14:28:45.152493][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-28 14:28:45.152428][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-28 14:28:45.153538][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-28 14:28:45.574638][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 32
+
+[2020-01-28 14:28:45.575167][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 32
+
+[2020-01-28 14:28:45.575830][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-28 14:28:45.576423][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-28 14:28:45.576357][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-28 14:28:45.577551][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-28 14:28:46.044401][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 32
+
+[2020-01-28 14:28:46.045485][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 32
+
+[2020-01-28 14:28:46.045908][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-28 14:28:46.046416][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-28 14:28:46.046469][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-28 14:28:46.047508][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-28 14:28:46.481161][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 32
+
+[2020-01-28 14:28:46.481700][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 32
+
+[2020-01-28 14:28:46.482419][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-28 14:28:46.482950][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-28 14:28:46.483663][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-28 14:28:46.484233][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 14:28:46.485967][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 320, Batch size: 32, Number of batches: 10
+
+[2020-01-28 14:28:46.486460][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 14:28:46.497779][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 32
+
+[2020-01-28 14:28:47.520388][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:47.520790][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:28:48.730417][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:49.794130][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 32
+
+[2020-01-28 14:28:50.812282][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:50.812703][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:28:51.943818][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:53.019764][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 32
+
+[2020-01-28 14:28:54.012459][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:54.012856][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:28:55.086652][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:56.198041][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 32
+
+[2020-01-28 14:28:57.179295][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:57.179691][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:28:58.248150][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:28:59.312647][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 32
+
+[2020-01-28 14:29:00.315696][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:00.316103][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:01.431874][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:02.509313][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 32
+
+[2020-01-28 14:29:03.501813][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:03.502204][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:04.576473][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:05.640957][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 32
+
+[2020-01-28 14:29:06.670150][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:06.670552][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:07.753458][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:08.837981][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 32
+
+[2020-01-28 14:29:09.840637][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:09.841041][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:10.919664][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:12.034500][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 32
+
+[2020-01-28 14:29:13.027808][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:13.028241][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:14.102806][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:15.173719][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 32
+
+[2020-01-28 14:29:16.160092][__main__.TRPOAgent.log][training]: policy_gradient: [0. 0. 0. ... 0. 0. 0.]
+
+[2020-01-28 14:29:16.160492][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 14:29:17.280108][__main__.TRPOAgent.log][training]: gradient_step_direction: [0. 0. 0. ... 0. 0. 0.]
+

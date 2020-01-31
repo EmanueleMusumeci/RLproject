@@ -11,7 +11,6 @@ import datetime
 
 import matplotlib.pyplot as plt
 
-HistoryValues = namedtuple("HistoryValues","max_reward kl_div value_loss policy_loss")
 
 class Logger:
     def __init__(self, name=None, log_directory="TRPO_project/Models", log_filename="", history_log_filename="", debugChannels=[]):
@@ -99,7 +98,7 @@ class Logger:
                 log_file.write("\t"+dc+"\n")
             log_file.close()
     
-        self.history = []
+        self.history = {}
 
         #Write to file logger initializations
         with open(self.history_log_filename,"w+") as log_file:
@@ -171,41 +170,62 @@ class Logger:
                 log_file.close()
     
     
-    def log_history(self, max_reward, kl_div, value_loss, policy_loss):
-        history_values = HistoryValues(max_reward,kl_div,value_loss,policy_loss)
-        self.history.append(history_values)
+    def log_history(self, **values):
+        history_values = values
+        log_string=""
 
-        log_string=str(max_reward)
-        log_string+=","+str(kl_div)
-        log_string+=","+str(value_loss)
-        log_string+=","+str(policy_loss)
+        for history_key,history_value in values.items():
+            if history_key in self.history:
+                self.history[history_key].append(history_value)
+            else:
+                self.history[history_key] = []
+                self.history[history_key].append(history_value)
+            
+            log_string+=""+str(history_key)+":"+str(history_value)+","
+
         with open(self.history_log_filename,"a+") as log_file:
             log_file.write(log_string+"\n")
             log_file.close()
+        
+        #self.create_plot_from_history(history_values)
     
     def load_history(self, filename=""):
         if filename=="": filename = self.history_log_filename
-        self.history = []
+        self.history = {}
         with open(filename, "r") as history_file:
             lines = history_file.readlines()
-            for line in lines:
+            for line in lines[1:]:
                 line = line.split(",")
-                assert(len(line)==5), "Malformed history"
-                self.history.append(HistoryValues(line[0],line[1],line[2],line[3],line[4]))
-
-    def plot_history(self):
-        policy_losses = []
-        value_losses = []
-        for hv in self.history:
-            policy_losses.append(hv.policy_loss)
-            value_losses.append(hv.value_loss)
-        plt.plot(policy_losses, "orange")
-        plt.plot(value_losses, "blue")
-        plt.show()
-    
+                key_value = line.split(":")
+                assert(len(key_value)==2), "Malformed history"
+                
+                history_key = key_value[0]
+                history_value = key_value[1]
+                
+                if history_key in self.history:
+                    self.history[history_key].append(history_value)
+                else:
+                    self.history[history_key] = [history_value]
+                    
     @staticmethod
     def getFullDateTime():
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+
+    def create_plot_from_history(self, history_values):
+        
+        fig, axs = plt.subplots(len(history_values.keys()), 1, constrained_layout=True)
+        
+        current_plot=0
+        for k,v in history_values.items():
+            axs[current_plot].plot(v)
+            axs[current_plot].set_title(k)
+            axs[current_plot].set_xlabel('Episode')
+            axs[current_plot].set_ylabel(k)
+            fig.suptitle(k, fontsize=16)
+            current_plot+=1
+
+            plt.draw()
+            plt.pause(0.001)
 
 if __name__ == "__main__":
     logger = Logger(name="Prova",debugChannels=["Debug 1","Debug 2"])

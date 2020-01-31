@@ -1,0 +1,1486 @@
+LOGGER started at 2020-01-27 13:31:57.981214.
+Currently active debug channels:
+	rollouts
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-27 13:31:58.119755][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-27 13:31:58.340089][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 3000
+
+[2020-01-27 13:31:58.368823][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-27 13:31:58.369786][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-27 13:31:58.371377][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-27 13:31:58.369619][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-27 13:32:06.122654][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 3000
+
+[2020-01-27 13:32:06.211376][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 3000
+
+[2020-01-27 13:32:06.211980][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-27 13:32:06.212571][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-27 13:32:06.212648][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-27 13:32:06.215158][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-27 13:32:13.965666][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 3000
+
+[2020-01-27 13:32:14.002606][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 3000
+
+[2020-01-27 13:32:14.003099][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-27 13:32:14.003676][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-27 13:32:14.003763][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-27 13:32:14.005823][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-27 13:32:16.751396][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 1038
+
+[2020-01-27 13:32:17.507079][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 1757
+
+[2020-01-27 13:32:17.507485][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-27 13:32:17.508202][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-27 13:32:17.508135][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-27 13:32:17.509240][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-27 13:32:22.545887][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 1947
+
+[2020-01-27 13:32:23.689588][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 3000
+
+[2020-01-27 13:32:23.690107][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-27 13:32:23.690639][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-27 13:32:23.690696][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-27 13:32:23.692501][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-27 13:32:31.412360][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 3000
+
+[2020-01-27 13:32:31.479645][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 3000
+
+[2020-01-27 13:32:31.480147][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-27 13:32:31.480700][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-27 13:32:31.480780][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-27 13:32:31.485108][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-27 13:32:39.215670][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 3000
+
+[2020-01-27 13:32:39.276637][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 3000
+
+[2020-01-27 13:32:39.277165][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-27 13:32:39.277694][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-27 13:32:39.277754][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-27 13:32:39.280403][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-27 13:32:45.281807][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 2315
+
+[2020-01-27 13:32:46.105537][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 3000
+
+[2020-01-27 13:32:46.106011][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-27 13:32:46.106640][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-27 13:32:46.106862][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-27 13:32:46.109351][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-27 13:32:53.214054][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 2654
+
+[2020-01-27 13:32:53.505578][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 3000
+
+[2020-01-27 13:32:53.506051][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-27 13:32:53.506609][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-27 13:32:53.506498][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-27 13:32:53.507422][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-27 13:32:56.781801][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 1244
+
+[2020-01-27 13:32:58.692225][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 3000
+
+[2020-01-27 13:32:58.692711][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-27 13:32:58.693431][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-27 13:32:58.694393][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-27 13:32:58.693344][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-27 13:33:06.539051][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 3000
+
+[2020-01-27 13:33:06.544087][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 3000
+
+[2020-01-27 13:33:06.545053][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-27 13:33:06.545642][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-27 13:33:06.545714][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-27 13:33:06.548496][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-27 13:33:11.859938][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 2028
+
+[2020-01-27 13:33:12.916607][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 3000
+
+[2020-01-27 13:33:12.917093][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-27 13:33:12.917933][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-27 13:33:12.917690][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-27 13:33:12.918819][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-27 13:33:20.797976][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 3000
+
+[2020-01-27 13:33:20.875855][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 3000
+
+[2020-01-27 13:33:20.876380][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-27 13:33:20.876925][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-27 13:33:20.877005][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-27 13:33:20.880103][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-27 13:33:27.870612][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 2628
+
+[2020-01-27 13:33:28.253434][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 3000
+
+[2020-01-27 13:33:28.253934][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-27 13:33:28.254676][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-27 13:33:28.254749][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-27 13:33:28.257370][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-27 13:33:35.994678][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 3000
+
+[2020-01-27 13:33:36.115097][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 3000
+
+[2020-01-27 13:33:36.115606][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-27 13:33:36.122359][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-27 13:33:36.122545][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-27 13:33:36.125861][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-27 13:33:43.923361][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 3000
+
+[2020-01-27 13:33:44.005111][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 3000
+
+[2020-01-27 13:33:44.005660][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-27 13:33:44.026633][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-27 13:33:45.671006][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-27 13:33:45.682994][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-27 13:33:45.684718][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 81611, Batch size: 4500, Number of batches: 19
+
+[2020-01-27 13:33:45.685329][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-27 13:33:45.740462][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-27 13:33:49.535137][__main__.TRPOAgent.log][training]: policy_gradient: [ 1.58820647e-03  5.49464179e-04  4.10834760e-03 ...  5.32278123e-01
+  4.64902511e-01 -9.97180634e-01]
+
+[2020-01-27 13:33:49.535665][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:33:49.952590][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.48497494 -0.15617039  0.9349149  ... -3.17836511 -2.87536405
+  6.05372916], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:33:50.041048][__main__.TRPOAgent.log][linesearch]: improvement: 0.3226093351859305
+
+[2020-01-27 13:33:50.069479][__main__.TRPOAgent.log][linesearch]: improvement: 0.06194237218258536
+
+[2020-01-27 13:33:50.097093][__main__.TRPOAgent.log][linesearch]: improvement: -0.019365307965344414
+
+[2020-01-27 13:33:50.126302][__main__.TRPOAgent.log][linesearch]: improvement: -0.027521164581642665
+
+[2020-01-27 13:33:50.156619][__main__.TRPOAgent.log][linesearch]: improvement: -0.023849824957792976
+
+[2020-01-27 13:33:50.187425][__main__.TRPOAgent.log][linesearch]: improvement: -0.017833243745172922
+
+[2020-01-27 13:33:50.214618][__main__.TRPOAgent.log][linesearch]: improvement: -0.011883546554656732
+
+[2020-01-27 13:33:50.245849][__main__.TRPOAgent.log][linesearch]: improvement: -0.007601235555824815
+
+[2020-01-27 13:33:50.273281][__main__.TRPOAgent.log][linesearch]: improvement: -0.005541763077516748
+
+[2020-01-27 13:33:50.302687][__main__.TRPOAgent.log][linesearch]: improvement: -0.003667211925304059
+
+[2020-01-27 13:33:50.303488][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 5.115736489228471e-07, Discarded policy loss value: -97.84525813839481
+
+[2020-01-27 13:33:51.327198][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 105.378318382603
+
+[2020-01-27 13:33:51.332718][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-27 13:33:55.499492][__main__.TRPOAgent.log][training]: policy_gradient: [-5.32304550e-04  2.10989827e-04 -1.03808422e-03 ...  1.28173312e-01
+ -2.98289647e-01  1.70116336e-01]
+
+[2020-01-27 13:33:55.499909][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:33:55.976662][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[-0.23130015  0.04379192 -0.45783753 ... -1.70648978  0.94909403
+  0.75739575], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:33:56.065905][__main__.TRPOAgent.log][linesearch]: improvement: -0.1251099050642468
+
+[2020-01-27 13:33:56.096198][__main__.TRPOAgent.log][linesearch]: improvement: -0.06307541723693522
+
+[2020-01-27 13:33:56.127424][__main__.TRPOAgent.log][linesearch]: improvement: -0.03546914583079719
+
+[2020-01-27 13:33:56.127870][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 5.7307057880296846
+
+[2020-01-27 13:33:56.921027][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 218.20058593440604
+
+[2020-01-27 13:33:56.921698][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:33:56.939026][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-27 13:34:00.753256][__main__.TRPOAgent.log][training]: policy_gradient: [-2.17247259e-05  4.29989498e-06  3.63588436e-06 ... -2.61706874e-01
+  1.78449183e-02  2.43861956e-01]
+
+[2020-01-27 13:34:00.753649][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:01.165664][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[-0.05654554  0.02970856  0.23950974 ... -0.42134962  0.66607219
+ -0.24472257], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:01.258028][__main__.TRPOAgent.log][linesearch]: improvement: 0.05395982081931816
+
+[2020-01-27 13:34:01.282612][__main__.TRPOAgent.log][linesearch]: improvement: 0.03714560089617347
+
+[2020-01-27 13:34:01.283098][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 4.613727188097878
+
+[2020-01-27 13:34:02.036854][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 107.96810424372268
+
+[2020-01-27 13:34:02.037281][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:02.053309][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-27 13:34:05.825591][__main__.TRPOAgent.log][training]: policy_gradient: [-1.31790609e-04 -3.05260175e-04  7.25524281e-04 ... -3.33819905e-01
+  3.28391175e-01  5.42873012e-03]
+
+[2020-01-27 13:34:05.825985][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:06.238687][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[-0.28183679 -0.18344451  0.51512874 ... -1.19629671  0.98672909
+  0.20956761], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:06.319183][__main__.TRPOAgent.log][linesearch]: improvement: -0.1031306309479798
+
+[2020-01-27 13:34:06.347680][__main__.TRPOAgent.log][linesearch]: improvement: -0.08367650586284636
+
+[2020-01-27 13:34:06.377210][__main__.TRPOAgent.log][linesearch]: improvement: -0.058782507160330955
+
+[2020-01-27 13:34:06.377682][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 3.2191051459719855
+
+[2020-01-27 13:34:07.155081][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 205.21171403652826
+
+[2020-01-27 13:34:07.155495][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:07.163616][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-27 13:34:11.065659][__main__.TRPOAgent.log][training]: policy_gradient: [ 1.78726837e-04  9.70279970e-04 -7.90414442e-05 ...  2.28995111e-01
+ -4.14364427e-01  1.85369316e-01]
+
+[2020-01-27 13:34:11.066043][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:11.527164][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.07978578  0.63693437 -0.03158501 ... -0.15949356  0.75252319
+ -0.59302963], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:11.622031][__main__.TRPOAgent.log][linesearch]: improvement: -0.1839718116389193
+
+[2020-01-27 13:34:11.651756][__main__.TRPOAgent.log][linesearch]: improvement: -0.11365949118201168
+
+[2020-01-27 13:34:11.678526][__main__.TRPOAgent.log][linesearch]: improvement: -0.07172120128711956
+
+[2020-01-27 13:34:11.701869][__main__.TRPOAgent.log][linesearch]: improvement: -0.040952076961937145
+
+[2020-01-27 13:34:11.730077][__main__.TRPOAgent.log][linesearch]: improvement: -0.021830340111756108
+
+[2020-01-27 13:34:11.755756][__main__.TRPOAgent.log][linesearch]: improvement: -0.011744378825896185
+
+[2020-01-27 13:34:11.781706][__main__.TRPOAgent.log][linesearch]: improvement: -0.006758228681220224
+
+[2020-01-27 13:34:11.805971][__main__.TRPOAgent.log][linesearch]: improvement: -0.00385795765849295
+
+[2020-01-27 13:34:11.832053][__main__.TRPOAgent.log][linesearch]: improvement: -0.002265480038570189
+
+[2020-01-27 13:34:11.858564][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013830234532914432
+
+[2020-01-27 13:34:11.859385][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.138854955411834e-07, Discarded policy loss value: -4.364015277961368
+
+[2020-01-27 13:34:12.666005][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 105.6642566951725
+
+[2020-01-27 13:34:12.671512][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-27 13:34:17.167631][__main__.TRPOAgent.log][training]: policy_gradient: [-0.001419   -0.          0.00107887 ... -0.25004826  0.21900907
+  0.03103919]
+
+[2020-01-27 13:34:17.168016][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:17.606803][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[-0.34745704  0.          0.32768364 ...  0.15239867 -0.52193299
+  0.36953431], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:17.709258][__main__.TRPOAgent.log][linesearch]: improvement: -0.03801927133117999
+
+[2020-01-27 13:34:17.734286][__main__.TRPOAgent.log][linesearch]: improvement: -0.054128457286537035
+
+[2020-01-27 13:34:17.735198][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 4.06213471303409
+
+[2020-01-27 13:34:18.632864][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 198.88256957796003
+
+[2020-01-27 13:34:18.633556][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:18.645463][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-27 13:34:23.063347][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.00066132 ...  0.02560763  0.03333507
+ -0.0589427 ]
+
+[2020-01-27 13:34:23.063733][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:23.472395][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -1.07645505 ... -0.40353963  0.43546891
+ -0.03192928], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:23.554797][__main__.TRPOAgent.log][linesearch]: improvement: -0.02620743755587814
+
+[2020-01-27 13:34:23.582750][__main__.TRPOAgent.log][linesearch]: improvement: -0.01108106800129018
+
+[2020-01-27 13:34:23.608986][__main__.TRPOAgent.log][linesearch]: improvement: -0.008265335820395903
+
+[2020-01-27 13:34:23.637120][__main__.TRPOAgent.log][linesearch]: improvement: -0.006246974449312097
+
+[2020-01-27 13:34:23.664020][__main__.TRPOAgent.log][linesearch]: improvement: -0.004749024571452133
+
+[2020-01-27 13:34:23.691009][__main__.TRPOAgent.log][linesearch]: improvement: -0.0036003725854135277
+
+[2020-01-27 13:34:23.718167][__main__.TRPOAgent.log][linesearch]: improvement: -0.0029638758976188936
+
+[2020-01-27 13:34:23.741870][__main__.TRPOAgent.log][linesearch]: improvement: -0.0023206976442908048
+
+[2020-01-27 13:34:23.768357][__main__.TRPOAgent.log][linesearch]: improvement: -0.0015576264140068422
+
+[2020-01-27 13:34:23.792346][__main__.TRPOAgent.log][linesearch]: improvement: -0.001029330515301203
+
+[2020-01-27 13:34:23.792795][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 6.100774918144519e-07, Discarded policy loss value: -0.022666994940718117
+
+[2020-01-27 13:34:24.540319][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 109.77322890622345
+
+[2020-01-27 13:34:24.545300][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4500
+
+[2020-01-27 13:34:28.715019][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00333041 -0.00770419 ... -0.08714128  0.22531458
+ -0.1381733 ]
+
+[2020-01-27 13:34:28.715432][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:29.159910][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          2.02343709 -4.13400141 ...  0.1441074   0.31603057
+ -0.46013796], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:29.243272][__main__.TRPOAgent.log][linesearch]: improvement: 0.09079242477819705
+
+[2020-01-27 13:34:29.271523][__main__.TRPOAgent.log][linesearch]: improvement: -0.004967343356809373
+
+[2020-01-27 13:34:29.296729][__main__.TRPOAgent.log][linesearch]: improvement: -0.02463236432173055
+
+[2020-01-27 13:34:29.321438][__main__.TRPOAgent.log][linesearch]: improvement: -0.020943782659958998
+
+[2020-01-27 13:34:29.321875][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 3, New policy loss value: 5.976284294406159
+
+[2020-01-27 13:34:30.059567][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 292.3609111565736
+
+[2020-01-27 13:34:30.059953][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:30.069461][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 4500
+
+[2020-01-27 13:34:34.204362][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00063298 -0.00877378 ... -0.05003108 -0.07140965
+  0.12144073]
+
+[2020-01-27 13:34:34.204747][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:34.687455][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.20805603  0.40839386 ...  0.36371671 -0.32915693
+ -0.03455978], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:34.766294][__main__.TRPOAgent.log][linesearch]: improvement: -0.06035543100236174
+
+[2020-01-27 13:34:34.791762][__main__.TRPOAgent.log][linesearch]: improvement: -0.03017167348773797
+
+[2020-01-27 13:34:34.817150][__main__.TRPOAgent.log][linesearch]: improvement: -0.01690590255170421
+
+[2020-01-27 13:34:34.843705][__main__.TRPOAgent.log][linesearch]: improvement: -0.0110710905599114
+
+[2020-01-27 13:34:34.869504][__main__.TRPOAgent.log][linesearch]: improvement: -0.008247959764890123
+
+[2020-01-27 13:34:34.896875][__main__.TRPOAgent.log][linesearch]: improvement: -0.006309658692953857
+
+[2020-01-27 13:34:34.922572][__main__.TRPOAgent.log][linesearch]: improvement: -0.0038101273461441654
+
+[2020-01-27 13:34:34.948963][__main__.TRPOAgent.log][linesearch]: improvement: -0.0022047951702495183
+
+[2020-01-27 13:34:34.973399][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013502833569232209
+
+[2020-01-27 13:34:34.997985][__main__.TRPOAgent.log][linesearch]: improvement: -0.0007787776164547289
+
+[2020-01-27 13:34:34.998549][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 6.381365207943746e-07, Discarded policy loss value: -1.1881198577109393
+
+[2020-01-27 13:34:35.801275][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 106.26398665459575
+
+[2020-01-27 13:34:35.806912][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 4500
+
+[2020-01-27 13:34:39.450055][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00099704  0.0071385  ...  0.0007946   0.03146301
+ -0.03225761]
+
+[2020-01-27 13:34:39.450440][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:39.949936][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.45040666 -0.07652986 ... -0.8266405   0.47550181
+  0.35113869], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:40.050860][__main__.TRPOAgent.log][linesearch]: improvement: 0.0198025509168816
+
+[2020-01-27 13:34:40.086651][__main__.TRPOAgent.log][linesearch]: improvement: 0.005814086943436325
+
+[2020-01-27 13:34:40.117363][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010632142154500812
+
+[2020-01-27 13:34:40.152601][__main__.TRPOAgent.log][linesearch]: improvement: -0.0032029287173664933
+
+[2020-01-27 13:34:40.188934][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021204377568221355
+
+[2020-01-27 13:34:40.218050][__main__.TRPOAgent.log][linesearch]: improvement: -0.0024457004019441397
+
+[2020-01-27 13:34:40.249045][__main__.TRPOAgent.log][linesearch]: improvement: -0.0024853567817626487
+
+[2020-01-27 13:34:40.279474][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021055352734389854
+
+[2020-01-27 13:34:40.310377][__main__.TRPOAgent.log][linesearch]: improvement: -0.0017068033420191697
+
+[2020-01-27 13:34:40.340986][__main__.TRPOAgent.log][linesearch]: improvement: -0.0012814498610122516
+
+[2020-01-27 13:34:40.341454][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 6.824152917538554e-07, Discarded policy loss value: -0.33371076428020385
+
+[2020-01-27 13:34:41.167035][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 204.1673149429134
+
+[2020-01-27 13:34:41.173470][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 4500
+
+[2020-01-27 13:34:45.211725][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.00056594 -0.00124334 ... -0.0019693   0.00329797
+ -0.00132867]
+
+[2020-01-27 13:34:45.212118][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:45.646774][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.         -0.21684282  0.18076052 ...  0.1591918  -0.16030837
+  0.00111657], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:45.725723][__main__.TRPOAgent.log][linesearch]: improvement: 0.008289476589545153
+
+[2020-01-27 13:34:45.752684][__main__.TRPOAgent.log][linesearch]: improvement: 0.003085593827285127
+
+[2020-01-27 13:34:45.753256][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 2.059745115493162
+
+[2020-01-27 13:34:46.558925][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 108.29778670335081
+
+[2020-01-27 13:34:46.559350][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:46.570292][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 4500
+
+[2020-01-27 13:34:50.976160][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00435878 -0.00833395 ...  0.05815441 -0.05408304
+ -0.00407137]
+
+[2020-01-27 13:34:50.976607][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:51.406348][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          5.70911784  0.2931538  ... -0.5317494   0.02670266
+  0.50504674], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:51.497612][__main__.TRPOAgent.log][linesearch]: improvement: -0.06702147123037872
+
+[2020-01-27 13:34:51.525576][__main__.TRPOAgent.log][linesearch]: improvement: -0.06586821981449642
+
+[2020-01-27 13:34:51.561526][__main__.TRPOAgent.log][linesearch]: improvement: -0.04767565518416439
+
+[2020-01-27 13:34:51.562360][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 1.1960289738370182
+
+[2020-01-27 13:34:52.395492][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 209.3879043580776
+
+[2020-01-27 13:34:52.395907][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:34:52.407869][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 4500
+
+[2020-01-27 13:34:56.942524][__main__.TRPOAgent.log][training]: policy_gradient: [-0.00000000e+00 -8.04222089e-05 -5.15135834e-02 ...  1.72839370e-01
+ -3.07441717e-01  1.34602346e-01]
+
+[2020-01-27 13:34:56.942918][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:34:57.336302][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.         -0.13948697 -0.08874625 ... -0.02589217 -0.18449954
+  0.21039171], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:34:57.433156][__main__.TRPOAgent.log][linesearch]: improvement: -0.0875295963676348
+
+[2020-01-27 13:34:57.463943][__main__.TRPOAgent.log][linesearch]: improvement: -0.0539085839399176
+
+[2020-01-27 13:34:57.493238][__main__.TRPOAgent.log][linesearch]: improvement: -0.03307283839394204
+
+[2020-01-27 13:34:57.521312][__main__.TRPOAgent.log][linesearch]: improvement: -0.021404806657814746
+
+[2020-01-27 13:34:57.549158][__main__.TRPOAgent.log][linesearch]: improvement: -0.013730229346425205
+
+[2020-01-27 13:34:57.575362][__main__.TRPOAgent.log][linesearch]: improvement: -0.008537029190524681
+
+[2020-01-27 13:34:57.599115][__main__.TRPOAgent.log][linesearch]: improvement: -0.005167863707181031
+
+[2020-01-27 13:34:57.625244][__main__.TRPOAgent.log][linesearch]: improvement: -0.0031098300496172904
+
+[2020-01-27 13:34:57.650556][__main__.TRPOAgent.log][linesearch]: improvement: -0.0018692648958222868
+
+[2020-01-27 13:34:57.677277][__main__.TRPOAgent.log][linesearch]: improvement: -0.0011254441969370532
+
+[2020-01-27 13:34:57.677725][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.369088305948149e-07, Discarded policy loss value: -2.595167852862412
+
+[2020-01-27 13:34:58.439053][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 107.15210523202305
+
+[2020-01-27 13:34:58.444203][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 4500
+
+[2020-01-27 13:35:02.422156][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.0007295   0.02132777 ... -0.09684451  0.18563892
+ -0.08879441]
+
+[2020-01-27 13:35:02.422584][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:02.817391][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.         -0.52642504  0.50082179 ...  0.41718153 -0.50269215
+  0.08551062], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:02.896199][__main__.TRPOAgent.log][linesearch]: improvement: 0.1482596566266845
+
+[2020-01-27 13:35:02.923984][__main__.TRPOAgent.log][linesearch]: improvement: 0.06491491906159608
+
+[2020-01-27 13:35:02.948929][__main__.TRPOAgent.log][linesearch]: improvement: 0.017616628871107043
+
+[2020-01-27 13:35:02.949375][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 3.801112832618211
+
+[2020-01-27 13:35:03.674007][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 206.52939375743284
+
+[2020-01-27 13:35:03.674401][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:35:03.681523][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 4500
+
+[2020-01-27 13:35:07.140279][__main__.TRPOAgent.log][training]: policy_gradient: [-0.00000000e+00  1.55328470e-04 -1.64829740e-02 ...  2.79888191e-01
+ -2.64146677e-01 -1.57415138e-02]
+
+[2020-01-27 13:35:07.140655][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:07.532874][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.10929711  0.10789578 ...  0.25955984 -0.0480544
+ -0.21150544], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:07.609001][__main__.TRPOAgent.log][linesearch]: improvement: -0.12791898717081218
+
+[2020-01-27 13:35:07.635304][__main__.TRPOAgent.log][linesearch]: improvement: -0.07256327478116287
+
+[2020-01-27 13:35:07.661095][__main__.TRPOAgent.log][linesearch]: improvement: -0.04206638788211503
+
+[2020-01-27 13:35:07.683909][__main__.TRPOAgent.log][linesearch]: improvement: -0.02575114361309394
+
+[2020-01-27 13:35:07.709854][__main__.TRPOAgent.log][linesearch]: improvement: -0.015764676897002783
+
+[2020-01-27 13:35:07.733201][__main__.TRPOAgent.log][linesearch]: improvement: -0.009728385145790108
+
+[2020-01-27 13:35:07.760699][__main__.TRPOAgent.log][linesearch]: improvement: -0.005841344655397984
+
+[2020-01-27 13:35:07.785074][__main__.TRPOAgent.log][linesearch]: improvement: -0.0034746557827525226
+
+[2020-01-27 13:35:07.810212][__main__.TRPOAgent.log][linesearch]: improvement: -0.002100720459472072
+
+[2020-01-27 13:35:07.834193][__main__.TRPOAgent.log][linesearch]: improvement: -0.0012549425106958
+
+[2020-01-27 13:35:07.834635][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.27742881989018e-07, Discarded policy loss value: -1.6010932438331609
+
+[2020-01-27 13:35:08.531602][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 202.51779358540736
+
+[2020-01-27 13:35:08.536199][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 4500
+
+[2020-01-27 13:35:12.250048][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00023158 -0.00332203 ...  0.10752476 -0.02161911
+ -0.08590565]
+
+[2020-01-27 13:35:12.250454][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:12.647268][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.29410341  0.46710054 ... -0.12513858 -0.23177936
+  0.35691795], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:12.724804][__main__.TRPOAgent.log][linesearch]: improvement: -0.2004579019546896
+
+[2020-01-27 13:35:12.750723][__main__.TRPOAgent.log][linesearch]: improvement: -0.09525748859491678
+
+[2020-01-27 13:35:12.775738][__main__.TRPOAgent.log][linesearch]: improvement: -0.03735180535020943
+
+[2020-01-27 13:35:12.800699][__main__.TRPOAgent.log][linesearch]: improvement: -0.015720495663747336
+
+[2020-01-27 13:35:12.801160][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 3, New policy loss value: 0.9593666020654464
+
+[2020-01-27 13:35:13.521550][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 205.41229817817427
+
+[2020-01-27 13:35:13.521938][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:35:13.532817][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 4500
+
+[2020-01-27 13:35:17.023885][__main__.TRPOAgent.log][training]: policy_gradient: [-0.          0.00068703 -0.03748223 ...  0.58815912 -0.4650325
+ -0.12312662]
+
+[2020-01-27 13:35:17.024268][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:17.414801][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.58873792 -0.28077318 ...  0.46199748 -0.44195915
+ -0.02003833], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:17.493715][__main__.TRPOAgent.log][linesearch]: improvement: -0.2765650964497355
+
+[2020-01-27 13:35:17.517976][__main__.TRPOAgent.log][linesearch]: improvement: -0.1622960240043705
+
+[2020-01-27 13:35:17.543356][__main__.TRPOAgent.log][linesearch]: improvement: -0.09425336168409792
+
+[2020-01-27 13:35:17.567591][__main__.TRPOAgent.log][linesearch]: improvement: -0.05377184366900156
+
+[2020-01-27 13:35:17.590530][__main__.TRPOAgent.log][linesearch]: improvement: -0.02963813442009844
+
+[2020-01-27 13:35:17.616338][__main__.TRPOAgent.log][linesearch]: improvement: -0.01618253617127685
+
+[2020-01-27 13:35:17.643506][__main__.TRPOAgent.log][linesearch]: improvement: -0.009535085622285777
+
+[2020-01-27 13:35:17.669193][__main__.TRPOAgent.log][linesearch]: improvement: -0.005764053134507563
+
+[2020-01-27 13:35:17.694742][__main__.TRPOAgent.log][linesearch]: improvement: -0.003491636598344172
+
+[2020-01-27 13:35:17.719037][__main__.TRPOAgent.log][linesearch]: improvement: -0.002126658218890576
+
+[2020-01-27 13:35:17.719493][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.348775305779368e-07, Discarded policy loss value: -4.1835355266842775
+
+[2020-01-27 13:35:18.441722][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 203.76276244998186
+
+[2020-01-27 13:35:18.446864][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 4500
+
+[2020-01-27 13:35:21.955553][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.00033344  0.00485219 ...  0.02499777  0.13285247
+ -0.15785024]
+
+[2020-01-27 13:35:21.955940][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:22.350740][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.01401483  0.09444337 ... -0.01560346  0.03409273
+ -0.01848928], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:22.426794][__main__.TRPOAgent.log][linesearch]: improvement: -0.03886286000448713
+
+[2020-01-27 13:35:22.427503][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 2.123385760323463
+
+[2020-01-27 13:35:23.152812][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 106.11870922605286
+
+[2020-01-27 13:35:23.153223][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:35:23.157455][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 611
+
+[2020-01-27 13:35:23.668289][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.02267357 ... -1.79741839  1.18985415
+  0.60756425]
+
+[2020-01-27 13:35:23.668642][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:35:23.834024][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -5.7794714  ... -1.35081011  0.29488099
+  1.05592912], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:35:23.870948][__main__.TRPOAgent.log][linesearch]: improvement: -0.8539679841788708
+
+[2020-01-27 13:35:23.883577][__main__.TRPOAgent.log][linesearch]: improvement: -0.47652317419109025
+
+[2020-01-27 13:35:23.884019][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 15.142420856841238
+
+[2020-01-27 13:35:24.008970][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 554.9068617452892
+
+[2020-01-27 13:35:24.009371][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:35:24.015350][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-27 13:35:24.015692][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 3000
+
+[2020-01-27 13:35:24.043126][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-27 13:35:24.043918][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-27 13:35:24.044081][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-27 13:35:24.046661][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-27 13:35:27.058044][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1360
+
+[2020-01-27 13:35:28.725651][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 3000
+
+[2020-01-27 13:35:28.726189][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-27 13:35:28.727587][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-27 13:35:28.727501][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-27 13:35:28.728595][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-27 13:35:36.251020][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 3000
+
+[2020-01-27 13:35:36.377063][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 3000
+
+[2020-01-27 13:35:36.377625][Environment.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-27 13:35:36.378243][Environment.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-27 13:35:36.378309][Environment.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-27 13:35:36.382901][Environment.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-27 13:35:44.594316][Environment.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 3000
+
+[2020-01-27 13:35:44.748008][Environment.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 3000
+
+[2020-01-27 13:35:44.748573][Environment.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-27 13:35:44.749356][Environment.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-27 13:35:44.749453][Environment.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-27 13:35:44.751996][Environment.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-27 13:35:52.276650][Environment.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 3000
+
+[2020-01-27 13:35:52.322351][Environment.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 3000
+
+[2020-01-27 13:35:52.322881][Environment.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-27 13:35:52.323497][Environment.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-27 13:35:52.323571][Environment.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-27 13:35:52.325995][Environment.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-27 13:35:59.166751][Environment.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 3000
+
+[2020-01-27 13:35:59.181579][Environment.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 3000
+
+[2020-01-27 13:35:59.182140][Environment.Environment.log][rollouts]: Rollout thread #11
+
+[2020-01-27 13:35:59.182668][Environment.Environment.log][thread_rollouts]: Thread number: 10
+
+[2020-01-27 13:35:59.182727][Environment.Environment.log][rollouts]: Rollout thread #12
+
+[2020-01-27 13:35:59.184583][Environment.Environment.log][thread_rollouts]: Thread number: 11
+
+[2020-01-27 13:36:06.140705][Environment.Environment.log][thread_rollouts]: Thread number: 11, Steps performed: 3000
+
+[2020-01-27 13:36:06.164229][Environment.Environment.log][thread_rollouts]: Thread number: 10, Steps performed: 3000
+
+[2020-01-27 13:36:06.164755][Environment.Environment.log][rollouts]: Rollout thread #13
+
+[2020-01-27 13:36:06.165488][Environment.Environment.log][thread_rollouts]: Thread number: 12
+
+[2020-01-27 13:36:06.165552][Environment.Environment.log][rollouts]: Rollout thread #14
+
+[2020-01-27 13:36:06.167848][Environment.Environment.log][thread_rollouts]: Thread number: 13
+
+[2020-01-27 13:36:12.926417][Environment.Environment.log][thread_rollouts]: Thread number: 13, Steps performed: 3000
+
+[2020-01-27 13:36:12.999224][Environment.Environment.log][thread_rollouts]: Thread number: 12, Steps performed: 3000
+
+[2020-01-27 13:36:12.999699][Environment.Environment.log][rollouts]: Rollout thread #15
+
+[2020-01-27 13:36:13.000420][Environment.Environment.log][thread_rollouts]: Thread number: 14
+
+[2020-01-27 13:36:13.000476][Environment.Environment.log][rollouts]: Rollout thread #16
+
+[2020-01-27 13:36:13.002334][Environment.Environment.log][thread_rollouts]: Thread number: 15
+
+[2020-01-27 13:36:15.714122][Environment.Environment.log][thread_rollouts]: Thread number: 14, Steps performed: 1188
+
+[2020-01-27 13:36:17.506410][Environment.Environment.log][thread_rollouts]: Thread number: 15, Steps performed: 3000
+
+[2020-01-27 13:36:17.506949][Environment.Environment.log][rollouts]: Rollout thread #17
+
+[2020-01-27 13:36:17.507758][Environment.Environment.log][thread_rollouts]: Thread number: 16
+
+[2020-01-27 13:36:17.507821][Environment.Environment.log][rollouts]: Rollout thread #18
+
+[2020-01-27 13:36:17.510754][Environment.Environment.log][thread_rollouts]: Thread number: 17
+
+[2020-01-27 13:36:24.285636][Environment.Environment.log][thread_rollouts]: Thread number: 16, Steps performed: 3000
+
+[2020-01-27 13:36:24.391419][Environment.Environment.log][thread_rollouts]: Thread number: 17, Steps performed: 3000
+
+[2020-01-27 13:36:24.392091][Environment.Environment.log][rollouts]: Rollout thread #19
+
+[2020-01-27 13:36:24.398916][Environment.Environment.log][thread_rollouts]: Thread number: 18
+
+[2020-01-27 13:36:24.399015][Environment.Environment.log][rollouts]: Rollout thread #20
+
+[2020-01-27 13:36:24.402529][Environment.Environment.log][thread_rollouts]: Thread number: 19
+
+[2020-01-27 13:36:31.332143][Environment.Environment.log][thread_rollouts]: Thread number: 18, Steps performed: 3000
+
+[2020-01-27 13:36:31.368918][Environment.Environment.log][thread_rollouts]: Thread number: 19, Steps performed: 3000
+
+[2020-01-27 13:36:31.369400][Environment.Environment.log][rollouts]: Rollout thread #21
+
+[2020-01-27 13:36:31.369911][Environment.Environment.log][thread_rollouts]: Thread number: 20
+
+[2020-01-27 13:36:31.369985][Environment.Environment.log][rollouts]: Rollout thread #22
+
+[2020-01-27 13:36:31.371860][Environment.Environment.log][thread_rollouts]: Thread number: 21
+
+[2020-01-27 13:36:38.163615][Environment.Environment.log][thread_rollouts]: Thread number: 21, Steps performed: 3000
+
+[2020-01-27 13:36:38.213571][Environment.Environment.log][thread_rollouts]: Thread number: 20, Steps performed: 3000
+
+[2020-01-27 13:36:38.214157][Environment.Environment.log][rollouts]: Rollout thread #23
+
+[2020-01-27 13:36:38.214949][Environment.Environment.log][rollouts]: Rollout thread #24
+
+[2020-01-27 13:36:38.214852][Environment.Environment.log][thread_rollouts]: Thread number: 22
+
+[2020-01-27 13:36:38.215958][Environment.Environment.log][thread_rollouts]: Thread number: 23
+
+[2020-01-27 13:36:46.243296][Environment.Environment.log][thread_rollouts]: Thread number: 22, Steps performed: 3000
+
+[2020-01-27 13:36:46.307728][Environment.Environment.log][thread_rollouts]: Thread number: 23, Steps performed: 3000
+
+[2020-01-27 13:36:46.308212][Environment.Environment.log][rollouts]: Rollout thread #25
+
+[2020-01-27 13:36:46.308789][Environment.Environment.log][thread_rollouts]: Thread number: 24
+
+[2020-01-27 13:36:46.308873][Environment.Environment.log][rollouts]: Rollout thread #26
+
+[2020-01-27 13:36:46.310813][Environment.Environment.log][thread_rollouts]: Thread number: 25
+
+[2020-01-27 13:36:53.560435][Environment.Environment.log][thread_rollouts]: Thread number: 25, Steps performed: 3000
+
+[2020-01-27 13:36:53.691571][Environment.Environment.log][thread_rollouts]: Thread number: 24, Steps performed: 3000
+
+[2020-01-27 13:36:53.692046][Environment.Environment.log][rollouts]: Rollout thread #27
+
+[2020-01-27 13:36:53.692846][Environment.Environment.log][thread_rollouts]: Thread number: 26
+
+[2020-01-27 13:36:53.692908][Environment.Environment.log][rollouts]: Rollout thread #28
+
+[2020-01-27 13:36:53.694655][Environment.Environment.log][thread_rollouts]: Thread number: 27
+
+[2020-01-27 13:36:58.690767][Environment.Environment.log][thread_rollouts]: Thread number: 26, Steps performed: 2070
+
+[2020-01-27 13:36:59.658615][Environment.Environment.log][thread_rollouts]: Thread number: 27, Steps performed: 3000
+
+[2020-01-27 13:36:59.659126][Environment.Environment.log][rollouts]: Rollout thread #29
+
+[2020-01-27 13:36:59.660295][Environment.Environment.log][rollouts]: Rollout thread #30
+
+[2020-01-27 13:36:59.660225][Environment.Environment.log][thread_rollouts]: Thread number: 28
+
+[2020-01-27 13:36:59.661403][Environment.Environment.log][thread_rollouts]: Thread number: 29
+
+[2020-01-27 13:37:05.536531][Environment.Environment.log][thread_rollouts]: Thread number: 28, Steps performed: 2445
+
+[2020-01-27 13:37:06.127508][Environment.Environment.log][thread_rollouts]: Thread number: 29, Steps performed: 3000
+
+[2020-01-27 13:37:06.128137][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+
+[2020-01-27 13:37:06.148382][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+
+[2020-01-27 13:37:07.814230][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+
+[2020-01-27 13:37:07.862548][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-27 13:37:07.863899][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 85063, Batch size: 4500, Number of batches: 19
+
+[2020-01-27 13:37:07.864254][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-27 13:37:07.916371][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 4500
+
+[2020-01-27 13:37:11.512873][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.00142225 ...  0.22189401 -0.25621545
+  0.03432144]
+
+[2020-01-27 13:37:11.513282][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:11.910776][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.06588853 ...  0.37414056  0.50928897
+ -0.88342954], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:12.006441][__main__.TRPOAgent.log][linesearch]: improvement: -0.08789623887921749
+
+[2020-01-27 13:37:12.032159][__main__.TRPOAgent.log][linesearch]: improvement: -0.061809868911682386
+
+[2020-01-27 13:37:12.057513][__main__.TRPOAgent.log][linesearch]: improvement: -0.04055229574195529
+
+[2020-01-27 13:37:12.084167][__main__.TRPOAgent.log][linesearch]: improvement: -0.025375309404957136
+
+[2020-01-27 13:37:12.111103][__main__.TRPOAgent.log][linesearch]: improvement: -0.015758638516363277
+
+[2020-01-27 13:37:12.137268][__main__.TRPOAgent.log][linesearch]: improvement: -0.009818151343766957
+
+[2020-01-27 13:37:12.162560][__main__.TRPOAgent.log][linesearch]: improvement: -0.005995687597639687
+
+[2020-01-27 13:37:12.191037][__main__.TRPOAgent.log][linesearch]: improvement: -0.0035834325519239485
+
+[2020-01-27 13:37:12.217089][__main__.TRPOAgent.log][linesearch]: improvement: -0.002126683347688285
+
+[2020-01-27 13:37:12.249208][__main__.TRPOAgent.log][linesearch]: improvement: -0.0012747887274198177
+
+[2020-01-27 13:37:12.249667][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.453310190720842e-07, Discarded policy loss value: -10.797202052732864
+
+[2020-01-27 13:37:13.012489][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 106.22124711895405
+
+[2020-01-27 13:37:13.017578][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 4500
+
+[2020-01-27 13:37:16.612287][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.0068556  ... -0.19041631  0.08612094
+  0.10429537]
+
+[2020-01-27 13:37:16.612680][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:17.028027][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.23698062 ... -0.29253035  0.44282654
+ -0.15029619], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:17.108475][__main__.TRPOAgent.log][linesearch]: improvement: -0.0439483752130263
+
+[2020-01-27 13:37:17.108927][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 2.8764821694025877
+
+[2020-01-27 13:37:17.853951][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 201.61532763305286
+
+[2020-01-27 13:37:17.854349][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:37:17.862228][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 4500
+
+[2020-01-27 13:37:21.446461][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.03536495 ... -0.33155734  0.21128628
+  0.12027106]
+
+[2020-01-27 13:37:21.446859][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:21.848988][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.46320225 ... -0.02529069  0.03624998
+ -0.01095929], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:21.924922][__main__.TRPOAgent.log][linesearch]: improvement: -0.12622385560054705
+
+[2020-01-27 13:37:21.953709][__main__.TRPOAgent.log][linesearch]: improvement: -0.055126149259711266
+
+[2020-01-27 13:37:21.984748][__main__.TRPOAgent.log][linesearch]: improvement: -0.025433266181956737
+
+[2020-01-27 13:37:22.009660][__main__.TRPOAgent.log][linesearch]: improvement: -0.01340760111454875
+
+[2020-01-27 13:37:22.036085][__main__.TRPOAgent.log][linesearch]: improvement: -0.007812269906598113
+
+[2020-01-27 13:37:22.061762][__main__.TRPOAgent.log][linesearch]: improvement: -0.00492288919617323
+
+[2020-01-27 13:37:22.086781][__main__.TRPOAgent.log][linesearch]: improvement: -0.0032788066384681347
+
+[2020-01-27 13:37:22.113878][__main__.TRPOAgent.log][linesearch]: improvement: -0.0023021707862749263
+
+[2020-01-27 13:37:22.137506][__main__.TRPOAgent.log][linesearch]: improvement: -0.0016872866749588766
+
+[2020-01-27 13:37:22.164792][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010645282901180497
+
+[2020-01-27 13:37:22.165252][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.261771498206674e-07, Discarded policy loss value: -1.8374405863754562
+
+[2020-01-27 13:37:22.940869][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 178.53045573742386
+
+[2020-01-27 13:37:22.946316][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 4500
+
+[2020-01-27 13:37:26.540343][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.00778418 ... -0.05190249  0.0792953
+ -0.02739281]
+
+[2020-01-27 13:37:26.540721][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:26.933624][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.15017367 ... -0.04961887  0.0507925
+ -0.00117363], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:27.016992][__main__.TRPOAgent.log][linesearch]: improvement: -0.10914326118984477
+
+[2020-01-27 13:37:27.042841][__main__.TRPOAgent.log][linesearch]: improvement: -0.0397036094311633
+
+[2020-01-27 13:37:27.070360][__main__.TRPOAgent.log][linesearch]: improvement: -0.014110159232628372
+
+[2020-01-27 13:37:27.097747][__main__.TRPOAgent.log][linesearch]: improvement: -0.005112454007336065
+
+[2020-01-27 13:37:27.120358][__main__.TRPOAgent.log][linesearch]: improvement: -0.0022122285369537975
+
+[2020-01-27 13:37:27.148239][__main__.TRPOAgent.log][linesearch]: improvement: -0.0013345630441656264
+
+[2020-01-27 13:37:27.172425][__main__.TRPOAgent.log][linesearch]: improvement: -0.0009134594085405956
+
+[2020-01-27 13:37:27.198023][__main__.TRPOAgent.log][linesearch]: improvement: -0.0007702814446867157
+
+[2020-01-27 13:37:27.221684][__main__.TRPOAgent.log][linesearch]: improvement: -0.0004833207266385364
+
+[2020-01-27 13:37:27.251443][__main__.TRPOAgent.log][linesearch]: improvement: -0.00026490094948633525
+
+[2020-01-27 13:37:27.251889][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 7.084406106804169e-07, Discarded policy loss value: -0.25775065312702766
+
+[2020-01-27 13:37:27.999651][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 135.00128829926697
+
+[2020-01-27 13:37:28.004716][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 4500
+
+[2020-01-27 13:37:31.618557][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.00242715 ...  0.09221489  0.13460614
+ -0.22682102]
+
+[2020-01-27 13:37:31.618935][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:32.023259][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.18788766 ...  0.317683   -0.15115798
+ -0.16652502], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:32.105659][__main__.TRPOAgent.log][linesearch]: improvement: -0.009511024697581805
+
+[2020-01-27 13:37:32.136062][__main__.TRPOAgent.log][linesearch]: improvement: -0.007629548837484346
+
+[2020-01-27 13:37:32.136510][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 0.7214604657391911
+
+[2020-01-27 13:37:32.870371][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 176.4960320142916
+
+[2020-01-27 13:37:32.870762][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:37:32.882063][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 4500
+
+[2020-01-27 13:37:36.504327][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.01622904 ...  0.00514364 -0.04283001
+  0.03768636]
+
+[2020-01-27 13:37:36.504711][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:36.911256][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.07965047 ...  0.14073364 -0.00975883
+ -0.13097482], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:36.992569][__main__.TRPOAgent.log][linesearch]: improvement: -0.060705602823358795
+
+[2020-01-27 13:37:37.020512][__main__.TRPOAgent.log][linesearch]: improvement: -0.03983033523471713
+
+[2020-01-27 13:37:37.044275][__main__.TRPOAgent.log][linesearch]: improvement: -0.025661036075581123
+
+[2020-01-27 13:37:37.070624][__main__.TRPOAgent.log][linesearch]: improvement: -0.016502918101232833
+
+[2020-01-27 13:37:37.096558][__main__.TRPOAgent.log][linesearch]: improvement: -0.010738892275739875
+
+[2020-01-27 13:37:37.121887][__main__.TRPOAgent.log][linesearch]: improvement: -0.007034313291088612
+
+[2020-01-27 13:37:37.148000][__main__.TRPOAgent.log][linesearch]: improvement: -0.004425509507242076
+
+[2020-01-27 13:37:37.175075][__main__.TRPOAgent.log][linesearch]: improvement: -0.002808738879838124
+
+[2020-01-27 13:37:37.201426][__main__.TRPOAgent.log][linesearch]: improvement: -0.0017399496500534184
+
+[2020-01-27 13:37:37.226154][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010657132383640189
+
+[2020-01-27 13:37:37.226616][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.786877478751038e-07, Discarded policy loss value: -3.91362229374681
+
+[2020-01-27 13:37:37.990783][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 133.8112393330972
+
+[2020-01-27 13:37:37.997456][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 4500
+
+[2020-01-27 13:37:41.609598][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.00700888 ...  0.18483332 -0.02581075
+ -0.15902257]
+
+[2020-01-27 13:37:41.609984][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:42.014062][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.00448982 ... -0.09924264 -0.08551185
+  0.18475449], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:42.096817][__main__.TRPOAgent.log][linesearch]: improvement: 0.06532454970386947
+
+[2020-01-27 13:37:42.124583][__main__.TRPOAgent.log][linesearch]: improvement: 0.01837202102089064
+
+[2020-01-27 13:37:42.125042][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 3.1164166508019893
+
+[2020-01-27 13:37:42.878976][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 177.65325157815252
+
+[2020-01-27 13:37:42.879375][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:37:42.889283][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 4500
+
+[2020-01-27 13:37:46.508644][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.00108292 ...  0.07813679 -0.02542564
+ -0.05271114]
+
+[2020-01-27 13:37:46.509027][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:46.910353][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.12838286 ... -0.18575258  0.07717392
+  0.10857866], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:46.988093][__main__.TRPOAgent.log][linesearch]: improvement: 0.01890941115240355
+
+[2020-01-27 13:37:47.017220][__main__.TRPOAgent.log][linesearch]: improvement: 0.0024828485470601014
+
+[2020-01-27 13:37:47.043545][__main__.TRPOAgent.log][linesearch]: improvement: -0.0010664384113656944
+
+[2020-01-27 13:37:47.070611][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021501393701776894
+
+[2020-01-27 13:37:47.095908][__main__.TRPOAgent.log][linesearch]: improvement: -0.0026061188561876947
+
+[2020-01-27 13:37:47.124296][__main__.TRPOAgent.log][linesearch]: improvement: -0.002645545904565255
+
+[2020-01-27 13:37:47.151507][__main__.TRPOAgent.log][linesearch]: improvement: -0.0022378059018463015
+
+[2020-01-27 13:37:47.176221][__main__.TRPOAgent.log][linesearch]: improvement: -0.001637608462516954
+
+[2020-01-27 13:37:47.204322][__main__.TRPOAgent.log][linesearch]: improvement: -0.001107427408632844
+
+[2020-01-27 13:37:47.231073][__main__.TRPOAgent.log][linesearch]: improvement: -0.0007514159329506109
+
+[2020-01-27 13:37:47.231732][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.860733141010326e-07, Discarded policy loss value: -0.14069396053811153
+
+[2020-01-27 13:37:47.992855][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 135.70061443721792
+
+[2020-01-27 13:37:47.998057][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 4500
+
+[2020-01-27 13:37:51.641743][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.01954466 ... -0.06257989 -0.00191614
+  0.06449603]
+
+[2020-01-27 13:37:51.642128][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:52.028644][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.0548355  ... -0.32113307 -0.00577215
+  0.32690522], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:52.105593][__main__.TRPOAgent.log][linesearch]: improvement: 0.0808950363618478
+
+[2020-01-27 13:37:52.131746][__main__.TRPOAgent.log][linesearch]: improvement: 0.005495746536374357
+
+[2020-01-27 13:37:52.160154][__main__.TRPOAgent.log][linesearch]: improvement: -0.00698767012892626
+
+[2020-01-27 13:37:52.160610][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 0.35862477135538845
+
+[2020-01-27 13:37:52.915798][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 178.35878332549237
+
+[2020-01-27 13:37:52.916195][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:37:52.923425][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 4500
+
+[2020-01-27 13:37:56.481171][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.01668828 ...  0.1253246   0.02436481
+ -0.14968941]
+
+[2020-01-27 13:37:56.481552][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:37:56.876147][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.32215702 ...  0.14943988  0.22805094
+ -0.37749082], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:37:56.954431][__main__.TRPOAgent.log][linesearch]: improvement: -0.2218884383273782
+
+[2020-01-27 13:37:56.980609][__main__.TRPOAgent.log][linesearch]: improvement: -0.09339375965135494
+
+[2020-01-27 13:37:57.007644][__main__.TRPOAgent.log][linesearch]: improvement: -0.04103692846272031
+
+[2020-01-27 13:37:57.008123][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New policy loss value: 0.2235116392237493
+
+[2020-01-27 13:37:57.766631][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 229.1327046530005
+
+[2020-01-27 13:37:57.767060][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:37:57.776313][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 4500
+
+[2020-01-27 13:38:01.407980][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.05223658 ...  0.2030172  -0.48904378
+  0.28602658]
+
+[2020-01-27 13:38:01.408368][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:01.802238][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.21176844 ... -0.08195487 -0.21579298
+  0.29774785], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:01.877568][__main__.TRPOAgent.log][linesearch]: improvement: -0.197411206204273
+
+[2020-01-27 13:38:01.905176][__main__.TRPOAgent.log][linesearch]: improvement: -0.12332282176040943
+
+[2020-01-27 13:38:01.930700][__main__.TRPOAgent.log][linesearch]: improvement: -0.07586622571981394
+
+[2020-01-27 13:38:01.956740][__main__.TRPOAgent.log][linesearch]: improvement: -0.046217568388521535
+
+[2020-01-27 13:38:01.979998][__main__.TRPOAgent.log][linesearch]: improvement: -0.027926282927579926
+
+[2020-01-27 13:38:02.008211][__main__.TRPOAgent.log][linesearch]: improvement: -0.01682892108124756
+
+[2020-01-27 13:38:02.033043][__main__.TRPOAgent.log][linesearch]: improvement: -0.010134543770730975
+
+[2020-01-27 13:38:02.060179][__main__.TRPOAgent.log][linesearch]: improvement: -0.006092831274823851
+
+[2020-01-27 13:38:02.084112][__main__.TRPOAgent.log][linesearch]: improvement: -0.003659077925307841
+
+[2020-01-27 13:38:02.110571][__main__.TRPOAgent.log][linesearch]: improvement: -0.002196866425379529
+
+[2020-01-27 13:38:02.111035][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.616299870050126e-07, Discarded policy loss value: -3.281377218656751
+
+[2020-01-27 13:38:02.862844][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 106.06051183623723
+
+[2020-01-27 13:38:02.867859][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 4500
+
+[2020-01-27 13:38:06.445499][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.03387587 ... -0.19962385  0.28319546
+ -0.08357161]
+
+[2020-01-27 13:38:06.445872][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:06.836121][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.03176753 ...  0.12861898 -0.21259561
+  0.08397662], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:06.915264][__main__.TRPOAgent.log][linesearch]: improvement: 0.11263120344696498
+
+[2020-01-27 13:38:06.943875][__main__.TRPOAgent.log][linesearch]: improvement: 0.046847579653714
+
+[2020-01-27 13:38:06.944323][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 2.5241919963796673
+
+[2020-01-27 13:38:07.674904][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 203.28240397665812
+
+[2020-01-27 13:38:07.675302][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:38:07.682729][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 4500
+
+[2020-01-27 13:38:11.273715][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.01076601 ... -0.03177166 -0.04445133
+  0.07622299]
+
+[2020-01-27 13:38:11.274108][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:11.673366][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.04710344 ...  0.02092349 -0.07187284
+  0.05094936], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:11.752679][__main__.TRPOAgent.log][linesearch]: improvement: -0.029236446013346185
+
+[2020-01-27 13:38:11.781090][__main__.TRPOAgent.log][linesearch]: improvement: -0.01679851551622491
+
+[2020-01-27 13:38:11.781538][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New policy loss value: 0.8238410850155435
+
+[2020-01-27 13:38:12.506539][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 107.9022725076658
+
+[2020-01-27 13:38:12.506933][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:38:12.514580][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 4500
+
+[2020-01-27 13:38:16.165164][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.07360854 ... -0.34889756  0.22613571
+  0.12276185]
+
+[2020-01-27 13:38:16.165542][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:16.565236][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.02381151 ...  0.09635197 -0.01659238
+ -0.07975959], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:16.648637][__main__.TRPOAgent.log][linesearch]: improvement: 0.013277528751802326
+
+[2020-01-27 13:38:16.649088][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 3.1435648485887375
+
+[2020-01-27 13:38:17.381216][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 201.87522213942998
+
+[2020-01-27 13:38:17.381609][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:38:17.388611][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 4500
+
+[2020-01-27 13:38:21.061612][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.03186027 ...  0.32675846 -0.13858572
+ -0.18817275]
+
+[2020-01-27 13:38:21.062003][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:21.466308][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.06082954 ... -0.00320022  0.0483367
+ -0.04513648], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:21.543992][__main__.TRPOAgent.log][linesearch]: improvement: -0.13900583515544052
+
+[2020-01-27 13:38:21.570870][__main__.TRPOAgent.log][linesearch]: improvement: -0.08090268721252247
+
+[2020-01-27 13:38:21.598836][__main__.TRPOAgent.log][linesearch]: improvement: -0.046655501680406664
+
+[2020-01-27 13:38:21.623104][__main__.TRPOAgent.log][linesearch]: improvement: -0.027442935963414183
+
+[2020-01-27 13:38:21.652287][__main__.TRPOAgent.log][linesearch]: improvement: -0.016558746772074806
+
+[2020-01-27 13:38:21.678426][__main__.TRPOAgent.log][linesearch]: improvement: -0.010512712516220102
+
+[2020-01-27 13:38:21.703831][__main__.TRPOAgent.log][linesearch]: improvement: -0.006679065331047118
+
+[2020-01-27 13:38:21.730643][__main__.TRPOAgent.log][linesearch]: improvement: -0.003912224965948008
+
+[2020-01-27 13:38:21.758979][__main__.TRPOAgent.log][linesearch]: improvement: -0.002306661765031026
+
+[2020-01-27 13:38:21.785039][__main__.TRPOAgent.log][linesearch]: improvement: -0.001371508101995933
+
+[2020-01-27 13:38:21.785480][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 9.589718565272026e-07, Discarded policy loss value: -0.6760316294989768
+
+[2020-01-27 13:38:22.542073][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 105.83962018817982
+
+[2020-01-27 13:38:22.547538][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 4500
+
+[2020-01-27 13:38:26.218732][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.12201731 ... -0.44263986  0.55771073
+ -0.11507087]
+
+[2020-01-27 13:38:26.219128][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:26.614422][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.03657821 ...  0.24279638  0.06822209
+ -0.31101847], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:26.698394][__main__.TRPOAgent.log][linesearch]: improvement: -0.05248626814878543
+
+[2020-01-27 13:38:26.698836][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 3.1830374746644914
+
+[2020-01-27 13:38:27.431018][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 202.4044690671096
+
+[2020-01-27 13:38:27.431410][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:38:27.449208][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 4500
+
+[2020-01-27 13:38:31.128165][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.01758568 ...  0.05735529 -0.22381835
+  0.16646306]
+
+[2020-01-27 13:38:31.128556][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:31.525043][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.         -0.00388471 ...  0.05882421 -0.11423211
+  0.05540791], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:31.608025][__main__.TRPOAgent.log][linesearch]: improvement: -0.03466250550484329
+
+[2020-01-27 13:38:31.637749][__main__.TRPOAgent.log][linesearch]: improvement: -0.03279296335169035
+
+[2020-01-27 13:38:31.663660][__main__.TRPOAgent.log][linesearch]: improvement: -0.023649429069621197
+
+[2020-01-27 13:38:31.687015][__main__.TRPOAgent.log][linesearch]: improvement: -0.01569797315091237
+
+[2020-01-27 13:38:31.715586][__main__.TRPOAgent.log][linesearch]: improvement: -0.010084604105012884
+
+[2020-01-27 13:38:31.739726][__main__.TRPOAgent.log][linesearch]: improvement: -0.006425553131613082
+
+[2020-01-27 13:38:31.766611][__main__.TRPOAgent.log][linesearch]: improvement: -0.004135709887622907
+
+[2020-01-27 13:38:31.791113][__main__.TRPOAgent.log][linesearch]: improvement: -0.002726884310713773
+
+[2020-01-27 13:38:31.819869][__main__.TRPOAgent.log][linesearch]: improvement: -0.0017722741867522984
+
+[2020-01-27 13:38:31.844452][__main__.TRPOAgent.log][linesearch]: improvement: -0.0011197232320521167
+
+[2020-01-27 13:38:31.844903][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.572632884801756e-07, Discarded policy loss value: -1.5327260258793705
+
+[2020-01-27 13:38:32.569040][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 105.82559212634008
+
+[2020-01-27 13:38:32.574293][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 4500
+
+[2020-01-27 13:38:36.138459][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.         -0.04909724 ... -0.1671205   0.41311283
+ -0.24599232]
+
+[2020-01-27 13:38:36.138839][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:36.537016][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.16736069 ... -0.14721913  0.37250258
+ -0.22528345], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:36.616712][__main__.TRPOAgent.log][linesearch]: improvement: -0.09095798532904587
+
+[2020-01-27 13:38:36.617172][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New policy loss value: 2.637576586437098
+
+[2020-01-27 13:38:37.370513][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 202.81760674259857
+
+[2020-01-27 13:38:37.370923][__main__.TRPOAgent.log][linesearch]: Linesearch successful, updating policy parameters
+
+[2020-01-27 13:38:37.380597][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 4063
+
+[2020-01-27 13:38:40.680777][__main__.TRPOAgent.log][training]: policy_gradient: [-0.         -0.          0.00279135 ...  0.07037744 -0.16332836
+  0.09295092]
+
+[2020-01-27 13:38:40.681165][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-27 13:38:41.046009][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
+[ 0.          0.          0.03506111 ...  0.40767355  0.18193215
+ -0.5896057 ], shape=(4547,), dtype=float64)
+
+[2020-01-27 13:38:41.118223][__main__.TRPOAgent.log][linesearch]: improvement: -0.10401071516285165
+
+[2020-01-27 13:38:41.143284][__main__.TRPOAgent.log][linesearch]: improvement: -0.07936617157099224
+
+[2020-01-27 13:38:41.170109][__main__.TRPOAgent.log][linesearch]: improvement: -0.06177199085632612
+
+[2020-01-27 13:38:41.194007][__main__.TRPOAgent.log][linesearch]: improvement: -0.04009527162301052
+
+[2020-01-27 13:38:41.220150][__main__.TRPOAgent.log][linesearch]: improvement: -0.02632293096819971
+
+[2020-01-27 13:38:41.242680][__main__.TRPOAgent.log][linesearch]: improvement: -0.01642381105888524
+
+[2020-01-27 13:38:41.269794][__main__.TRPOAgent.log][linesearch]: improvement: -0.009738661540860005
+
+[2020-01-27 13:38:41.293299][__main__.TRPOAgent.log][linesearch]: improvement: -0.0058213715413604206
+
+[2020-01-27 13:38:41.320100][__main__.TRPOAgent.log][linesearch]: improvement: -0.0035407148420182333
+
+[2020-01-27 13:38:41.343535][__main__.TRPOAgent.log][linesearch]: improvement: -0.0021349926682330267
+
+[2020-01-27 13:38:41.343976][__main__.TRPOAgent.log][linesearch]: Linesearch failed. Mean kl divergence: 8.862159238368521e-07, Discarded policy loss value: -0.6996120120391909
+
+[2020-01-27 13:38:42.010614][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 221.9617340994851
+
+[2020-01-27 13:38:42.031704][__main__.TRPOAgent.log][learning]: Episode #2
+
+[2020-01-27 13:38:42.032136][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 3000
+
+[2020-01-27 13:38:42.061126][Environment.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-27 13:38:42.061675][Environment.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-27 13:38:42.061896][Environment.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-27 13:38:42.064773][Environment.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-27 13:38:49.109493][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 3000
+
+[2020-01-27 13:38:49.120368][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 3000
+
+[2020-01-27 13:38:49.121025][Environment.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-27 13:38:49.121582][Environment.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-27 13:38:49.121684][Environment.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-27 13:38:49.125824][Environment.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-27 13:38:56.970954][Environment.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 3000
+
+[2020-01-27 13:38:57.089181][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 3000
+

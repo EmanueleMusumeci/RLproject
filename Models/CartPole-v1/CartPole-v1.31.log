@@ -1,0 +1,1684 @@
+LOGGER started at 2020-01-29 13:19:26.975781.
+Currently active debug channels:
+	act
+	batch_info
+	linesearch
+	learning
+[2020-01-29 13:19:27.438073][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-29 13:19:27.662559][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:19:30.509523][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:19:30.510355][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3362, Batch size: 100, Number of batches: 34
+
+[2020-01-29 13:19:30.510662][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:19:30.510940][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 41
+
+[2020-01-29 13:19:30.886585][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 46.62364705670171
+
+[2020-01-29 13:19:30.891447][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 38
+
+[2020-01-29 13:19:31.015790][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.621539617153375
+
+[2020-01-29 13:19:31.022156][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 30
+
+[2020-01-29 13:19:31.146431][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.530823433585464
+
+[2020-01-29 13:19:31.151142][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 32
+
+[2020-01-29 13:19:31.384009][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.395658761728555
+
+[2020-01-29 13:19:31.388755][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 82
+
+[2020-01-29 13:19:31.525570][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 66.22024553583185
+
+[2020-01-29 13:19:31.531287][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 32
+
+[2020-01-29 13:19:31.649425][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.857258538831957
+
+[2020-01-29 13:19:31.655767][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 29
+
+[2020-01-29 13:19:31.780478][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.384648880189945
+
+[2020-01-29 13:19:31.785564][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 33
+
+[2020-01-29 13:19:31.908357][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2333744051998523
+
+[2020-01-29 13:19:31.914343][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 31
+
+[2020-01-29 13:19:32.035865][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.329481301468707
+
+[2020-01-29 13:19:32.040308][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 35
+
+[2020-01-29 13:19:32.157303][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.573527163475436
+
+[2020-01-29 13:19:32.163528][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 30
+
+[2020-01-29 13:19:32.296205][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9925923573474089
+
+[2020-01-29 13:19:32.300884][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 34
+
+[2020-01-29 13:19:32.435696][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7074425570717053
+
+[2020-01-29 13:19:32.440741][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 33
+
+[2020-01-29 13:19:32.565916][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5873031181452627
+
+[2020-01-29 13:19:32.570586][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 30
+
+[2020-01-29 13:19:32.690062][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.490562036742146
+
+[2020-01-29 13:19:32.696523][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 27
+
+[2020-01-29 13:19:32.817190][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8813786703549676
+
+[2020-01-29 13:19:32.823168][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 33
+
+[2020-01-29 13:19:32.951710][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.293777910258734
+
+[2020-01-29 13:19:32.956237][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 34
+
+[2020-01-29 13:19:33.092646][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.198987664435716
+
+[2020-01-29 13:19:33.097361][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 35
+
+[2020-01-29 13:19:33.221769][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.9049008776167673
+
+[2020-01-29 13:19:33.226470][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 37
+
+[2020-01-29 13:19:33.351792][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.4394422103902578
+
+[2020-01-29 13:19:33.356723][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 39
+
+[2020-01-29 13:19:33.486775][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1775830232912154
+
+[2020-01-29 13:19:33.491611][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 23
+
+[2020-01-29 13:19:33.616811][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 21.211036122363545
+
+[2020-01-29 13:19:33.621801][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 25
+
+[2020-01-29 13:19:33.750657][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.9693097458034754
+
+[2020-01-29 13:19:33.755581][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 83
+
+[2020-01-29 13:19:33.892872][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 163.1196093200201
+
+[2020-01-29 13:19:33.898376][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 28
+
+[2020-01-29 13:19:34.025552][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 239.0227028301784
+
+[2020-01-29 13:19:34.030494][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 33
+
+[2020-01-29 13:19:34.169442][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 205.99570645798337
+
+[2020-01-29 13:19:34.174315][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 32
+
+[2020-01-29 13:19:34.290962][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 172.58355595590547
+
+[2020-01-29 13:19:34.295928][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 27
+
+[2020-01-29 13:19:34.420856][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 106.35376094433444
+
+[2020-01-29 13:19:34.426953][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 34
+
+[2020-01-29 13:19:34.556414][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 157.61871737636187
+
+[2020-01-29 13:19:34.560951][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 33
+
+[2020-01-29 13:19:34.684285][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 127.29194943787473
+
+[2020-01-29 13:19:34.688942][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 33
+
+[2020-01-29 13:19:34.822420][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 113.36378143434271
+
+[2020-01-29 13:19:34.827138][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 34
+
+[2020-01-29 13:19:34.951555][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 109.34205651907799
+
+[2020-01-29 13:19:34.955997][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 33
+
+[2020-01-29 13:19:35.082755][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 92.25408315523104
+
+[2020-01-29 13:19:35.087478][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 29
+
+[2020-01-29 13:19:35.214866][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 61.83791070804
+
+[2020-01-29 13:19:35.219583][__main__.TRPOAgent.log][batch_info]: Batch #33, batch length: 40
+
+[2020-01-29 13:19:35.351017][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 133.95339318620972
+
+[2020-01-29 13:19:37.065657][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-29 13:19:37.066608][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:19:39.922466][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:19:39.923722][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3340, Batch size: 100, Number of batches: 34
+
+[2020-01-29 13:19:39.924126][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:19:39.924485][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 31
+
+[2020-01-29 13:19:40.049372][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 62.2390001646934
+
+[2020-01-29 13:19:40.055593][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 35
+
+[2020-01-29 13:19:40.184825][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 79.19028438170041
+
+[2020-01-29 13:19:40.189806][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 34
+
+[2020-01-29 13:19:40.317464][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 58.47978078524637
+
+[2020-01-29 13:19:40.322042][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 34
+
+[2020-01-29 13:19:40.454948][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 50.60274280531003
+
+[2020-01-29 13:19:40.459908][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 33
+
+[2020-01-29 13:19:40.574212][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 41.72312633467443
+
+[2020-01-29 13:19:40.578754][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 33
+
+[2020-01-29 13:19:40.707409][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 37.374959920391895
+
+[2020-01-29 13:19:40.713921][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 25
+
+[2020-01-29 13:19:40.828097][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.634960513412953
+
+[2020-01-29 13:19:40.833550][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 34
+
+[2020-01-29 13:19:40.953734][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 36.01157689740991
+
+[2020-01-29 13:19:40.960089][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 32
+
+[2020-01-29 13:19:41.076178][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 24.884530912055197
+
+[2020-01-29 13:19:41.082624][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 35
+
+[2020-01-29 13:19:41.208783][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 34.84537289227758
+
+[2020-01-29 13:19:41.213725][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 31
+
+[2020-01-29 13:19:41.335096][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 17.41973849401727
+
+[2020-01-29 13:19:41.339820][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 34
+
+[2020-01-29 13:19:41.461067][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 26.359915114062673
+
+[2020-01-29 13:19:41.466001][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 37
+
+[2020-01-29 13:19:41.599866][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 33.72820346359938
+
+[2020-01-29 13:19:41.604394][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 30
+
+[2020-01-29 13:19:41.731879][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 10.120180022840698
+
+[2020-01-29 13:19:41.736510][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 45
+
+[2020-01-29 13:19:41.876522][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 68.13010785543463
+
+[2020-01-29 13:19:41.882010][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 36
+
+[2020-01-29 13:19:42.007710][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 21.78589360910054
+
+[2020-01-29 13:19:42.012397][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 34
+
+[2020-01-29 13:19:42.142324][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 13.408250750063042
+
+[2020-01-29 13:19:42.146804][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 35
+
+[2020-01-29 13:19:42.272728][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 15.377680537794888
+
+[2020-01-29 13:19:42.277279][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 30
+
+[2020-01-29 13:19:42.394148][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.609059048738952
+
+[2020-01-29 13:19:42.400301][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 28
+
+[2020-01-29 13:19:42.529922][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.349784214182623
+
+[2020-01-29 13:19:42.534513][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 43
+
+[2020-01-29 13:19:42.666459][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 67.07139578271051
+
+[2020-01-29 13:19:42.671343][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 23
+
+[2020-01-29 13:19:42.797740][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 42.63916948405297
+
+[2020-01-29 13:19:42.802554][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 36
+
+[2020-01-29 13:19:42.932751][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 9.97079715201173
+
+[2020-01-29 13:19:42.938931][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 38
+
+[2020-01-29 13:19:43.068912][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.571141267311759
+
+[2020-01-29 13:19:43.074043][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 32
+
+[2020-01-29 13:19:43.187168][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.3883244839362305
+
+[2020-01-29 13:19:43.191796][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 28
+
+[2020-01-29 13:19:43.304395][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.8569948618616245
+
+[2020-01-29 13:19:43.309291][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 32
+
+[2020-01-29 13:19:43.421976][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.008631315995444
+
+[2020-01-29 13:19:43.426356][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 29
+
+[2020-01-29 13:19:43.556989][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.976028527036823
+
+[2020-01-29 13:19:43.563055][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 41
+
+[2020-01-29 13:19:43.693598][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.5874747319465357
+
+[2020-01-29 13:19:43.698471][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 34
+
+[2020-01-29 13:19:43.828745][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 9.349489226926167
+
+[2020-01-29 13:19:43.834039][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 35
+
+[2020-01-29 13:19:43.965739][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 11.544081255261387
+
+[2020-01-29 13:19:43.970725][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 30
+
+[2020-01-29 13:19:44.083031][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.3845007700282923
+
+[2020-01-29 13:19:44.087872][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 40
+
+[2020-01-29 13:19:44.211848][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 23.867108849738724
+
+[2020-01-29 13:19:44.216677][__main__.TRPOAgent.log][batch_info]: Batch #33, batch length: 29
+
+[2020-01-29 13:19:44.335660][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.2665869762823947
+
+[2020-01-29 13:19:45.374601][__main__.TRPOAgent.log][learning]: Episode #2
+
+[2020-01-29 13:19:45.375898][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:19:47.941132][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:19:47.942136][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3198, Batch size: 100, Number of batches: 32
+
+[2020-01-29 13:19:47.942492][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:19:47.942812][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 36
+
+[2020-01-29 13:19:48.078860][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 23.223402119345135
+
+[2020-01-29 13:19:48.083796][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 29
+
+[2020-01-29 13:19:48.207328][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.034163344844148
+
+[2020-01-29 13:19:48.211695][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 31
+
+[2020-01-29 13:19:48.340457][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.1448026946370278
+
+[2020-01-29 13:19:48.346842][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 32
+
+[2020-01-29 13:19:48.454038][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 16.57321668183431
+
+[2020-01-29 13:19:48.458891][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 29
+
+[2020-01-29 13:19:48.583636][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.602136401636205
+
+[2020-01-29 13:19:48.588510][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 34
+
+[2020-01-29 13:19:48.718020][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 11.738555565312067
+
+[2020-01-29 13:19:48.722791][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 32
+
+[2020-01-29 13:19:48.836509][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.085770847190361
+
+[2020-01-29 13:19:48.841095][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 29
+
+[2020-01-29 13:19:48.963856][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.4544134520251175
+
+[2020-01-29 13:19:48.970061][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 29
+
+[2020-01-29 13:19:49.092956][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.820597242435505
+
+[2020-01-29 13:19:49.097699][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 33
+
+[2020-01-29 13:19:49.230690][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.929477357391451
+
+[2020-01-29 13:19:49.235834][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 32
+
+[2020-01-29 13:19:49.350796][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.4219554100272944
+
+[2020-01-29 13:19:49.357245][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 27
+
+[2020-01-29 13:19:49.484980][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.6331745873195713
+
+[2020-01-29 13:19:49.489764][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 28
+
+[2020-01-29 13:19:49.606672][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.9526057514885906
+
+[2020-01-29 13:19:49.611128][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 35
+
+[2020-01-29 13:19:49.750350][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 16.095003146388834
+
+[2020-01-29 13:19:49.756647][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 32
+
+[2020-01-29 13:19:49.869708][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.623926642633705
+
+[2020-01-29 13:19:49.874517][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 41
+
+[2020-01-29 13:19:50.001003][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 21.645627065220985
+
+[2020-01-29 13:19:50.005889][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 29
+
+[2020-01-29 13:19:50.129074][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.8422986534927739
+
+[2020-01-29 13:19:50.135688][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 35
+
+[2020-01-29 13:19:50.265609][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 9.436075789587838
+
+[2020-01-29 13:19:50.270760][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 50
+
+[2020-01-29 13:19:50.410045][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 48.84576402880251
+
+[2020-01-29 13:19:50.417180][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 35
+
+[2020-01-29 13:19:50.556793][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.137820392018849
+
+[2020-01-29 13:19:50.561399][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 32
+
+[2020-01-29 13:19:50.671309][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.958372034626161
+
+[2020-01-29 13:19:50.676174][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 30
+
+[2020-01-29 13:19:50.805173][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.565840831779254
+
+[2020-01-29 13:19:50.809829][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 36
+
+[2020-01-29 13:19:50.937048][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.824037906713784
+
+[2020-01-29 13:19:50.941609][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 35
+
+[2020-01-29 13:19:51.059006][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.255248146568556
+
+[2020-01-29 13:19:51.063642][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 37
+
+[2020-01-29 13:19:51.191192][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.910951732518623
+
+[2020-01-29 13:19:51.196075][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 33
+
+[2020-01-29 13:19:51.319183][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3095595679231777
+
+[2020-01-29 13:19:51.325532][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 33
+
+[2020-01-29 13:19:51.436671][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2544928496548287
+
+[2020-01-29 13:19:51.441455][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 30
+
+[2020-01-29 13:19:51.567381][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6410031122388318
+
+[2020-01-29 13:19:51.571823][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 33
+
+[2020-01-29 13:19:51.696554][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3921520679494168
+
+[2020-01-29 13:19:51.702958][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 34
+
+[2020-01-29 13:19:51.822752][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.536523954696724
+
+[2020-01-29 13:19:51.827450][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 32
+
+[2020-01-29 13:19:51.945895][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0482814816164137
+
+[2020-01-29 13:19:51.952123][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 45
+
+[2020-01-29 13:19:52.093040][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 19.74993412125235
+
+[2020-01-29 13:19:54.145557][__main__.TRPOAgent.log][learning]: Episode #3
+
+[2020-01-29 13:19:54.146646][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:19:56.894036][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:19:56.894945][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3274, Batch size: 100, Number of batches: 33
+
+[2020-01-29 13:19:56.895268][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:19:56.895569][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 35
+
+[2020-01-29 13:19:57.024974][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.8761889231025375
+
+[2020-01-29 13:19:57.029649][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 31
+
+[2020-01-29 13:19:57.152749][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6614637732385628
+
+[2020-01-29 13:19:57.157347][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 34
+
+[2020-01-29 13:19:57.274685][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.102168572760895
+
+[2020-01-29 13:19:57.279140][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 33
+
+[2020-01-29 13:19:57.387087][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6903164574001549
+
+[2020-01-29 13:19:57.392010][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 33
+
+[2020-01-29 13:19:57.513553][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5722867918049098
+
+[2020-01-29 13:19:57.518689][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 33
+
+[2020-01-29 13:19:57.647927][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6344971652343343
+
+[2020-01-29 13:19:57.654618][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 34
+
+[2020-01-29 13:19:57.777696][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9574249302108108
+
+[2020-01-29 13:19:57.783207][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 33
+
+[2020-01-29 13:19:57.907712][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5470246874981306
+
+[2020-01-29 13:19:57.914083][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 33
+
+[2020-01-29 13:19:58.044882][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7653192585390626
+
+[2020-01-29 13:19:58.050121][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 32
+
+[2020-01-29 13:19:58.172811][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8933061924763024
+
+[2020-01-29 13:19:58.177227][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 42
+
+[2020-01-29 13:19:58.318621][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 12.20564680386867
+
+[2020-01-29 13:19:58.323613][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 35
+
+[2020-01-29 13:19:58.452527][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.5051078746402968
+
+[2020-01-29 13:19:58.458856][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 30
+
+[2020-01-29 13:19:58.586782][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.6216930399338403
+
+[2020-01-29 13:19:58.591497][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 39
+
+[2020-01-29 13:19:58.719054][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.069093880130169
+
+[2020-01-29 13:19:58.724160][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 35
+
+[2020-01-29 13:19:58.841034][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.4570825749974965
+
+[2020-01-29 13:19:58.845639][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 31
+
+[2020-01-29 13:19:58.963217][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.617092925161424
+
+[2020-01-29 13:19:58.968199][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 34
+
+[2020-01-29 13:19:59.091898][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3555376297923323
+
+[2020-01-29 13:19:59.096708][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 32
+
+[2020-01-29 13:19:59.213441][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.0274089578690564
+
+[2020-01-29 13:19:59.218378][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 27
+
+[2020-01-29 13:19:59.338445][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.085859899374622
+
+[2020-01-29 13:19:59.343360][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 31
+
+[2020-01-29 13:19:59.470765][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.370510692137383
+
+[2020-01-29 13:19:59.475751][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 30
+
+[2020-01-29 13:19:59.690926][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.9403181857119005
+
+[2020-01-29 13:19:59.695602][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 35
+
+[2020-01-29 13:19:59.827057][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.266226860887504
+
+[2020-01-29 13:19:59.832246][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 36
+
+[2020-01-29 13:19:59.960654][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.7862134985625744
+
+[2020-01-29 13:19:59.967126][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 31
+
+[2020-01-29 13:20:00.093589][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.55733657923866
+
+[2020-01-29 13:20:00.098208][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 33
+
+[2020-01-29 13:20:00.228706][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.0462523333897646
+
+[2020-01-29 13:20:00.233751][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 40
+
+[2020-01-29 13:20:00.360843][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.75510890041478
+
+[2020-01-29 13:20:00.365621][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 33
+
+[2020-01-29 13:20:00.489674][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.5381699119355865
+
+[2020-01-29 13:20:00.494547][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 33
+
+[2020-01-29 13:20:00.627346][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.1508068097755313
+
+[2020-01-29 13:20:00.633771][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 38
+
+[2020-01-29 13:20:00.783113][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.8179965033318455
+
+[2020-01-29 13:20:00.788440][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 34
+
+[2020-01-29 13:20:00.914799][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.187472315759672
+
+[2020-01-29 13:20:00.919838][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 29
+
+[2020-01-29 13:20:01.041972][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.121886863212647
+
+[2020-01-29 13:20:01.046784][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 29
+
+[2020-01-29 13:20:01.175938][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3616209690426957
+
+[2020-01-29 13:20:01.182390][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 36
+
+[2020-01-29 13:20:01.314324][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2187344011229775
+
+[2020-01-29 13:20:02.208519][__main__.TRPOAgent.log][learning]: Episode #4
+
+[2020-01-29 13:20:02.208992][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:04.908850][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:04.909921][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3330, Batch size: 100, Number of batches: 34
+
+[2020-01-29 13:20:04.910495][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:04.910784][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 32
+
+[2020-01-29 13:20:05.025309][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.520814088031784
+
+[2020-01-29 13:20:05.029975][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 33
+
+[2020-01-29 13:20:05.149600][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.9247851376033698
+
+[2020-01-29 13:20:05.155714][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 28
+
+[2020-01-29 13:20:05.274828][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7376120331641037
+
+[2020-01-29 13:20:05.279405][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 30
+
+[2020-01-29 13:20:05.395643][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5168544546565196
+
+[2020-01-29 13:20:05.400788][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 37
+
+[2020-01-29 13:20:05.528763][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.3305791346796765
+
+[2020-01-29 13:20:05.533870][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 34
+
+[2020-01-29 13:20:05.657803][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7666861219036304
+
+[2020-01-29 13:20:05.663382][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 31
+
+[2020-01-29 13:20:05.797039][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.510877482202505
+
+[2020-01-29 13:20:05.802119][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 33
+
+[2020-01-29 13:20:05.926563][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9677490199154074
+
+[2020-01-29 13:20:05.931543][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 32
+
+[2020-01-29 13:20:06.048457][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.699768204322936
+
+[2020-01-29 13:20:06.053600][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 30
+
+[2020-01-29 13:20:06.172241][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.763687772289389
+
+[2020-01-29 13:20:06.176758][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 35
+
+[2020-01-29 13:20:06.308735][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3295368997783434
+
+[2020-01-29 13:20:06.313477][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 33
+
+[2020-01-29 13:20:06.439221][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3456521043624503
+
+[2020-01-29 13:20:06.445637][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 33
+
+[2020-01-29 13:20:06.567112][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7854917485491514
+
+[2020-01-29 13:20:06.573311][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 36
+
+[2020-01-29 13:20:06.704824][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.724471887360576
+
+[2020-01-29 13:20:06.709911][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 36
+
+[2020-01-29 13:20:06.833795][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.5644362245608743
+
+[2020-01-29 13:20:06.838727][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 29
+
+[2020-01-29 13:20:06.959193][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.6854541306865625
+
+[2020-01-29 13:20:06.964058][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 29
+
+[2020-01-29 13:20:07.082633][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.9108686642721295
+
+[2020-01-29 13:20:07.087670][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 35
+
+[2020-01-29 13:20:07.214420][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.157770156328167
+
+[2020-01-29 13:20:07.219186][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 31
+
+[2020-01-29 13:20:07.338838][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.258962230816964
+
+[2020-01-29 13:20:07.343695][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 32
+
+[2020-01-29 13:20:07.461776][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6969953771185828
+
+[2020-01-29 13:20:07.466976][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 31
+
+[2020-01-29 13:20:07.579435][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.897625413926078
+
+[2020-01-29 13:20:07.586058][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 33
+
+[2020-01-29 13:20:07.717975][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2981966244564815
+
+[2020-01-29 13:20:07.723236][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 31
+
+[2020-01-29 13:20:07.845491][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2553903702346068
+
+[2020-01-29 13:20:07.850067][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 29
+
+[2020-01-29 13:20:07.969906][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.5102594981676547
+
+[2020-01-29 13:20:07.974803][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 26
+
+[2020-01-29 13:20:08.106691][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.1347272922419225
+
+[2020-01-29 13:20:08.113045][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 36
+
+[2020-01-29 13:20:08.241427][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 18.61295977069272
+
+[2020-01-29 13:20:08.246410][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 35
+
+[2020-01-29 13:20:08.375751][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.095605819418727
+
+[2020-01-29 13:20:08.380633][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 32
+
+[2020-01-29 13:20:08.495918][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.561366583465647
+
+[2020-01-29 13:20:08.502350][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 34
+
+[2020-01-29 13:20:08.637260][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9033164816620924
+
+[2020-01-29 13:20:08.642176][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 31
+
+[2020-01-29 13:20:08.762409][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.44162229006178677
+
+[2020-01-29 13:20:08.767407][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 39
+
+[2020-01-29 13:20:08.895500][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.280331388147226
+
+[2020-01-29 13:20:08.900643][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 26
+
+[2020-01-29 13:20:09.026984][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 11.018885689760701
+
+[2020-01-29 13:20:09.031619][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 34
+
+[2020-01-29 13:20:09.162809][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 19.647033074644725
+
+[2020-01-29 13:20:09.167877][__main__.TRPOAgent.log][batch_info]: Batch #33, batch length: 33
+
+[2020-01-29 13:20:09.296267][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 8.492490137475684
+
+[2020-01-29 13:20:10.597938][__main__.TRPOAgent.log][learning]: Episode #5
+
+[2020-01-29 13:20:10.599487][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:13.361756][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:13.362841][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3312, Batch size: 100, Number of batches: 34
+
+[2020-01-29 13:20:13.368898][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:13.369290][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 30
+
+[2020-01-29 13:20:13.488492][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 14.617643658382198
+
+[2020-01-29 13:20:13.492957][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 33
+
+[2020-01-29 13:20:13.609594][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.8044471969884452
+
+[2020-01-29 13:20:13.614669][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 33
+
+[2020-01-29 13:20:13.737701][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.408301377784841
+
+[2020-01-29 13:20:13.744235][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 31
+
+[2020-01-29 13:20:13.867409][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1876421210294095
+
+[2020-01-29 13:20:13.872302][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 35
+
+[2020-01-29 13:20:14.000865][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.4995431091370328
+
+[2020-01-29 13:20:14.007229][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 25
+
+[2020-01-29 13:20:14.135827][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.549387965367059
+
+[2020-01-29 13:20:14.140270][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 34
+
+[2020-01-29 13:20:14.265644][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.170288763392498
+
+[2020-01-29 13:20:14.270675][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 32
+
+[2020-01-29 13:20:14.383492][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0791866571526043
+
+[2020-01-29 13:20:14.388296][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 28
+
+[2020-01-29 13:20:14.506555][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.837687772366085
+
+[2020-01-29 13:20:14.511502][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 48
+
+[2020-01-29 13:20:14.656781][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 31.133478334850224
+
+[2020-01-29 13:20:14.663064][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 35
+
+[2020-01-29 13:20:14.796616][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.043227900777544
+
+[2020-01-29 13:20:14.801259][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 37
+
+[2020-01-29 13:20:14.926752][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 6.49672800433394
+
+[2020-01-29 13:20:14.932662][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 33
+
+[2020-01-29 13:20:15.052997][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.533765426216026
+
+[2020-01-29 13:20:15.059350][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 32
+
+[2020-01-29 13:20:15.180810][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.6315156161801951
+
+[2020-01-29 13:20:15.185917][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 39
+
+[2020-01-29 13:20:15.314793][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 9.05566601569836
+
+[2020-01-29 13:20:15.320880][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 31
+
+[2020-01-29 13:20:15.440655][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 10.956507419381493
+
+[2020-01-29 13:20:15.445603][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 31
+
+[2020-01-29 13:20:15.569882][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 11.183910579967026
+
+[2020-01-29 13:20:15.574738][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 34
+
+[2020-01-29 13:20:15.707100][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 19.108601633582595
+
+[2020-01-29 13:20:15.712755][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 33
+
+[2020-01-29 13:20:15.836240][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.4603298595739584
+
+[2020-01-29 13:20:15.841091][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 34
+
+[2020-01-29 13:20:15.964671][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.764499980424315
+
+[2020-01-29 13:20:15.969235][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 30
+
+[2020-01-29 13:20:16.092984][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.6793204410622518
+
+[2020-01-29 13:20:16.099239][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 35
+
+[2020-01-29 13:20:16.230797][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7416210937209793
+
+[2020-01-29 13:20:16.235900][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 31
+
+[2020-01-29 13:20:16.351219][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.472629698316591
+
+[2020-01-29 13:20:16.356194][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 31
+
+[2020-01-29 13:20:16.485853][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5068829254868755
+
+[2020-01-29 13:20:16.490577][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 31
+
+[2020-01-29 13:20:16.608639][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0603346587459166
+
+[2020-01-29 13:20:16.613567][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 25
+
+[2020-01-29 13:20:16.740580][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.044583651833236
+
+[2020-01-29 13:20:16.745574][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 36
+
+[2020-01-29 13:20:16.878665][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.674078642390668
+
+[2020-01-29 13:20:16.883627][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 36
+
+[2020-01-29 13:20:17.011413][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.7072056278638126
+
+[2020-01-29 13:20:17.016449][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 35
+
+[2020-01-29 13:20:17.151639][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.360257931812001
+
+[2020-01-29 13:20:17.157301][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 30
+
+[2020-01-29 13:20:17.272722][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2909704278853797
+
+[2020-01-29 13:20:17.277766][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 31
+
+[2020-01-29 13:20:17.400603][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.322118309972387
+
+[2020-01-29 13:20:17.405930][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 25
+
+[2020-01-29 13:20:17.540902][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0387089012376964
+
+[2020-01-29 13:20:17.545520][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 31
+
+[2020-01-29 13:20:17.665679][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.5672115178838855
+
+[2020-01-29 13:20:17.670750][__main__.TRPOAgent.log][batch_info]: Batch #33, batch length: 34
+
+[2020-01-29 13:20:17.795459][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.104080770034617
+
+[2020-01-29 13:20:18.940962][__main__.TRPOAgent.log][learning]: Episode #6
+
+[2020-01-29 13:20:18.942074][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:21.641235][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:21.642290][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 3325, Batch size: 100, Number of batches: 34
+
+[2020-01-29 13:20:21.642626][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:21.642931][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 34
+
+[2020-01-29 13:20:21.771828][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.5380159352267475
+
+[2020-01-29 13:20:21.776959][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 33
+
+[2020-01-29 13:20:21.904926][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5371892169869446
+
+[2020-01-29 13:20:21.911279][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 32
+
+[2020-01-29 13:20:22.031684][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.971625159825635
+
+[2020-01-29 13:20:22.038374][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 35
+
+[2020-01-29 13:20:22.179900][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.309136239669585
+
+[2020-01-29 13:20:22.186154][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 30
+
+[2020-01-29 13:20:22.297923][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.217540987196844
+
+[2020-01-29 13:20:22.303027][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 39
+
+[2020-01-29 13:20:22.423175][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.534524447256281
+
+[2020-01-29 13:20:22.429358][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 32
+
+[2020-01-29 13:20:22.542685][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.5254871981451288
+
+[2020-01-29 13:20:22.547318][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 36
+
+[2020-01-29 13:20:22.665872][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.819494590163231
+
+[2020-01-29 13:20:22.671052][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 28
+
+[2020-01-29 13:20:22.800625][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5945372898422647
+
+[2020-01-29 13:20:22.807096][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 39
+
+[2020-01-29 13:20:22.956905][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 5.248254674655469
+
+[2020-01-29 13:20:22.962040][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 38
+
+[2020-01-29 13:20:23.116758][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.3735327674317217
+
+[2020-01-29 13:20:23.124813][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 34
+
+[2020-01-29 13:20:23.291871][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8527891189955613
+
+[2020-01-29 13:20:23.297206][__main__.TRPOAgent.log][batch_info]: Batch #12, batch length: 34
+
+[2020-01-29 13:20:23.458335][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.44498147700762597
+
+[2020-01-29 13:20:23.463181][__main__.TRPOAgent.log][batch_info]: Batch #13, batch length: 32
+
+[2020-01-29 13:20:23.611486][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6911705623206217
+
+[2020-01-29 13:20:23.616258][__main__.TRPOAgent.log][batch_info]: Batch #14, batch length: 35
+
+[2020-01-29 13:20:23.782141][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0468199936489002
+
+[2020-01-29 13:20:23.791102][__main__.TRPOAgent.log][batch_info]: Batch #15, batch length: 31
+
+[2020-01-29 13:20:23.928841][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.4080684053290995
+
+[2020-01-29 13:20:23.933760][__main__.TRPOAgent.log][batch_info]: Batch #16, batch length: 34
+
+[2020-01-29 13:20:24.077240][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.4770333832129836
+
+[2020-01-29 13:20:24.082173][__main__.TRPOAgent.log][batch_info]: Batch #17, batch length: 33
+
+[2020-01-29 13:20:24.218633][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.23410651130578833
+
+[2020-01-29 13:20:24.223786][__main__.TRPOAgent.log][batch_info]: Batch #18, batch length: 38
+
+[2020-01-29 13:20:24.368553][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.6310198772943725
+
+[2020-01-29 13:20:24.375406][__main__.TRPOAgent.log][batch_info]: Batch #19, batch length: 33
+
+[2020-01-29 13:20:24.514810][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.776638413758271
+
+[2020-01-29 13:20:24.521409][__main__.TRPOAgent.log][batch_info]: Batch #20, batch length: 35
+
+[2020-01-29 13:20:24.681124][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.20234810406338
+
+[2020-01-29 13:20:24.686808][__main__.TRPOAgent.log][batch_info]: Batch #21, batch length: 35
+
+[2020-01-29 13:20:24.818273][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.1681475431259187
+
+[2020-01-29 13:20:24.824931][__main__.TRPOAgent.log][batch_info]: Batch #22, batch length: 35
+
+[2020-01-29 13:20:24.974227][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.7588032332417223
+
+[2020-01-29 13:20:24.979215][__main__.TRPOAgent.log][batch_info]: Batch #23, batch length: 34
+
+[2020-01-29 13:20:25.112666][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4936572816982242
+
+[2020-01-29 13:20:25.117584][__main__.TRPOAgent.log][batch_info]: Batch #24, batch length: 32
+
+[2020-01-29 13:20:25.244808][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8172779017331777
+
+[2020-01-29 13:20:25.251459][__main__.TRPOAgent.log][batch_info]: Batch #25, batch length: 33
+
+[2020-01-29 13:20:25.402270][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.281922073689092
+
+[2020-01-29 13:20:25.408935][__main__.TRPOAgent.log][batch_info]: Batch #26, batch length: 36
+
+[2020-01-29 13:20:25.546719][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.312917384577708
+
+[2020-01-29 13:20:25.551358][__main__.TRPOAgent.log][batch_info]: Batch #27, batch length: 31
+
+[2020-01-29 13:20:25.706941][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.1473083207083326
+
+[2020-01-29 13:20:25.713477][__main__.TRPOAgent.log][batch_info]: Batch #28, batch length: 31
+
+[2020-01-29 13:20:25.880091][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.056819238065321
+
+[2020-01-29 13:20:25.885844][__main__.TRPOAgent.log][batch_info]: Batch #29, batch length: 27
+
+[2020-01-29 13:20:26.019187][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.8917892507656857
+
+[2020-01-29 13:20:26.024041][__main__.TRPOAgent.log][batch_info]: Batch #30, batch length: 30
+
+[2020-01-29 13:20:26.156850][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.3587273978317778
+
+[2020-01-29 13:20:26.161903][__main__.TRPOAgent.log][batch_info]: Batch #31, batch length: 34
+
+[2020-01-29 13:20:26.307725][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.6801690835067455
+
+[2020-01-29 13:20:26.314581][__main__.TRPOAgent.log][batch_info]: Batch #32, batch length: 44
+
+[2020-01-29 13:20:26.498395][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 10.08627441527576
+
+[2020-01-29 13:20:26.505176][__main__.TRPOAgent.log][batch_info]: Batch #33, batch length: 32
+
+[2020-01-29 13:20:26.642984][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.591142838820815
+
+[2020-01-29 13:20:27.297669][__main__.TRPOAgent.log][learning]: Episode #7
+
+[2020-01-29 13:20:27.298023][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:28.654201][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:28.655314][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1089, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:28.655642][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:28.655990][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 12
+
+[2020-01-29 13:20:28.792334][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 417.82309977213544
+
+[2020-01-29 13:20:28.797351][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+
+[2020-01-29 13:20:28.938992][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 384.6298004150391
+
+[2020-01-29 13:20:28.944631][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:29.124111][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 308.8974014282227
+
+[2020-01-29 13:20:29.132003][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:29.310689][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 231.6861873626709
+
+[2020-01-29 13:20:29.316719][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 14
+
+[2020-01-29 13:20:29.493294][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 108.50980936629432
+
+[2020-01-29 13:20:29.499436][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:29.681466][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 48.93944681286812
+
+[2020-01-29 13:20:29.687381][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:29.824091][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 7.985891807638109
+
+[2020-01-29 13:20:29.829112][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 13
+
+[2020-01-29 13:20:29.963436][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.5113679590017104
+
+[2020-01-29 13:20:29.968359][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 13
+
+[2020-01-29 13:20:30.094462][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.2515254341639004
+
+[2020-01-29 13:20:30.099391][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:30.259143][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.6679596304893494
+
+[2020-01-29 13:20:30.267038][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 11
+
+[2020-01-29 13:20:30.434098][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9350570484291386
+
+[2020-01-29 13:20:31.088031][__main__.TRPOAgent.log][learning]: Episode #8
+
+[2020-01-29 13:20:31.088407][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:32.066718][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:32.067643][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1096, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:32.067930][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:32.068218][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 13
+
+[2020-01-29 13:20:32.193638][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9400173845127798
+
+[2020-01-29 13:20:32.198457][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 11
+
+[2020-01-29 13:20:32.329547][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3803806604555575
+
+[2020-01-29 13:20:32.334153][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 14
+
+[2020-01-29 13:20:32.459366][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.4005307011643058
+
+[2020-01-29 13:20:32.463985][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:32.588233][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1573883006349206
+
+[2020-01-29 13:20:32.593139][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:32.725205][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7237703918479383
+
+[2020-01-29 13:20:32.729706][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:32.863797][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1298586666584014
+
+[2020-01-29 13:20:32.868196][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:32.998994][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.7070067102555185
+
+[2020-01-29 13:20:33.003540][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:33.127900][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.24434070480056108
+
+[2020-01-29 13:20:33.134109][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:20:33.271114][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.22829654437955468
+
+[2020-01-29 13:20:33.276198][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:33.408650][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.23349669836461545
+
+[2020-01-29 13:20:33.413143][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 14
+
+[2020-01-29 13:20:33.538186][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.3974836245179176
+
+[2020-01-29 13:20:34.165713][__main__.TRPOAgent.log][learning]: Episode #9
+
+[2020-01-29 13:20:34.166133][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:35.140470][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:35.141380][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1088, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:35.141705][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:35.142005][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:20:35.266154][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.684972147922963
+
+[2020-01-29 13:20:35.272657][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+
+[2020-01-29 13:20:35.399543][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.380746242403984
+
+[2020-01-29 13:20:35.404468][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 13
+
+[2020-01-29 13:20:35.532298][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1543617809030156
+
+[2020-01-29 13:20:35.537099][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:35.664975][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.30882277193595653
+
+[2020-01-29 13:20:35.671236][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:35.801502][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4386887059547007
+
+[2020-01-29 13:20:35.806252][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:35.933645][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.3655041004996747
+
+[2020-01-29 13:20:35.938557][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 12
+
+[2020-01-29 13:20:36.061287][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.018635972092549
+
+[2020-01-29 13:20:36.065924][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:36.206327][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9089696562848986
+
+[2020-01-29 13:20:36.210692][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 11
+
+[2020-01-29 13:20:36.345364][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.8633906919170509
+
+[2020-01-29 13:20:36.349956][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:36.481446][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.0914153158664703
+
+[2020-01-29 13:20:36.486369][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 13
+
+[2020-01-29 13:20:36.618022][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.866187067917333
+
+[2020-01-29 13:20:37.148027][__main__.TRPOAgent.log][learning]: Episode #10
+
+[2020-01-29 13:20:37.148386][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:38.110860][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:38.111795][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1081, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:38.112152][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:38.112438][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 11
+
+[2020-01-29 13:20:38.236628][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 3.4392061910846015
+
+[2020-01-29 13:20:38.241369][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+
+[2020-01-29 13:20:38.369901][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.6087630599737168
+
+[2020-01-29 13:20:38.375226][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:38.506001][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8333086592960172
+
+[2020-01-29 13:20:38.510551][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:38.635724][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.45054188575595616
+
+[2020-01-29 13:20:38.640675][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:38.775242][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.11728405491448939
+
+[2020-01-29 13:20:38.780092][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:38.902865][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.10368217700743117
+
+[2020-01-29 13:20:38.907856][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:39.039937][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.10526372182648629
+
+[2020-01-29 13:20:39.045039][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:39.173954][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.0924401931297325
+
+[2020-01-29 13:20:39.178716][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:20:39.303786][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.08525704331696034
+
+[2020-01-29 13:20:39.309879][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:39.437852][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.07816880404088807
+
+[2020-01-29 13:20:39.442777][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 11
+
+[2020-01-29 13:20:39.570061][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.45493219598045637
+
+[2020-01-29 13:20:40.168456][__main__.TRPOAgent.log][learning]: Episode #11
+
+[2020-01-29 13:20:40.169058][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:41.165278][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:41.166347][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1119, Batch size: 100, Number of batches: 12
+
+[2020-01-29 13:20:41.166796][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:41.167203][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 13
+
+[2020-01-29 13:20:41.299010][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.5070383027151155
+
+[2020-01-29 13:20:41.303701][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+
+[2020-01-29 13:20:41.429020][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.589115429110825
+
+[2020-01-29 13:20:41.435265][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:41.558264][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4440554312430322
+
+[2020-01-29 13:20:41.564397][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:41.688878][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.27741330126300456
+
+[2020-01-29 13:20:41.693633][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:41.819040][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.1527143436484039
+
+[2020-01-29 13:20:41.823933][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:41.953673][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.08676662385696546
+
+[2020-01-29 13:20:41.958740][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 14
+
+[2020-01-29 13:20:42.085079][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.902399946536337
+
+[2020-01-29 13:20:42.090063][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:42.215517][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.899548427760601
+
+[2020-01-29 13:20:42.221790][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:20:42.352065][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.8749752819538117
+
+[2020-01-29 13:20:42.358420][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:42.491533][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.127859692258062
+
+[2020-01-29 13:20:42.496445][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 11
+
+[2020-01-29 13:20:42.625592][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.9575925489718264
+
+[2020-01-29 13:20:42.630035][__main__.TRPOAgent.log][batch_info]: Batch #11, batch length: 10
+
+[2020-01-29 13:20:42.758915][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.4760334372520445
+
+[2020-01-29 13:20:43.346709][__main__.TRPOAgent.log][learning]: Episode #12
+
+[2020-01-29 13:20:43.347247][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:44.317455][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:44.318453][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1085, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:44.318745][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:44.319021][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 13
+
+[2020-01-29 13:20:44.451892][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 4.2954067430244045
+
+[2020-01-29 13:20:44.456835][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 11
+
+[2020-01-29 13:20:44.581412][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 2.695306024768136
+
+[2020-01-29 13:20:44.586190][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:44.712913][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.5578808829188346
+
+[2020-01-29 13:20:44.717976][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:44.846816][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.3505165226757526
+
+[2020-01-29 13:20:44.851196][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:44.975643][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.22048349736869569
+
+[2020-01-29 13:20:44.980088][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 13
+
+[2020-01-29 13:20:45.114973][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1544482893391081
+
+[2020-01-29 13:20:45.119368][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:45.243851][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9752903694752604
+
+[2020-01-29 13:20:45.248317][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:45.404018][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6497995279729366
+
+[2020-01-29 13:20:45.410944][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:20:45.574386][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.3907098570809467
+
+[2020-01-29 13:20:45.580892][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 11
+
+[2020-01-29 13:20:45.731715][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.1258493300781331
+
+[2020-01-29 13:20:45.737026][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 10
+
+[2020-01-29 13:20:45.874016][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.3676002867519856
+
+[2020-01-29 13:20:46.671885][__main__.TRPOAgent.log][learning]: Episode #13
+
+[2020-01-29 13:20:46.672491][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:47.964722][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:47.965801][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1076, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:47.966245][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:47.966661][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:20:48.103580][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8620825454592704
+
+[2020-01-29 13:20:48.108674][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 11
+
+[2020-01-29 13:20:48.247566][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.585204317081
+
+[2020-01-29 13:20:48.252281][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 11
+
+[2020-01-29 13:20:48.379181][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9621736734512855
+
+[2020-01-29 13:20:48.384099][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:48.514381][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.057642862200737
+
+[2020-01-29 13:20:48.520892][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:48.659148][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.67653913423419
+
+[2020-01-29 13:20:48.665368][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 12
+
+[2020-01-29 13:20:48.799563][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4653655289827536
+
+[2020-01-29 13:20:48.804303][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:48.938765][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.2194339551613666
+
+[2020-01-29 13:20:48.943866][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 11
+
+[2020-01-29 13:20:49.080241][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.9794548895866186
+
+[2020-01-29 13:20:49.084682][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 12
+
+[2020-01-29 13:20:49.209604][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.8027431304629621
+
+[2020-01-29 13:20:49.215848][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:49.344003][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.11381351929157972
+
+[2020-01-29 13:20:49.350136][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 11
+
+[2020-01-29 13:20:49.488294][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.29642792350866576
+
+[2020-01-29 13:20:50.288703][__main__.TRPOAgent.log][learning]: Episode #14
+
+[2020-01-29 13:20:50.289456][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:51.491109][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:51.492757][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1087, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:51.493431][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:51.493931][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:20:51.664986][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.11802128003910184
+
+[2020-01-29 13:20:51.671142][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 11
+
+[2020-01-29 13:20:51.846728][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.30180743776939134
+
+[2020-01-29 13:20:51.854352][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:52.001691][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.09259685119614006
+
+[2020-01-29 13:20:52.008274][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:52.164012][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.06509884629631416
+
+[2020-01-29 13:20:52.170558][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:52.328009][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.04630590336746536
+
+[2020-01-29 13:20:52.334439][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 10
+
+[2020-01-29 13:20:52.471782][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.03795238704478834
+
+[2020-01-29 13:20:52.476654][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 10
+
+[2020-01-29 13:20:52.616780][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.03474421969883679
+
+[2020-01-29 13:20:52.621854][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 11
+
+[2020-01-29 13:20:52.763484][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.41082481531934306
+
+[2020-01-29 13:20:52.768257][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:20:52.897696][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.23764213272152118
+
+[2020-01-29 13:20:52.902326][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 12
+
+[2020-01-29 13:20:53.045480][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.148344368673861
+
+[2020-01-29 13:20:53.049993][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 10
+
+[2020-01-29 13:20:53.185910][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.6994147230791441
+
+[2020-01-29 13:20:54.053035][__main__.TRPOAgent.log][learning]: Episode #15
+
+[2020-01-29 13:20:54.053641][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:55.494916][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:55.496123][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1096, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:55.496543][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:55.496916][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:20:55.622634][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4724096767604351
+
+[2020-01-29 13:20:55.627572][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 11
+
+[2020-01-29 13:20:55.797380][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.20370743339034644
+
+[2020-01-29 13:20:55.803768][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 10
+
+[2020-01-29 13:20:55.963878][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.1070087650034111
+
+[2020-01-29 13:20:55.968958][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:56.110509][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.07523351218551397
+
+[2020-01-29 13:20:56.117086][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 10
+
+[2020-01-29 13:20:56.245771][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.05075305502396077
+
+[2020-01-29 13:20:56.252147][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 11
+
+[2020-01-29 13:20:56.387060][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.38494124390523543
+
+[2020-01-29 13:20:56.392151][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 11
+
+[2020-01-29 13:20:56.517741][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.15749074332416058
+
+[2020-01-29 13:20:56.522628][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 12
+
+[2020-01-29 13:20:56.665558][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4759917864360735
+
+[2020-01-29 13:20:56.670391][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 12
+
+[2020-01-29 13:20:56.802804][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.37763020520408946
+
+[2020-01-29 13:20:56.807938][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:20:56.934350][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.45916726617142556
+
+[2020-01-29 13:20:56.940770][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 10
+
+[2020-01-29 13:20:57.070950][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.32179973744787277
+
+[2020-01-29 13:20:57.702173][__main__.TRPOAgent.log][learning]: Episode #16
+
+[2020-01-29 13:20:57.702696][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:20:58.666760][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:20:58.667684][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1067, Batch size: 100, Number of batches: 11
+
+[2020-01-29 13:20:58.668049][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:20:58.668356][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:20:58.796519][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.18712324134539812
+
+[2020-01-29 13:20:58.802828][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+
+[2020-01-29 13:20:58.932381][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.10277583051938563
+
+[2020-01-29 13:20:58.937000][__main__.TRPOAgent.log][batch_info]: Batch #2, batch length: 11
+
+[2020-01-29 13:20:59.069310][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.33423846714537253
+
+[2020-01-29 13:20:59.073952][__main__.TRPOAgent.log][batch_info]: Batch #3, batch length: 10
+
+[2020-01-29 13:20:59.255597][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.09479400417621946
+
+[2020-01-29 13:20:59.264113][__main__.TRPOAgent.log][batch_info]: Batch #4, batch length: 13
+
+[2020-01-29 13:20:59.439003][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 1.0751047643761222
+
+[2020-01-29 13:20:59.445395][__main__.TRPOAgent.log][batch_info]: Batch #5, batch length: 11
+
+[2020-01-29 13:20:59.571579][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.12956872328438543
+
+[2020-01-29 13:20:59.576563][__main__.TRPOAgent.log][batch_info]: Batch #6, batch length: 12
+
+[2020-01-29 13:20:59.725914][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.4212264659969757
+
+[2020-01-29 13:20:59.730484][__main__.TRPOAgent.log][batch_info]: Batch #7, batch length: 10
+
+[2020-01-29 13:20:59.859286][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.23228684876812622
+
+[2020-01-29 13:20:59.865574][__main__.TRPOAgent.log][batch_info]: Batch #8, batch length: 10
+
+[2020-01-29 13:21:00.001470][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.2874938065186143
+
+[2020-01-29 13:21:00.007116][__main__.TRPOAgent.log][batch_info]: Batch #9, batch length: 10
+
+[2020-01-29 13:21:00.164727][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.14135118803824298
+
+[2020-01-29 13:21:00.169701][__main__.TRPOAgent.log][batch_info]: Batch #10, batch length: 10
+
+[2020-01-29 13:21:00.314021][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.07854934559582034
+
+[2020-01-29 13:21:01.189203][__main__.TRPOAgent.log][learning]: Episode #17
+
+[2020-01-29 13:21:01.189850][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+
+[2020-01-29 13:21:02.375071][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 13:21:02.376261][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1114, Batch size: 100, Number of batches: 12
+
+[2020-01-29 13:21:02.382188][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 13:21:02.382596][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 10
+
+[2020-01-29 13:21:02.515321][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.055066720792092384
+
+[2020-01-29 13:21:02.520240][__main__.TRPOAgent.log][batch_info]: Batch #1, batch length: 10
+

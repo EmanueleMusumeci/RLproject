@@ -1,99 +1,34 @@
-LOGGER started at 2020-01-26 13:33:24.170400.
+LOGGER started at 2020-01-27 11:58:07.933074.
 Currently active debug channels:
 	rollouts
 	training
 	batch_info
+	linesearch
 	learning
 	thread_rollouts
-[2020-01-26 13:33:24.303022][__main__.TRPOAgent.log][learning]: Episode #0
+[2020-01-27 11:58:08.100586][__main__.TRPOAgent.log][learning]: Episode #0
 
-[2020-01-26 13:33:24.505235][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
+[2020-01-27 11:58:08.337761][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 3000
 
-[2020-01-26 13:33:24.508299][Environment.Environment.log][rollouts]: Rollout thread #1
+[2020-01-27 11:58:08.372830][Environment.Environment.log][rollouts]: Rollout thread #1
 
-[2020-01-26 13:33:24.509020][Environment.Environment.log][thread_rollouts]: Thread number: 0
+[2020-01-27 11:58:08.373617][Environment.Environment.log][rollouts]: Rollout thread #2
 
-[2020-01-26 13:33:26.054684][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+[2020-01-27 11:58:08.373540][Environment.Environment.log][thread_rollouts]: Thread number: 0
 
-[2020-01-26 13:33:26.055167][__main__.TRPOAgent.log][rollouts]: Unpacking actions
+[2020-01-27 11:58:08.375013][Environment.Environment.log][thread_rollouts]: Thread number: 1
 
-[2020-01-26 13:33:26.056300][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
+[2020-01-27 11:58:15.832648][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 3000
 
-[2020-01-26 13:33:26.058784][__main__.TRPOAgent.log][rollouts]: Unpacking observations
+[2020-01-27 11:58:15.872693][Environment.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 3000
 
-[2020-01-26 13:33:26.059462][__main__.TRPOAgent.log][learning]: Rollouts performed
+[2020-01-27 11:58:15.873191][Environment.Environment.log][rollouts]: Rollout thread #3
 
-[2020-01-26 13:33:26.061123][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1500, Batch size: 1500, Number of batches: 1
+[2020-01-27 11:58:15.873860][Environment.Environment.log][thread_rollouts]: Thread number: 2
 
-[2020-01-26 13:33:26.061442][__main__.TRPOAgent.log][learning]: 
+[2020-01-27 11:58:15.874002][Environment.Environment.log][rollouts]: Rollout thread #4
 
-***************
-BEGINNING TRAINING
-***************
+[2020-01-27 11:58:15.876128][Environment.Environment.log][thread_rollouts]: Thread number: 3
 
-
-
-[2020-01-26 13:33:26.065449][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1500
-
-[2020-01-26 13:33:27.277265][__main__.TRPOAgent.log][training]: policy_gradient: [ 0.10145591 -0.15994089  0.17008409 ...  1.82558522 -1.90785857
-  0.08227336]
-
-[2020-01-26 13:33:27.277628][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
-
-[2020-01-26 13:33:27.502999][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
-[-1.6732678   4.06589018 -5.43724011 ... -6.81829912 -7.23497767
- 14.0532768 ], shape=(4547,), dtype=float64)
-
-[2020-01-26 13:33:28.153746][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 299.7444640582243
-
-[2020-01-26 13:33:28.158076][__main__.TRPOAgent.log][learning]: Episode #1
-
-[2020-01-26 13:33:28.159697][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
-
-[2020-01-26 13:33:28.162568][Environment.Environment.log][rollouts]: Rollout thread #1
-
-[2020-01-26 13:33:28.163219][Environment.Environment.log][thread_rollouts]: Thread number: 0
-
-[2020-01-26 13:33:29.629164][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
-
-[2020-01-26 13:33:29.629653][__main__.TRPOAgent.log][rollouts]: Unpacking actions
-
-[2020-01-26 13:33:29.630514][__main__.TRPOAgent.log][rollouts]: Unpacking rewards
-
-[2020-01-26 13:33:29.632843][__main__.TRPOAgent.log][rollouts]: Unpacking observations
-
-[2020-01-26 13:33:29.634592][__main__.TRPOAgent.log][learning]: Rollouts performed
-
-[2020-01-26 13:33:29.636396][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 1500, Batch size: 1500, Number of batches: 1
-
-[2020-01-26 13:33:29.636921][__main__.TRPOAgent.log][learning]: 
-
-***************
-BEGINNING TRAINING
-***************
-
-
-
-[2020-01-26 13:33:29.641478][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 1500
-
-[2020-01-26 13:33:30.818961][__main__.TRPOAgent.log][training]: policy_gradient: [-0.02444808 -0.00476174  0.00475158 ... -0.040605    0.02673316
-  0.01387184]
-
-[2020-01-26 13:33:30.819333][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
-
-[2020-01-26 13:33:31.062551][__main__.TRPOAgent.log][training]: gradient_step_direction: tf.Tensor(
-[-1.89706283 -1.89289485  3.06332992 ...  3.10253313  3.07172275
- -6.17425588], shape=(4547,), dtype=float64)
-
-[2020-01-26 13:33:31.500367][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 339.60029293615275
-
-[2020-01-26 13:33:31.504886][__main__.TRPOAgent.log][learning]: Episode #2
-
-[2020-01-26 13:33:31.507459][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1500
-
-[2020-01-26 13:33:31.511110][Environment.Environment.log][rollouts]: Rollout thread #1
-
-[2020-01-26 13:33:31.511785][Environment.Environment.log][thread_rollouts]: Thread number: 0
-
-[2020-01-26 13:33:33.320337][Environment.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1500
+[2020-01-27 11:58:17.779970][Environment.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 803
 

@@ -1,0 +1,62 @@
+LOGGER started at 2020-01-29 21:41:52.403480.
+Currently active debug channels:
+	act
+	batch_info
+	linesearch
+	learning
+[2020-01-29 21:41:52.808150][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-29 21:41:53.020026][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 5000
+
+[2020-01-29 21:41:53.778449][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 21:41:53.778796][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: None, Batch size: 100
+
+[2020-01-29 21:41:53.779043][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 21:41:55.869162][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 2, New mean kl div: 0.004254289317689033, New policy loss value: 0.2375190771240303
+
+[2020-01-29 21:41:55.869571][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.0015386077735526113
+
+[2020-01-29 21:41:57.331991][__main__.TRPOAgent.log][learning]: Episode #1
+
+[2020-01-29 21:41:57.332540][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 5000
+
+[2020-01-29 21:41:57.819193][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 21:41:57.819532][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: None, Batch size: 100
+
+[2020-01-29 21:41:57.820051][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-29 21:41:59.459351][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 1, New mean kl div: 0.008208000610835941, New policy loss value: 1.2434589874257251
+
+[2020-01-29 21:41:59.459786][__main__.TRPOAgent.log][batch_info]: Current batch value loss: 0.00016930111274859883
+
+[2020-01-29 21:42:00.396666][__main__.TRPOAgent.log][learning]: Episode #2
+
+[2020-01-29 21:42:00.397369][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 5000
+
+[2020-01-29 21:42:01.132779][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-29 21:42:01.133120][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: None, Batch size: 100
+
+[2020-01-29 21:42:01.133602][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+

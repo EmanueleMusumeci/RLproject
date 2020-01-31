@@ -1,0 +1,157 @@
+LOGGER started at 2020-01-28 16:56:13.240118.
+Currently active debug channels:
+	rollouts
+	act
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-28 16:56:13.683097][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-28 16:56:13.930617][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 50
+
+[2020-01-28 16:56:13.949767][EnvironmentNew.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-28 16:56:13.950718][EnvironmentNew.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-28 16:56:13.950608][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-28 16:56:13.952355][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-28 16:56:14.000005][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 9
+
+[2020-01-28 16:56:13.999387][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 9
+
+[2020-01-28 16:56:14.001268][EnvironmentNew.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-28 16:56:14.001883][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-28 16:56:14.001957][EnvironmentNew.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-28 16:56:14.003800][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-28 16:56:14.037158][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 9
+
+[2020-01-28 16:56:14.055045][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 12
+
+[2020-01-28 16:56:14.055721][EnvironmentNew.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-28 16:56:14.056750][EnvironmentNew.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-28 16:56:14.056619][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-28 16:56:14.058520][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-28 16:56:14.108213][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 11
+
+[2020-01-28 16:56:14.108953][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 11
+
+[2020-01-28 16:56:14.112085][EnvironmentNew.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-28 16:56:14.112996][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-28 16:56:14.113244][EnvironmentNew.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-28 16:56:14.116626][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-28 16:56:14.171092][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 9
+
+[2020-01-28 16:56:14.171877][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 16
+
+[2020-01-28 16:56:14.172783][EnvironmentNew.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-28 16:56:14.173354][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-28 16:56:14.173420][EnvironmentNew.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-28 16:56:14.175607][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-28 16:56:14.220123][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 11
+
+[2020-01-28 16:56:14.221841][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 11
+
+[2020-01-28 16:56:14.222456][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 16:56:14.224229][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 108, Batch size: 1000, Number of batches: 10
+
+[2020-01-28 16:56:14.224787][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 16:56:14.225263][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 9
+
+[2020-01-28 16:56:14.245001][__main__.TRPOAgent.log][training]: policy_gradient: [-2.36883570e-04 -2.13413430e-03  5.53965013e-04  3.48287016e-03
+ -3.04114209e-03  1.18675044e-02  1.40722718e-02  0.00000000e+00
+  5.86453738e-03 -6.03970863e-03 -2.42999431e-03  0.00000000e+00
+  2.28650700e-02  4.05805339e-03  0.00000000e+00  1.00577717e-02
+ -1.14999539e-02 -9.73517875e-03  1.09588858e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  8.59646947e-03
+  0.00000000e+00  0.00000000e+00 -1.62732610e-03  1.48015702e-02
+ -3.33758319e-03  6.93734106e-03  0.00000000e+00 -6.49817474e-03
+  0.00000000e+00  0.00000000e+00 -8.41192971e-03 -1.84462426e-02
+ -2.18732205e-02  0.00000000e+00 -9.11553732e-03  9.38781456e-03
+  3.77705901e-03  0.00000000e+00 -3.55402968e-02 -6.30763089e-03
+  0.00000000e+00 -1.56332866e-02  1.78749408e-02  1.51318645e-02
+ -1.70339323e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00 -1.33619130e-02  0.00000000e+00  0.00000000e+00
+  2.52943256e-03 -2.30068046e-02  5.18776880e-03 -1.07830485e-02
+  0.00000000e+00  1.01004309e-02  0.00000000e+00  0.00000000e+00
+  1.30750738e-02  3.40943936e-03 -3.40943936e-03  3.55159961e-03
+ -3.55159961e-03  0.00000000e+00  0.00000000e+00  4.91563874e-03
+ -4.91563874e-03  4.64876634e-03 -4.64876634e-03  2.10033234e-03
+ -2.10033234e-03  0.00000000e+00  0.00000000e+00  1.06703548e-03
+ -1.06703548e-03  4.60479951e-05 -4.60479951e-05  0.00000000e+00
+  0.00000000e+00  9.89620016e-03 -9.89620016e-03  1.24854939e-02
+ -1.24854939e-02  1.31313913e-02 -1.31313913e-02  6.46704352e-03
+ -6.46704352e-03  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  7.76477534e-03 -7.76477534e-03  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  1.28351667e-02
+ -1.28351667e-02  4.84626530e-03 -4.84626530e-03  1.43890998e-03
+ -1.43890998e-03  9.59725344e-03 -9.59725344e-03  0.00000000e+00
+  0.00000000e+00  5.81980317e-03 -5.81980317e-03  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  1.04241060e-02
+ -1.04241060e-02 -1.35558846e-01  1.35558846e-01]
+
+[2020-01-28 16:56:14.245669][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+
+[2020-01-28 16:56:14.298098][__main__.TRPOAgent.log][training]: gradient_step_direction: [-1.08780630e-02 -4.01010905e-02  1.57337504e-02  7.43861334e-02
+  3.21064614e-02  2.48562156e-01  2.94740504e-01  0.00000000e+00
+  1.22831388e-01 -1.26500313e-01 -5.08956741e-02  0.00000000e+00
+  4.78903646e-01  8.49949973e-02  0.00000000e+00  2.10657718e-01
+ -2.40863901e-01 -2.03901091e-01  2.29531347e-01  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  1.80051078e-01
+  0.00000000e+00  0.00000000e+00 -3.40839768e-02  3.10015491e-01
+ -6.99049147e-02  1.45301013e-01  0.00000000e+00 -1.36102781e-01
+  0.00000000e+00  0.00000000e+00 -1.76185942e-01  1.94743960e-01
+  2.30923862e-01  0.00000000e+00  9.62361741e-02 -9.91107120e-02
+ -3.98758419e-02  0.00000000e+00  3.75212359e-01  6.65920456e-02
+  0.00000000e+00  1.65046517e-01 -1.88712519e-01 -1.59752824e-01
+  1.79833665e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  1.41066767e-01  0.00000000e+00  0.00000000e+00
+ -2.67041821e-02  2.42891539e-01 -5.47692386e-02  1.13840719e-01
+  0.00000000e+00 -1.06634072e-01  0.00000000e+00  0.00000000e+00
+ -1.38038506e-01  7.14099233e-02 -7.14099233e-02  7.43874368e-02
+ -7.43874368e-02  0.00000000e+00  0.00000000e+00  1.02956925e-01
+ -1.02956925e-01  9.73673454e-02 -9.73673454e-02  4.39909795e-02
+ -4.39909795e-02  0.00000000e+00  0.00000000e+00  2.23488097e-02
+ -2.23488097e-02  9.64464027e-04 -9.64464027e-04  0.00000000e+00
+  0.00000000e+00  2.07273640e-01 -2.07273640e-01  2.61505807e-01
+ -2.61505807e-01  2.75033980e-01 -2.75033980e-01  1.35450741e-01
+ -1.35450741e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  1.62631437e-01 -1.62631437e-01  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  2.68829623e-01
+ -2.68829623e-01  1.01503913e-01 -1.01503913e-01  3.01376399e-02
+ -3.01376399e-02  2.01012270e-01 -2.01012270e-01  0.00000000e+00
+  0.00000000e+00  1.21894443e-01 -1.21894443e-01  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  2.18330510e-01
+ -2.18330510e-01 -1.49486586e+00  1.49486586e+00]
+
+[2020-01-28 16:56:14.333742][__main__.TRPOAgent.log][linesearch]: Linesearch worked at 0, New mean kl div: 0.010952162746371768, New policy loss value: -0.09562075423190784
+

@@ -1,0 +1,19 @@
+LOGGER started at 2020-01-30 14:30:37.845704.
+Currently active debug channels:
+	act
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-30 14:30:38.406204][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-30 14:30:38.597963][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 1000
+
+[2020-01-30 14:30:38.641487][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-30 14:30:38.641689][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-30 14:30:42.407720][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 1000
+
+[2020-01-30 14:30:42.425632][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 1000
+

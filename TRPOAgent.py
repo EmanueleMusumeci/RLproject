@@ -10,6 +10,7 @@ import errno
 
 
 from matplotlib import pyplot as plt 
+from scipy.signal import lfilter
 
 from utils import *
 from Environment import Environment, RolloutTuple
@@ -39,6 +40,8 @@ class TRPOAgent:
     steps_between_rollouts=5, 
     rollouts_per_sampling=16, 
     multithreaded_rollout=False,
+    full_rollout_episodes=0,
+    rollout_until_success_episode=None,
 
     #Training
     batch_size = 1000,
@@ -59,8 +62,8 @@ class TRPOAgent:
     value_learning_rate=1e-1,
     value_function_fitting_epochs=5,
     epsilon_greedy=True,
-    epsilon=0.4,
-    epsilon_decrease_factor=0.005,
+    epsilon=0.2,
+    epsilon_decrease_factor=0.000,
 
     #Debug
     debug_rollouts=False, 
@@ -69,15 +72,14 @@ class TRPOAgent:
     debug_model=False, 
     debug_learning=False,
 
+    render=False,
+
     #Others
     model_backup_dir="TRPO_project/Models"):
 
         assert(env!=None), "You need to create an environment first"
         self.env = env
         self.model_backup_dir = model_backup_dir+"/"+self.env.environment_name
-
-        #assert(logger!=None), "You need to create a logger first"
-        self.logger = logger
 
         #*******
         #LOGGING
@@ -134,6 +136,9 @@ class TRPOAgent:
         self.steps_to_new_rollout = 0
         self.steps_since_last_rollout = self.steps_between_rollouts
         self.multithreaded_rollout=multithreaded_rollout
+        self.full_rollout_episodes=full_rollout_episodes
+
+        self.full_rollout_size = self.env.gym_wrapper.env._max_episode_steps
 
         self.rollout_statistics = []
 
@@ -156,15 +161,17 @@ class TRPOAgent:
 
         self.last_action=None
 
-    def collect_rollout_statistics(self, multithreaded=False, only_successful=False):
+        self.render=render
+
+    def collect_rollout_statistics(self, steps_per_rollout, rollouts_per_sampling, multithreaded=False, only_successful=False, rollout_until_success=False):
         print(multithreaded)
         if multithreaded:
-            if only_successful:
-                rollouts = env.collect_rollouts_multithreaded_only_successful(self,self.rollouts_per_sampling,self.steps_per_rollout,THREADS_NUMBER)
+            if rollout_until_success:
+                rollouts = env.collect_rollouts_multithreaded_only_successful(self,rollouts_per_sampling,steps_per_rollout,THREADS_NUMBER)
             else: 
-                rollouts = env.collect_rollouts_multithreaded(self,self.rollouts_per_sampling,self.steps_per_rollout,THREADS_NUMBER)
+                rollouts = env.collect_rollouts_multithreaded(self,rollouts_per_sampling,steps_per_rollout,THREADS_NUMBER)
         else: 
-            rollouts, _ = env.collect_rollouts(self,self.rollouts_per_sampling,self.steps_per_rollout)
+            rollouts, _ = env.collect_rollouts(self,rollouts_per_sampling,steps_per_rollout)
 
         def collect_actions(rollouts):
             actions = []
@@ -202,7 +209,7 @@ class TRPOAgent:
 
             return result, discounted_rewards
 
-        def collect_rewards2(rollouts, GAMMA, LAMBDA):
+        def collect_rewards2(rollouts, GAMMA):
             def discount(rewards, GAMMA):
                 discounted_rewards = []
                 discounted_reward=0
@@ -210,23 +217,28 @@ class TRPOAgent:
                     discounted_reward = reward + self.GAMMA*discounted_reward
                     discounted_rewards.insert(0, discounted_reward)
                 return discounted_rewards
-            
+
+            def discount2(x, gamma):
+                """ Calculate discounted forward sum of a sequence at each point """
+                return lfilter([1.0], [1.0, gamma], x[::-1])[::-1]
+
             rewards = []
             result = []
             discounted_rewards = []
             for i in range(len(rollouts)):
                 rewards.append([])
+                discounted_rewards.append([])
                 for tupl in rollouts[i]:
                     rewards[i].append(tupl.reward)
                     result.append(tupl.reward)
-
+                discounted_rewards[i] = discount2(rewards[i],GAMMA)
                 print(len(rewards[i]))
  
             
             print(len(discounted_rewards))
             print(len(rewards))
             print(len(result))
-
+            discounted_rewards = np.concatenate([d for d in discounted_rewards])
             return result, discounted_rewards
 
         def collect_observations(rollouts):
@@ -240,10 +252,8 @@ class TRPOAgent:
         actions, action_probabilities = collect_actions(rollouts)
         self.log("len(actions): ",len(actions),writeToFile=True,debug_channel="rollouts_dump")
         self.log("Unpacking rewards",writeToFile=True,debug_channel="rollouts")
-        #rewards, discounted_rewards = collect_rewards(rollouts, self.GAMMA)
-        #self.log("len(rewards): ",len(rewards),writeToFile=True,debug_channel="rollouts_dump")
-        
-        #rewards, discounted_rewards = collect_rewards2(rollouts, self.GAMMA, self.LAMBDA)
+
+        #rewards, discounted_rewards = collect_rewards2(rollouts, self.GAMMA)
         rewards, discounted_rewards = collect_rewards(rollouts, self.GAMMA)
 
         self.log("Unpacking observations",writeToFile=True,debug_channel="rollouts")
@@ -267,10 +277,15 @@ class TRPOAgent:
 
         return statistics
 
-    def training_step(self, episode):
+    def training_step(self, episode, steps_per_rollout, rollouts_per_sampling, rollout_until_success=False):
         
-        def get_mean_kl_divergence():
-            model = self.new_model
+        def get_mean_kl_divergence(new_theta=None):
+            if new_theta is None:
+                model = self.policy
+            else:
+                model = self.new_model
+                self.new_model.set_flat_params(new_theta)
+
             output = model(current_batch_observations)
             new_policy_action_probabilities = tf.nn.softmax(output).numpy() + 1e-8
             old_output = self.policy(current_batch_observations)
@@ -289,10 +304,10 @@ class TRPOAgent:
 
             return (kl_flat_grad_grads + (self.conjugate_gradients_damping * step_direction_vector)).numpy()
 
-        def conjugate_gradients(policy_gradient, residual_tol=1e-10):
+        def conjugate_gradients(policy_gradient, residual_tol=1e-5):
             result = np.zeros_like(policy_gradient)
-            r = tf.identity(policy_gradient)
-            p = tf.identity(policy_gradient)
+            r = policy_gradient.copy()
+            p = policy_gradient.copy()
 
             rdotr = np.dot(r, r)
 
@@ -319,10 +334,13 @@ class TRPOAgent:
                     break
             return result
 
-        def surrogate_function():
+        def surrogate_function(new_theta=None):
+            if new_theta is None:
+                model = self.policy
+            else:
+                model = self.new_model
+                self.new_model.set_flat_params(new_theta)
             
-            #COSA ASSURDA DI TENSORFLOW 2: se nella predizione delle new_policy_action_probabilities avessi usato direttamente self.new_model(obs)
-            #il policy gradient sarebbe risultato con segni negati!!! Questa assegnazione lo evita (???)
             model = self.new_model
             #Calcola la nuova policy usando la rete neurale aggiornata ad ogni batch cycle del training step
             output = model(current_batch_observations)
@@ -358,8 +376,8 @@ class TRPOAgent:
         if self.steps_since_last_rollout == self.steps_between_rollouts:
             self.log("Performing rollouts: rollout length: ",self.steps_per_rollout,writeToFile=True,debug_channel="learning")
             self.steps_since_last_rollout = 0
-            #self.rollout_statistics = self.collect_rollout_statistics(multithreaded=self.multithreaded_rollout)
-            self.rollout_statistics = self.collect_rollout_statistics(multithreaded=self.multithreaded_rollout,only_successful=True)
+
+            self.rollout_statistics = self.collect_rollout_statistics(steps_per_rollout, rollouts_per_sampling, multithreaded=self.multithreaded_rollout,rollout_until_success=rollout_until_success)
             self.log("Rollouts performed",writeToFile=True,debug_channel="learning")
 
             #Change theta_old old policy params once every steps_between_rollouts rollouts
@@ -385,7 +403,6 @@ class TRPOAgent:
             #4.1) Data for current batch 
             current_batch_actions = np.array(self.rollout_statistics.actions[batch*self.batch_size:(batch+1)*self.batch_size])
             current_batch_observations = np.array(self.rollout_statistics.observations[batch*self.batch_size:(batch+1)*self.batch_size])
-            #current_Q_values = Q_values[batch]
             current_batch_rewards =  np.array(self.rollout_statistics.observations[batch*self.batch_size:(batch+1)*self.batch_size])
             current_batch_discounted_rewards = np.array(self.rollout_statistics.discounted_rewards[batch*self.batch_size:(batch+1)*self.batch_size])
             current_batch_rewards = np.array(self.rollout_statistics.rewards[batch*self.batch_size:(batch+1)*self.batch_size])
@@ -415,7 +432,7 @@ class TRPOAgent:
             current_batch_advantages = compute_advantages_vanilla(current_batch_discounted_rewards, current_batch_observations, self.state_value)
             #current_batch_advantages = np.array(GAE(self.state_value, current_batch_observations, current_batch_rewards, self.GAMMA, self.LAMBDA))
             #Normalize advantages
-            #current_batch_advantages = (current_batch_advantages - current_batch_advantages.mean())/(current_batch_advantages.std() + 1e-8)
+            current_batch_advantages = (current_batch_advantages - current_batch_advantages.mean())/(current_batch_advantages.std() + 1e-8)
 
             #4.3) Current batch actions one hot
             current_batch_actions_one_hot = tf.one_hot(current_batch_actions, self.env.get_action_shape(), dtype="float64")
@@ -431,7 +448,8 @@ class TRPOAgent:
             #g vector
 
             #METTENDO IL SEGNO - FUNZIONA
-            policy_gradient = -self.policy.get_flat_gradients(surrogate_function).numpy()
+            #policy_gradient = -self.policy.get_flat_gradients(surrogate_function).numpy()
+            policy_gradient = self.policy.get_flat_gradients(surrogate_function).numpy()
             self.log("policy_gradient: ", policy_gradient, writeToFile=True, debug_channel="training")
 
             #4.5) Compute new policy using latest policy (update with latest batch) and old policy (the one that dates back to the latest rollout)
@@ -470,11 +488,9 @@ class TRPOAgent:
             
             #4.10) Perform line search to find the optimal gradient step
             def linesearch():
-                theta = self.policy.get_flat_params()
-                self.new_model.set_flat_params(theta)
-                
-                old_loss_value = surrogate_function().numpy()
-                self.log("loss_value before", old_loss_value)
+                theta = self.policy.get_flat_params()                
+                old_loss_value = surrogate_function(theta).numpy()
+                #self.log("loss_value before: ", old_loss_value)
 
                 for (_n_backtracks, step) in enumerate(self.backtrack_coeff**np.arange(self.backtrack_iters)):
 
@@ -487,27 +503,27 @@ class TRPOAgent:
                     #    self.log("NaN detected in new parameters. Linesearch failed. Not updating parameters to avoid NaN catastrophe!!!",debug_channel="linesearch")
                     #    return False, theta, 0.0, old_loss_value
                     #else:
-                    self.new_model.set_flat_params(theta_new)
-
-                    new_loss_value = surrogate_function().numpy()
-
-                    self.new_model.set_flat_params(theta_new)
-                                        
-                    mean_kl_div = get_mean_kl_divergence().numpy()
-
-                    improvement = (old_loss_value - new_loss_value)
-
-                    self.log("improvement: ", improvement, writeToFile=True, debug_channel="linesearch")
                     
+                    new_loss_value = surrogate_function(theta_new).numpy()
+                                                            
+                    mean_kl_div = get_mean_kl_divergence(theta_new).numpy()
+
+                    #improvement = (old_loss_value - new_loss_value)
+
+                    #self.log("improvement: ", improvement, writeToFile=True, debug_channel="linesearch")
+                    #self.log("New policy loss: ", new_loss_value, debug_channel="linesearch")
                     #if mean_kl_div <= self.DELTA and improvement >= 0:
                     #https://medium.com/@jonathan_hui/rl-trust-region-policy-optimization-trpo-part-2-f51e3b2e373a verso la fine
-                    if mean_kl_div <= self.DELTA and new_loss_value >=0:
+                    #if mean_kl_div <= self.DELTA:
+                    if mean_kl_div <= self.DELTA:
                     #if mean_kl_div <= self.DELTA and new_loss_value>=0 and (old_loss_value<0 or (old_loss_value>=0 and new_loss_value <= old_loss_value)):
-                        self.log("Linesearch worked at ", _n_backtracks, ", New policy loss value: ", new_loss_value, writeToFile=True, debug_channel="linesearch")
+                    #if mean_kl_div <= self.DELTA and ((old_loss_value<0 and new_loss_value>=old_loss_value) or (old_loss_value>0 and new_loss_value <= old_loss_value)):
+                        self.log("Linesearch worked at ", _n_backtracks, ", New mean kl div: ", mean_kl_div, ", New policy loss value: ", new_loss_value, writeToFile=True, debug_channel="linesearch")
                         return True, theta_new, mean_kl_div, new_loss_value
                     if _n_backtracks == self.backtrack_iters - 1:
                         self.log("Linesearch failed. Mean kl divergence: ", mean_kl_div, ", Discarded policy loss value: ", new_loss_value, writeToFile=True, debug_channel="linesearch")
                         return False, theta, mean_kl_div, old_loss_value
+                    
 
             linesearch_success, new_theta, mean_kl_div, policy_loss = linesearch()
        
@@ -544,15 +560,15 @@ class TRPOAgent:
         state_val = tf.reduce_mean(self.state_value(current_batch_observations)).numpy().flatten()
 
         self.log("END OF TRAINING STEP #", episode)
-        self.log("TRAINING STEP STATS: Max reward: ",max_reward,", Mean KL: ",mean_kl_div," Policy loss: ", policy_loss, ", Mean state val: ", state_val, debug_channel="batch_info")
+        self.log("TRAINING STEP STATS: Max reward: ",max_reward,", Policy loss: ", policy_loss, ", Mean state val: ", state_val, debug_channel="batch_info")
 
         self.steps_since_last_rollout += 1
-        self.epsilon = self.epsilon - self.epsilon_decrease_factor
+        #self.epsilon = self.epsilon - self.epsilon_decrease_factor
 
-        return max_reward, mean_kl_div, value_loss, policy_loss
+        return max_reward, value_loss, policy_loss
 
     #the ACT function: produces an action from the current policy
-    def act(self,observation,last_action=None):
+    def act(self,observation,last_action=None,epsilon_greedy=True):
 
         #Trasforma la observation in un vettore riga [[array]]
         observation = observation[np.newaxis, :]
@@ -563,37 +579,66 @@ class TRPOAgent:
         action_probabilities = tf.nn.softmax(policy_output).numpy().flatten()
         #self.log("action_probabilities: ",action_probabilities,", len: ",len(action_probabilities), writeToFile=True, debug_channel="act")
 
-        action = np.random.choice(range(action_probabilities.shape[0]), p=action_probabilities)
-        #self.log("chosen_action: ",action, writeToFile=True, debug_channel="act")
+        #SBAGLIATO!!!
+        #action = np.random.choice(range(action_probabilities.shape[0]), p=action_probabilities)
+        
+        action = np.argmax(policy_output)
 
         exploitation_chance = np.random.uniform(0,1)
+        last_action_repeat_chance = 0.8
         if self.epsilon_greedy and exploitation_chance < self.epsilon:
-            if self.epsilon_greedy and np.random.uniform(0,1) < 0.8 and last_action!=None:
-                action = last_action
-            else:
+        #    if self.epsilon_greedy and np.random.uniform(0,1) < last_action_repeat_chance and last_action!=None:
+        #        action = last_action
+        #    else:
             #perform a random action
-                action = np.random.randint(0,self.env.get_action_shape())
+            action = np.random.randint(0,self.env.get_action_shape())
         
-        
+        #self.log("chosen_action: ",action, writeToFile=True, debug_channel="act")
 
         return action, action_probabilities
 
     def learn(self, nEpisodes, episodesBetweenModelBackups=-1, start_from_episode=0):
         initial_time = time.time()
-        history=[]
+        history_values = {"max_reward":[],"value_loss":[],"policy_loss":[]}
         loss_values = []
+
+        plot, subplots = plt.subplots(3, 1, constrained_layout=True)
+
         for episode in range(start_from_episode,nEpisodes):
             self.log("Episode #", episode, writeToFile=True, debug_channel="learning")
 
-            max_reward, mean_kl_div, mean_value_loss, mean_policy_loss = self.training_step(episode)            
+            if start_from_episode>0:
+                self.load_weights(start_from_episode)
 
-            self.log_history(
-                max_reward,
-                mean_kl_div,
-                mean_value_loss,
-                mean_policy_loss
-            )
-            #env.render_agent(agent)
+            rollout_until_success = False
+            current_episode_steps_per_rollout = self.steps_per_rollout
+
+            #DECIDE WETHER ONLY SELECTING SUCCESSFUL ROLLOUTS OR NOT
+            full_rollout_episode=episode<self.full_rollout_episodes
+            
+            if full_rollout_episode:
+                rollout_until_success = True
+
+            if full_rollout_episode:
+                current_episode_steps_per_rollout = self.full_rollout_size-1000
+                current_rollouts_per_sampling = math.ceil(self.rollouts_per_sampling / 2)
+            else:
+                current_episode_steps_per_rollout = self.steps_per_rollout
+                current_rollouts_per_sampling = self.rollouts_per_sampling
+
+            max_reward, value_loss, policy_loss = self.training_step(episode,current_episode_steps_per_rollout,current_rollouts_per_sampling,rollout_until_success=rollout_until_success)            
+
+            #history_entry = {"max_reward":max_reward,"value_loss":value_loss,"policy_loss":policy_loss}
+
+            history_values["max_reward"].append(max_reward)
+            history_values["value_loss"].append(value_loss)
+            history_values["policy_loss"].append(policy_loss)
+
+            self.log_history(history_values)
+            self.plot_history(plot, subplots, history_values)
+
+            if self.render: 
+                env.render_agent(agent, nSteps = self.steps_per_rollout)
             
             import os
             print(os.getcwd())
@@ -638,8 +683,21 @@ class TRPOAgent:
     def load_history(self):
         self.logger.load_history()
 
-    def log_history(self, max_reward, kl_div, value_loss, policy_loss):
-        self.logger.log_history(max_reward, kl_div, value_loss, policy_loss)
+    def log_history(self,live_plots=False,**history):
+        self.logger.log_history(**history,live_plots=live_plots)
+
+    def plot_history(self, plot, subplots, history):
+        current_plot=0
+        for k,v in history.items():
+            subplots[current_plot].plot(v)
+            subplots[current_plot].set_title(k)
+            subplots[current_plot].set_xlabel('Episode')
+            subplots[current_plot].set_ylabel(k)
+            plot.suptitle(k, fontsize=16)
+            current_plot+=1
+
+            plt.draw()
+            plt.pause(0.001)
 
 if __name__ == '__main__':
     import numpy
@@ -651,16 +709,16 @@ if __name__ == '__main__':
     import datetime
     tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     
-    env_name = "MountainCar-v0"
+    env_name = "CartPole-v0"
     
     channels = [
         "rollouts",
         #"advantages",
         #"rollouts_dump",
-        #"act",
-        #"training",
+        "act",
+        "training",
         "batch_info",
-        #"linesearch",
+        "linesearch",
         "learning",
         "thread_rollouts",
         #"model",
@@ -675,10 +733,15 @@ if __name__ == '__main__':
 
     logger = Logger(name=env_name,log_directory="TRPO_project/Models/"+env_name,debugChannels=channels)
 
-    env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False)
+    #tf.set_random_seed(0)
+    np.random.seed(0)
+    env = Environment(env_name,logger,use_custom_env_register=True, debug=True, show_preprocessed=False, same_seed=True)
 
-    agent = TRPOAgent(env,logger,steps_per_rollout=3000,steps_between_rollouts=5, rollouts_per_sampling=30, multithreaded_rollout=True, batch_size=12000, DELTA=0.01)
-    #agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=1, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
+    agent = TRPOAgent(env,logger,steps_per_rollout=200,steps_between_rollouts=1, rollouts_per_sampling=100, multithreaded_rollout=True, full_rollout_episodes=0, batch_size=1000, 
+    DELTA=0.015, epsilon=0.2, epsilon_greedy=True, 
+    backtrack_coeff=0.5, backtrack_iters=5,
+    render=True)
+    #agent = TRPOAgent(env,logger,steps_per_rollout=1500,steps_between_rollouts=1, rollouts_per_sampling=15, multithreaded_rollout=True, batch_size=4500, DELTA=0.01)
       
     #initial_time = time.time()
     #env.collect_rollouts(agent,10,1000)
@@ -706,3 +769,7 @@ if __name__ == '__main__':
 #Altrimenti risalire alla fonte: Nuova soluzione: https://github.com/tensorforce/tensorforce/issues/26 Controllare quando shs<0 e skippare l'update in quel caso
 #(infatti viene mostrato l'errore di runtime di sqrt impossibile)
 #CAUSA: In CONJUGATE GRADIENTS KL divergence gradients negativi
+
+#ERRORI:
+#L'azione deve essere campionata con argmax!!!
+#Normalizzazione delle osservazioni e TILE CLIPPING

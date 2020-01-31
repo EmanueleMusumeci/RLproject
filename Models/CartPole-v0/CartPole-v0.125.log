@@ -1,0 +1,122 @@
+LOGGER started at 2020-01-28 17:02:13.861852.
+Currently active debug channels:
+	rollouts
+	act
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-28 17:02:14.274331][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-28 17:02:14.472330][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 50
+
+[2020-01-28 17:02:14.486756][EnvironmentNew.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-28 17:02:14.487859][EnvironmentNew.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-28 17:02:14.487747][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-28 17:02:14.489426][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-28 17:02:14.525205][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 9
+
+[2020-01-28 17:02:14.525936][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 9
+
+[2020-01-28 17:02:14.526539][EnvironmentNew.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-28 17:02:14.527145][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-28 17:02:14.527223][EnvironmentNew.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-28 17:02:14.529606][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-28 17:02:14.559823][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 9
+
+[2020-01-28 17:02:14.562315][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 10
+
+[2020-01-28 17:02:14.562697][EnvironmentNew.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-28 17:02:14.563297][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-28 17:02:14.563356][EnvironmentNew.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-28 17:02:14.565951][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-28 17:02:14.603677][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 9
+
+[2020-01-28 17:02:14.606788][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 13
+
+[2020-01-28 17:02:14.607646][EnvironmentNew.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-28 17:02:14.608318][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-28 17:02:14.608383][EnvironmentNew.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-28 17:02:14.609991][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-28 17:02:14.644042][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 14
+
+[2020-01-28 17:02:14.644127][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 9
+
+[2020-01-28 17:02:14.645217][EnvironmentNew.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-28 17:02:14.645936][EnvironmentNew.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-28 17:02:14.645874][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-28 17:02:14.646823][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-28 17:02:14.679759][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 10
+
+[2020-01-28 17:02:14.680755][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 10
+
+[2020-01-28 17:02:14.681527][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 17:02:14.682724][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 102, Batch size: 1000, Number of batches: 10
+
+[2020-01-28 17:02:14.683054][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 17:02:14.683395][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 9
+
+[2020-01-28 17:02:14.695758][__main__.TRPOAgent.log][training]: policy_gradient: [ 3.10158556e-04 -3.23904944e-04 -9.23508600e-05  1.46144703e-04
+ -6.95984640e-03 -2.84971489e-04  0.00000000e+00  4.74335799e-05
+ -1.67473690e-05  8.34762420e-05  0.00000000e+00  2.27140240e-05
+  1.63125076e-04  7.88956180e-05  0.00000000e+00  2.32772540e-04
+  0.00000000e+00  3.04792004e-04  0.00000000e+00  0.00000000e+00
+ -1.03957042e-05  0.00000000e+00 -3.69181006e-04  0.00000000e+00
+ -2.93596778e-04  6.93802089e-05  5.89378410e-06  0.00000000e+00
+  1.80271252e-04 -1.16986620e-04  0.00000000e+00  0.00000000e+00
+ -8.64764638e-05  1.74136659e-05  0.00000000e+00 -4.50618182e-02
+  0.00000000e+00  7.50055159e-03 -2.64821895e-03  1.31998863e-02
+  0.00000000e+00  3.59171096e-03  2.57945542e-02  1.24755638e-02
+  0.00000000e+00  3.68077309e-02  0.00000000e+00  4.81959860e-02
+  0.00000000e+00  0.00000000e+00 -1.64384632e-03  0.00000000e+00
+ -5.83776554e-02  0.00000000e+00 -4.64257132e-02  1.09709163e-02
+  9.31969119e-04  0.00000000e+00  2.85058355e-02 -1.84987973e-02
+  0.00000000e+00  0.00000000e+00 -1.36743037e-02  2.75357879e-03
+  0.00000000e+00 -6.96772563e-05  6.96772563e-05  0.00000000e+00
+  0.00000000e+00 -1.89608409e-04  1.89608409e-04 -2.82463253e-05
+  2.82463253e-05 -7.86695451e-05  7.86695451e-05  0.00000000e+00
+  0.00000000e+00 -9.72340210e-06  9.72340210e-06 -8.24689645e-05
+  8.24689645e-05 -1.62279682e-04  1.62279682e-04  0.00000000e+00
+  0.00000000e+00 -1.43069462e-04  1.43069462e-04  0.00000000e+00
+  0.00000000e+00 -1.88033160e-05  1.88033160e-05  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00 -3.00403461e-05
+  3.00403461e-05  0.00000000e+00  0.00000000e+00 -1.94343745e-04
+  1.94343745e-04  0.00000000e+00  0.00000000e+00 -1.33782020e-04
+  1.33782020e-04 -1.23976936e-04  1.23976936e-04 -2.06789833e-04
+  2.06789833e-04  0.00000000e+00  0.00000000e+00 -1.71600963e-04
+  1.71600963e-04 -8.93262669e-05  8.93262669e-05  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00 -4.58861277e-05
+  4.58861277e-05 -3.38150069e-05  3.38150069e-05  0.00000000e+00
+  0.00000000e+00 -1.29522520e-01  1.29522520e-01]
+
+[2020-01-28 17:02:14.696221][__main__.TRPOAgent.log][training]: Initiating conjugate gradients
+

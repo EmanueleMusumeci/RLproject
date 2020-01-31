@@ -32,8 +32,10 @@ class Policy:
 
         self.model = keras.Sequential()
         if not self.convolutional:
-            self.model.add(keras.layers.Dense(64, input_shape=self.input_shape, activation="relu"))
-            self.model.add(keras.layers.Dense(64, activation="relu"))
+            #self.model.add(keras.layers.BatchNormalization(input_shape=self.input_shape))
+            self.model.add(keras.layers.Dense(64, activation="tanh",input_shape=self.input_shape))
+            self.model.add(keras.layers.Dense(32, activation="tanh"))
+            #self.model.add(keras.layers.Dense(16, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
         else:
             self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
@@ -67,7 +69,7 @@ class Policy:
             observation = tf.cast(observation,'float64')
         #self.log("Observation.dtype: ",observation.dtype, debug_channel="model")
         
-        return self.model(observation)
+        return self.model(np.array(observation))
         #else:
             #return self.model.predict(observation)
 
@@ -82,7 +84,8 @@ class Policy:
 
         current_layer=0
         assigned_parameters = 0
-        for shape in self.shape_list: 
+        shape_list = [layer.shape.as_list() for layer in self.model.trainable_variables]
+        for shape in shape_list: 
             #per ogni strato
             #calcola il numero di parametri di quello strato
             layer_size = np.prod(shape)
@@ -99,19 +102,15 @@ class Policy:
         assert assigned_parameters == self.number_of_parameters
 
     #Computes the gradients wrt the weights of the neural network
-    #args is a dictionary containing all remaining arguments to be passed to the function as:
-    # ({"parameter_name":parameter_value}). The function is supposed to unpack them
     def get_flat_gradients(self, function, args=None):
         #create a tensorflow array out of the numpy one containing the nn parameters
         trainable_variables = self.model.trainable_variables
-        #observation = tf.Variable(observation)
-#        self.log("trainable variables:\n",self.model.trainable_variables, writeToFile=True, debug_channel="model")
 
         with tf.GradientTape() as t:
-                f= function()
+            f= function()
         
-        gradient = t.gradient(f, trainable_variables, unconnected_gradients=tf.UnconnectedGradients.ZERO) 
-            #UnconnectedGradients.ZERO serve a evitare che ti restituisca None quando il gradiente è zero
+        gradient = t.gradient(f, trainable_variables, unconnected_gradients=tf.UnconnectedGradients.ZERO)
+            #UnconnectedGradients.ZERO serve a evitare che ti restituisca None quando il grafo dei gradienti non è connesso
  #       self.log("gradient:\n",gradient, writeToFile=True, debug_channel="model")
         return tf.concat([tf.reshape(v, [-1]) for v in gradient], axis=0)
 
@@ -147,8 +146,10 @@ class Value:
         self.log("input_shape: ", self.input_shape,", output_shape: ",self.output_shape, ", convolutional: ",self.convolutional, writeToFile=True, debug_channel="model")
         self.model = keras.Sequential()
         if not self.convolutional:
-            self.model.add(keras.layers.Dense(64, input_shape=self.input_shape, activation="relu"))
+            #self.model.add(keras.layers.BatchNormalization(input_shape=self.input_shape))
+            self.model.add(keras.layers.Dense(64, activation="relu", input_shape=self.input_shape))
             self.model.add(keras.layers.Dense(64, activation="relu"))
+            #self.model.add(keras.layers.Dense(16, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
             adam = keras.optimizers.Adam(learning_rate=value_lr)
             self.model.compile(loss="mean_squared_error", optimizer=adam)
@@ -180,7 +181,7 @@ class Value:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 1)
             if self.input_shape[2]==3:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 3)
-        
+
         #print("A")
 
         #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
@@ -190,16 +191,17 @@ class Value:
 
         #print("B")
         #print("Obs shape: ", observation.shape, ", Known shape: ", self.input_shape)
-        val = self.model(observation).numpy().flatten()
+        
+        val = self.model.predict(np.array(observation)).flatten()
         #print("VALUE PREDICTION: ", val)
         return val
         #else:
             #return self.model.predict(observation)
     
     def fit(self, observations, discounted_rewards, epochs=5, verbose=0):
-        if(len(observations.shape)==3):    
-            observations = observations.reshape(observations.shape[0], observations.shape[1], observations.shape[2], self.input_shape[2])
-        return self.model.fit(observations,discounted_rewards,epochs=epochs, verbose=verbose)
+#        if(len(observations.shape)==3):    
+#            observations = observations.reshape(observations.shape[0], observations.shape[1], observations.shape[2], self.input_shape[2])
+        return self.model.fit(np.array(observations),np.array(discounted_rewards),epochs=epochs,verbose=verbose)
 
     def get_flat_params(self):
 	    return tf.concat([tf.reshape(v, [-1]) for v in self.model.trainable_variables], axis=0).numpy()

@@ -1,0 +1,87 @@
+LOGGER started at 2020-01-28 16:52:13.517016.
+Currently active debug channels:
+	rollouts
+	act
+	training
+	batch_info
+	linesearch
+	learning
+	thread_rollouts
+[2020-01-28 16:52:13.986025][__main__.TRPOAgent.log][learning]: Episode #0
+
+[2020-01-28 16:52:14.245587][__main__.TRPOAgent.log][learning]: Performing rollouts: rollout length: 50
+
+[2020-01-28 16:52:14.266252][EnvironmentNew.Environment.log][rollouts]: Rollout thread #1
+
+[2020-01-28 16:52:14.267193][EnvironmentNew.Environment.log][rollouts]: Rollout thread #2
+
+[2020-01-28 16:52:14.267109][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0
+
+[2020-01-28 16:52:14.268161][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1
+
+[2020-01-28 16:52:14.313171][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 0, Steps performed: 9
+
+[2020-01-28 16:52:14.312608][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 1, Steps performed: 9
+
+[2020-01-28 16:52:14.314375][EnvironmentNew.Environment.log][rollouts]: Rollout thread #3
+
+[2020-01-28 16:52:14.315152][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2
+
+[2020-01-28 16:52:14.315216][EnvironmentNew.Environment.log][rollouts]: Rollout thread #4
+
+[2020-01-28 16:52:14.319052][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3
+
+[2020-01-28 16:52:14.347575][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 2, Steps performed: 9
+
+[2020-01-28 16:52:14.362440][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 3, Steps performed: 12
+
+[2020-01-28 16:52:14.363187][EnvironmentNew.Environment.log][rollouts]: Rollout thread #5
+
+[2020-01-28 16:52:14.363883][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4
+
+[2020-01-28 16:52:14.363962][EnvironmentNew.Environment.log][rollouts]: Rollout thread #6
+
+[2020-01-28 16:52:14.368915][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5
+
+[2020-01-28 16:52:14.419270][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 5, Steps performed: 11
+
+[2020-01-28 16:52:14.418837][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 4, Steps performed: 12
+
+[2020-01-28 16:52:14.420708][EnvironmentNew.Environment.log][rollouts]: Rollout thread #7
+
+[2020-01-28 16:52:14.421639][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6
+
+[2020-01-28 16:52:14.421724][EnvironmentNew.Environment.log][rollouts]: Rollout thread #8
+
+[2020-01-28 16:52:14.426813][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7
+
+[2020-01-28 16:52:14.470118][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 6, Steps performed: 11
+
+[2020-01-28 16:52:14.476633][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 7, Steps performed: 11
+
+[2020-01-28 16:52:14.477491][EnvironmentNew.Environment.log][rollouts]: Rollout thread #9
+
+[2020-01-28 16:52:14.478794][EnvironmentNew.Environment.log][rollouts]: Rollout thread #10
+
+[2020-01-28 16:52:14.478672][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8
+
+[2020-01-28 16:52:14.480350][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9
+
+[2020-01-28 16:52:14.535011][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 8, Steps performed: 10
+
+[2020-01-28 16:52:14.536247][EnvironmentNew.Environment.log][thread_rollouts]: Thread number: 9, Steps performed: 11
+
+[2020-01-28 16:52:14.537404][__main__.TRPOAgent.log][learning]: Rollouts performed
+
+[2020-01-28 16:52:14.539240][__main__.TRPOAgent.log][batch_info]: Rollout statistics size: 105, Batch size: 1000, Number of batches: 10
+
+[2020-01-28 16:52:14.539846][__main__.TRPOAgent.log][learning]: 
+
+***************
+BEGINNING TRAINING
+***************
+
+
+
+[2020-01-28 16:52:14.540408][__main__.TRPOAgent.log][batch_info]: Batch #0, batch length: 9
+
