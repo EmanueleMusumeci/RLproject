@@ -143,7 +143,8 @@ class Environment:
         #    self.logger.add_debug_channel("environment")
         
         self.same_seed=same_seed
-
+        self.environment_name = environment_name
+        
         if use_custom_env_register:
             if CustomEnvironmentRegister.custom_environment_register_singleton==None:
                 self.env_register = CustomEnvironmentRegister(self.logger, debug=True)
@@ -157,7 +158,7 @@ class Environment:
             self.gym_wrapper=None
             if env_info!=None:
                 self.log("Environment info: ",env_info, writeToFile=True, debug_channel="environment")
-                self.environment_name = env_info.custom_id
+                self.environment_custom_id = env_info.custom_id
 
                 self.type = env_info.type
                 self.rendering_delay = env_info.render_delay
@@ -169,13 +170,13 @@ class Environment:
 
                     self.preprocess = env_info.preprocess
                     if self.preprocess:
-                        self.gym_wrapper = AtariWrapper(self.environment_name, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
+                        self.gym_wrapper = AtariWrapper(self.environment_custom_id, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=True,crop_height_factor=env_info.crop_height_factor)
                         #Set the right observation space (if the image is preprocessed it will be grayscale, therefore will only have 1 channel)
                     else:
-                        self.gym_wrapper = AtariWrapper(self.environment_name, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
+                        self.gym_wrapper = AtariWrapper(self.environment_custom_id, frame_skip=env_info.frame_skip,screen_width=self.screen_width,screen_height=self.screen_height,scale_obs=False, grayscale_obs=False)
                         #Set the right observation space (if the image is not preprocessed it will have 3 channels)           
                 else:
-                    self.gym_wrapper=GenericWrapper(self.environment_name)
+                    self.gym_wrapper=GenericWrapper(self.environment_custom_id)
                     self.preprocess = False
 
         if not use_custom_env_register or env_info==None:
@@ -183,8 +184,6 @@ class Environment:
             self.type = "default"
             self.rendering_delay = 0.0
             self.preprocess = False
-
-            self.environment_name = environment_name
             self.gym_wrapper = GenericWrapper(self.environment_name)
 
         self.observation_space = self.gym_wrapper.get_observation_space()
@@ -420,7 +419,7 @@ class Environment:
         
         return actions, action_probabilities, observations, rewards
 
-    def render_agent(self, agent, nSteps=-1):
+    def render_agent(self, agent, nSteps=-1, epsilon_greedy=False):
         #nSteps = -1 means render until done
         observation = self.reset()
         done = False

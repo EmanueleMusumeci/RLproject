@@ -699,6 +699,9 @@ class TRPOAgent:
             plt.draw()
             plt.pause(0.001)
 
+def __del__(self):
+    self.logger.create_plot_from_history()
+
 if __name__ == '__main__':
     import numpy
     import sys

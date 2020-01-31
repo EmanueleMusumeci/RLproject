@@ -229,10 +229,3 @@ class Logger:
 
 if __name__ == "__main__":
     logger = Logger(name="Prova",debugChannels=["Debug 1","Debug 2"])
-    logger.log("ciao", ", come va? Sono un logger", debug_channel="Debug 1")
-    logger.log("ciao", ", come va? Sono un logger", debug_channel="Debug 2")
-    logger.print("ciao",", Questo dovrebbe apparire solo sul terminale", debug_channel="Debug 1")
-    logger.print("ciao",", Questo dovrebbe apparire solo sul terminale", debug_channel="Debug 2")
-    logger.print("ciao",", Questo dovrebbe apparire sia sul terminale che nel log", writeToFile=True,debug_channel="Debug 1")
-    logger.print("ciao",", Questo dovrebbe apparire sia sul terminale che nel log", writeToFile=True, debug_channel="Debug 2")
-    logger.print("Generic channel","!!!")

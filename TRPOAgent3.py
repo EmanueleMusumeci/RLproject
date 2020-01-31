@@ -15,7 +15,7 @@ from scipy.signal import lfilter
 from utils import *
 from EnvironmentNew import Environment
 from Models import Policy, Value
-from Logger import Logger
+from LoggerV2 import Logger
 import tensorflow as tf
 from tensorflow import GradientTape
 from tensorflow import keras
@@ -77,11 +77,17 @@ class TRPOAgent:
     render=False,
 
     #Others
-    model_backup_dir="TRPO_project/Models"):
+    model_backup_dir=""):
 
+         
         assert(env!=None), "You need to create an environment first"
         self.env = env
-        self.model_backup_dir = model_backup_dir+"/"+self.env.environment_name
+
+        if model_backup_dir=="":
+            dirname = os.path.dirname(__file__)
+            self.model_backup_dir = os.path.join(dirname, 'Models')
+            
+        self.model_backup_dir = self.model_backup_dir+"/"+self.env.environment_name
 
         #*******
         #LOGGING
@@ -94,9 +100,6 @@ class TRPOAgent:
         #assert(logger!=None), "You need to create a logger first"
         self.logger = logger
 
-        #*******
-        #LOGGING
-        #*******
         #self.debug = show_debug_info
         #if debug_rollouts:
         #    self.logger.add_debug_channel("rollouts")
@@ -240,7 +243,7 @@ class TRPOAgent:
 
                 temp_fisher_vector_product = fvp(p)
                 
-                print(temp_fisher_vector_product)
+                #print(temp_fisher_vector_product)
                 alpha = rdotr / (np.dot(p, temp_fisher_vector_product))
                 if logger!=None:
                     self.log("CG Hessian: ",alpha,debug_channel="cg")
@@ -263,7 +266,7 @@ class TRPOAgent:
                 self.new_model.set_flat_params(params)
             #Calcola la nuova policy usando la rete neurale aggiornata ad ogni batch cycle del training step
             output = model(current_batch_observations)
-            print(len(output))
+            #print(len(output))
             new_policy_action_probabilities = tf.nn.softmax(output)
             new_policy_action_probabilities = tf.reduce_sum(current_batch_actions_one_hot * new_policy_action_probabilities, axis=1)
 
@@ -323,7 +326,7 @@ class TRPOAgent:
         total_rewards = []
 
         for i in range(self.rollouts_per_sampling):
-            mean_rewards.append(np.mean(self.rewards[i]))
+            mean_rewards.append(np.mean(sum(self.rewards[i])))
             total_rewards.append(sum(self.rewards[i]))
             state_values.append(self.state_value(self.observations[i]))
             advantages.append(self.discounted_rewards[i] - state_values[i])
@@ -349,9 +352,6 @@ class TRPOAgent:
 
         #2) Compute the number of batches
         number_of_batches = math.ceil(total_elements / self.batch_size)
-        self.log("Rollout statistics size: ", total_elements, ", Batch size: ", self.batch_size,", Number of batches: ",number_of_batches,writeToFile=True,debug_channel="batch_info")
-
-        self.log("\n\n***************\nBEGINNING TRAINING\n***************\n\n",writeToFile=True,debug_channel="learning")
 
         #3) Collect useful statistics to plot
         value_losses = []
@@ -372,16 +372,16 @@ class TRPOAgent:
 
             self.log("Batch #", batch, ", batch length: ", len(current_batch_observations), writeToFile=True, debug_channel="batch_info")
 
-            print(surrogate_function())
+            #print(surrogate_function())
 
             g = get_flat_gradients(surrogate_function,self.policy.model.trainable_variables).numpy().flatten()
             #g = tf.reduce_mean(policy_gradients, axis=0).numpy()
             stepdir = conjugate_gradients(fisher_vector_product, g)
-            print(stepdir)
+            #print(stepdir)
             shs = .5 * stepdir.dot(fisher_vector_product(stepdir))
-            if np.isnan(shs).any(): return None, None, None, None
+            if np.isnan(shs).any(): return None, None, None, None, None
             #shs = g.T.dot(stepdir)
-            print(shs)
+            #print(shs)
             lm = np.sqrt(shs / self.DELTA)
             fullstep = stepdir / lm
             #neggdotstepdir = -g.dot(stepdir)
@@ -398,18 +398,16 @@ class TRPOAgent:
 
                     theta_new = theta + step * fullstep
                     
-                    self.new_model.set_flat_params(theta_new)
-
                     #new_loss = sample_loss(g,theta,theta_new)
                     new_loss = surrogate_function(theta_new)
                     #new_loss = logpi(all_observations, all_actions_one_hot, all_advantages).numpy()
 
-                    mean_kl_div = get_mean_kl_divergence()
+                    mean_kl_div = get_mean_kl_divergence(theta_new)
                     if mean_kl_div <= self.DELTA and new_loss>=0:
                     #if mean_kl_div <= self.DELTA and new_loss>old_loss:
                     #if mean_kl_div <= self.DELTA and new_loss<old_loss:
                         self.log("Linesearch worked at ", _n_backtracks, ", New mean kl div: ", mean_kl_div, ", New policy loss value: ", new_loss, writeToFile=True, debug_channel="linesearch")
-                        return True, theta_new, new_loss
+                        return True, theta_new, new_loss.numpy()
                     if _n_backtracks == self.backtrack_iters - 1:
                         self.log("Linesearch failed. Mean kl divergence: ", mean_kl_div, ", Discarded policy loss value: ", new_loss, writeToFile=True, debug_channel="linesearch")
                         return False, theta, old_loss
@@ -465,29 +463,27 @@ class TRPOAgent:
 
     def learn(self, nEpisodes, episodesBetweenModelBackups=-1, start_from_episode=0):
         initial_time = time.time()
-        history_values = {"max_reward":[],"value_loss":[],"sample_loss":[]}
+        history_values = {"Max reward":[],"Mean reward":[],"Sample loss":[]}
         loss_values = []
-
-        plot, subplots = plt.subplots(3, 1, constrained_layout=True)
 
         #old_loss = math.inf
         old_loss = -math.inf
+
+        if start_from_episode>0:
+            self.load_weights(start_from_episode)
+            self.logger.load_history(to_episode=start_from_episode)
+
         for episode in range(start_from_episode,nEpisodes):
             self.log("Episode #", episode, writeToFile=True, debug_channel="learning")
-
-            if start_from_episode>0:
-                self.load_weights(start_from_episode)
 
             rollout_until_success = False
             current_episode_steps_per_rollout = self.steps_per_rollout
 
             #DECIDE WETHER ONLY SELECTING SUCCESSFUL ROLLOUTS OR NOT
             full_rollout_episode=episode<self.full_rollout_episodes
-            
-            if full_rollout_episode:
-                rollout_until_success = True
 
             if full_rollout_episode:
+                rollout_until_success = True
                 current_episode_steps_per_rollout = self.full_rollout_size-1000
                 current_rollouts_per_sampling = math.ceil(self.rollouts_per_sampling / 2)
             else:
@@ -505,25 +501,23 @@ class TRPOAgent:
 
             max_reward, mean_reward, value_losses, policy_losses, last_policy_loss = self.training_step(episode, old_loss)
 
-            if max_reward==None or mean_reward==None or value_losses==None or policy_losses==None: continue            
-
-            #history_entry = {"max_reward":max_reward,"value_loss":value_loss,"policy_loss":policy_loss}
+            if max_reward==None or mean_reward==None or value_losses==None or policy_losses==None or last_policy_loss==None: continue            
 
             mean_value_loss = np.mean(value_losses)
             mean_policy_loss = np.mean(policy_losses)
 
-            history_values["max_reward"].append(max_reward)
-            history_values["value_loss"].append(mean_value_loss)
-            history_values["sample_loss"].append(mean_policy_loss)
-
-            self.log_history(history_values)
-            self.plot_history(plot, subplots, history_values)
+            history_values = {
+                "Max reward" : max_reward,
+                "Mean reward" : mean_reward,
+                "Sample loss" : last_policy_loss
+            }
+            self.log_history(**history_values)
 
             #save latest policy loss as "old_loss"
             old_loss = last_policy_loss
 
             if self.render: 
-                env.render_agent(agent, nSteps = self.steps_per_rollout)
+                env.render_agent(agent, nSteps = self.steps_per_rollout, epsilon_greedy=False)
             
             import os
             #print(os.getcwd())
@@ -536,6 +530,7 @@ class TRPOAgent:
         filename = self.model_backup_dir+"/Policy."+self.env.get_environment_description()+"."+str(episode)
         #Create directory if it doesn't exist
         try:
+            #print(self.model_backup_dir)
             os.makedirs(self.model_backup_dir)
         except OSError as e:
             if e.errno != errno.EEXIST:
@@ -568,25 +563,16 @@ class TRPOAgent:
     def load_history(self):
         self.logger.load_history()
 
-    def log_history(self,live_plots=False,**history):
-        self.logger.log_history(**history,live_plots=live_plots)
+    def log_history(self,**history):
+        self.logger.log_history(**history)
 
-    def plot_history(self, plot, subplots, history):
-        current_plot=0
-        for k,v in history.items():
-            subplots[current_plot].plot(v)
-            subplots[current_plot].set_title(k)
-            subplots[current_plot].set_xlabel('Episode')
-            subplots[current_plot].set_ylabel(k)
-            plot.suptitle(k, fontsize=16)
-            current_plot+=1
-
-            plt.draw()
-            plt.pause(0.001)
 
 if __name__ == '__main__':
     import numpy
     import sys
+
+
+
     #numpy.set_printoptions(threshold=sys.maxsize)
     
     #Disable tensorflow debugging info
@@ -624,18 +610,25 @@ if __name__ == '__main__':
     #logger = Logger(name=env_name,log_directory="TRPO_project/Models/"+env_name,debugChannels=channels)
     #desired_rollouts = 30
     #env = Environment(env_name,logger,desired_rollouts,use_custom_env_register=True, debug=True, show_preprocessed=False, same_seed=True)
-    #agent = TRPOAgent(env,logger,steps_per_rollout=1000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=100,DELTA=0.01, epsilon=0.15, epsilon_greedy=True,value_function_fitting_epochs=1, value_learning_rate=1e-3,backtrack_coeff=0.8, backtrack_iters=5,render=True)
+    #agent = TRPOAgent(env,logger,steps_per_rollout=1000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=1000,DELTA=0.01, epsilon=0.15, epsilon_greedy=True,value_function_fitting_epochs=1, value_learning_rate=1e-3,backtrack_coeff=0.8, backtrack_iters=5,render=True)
+
+    #LunarLander-v2
+    #env_name = "LunarLander-v2"
+    #logger = Logger(name=env_name,log_directory="TRPO_project/Models/"+env_name,debugChannels=channels)
+    #desired_rollouts = 30
+    #env = Environment(env_name,logger,desired_rollouts,use_custom_env_register=True, debug=True, show_preprocessed=False, same_seed=True)
+    #agent = TRPOAgent(env,logger,steps_per_rollout=1000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=1000,DELTA=0.01, epsilon=0.15, epsilon_greedy=True,value_function_fitting_epochs=1, value_learning_rate=1e-3,backtrack_coeff=0.8, backtrack_iters=5,render=True)
 
     #Acrobot-v0
     #env_name = "Acrobot-v1"
     #logger = Logger(name=env_name,log_directory="TRPO_project/Models/"+env_name,debugChannels=channels)
     #desired_rollouts = 30
     #env = Environment(env_name,logger,desired_rollouts,use_custom_env_register=True, debug=True, show_preprocessed=False, same_seed=True)
-    #agent = TRPOAgent(env,logger,steps_per_rollout=1000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=100,DELTA=0.01, epsilon=0.15, epsilon_greedy=True,value_function_fitting_epochs=1, value_learning_rate=1e-3,backtrack_coeff=0.8, backtrack_iters=5,render=True)
+    #agent = TRPOAgent(env,logger,steps_per_rollout=1000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=500,DELTA=0.01, epsilon=0.15, epsilon_greedy=True,value_function_fitting_epochs=1, value_learning_rate=1e-3,backtrack_coeff=0.8, backtrack_iters=5,render=True)
     
     #MountainCar-v0
     env_name = "MountainCar-v0"
-    logger = Logger(name=env_name,log_directory="TRPO_project/Models/"+env_name,debugChannels=channels)
+    logger = Logger(name=env_name,debugChannels=channels,live_plot=True, append_to_last_log=True)
     desired_rollouts = 15
     env = Environment(env_name,logger,desired_rollouts,use_custom_env_register=True, debug=True, show_preprocessed=False, same_seed=True)
     agent = TRPOAgent(env,logger,steps_per_rollout=2000,steps_between_rollouts=1, rollouts_per_sampling=desired_rollouts,multithreaded_rollout=True, full_rollout_episodes=0,single_batch_training = True, batch_size=4000,DELTA=0.01, epsilon=0.4, epsilon_greedy=True, epsilon_decrease_factor=0.005, value_function_fitting_epochs=5, value_learning_rate=1e-2,backtrack_coeff=0.6, backtrack_iters=10,render=True)
