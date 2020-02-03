@@ -6,6 +6,7 @@ from gym.wrappers import TimeLimit
 from cv2 import cv2
 import matplotlib.pyplot as plt
         
+#The Atari wrapper was modified in order to implement observation image preprocessing 
 class AtariWrapper(gym.Wrapper):
     r"""Atari 2600 preprocessings. 
     This class follows the guidelines in 
@@ -75,9 +76,6 @@ class AtariWrapper(gym.Wrapper):
         else:
             self.observation_space = Box(low=_low, high=_high, shape=(self.screen_width, self.screen_height, 3), dtype=_obs_dtype)
         
-    #def __del__(self):
-    #    self.env.close()
-
     def step(self, action):
         R = 0.0
 
@@ -117,7 +115,6 @@ class AtariWrapper(gym.Wrapper):
                 self.env.reset(**kwargs)
 
         self.lives = self.ale.lives()
-        #self.lives = 0
         if self.grayscale_obs:
             self.ale.getScreenGrayscale(self.obs_buffer[0])
         else:

@@ -15,6 +15,7 @@ def get_flat_gradients(loss_fn, var_list):
     #print(grads)
     return tf.concat([tf.reshape(g, [-1]) for g in grads], axis=0)
 
+#USED in Logger, it detects the name of the caller of the function it is called in (skip controls how many levels we go back in the stack trace)
 def caller_name(skip=2):
     """Get a name of a caller in the format module.class.method
     
@@ -31,15 +32,9 @@ def caller_name(skip=2):
     
     name = []
     module = inspect.getmodule(parentframe)
-    # `modname` can be None when frame is executed directly in console
-    # TODO(techtonik): consider using __main__
     if module:
         name.append(module.__name__)
-    # detect classname
     if 'self' in parentframe.f_locals:
-        # I don't know any way to detect call from the object method
-        # XXX: there seems to be no way to detect static method call - it will
-        #      be just a function call
         name.append(parentframe.f_locals['self'].__class__.__name__)
     codename = parentframe.f_code.co_name
     if codename != '<module>':  # top level usually

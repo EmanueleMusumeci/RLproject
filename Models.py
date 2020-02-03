@@ -10,9 +10,6 @@ from Logger import Logger
 import tensorflow as tf
 from tensorflow import keras as keras
 
-#    #TODO:Get NN shape from CustomEnvironmentRegister
-#DONE#TODO:Use Atari preprocessing wrapper to preprocess the image
-#    #TODO:Make both models subclasses of a NNEstimator class, to collect common methods
 
 class Policy:
     def __init__(self, environment, logger, debug = False):
@@ -32,10 +29,8 @@ class Policy:
 
         self.model = keras.Sequential()
         if not self.convolutional:
-            #self.model.add(keras.layers.BatchNormalization(input_shape=self.input_shape))
             self.model.add(keras.layers.Dense(64, activation="tanh",input_shape=self.input_shape))
             self.model.add(keras.layers.Dense(32, activation="tanh"))
-            #self.model.add(keras.layers.Dense(16, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
         else:
             self.model.add(keras.layers.Conv2D(10, (3, 3), input_shape=self.input_shape, activation='relu'))
@@ -50,28 +45,26 @@ class Policy:
 
 		#calcola il numero complessivo di parametri della rete neurale
         self.number_of_parameters = np.sum([np.prod(shape) for shape in self.shape_list])
-        self.log("number_of_parameters: ",self.number_of_parameters, writeToFile=True, debug_channel="model")
-        print(self.model.summary())
+        self.logger.print("number_of_parameters: ",self.number_of_parameters, writeToFile=True, debug_channel="model")
+        stringlist=[]
+        self.model.summary(print_fn=lambda x: stringlist.append(x))
+        model_summary = "\n".join(stringlist)
+        self.logger.print(model_summary,writeToFile=True,debug_channel="model_summary")
     
-    def __call__(self, observation, tensor=False):
+    def __call__(self, observation):
         if self.convolutional:
-            #self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
+            observation = np.array(observation)
             #Add an axis if the image has only 1 channel (grayscale) because the shape has to be like 
             # (batch size, img_height, img_width, channels) but if the image is grayscale, the shape is
             # (batch_size, img_height, img_width)
             if self.input_shape[2]==1:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 1)
-        
-        #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
-        #if tensor:
-
-        if self.convolutional: #observation.astype('uint8')
+            if self.input_shape[2]==3:
+                observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 3)
+ 
             observation = tf.cast(observation,'float64')
-        #self.log("Observation.dtype: ",observation.dtype, debug_channel="model")
         
         return self.model(np.array(observation))
-        #else:
-            #return self.model.predict(observation)
 
     def get_flat_params(self, numpy=True):
         params = tf.concat([tf.reshape(v, [-1]) for v in self.model.trainable_variables], axis=0)
@@ -111,7 +104,6 @@ class Policy:
         
         gradient = t.gradient(f, trainable_variables, unconnected_gradients=tf.UnconnectedGradients.ZERO)
             #UnconnectedGradients.ZERO serve a evitare che ti restituisca None quando il grafo dei gradienti non è connesso
- #       self.log("gradient:\n",gradient, writeToFile=True, debug_channel="model")
         return tf.concat([tf.reshape(v, [-1]) for v in gradient], axis=0)
 
     def save_model_weights(self,filename):
@@ -126,6 +118,7 @@ class Policy:
         return cloned_model
 
     def log(self, *strings, writeToFile=False, debug_channel="Generic"):
+        print(strings)
         if self.logger!=None:
             self.logger.print(strings, writeToFile=writeToFile, debug_channel=debug_channel)
 
@@ -146,10 +139,8 @@ class Value:
         self.log("input_shape: ", self.input_shape,", output_shape: ",self.output_shape, ", convolutional: ",self.convolutional, writeToFile=True, debug_channel="model")
         self.model = keras.Sequential()
         if not self.convolutional:
-            #self.model.add(keras.layers.BatchNormalization(input_shape=self.input_shape))
             self.model.add(keras.layers.Dense(64, activation="relu", input_shape=self.input_shape))
             self.model.add(keras.layers.Dense(64, activation="relu"))
-            #self.model.add(keras.layers.Dense(16, activation="relu"))
             self.model.add(keras.layers.Dense(self.output_shape))
             adam = keras.optimizers.Adam(learning_rate=value_lr)
             self.model.compile(loss="mean_squared_error", optimizer=adam)
@@ -168,12 +159,15 @@ class Value:
 
 		#calcola il numero complessivo di parametri della rete neurale
         self.number_of_parameters = np.sum([np.prod(shape) for shape in self.shape_list])
-        self.log("number_of_parameters: ",self.number_of_parameters, writeToFile=True, debug_channel="model")
-        print(self.model.summary())
+        self.logger.print("number_of_parameters: ",self.number_of_parameters, writeToFile=True, debug_channel="model")
+        stringlist=[]
+        self.model.summary(print_fn=lambda x: stringlist.append(x))
+        model_summary = "\n".join(stringlist)
+        self.logger.print(model_summary,writeToFile=True,debug_channel="model_summary")
     
-    def __call__(self, observation, tensor=False):
+    def __call__(self, observation):
         if self.convolutional:
-            #self.log("observation.shape: ",observation.shape,writeToFile=True, debug_channel="model")
+            observation = np.array(observation)
             #Add an axis if the image has only 1 channel (grayscale) because the shape has to be like 
             # (batch size, img_height, img_width, channels) but if the image is grayscale, the shape is
             # (batch_size, img_height, img_width)
@@ -182,25 +176,21 @@ class Value:
             if self.input_shape[2]==3:
                 observation = observation.reshape(observation.shape[0], observation.shape[1], observation.shape[2], 3)
 
-        #print("A")
-
-        #self.log("shape fed to the neural network: ",observation.shape,writeToFile=True, debug_channel="model")
-        #if tensor:
-        if self.convolutional: #observation.astype('uint8')
             observation = tf.cast(observation,'float64')
-
-        #print("B")
-        #print("Obs shape: ", observation.shape, ", Known shape: ", self.input_shape)
         
         val = self.model.predict(np.array(observation)).flatten()
-        #print("VALUE PREDICTION: ", val)
         return val
-        #else:
-            #return self.model.predict(observation)
     
     def fit(self, observations, discounted_rewards, epochs=5, verbose=0):
-#        if(len(observations.shape)==3):    
-#            observations = observations.reshape(observations.shape[0], observations.shape[1], observations.shape[2], self.input_shape[2])
+        if self.convolutional:
+            observations = np.array(observations)
+            #Add an axis if the image has only 1 channel (grayscale) because the shape has to be like 
+            # (batch size, img_height, img_width, channels) but if the image is grayscale, the shape is
+            # (batch_size, img_height, img_width)
+            if self.input_shape[2]==1:
+                observations = observations.reshape(observations.shape[0], observations.shape[1], observations.shape[2], 1)
+            if self.input_shape[2]==3:
+                observations = observations.reshape(observations.shape[0], observations.shape[1], observations.shape[2], 3)
         return self.model.fit(np.array(observations),np.array(discounted_rewards),epochs=epochs,verbose=verbose)
 
     def get_flat_params(self):
@@ -245,69 +235,11 @@ class Value:
 if __name__ =="__main__":
     import numpy
     import sys
+    from TRPOAgent import *
     #numpy.set_printoptions(threshold=sys.maxsize)
 
-    env_name = "MountainCar-v0"
+    env_name = "MsPacman-ram-v0"
 
-    logger = Logger(name=env_name,log_directory="TRPO_project/Testing/Model")
-    env = Environment(env_name, logger, True,True)
-    policy = Policy(env, logger)
-    value = Value(env, logger, 1e-3)
-    policy_params = policy.get_flat_params()
-    value_params = value.get_flat_params()
-    print("policy_params:\n",policy_params)
-    print("value_params:\n",value_params)
-    
-    if False:
-        '''
-        zeroed_policy_params = np.zeros_like(policy_params)
-        policy.set_flat_params(zeroed_policy_params)
-        zeroed_policy_params = policy.get_flat_params()
-        print("zeroed policy_params:\n",zeroed_policy_params, ", len: ",len(zeroed_policy_params))
-
-        zeroed_value_params = np.zeros_like(value_params)
-        value.set_flat_params(zeroed_value_params)
-        zeroed_value_params = value.get_flat_params()
-        print("zeroed value_params:\n",zeroed_value_params, ", len: ",len(zeroed_value_params))
-
-        x = np.arange(1,len(policy_params)+1,dtype=np.float64)
-        print("x: ", x)
-        x = tf.convert_to_tensor(x)
-        print("x(tensor): ", x)
-        with tf.GradientTape() as t:
-            t.watch(x)
-            function = tf.pow(x,2)
-            print(function)
-        grad = t.gradient(function, x)
-        print(grad)
-        '''
-
-    x = np.arange(1,len(policy_params)+1,dtype=np.float64)
-    print("x: ", x)
-    policy.set_flat_params(x)
-    policy_params = policy.get_flat_params()
-    print("policy_params before gradient: ", policy_params)
-    
-    def fn1(x):
-        return tf.pow(x,2)
-    
-    def fn2(x,args):
-        y= args["y"]
-        return tf.pow(x,2)*y
-    function = fn1
-    #gradients = policy.get_flat_gradients(function, args={"y":1})
-    gradients = policy.get_flat_gradients(function)
-    print("gradients: ", gradients)
-
-    if False:
-        '''
-        x = np.arange(1,len(value_params)+1,dtype=np.float64)
-        print("x: ", x)
-        value.set_flat_params(x)
-        value_params = value.get_flat_params()
-        print("value_params before gradient: ", value_params)
-
-        function = fn
-        gradients = value.get_flat_gradients(function)
-        print("gradients: ", gradients)
-        '''
+    logger = Logger(name=env_name, debugChannels=["model","model_summary"])
+    env = Environment(env_name, logger, True)
+    agent = TRPOAgent(env,logger)

@@ -6,7 +6,6 @@ from gym.wrappers import TimeLimit
 from cv2 import cv2
 import matplotlib.pyplot as plt
 
-#Ho dovuto riscrivere i wrapper per dotarli di un metodo render, in maniera tale da verificare il funzionamento del preprocessing
 class GenericWrapper(gym.Wrapper):
 
     def __init__(self, environment_name):

@@ -1,0 +1,61 @@
+LOGGER started at 2020-02-03 18:17:05.341408.
+Currently active debug channels:
+	model
+	model_summary
+[2020-02-03 18:17:05.896647][Models.Policy.log][model]: input_shape: (128,), output_shape: 9, convolutional: False
+
+[2020-02-03 18:17:06.189468][Models.Policy.__init__][model]: number_of_parameters: 
+
+[2020-02-03 18:17:06.190640][Models.Policy.__init__][model_summary]: Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 64)                8256      
+_________________________________________________________________
+dense_1 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 297       
+=================================================================
+Total params: 10,633
+Trainable params: 10,633
+Non-trainable params: 0
+_________________________________________________________________
+
+[2020-02-03 18:17:06.191274][Models.Policy.log][model]: input_shape: (128,), output_shape: 9, convolutional: False
+
+[2020-02-03 18:17:06.220358][Models.Policy.__init__][model]: number_of_parameters: 
+
+[2020-02-03 18:17:06.221448][Models.Policy.__init__][model_summary]: Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_3 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dense_4 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dense_5 (Dense)              (None, 9)                 297       
+=================================================================
+Total params: 10,633
+Trainable params: 10,633
+Non-trainable params: 0
+_________________________________________________________________
+
+[2020-02-03 18:17:06.225283][Models.Value.log][model]: input_shape: (128,), output_shape: 1, convolutional: False
+
+[2020-02-03 18:17:06.267155][Models.Value.__init__][model]: number_of_parameters: 
+
+[2020-02-03 18:17:06.268165][Models.Value.__init__][model_summary]: Model: "sequential_2"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_6 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dense_7 (Dense)              (None, 64)                4160      
+_________________________________________________________________
+dense_8 (Dense)              (None, 1)                 65        
+=================================================================
+Total params: 12,481
+Trainable params: 12,481
+Non-trainable params: 0
+_________________________________________________________________
+
