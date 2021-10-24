@@ -1,6 +1,8 @@
 # Reinforcement Learning - TRPO - Tensorflow 2
 
-Small homemade modular framework created as a University project, to implement and test Reinforcement Learning algorithms, with a working implementation of [TRPO](https://arxiv.org/pdf/1502.05477.pdf) 
+Small homemade modular framework created as a University project, to implement and test Reinforcement Learning algorithms, with a working implementation of [TRPO](https://arxiv.org/pdf/1502.05477.pdf)
+
+DISCLAIMER: I made this as my first big Python project so excuse me for lower quality code.
 
 ## Basic instructions
 
